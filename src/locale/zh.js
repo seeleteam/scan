@@ -1,0 +1,212 @@
+// Note: exports must be exports, not exports, otherwise an error will be reported. The error message is not a string in the following
+module.exports = {
+  blockExplore: '区块浏览器',
+  message: {
+    noData: '暂无数据',
+    noPrev: '无上一区块',
+    noNext: '无下一区块'
+  },
+  placeholder: {
+    searchInput: '按 地址 / 交易哈希 / 区块高度 / 合约地址等 搜索'
+  },
+  network: {
+    title: '网络类型',
+    main: '主网',
+    test: '测试网'
+  },
+  language: {
+    title: '语言切换',
+    zh: '中文',
+    en: '英文'
+  },
+  button: {
+    cancel: '取 消',
+    confirm: '确 定',
+    prev: '上一区块',
+    next: '下一区块'
+  },
+  navs: {
+    home: '首页',
+    node: '节点',
+    account: '账户',
+    block: '区块',
+    transaction: '交易',
+    contract: '合约',
+    token: '代币',
+    statChar: '统计图',
+    api: 'Api'
+  },
+  blockStat: {
+    bestBlock: '最新区块',
+    lastBlock: '上个区块',
+    avgBLockTime: '平均区块时间',
+    activeNodes: '活跃节点',
+    tranSactions: '交易数',
+    hashRate: '哈希速率',
+    networkDifficulty: '网络难度'
+  },
+  listHeader: {
+    rank: '等级',
+    address: '地址',
+    balance: '余额',
+    percentage: '百分比',
+    txCount: '交易数',
+
+    txHash: '交易哈希',
+    age: '年龄',
+    from: '来源',
+    to: '去向',
+    value: '值',
+    token: '记号',
+
+    height: '高度',
+    txn: '交易数',
+    uncles: 'UnclesX',
+    miner: '挖矿工',
+    gasLimit: 'GasLimitX',
+    difficulty: '难度',
+    hashRate: 'HashRateX',
+    reward: 'RewardX',
+
+    contractName: '合约名称',
+    compiler: '编译',
+    settings: '设置',
+    dateVerified: '数据',
+
+    block: '区块',
+    headHash: 'HeadHashX',
+    nonce: 'NonceX',
+    preBlockHash: '上一区块哈希',
+    txcount: '交易数',
+
+    amount: 'amountX',
+    hash: '哈希',
+    inorout: 'inoroutX',
+    txfee: 'txfeeX',
+
+    nodeRank: '排名',
+    nodeRegion: '国家',
+    nodeNumber: '数量',
+
+    nodeId: '节点ID',
+    host: '节点地址',
+    port: '节点端口',
+    client: '客户端',
+    caps: 'Caps',
+    lastSeen: 'LastSeen'
+  },
+  char: {
+    accounts: '账户统计图',
+    blockchain: '区块链统计图',
+    contracts: '合约统计图',
+    macket: '市场统计图',
+    mining: '挖矿者统计图',
+    network: '网络统计图',
+    nodes: '节点统计图',
+    transactions: '交易统计图'
+  },
+  statcharts: {
+    common: {
+      loading: '正在努力的读取数据中...'
+    },
+    node: {
+
+    },
+    network: {
+      difficultyName: 'seele 挖矿难度趋势图',
+      difficultyXname: '日期',
+      difficultyYname: 'seele 挖矿难度',
+      difficultyAverage: 'seele 挖矿平均难度',
+      hashrateName: 'seele 网络哈希速率',
+      hashrateXname: '日期',
+      hashrateYname: '网络哈希速率',
+      hashrateAverage: '日平均网络哈希速率'
+    },
+    account: {
+      growthName: '账户增长趋势图',
+      growthXname: '日期',
+      growthYname: '账户数量',
+      growthTotal: '账户总量',
+      growthIncrease: '账户日增长量'
+    },
+    transaction: {
+      historyTxName: 'Seele 历史交易量趋势图',
+      historyTxXname: '日期',
+      historyTxYname: '历史交易量',
+      historyTipTotal: '总交易量',
+      historyTipAvgDifficulty: '平均难度变化趋势图',
+      historyTipHashRate: '网络哈希效率',
+      historyTipAvgBlockTime: 'Avg BlockTime',
+      historyTipTotalBlockCount: 'Total BlockCount',
+      historyTipNewAddressSeen: 'New Address seen'
+    },
+    block: {
+      avgTimeName: '区块平均时间趋势图',
+      avgTimeXname: '日期',
+      avgTimeYname: '区块平均时间',
+      avgTimeTipBlockTime: '区块时间 (秒)',
+      countName: '区块数量增长趋势图',
+      countXname: '日期',
+      countYname: '区块数量',
+      countTotal: '区块总量',
+      countTotalDailyRewards: '每日区块总奖赏'
+    },
+    contract: {
+
+    },
+    miner: {
+      minerByBlockName: '按区块数统计挖矿者排名',
+      minerByBlockTipname: '挖出区块数'
+    },
+    market: {
+
+    }
+  },
+  node: {
+    nodeTitle: '个节点',
+    nodeStat: '按国家分组统计',
+    nodeMap: '节点分布图',
+    nodeRank: '排名',
+    nodeCountry: '国家',
+    nodeCount: '节点数',
+    nodeMapTitle: 'Seele节点分布',
+    nodeMapFoot: '节点分布',
+    nodeTip: '节点数'
+  },
+  api: {
+    blocksapi: '区块 API',
+    transactionapi: '交易 API',
+    accountapi: '账户 API',
+    searchapi: '搜索 API',
+    statapi: '统计 API',
+    nodepai: '节点 API',
+    chartapi: '统计图表 API'
+  },
+  forBlock: '所在区块',
+  charMark: {
+    miner: {
+      title: '高级矿工',
+      content: '按挖出区块数统计排名前20的矿工'
+    },
+    account: {
+      title: '地址增长率',
+      content: '统计账户地址增长趋势'
+    },
+    block: {
+      countTitle: '块计数',
+      countContent: '统计区块数量以及增长趋势',
+      timeTitle: '区块时间历史',
+      timeContent: '统计历史区块的区块时间'
+    },
+    transactions: {
+      title: 'Seele 交易历史',
+      content: '统计交易数量以及增长趋势'
+    },
+    network: {
+      hashTitle: '哈希增长率',
+      hashContent: '统计网络哈希速率以及增长趋势',
+      diffTitle: '块难度增长率',
+      diffContent: '统计区块难度以及增长趋势'
+    }
+  }
+}

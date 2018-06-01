@@ -1,0 +1,169 @@
+<template>
+    <div class="page-wrap">
+        <div class="wrap lg-show">
+          <Header></Header>
+        </div>
+        <div class="sm-show page-sm-header-wrap">
+          <smHeader></smHeader>
+        </div>
+        <div class="sm-show sm-search-input-wrap">
+          <searchInput></searchInput>
+        </div>
+        <div class="main-wrap">
+          <div class="wrap">
+            <div class="describe-title-wrap">
+              <span class="title">{{title}}</span>
+              <span v-show="isShow" class="title-content">
+              {{$t('forBlock')}} {{content}}
+              </span>
+              <ul class="link-wrap">
+                <li><a href="/">{{$t("navs.home")}}</a></li>
+                <li><i class="el-icon-arrow-right"></i></li>
+                <li class="current">{{link}}</li>
+              </ul>
+            </div>
+            <el-table
+              class="list-wrap"
+              :data="transactionList"
+              :empty-text="$t('message.noData')"
+              style="width: 100%">
+              <el-table-column
+                prop="txHash"
+                width="300"
+                :label="$t('listHeader.txHash')">
+                <template slot-scope="scope">
+                  <router-link :to="{path: '/transaction/detail', query: { txhash: scope.row.txHash }}">
+                    <span class="table-link-color list-content">{{scope.row.txHash}}</span>
+                  </router-link>
+                </template>
+              </el-table-column>
+              <el-table-column
+                prop="age"
+                :label="$t('listHeader.age')"
+                width="110">
+              </el-table-column>
+              <el-table-column
+                prop="block"
+                :label="$t('listHeader.block')"
+                width="110">
+                <template slot-scope="scope">
+                  <router-link :to="{path: '/block/detail', query: { height: scope.row.block }}">
+                    <span class="table-link-color list-content">{{scope.row.block}}</span>
+                  </router-link>
+                </template>
+              </el-table-column>
+              <el-table-column
+                prop="from"
+                width="300"
+                :label="$t('listHeader.from')">
+                <template slot-scope="scope">
+                  <router-link :to="{path: '/account/detail', query: { address: scope.row.from }}">
+                    <span class="table-link-color list-content">{{scope.row.from}}</span>
+                  </router-link>
+                </template>
+              </el-table-column>
+              <el-table-column
+                prop="to"
+                width="300"
+                :label="$t('listHeader.to')">
+                <template slot-scope="scope">
+                  <router-link :to="{path: '/account/detail', query: { address: scope.row.to }}">
+                    <span class="table-link-color list-content">{{scope.row.to}}</span>
+                  </router-link>
+                </template>
+              </el-table-column>
+              <el-table-column
+                prop="value"
+                :label="$t('listHeader.value')">
+              </el-table-column>
+            </el-table>
+            <el-pagination
+              class="el-pagination-wrap fr"
+              @size-change="handleSizeChange"
+              @current-change="handleCurrentChange"
+              :current-page="page"
+              :page-size="pageSize"
+              layout="prev, pager, next"
+              :total="total">
+            </el-pagination>
+          </div>
+        </div>
+        <Footer></Footer>
+    </div>
+</template>
+<script>
+import { mapActions } from 'vuex'
+
+import Header from '../header'
+import smHeader from '../sm-header'
+import searchInput from '../search-input'
+import TransactionDescribe from '../describe'
+import Footer from '../footer'
+export default {
+  data () {
+    return {
+      title: this.$t('navs.transaction'),
+      content: this.$route.query.block,
+      isShow: false,
+      link: this.$t('navs.transaction'),
+
+      pageSize: 25
+    }
+  },
+  mounted () {
+    this.$route.query.block ? this.getBlockList(this.$route.query) : this.getList(1)
+    this.isShow = this.$route.query.block ? !false : false
+  },
+  components: {
+    Header,
+    smHeader,
+    searchInput,
+    TransactionDescribe,
+    Footer
+  },
+  computed: {
+    transactionList: {
+      get () {
+        return this.$store.state.transaction.transactionList
+      }
+    },
+    page: {
+      get () {
+        return this.$store.state.transaction.page
+      }
+    },
+    total: {
+      get () {
+        return this.$store.state.transaction.total
+      }
+    }
+  },
+  methods: {
+    ...mapActions(['getTransactionList']),
+    ...mapActions(['getTransactionBlock']),
+
+    handleSizeChange (val) {
+      this.getList(val)
+    },
+    handleCurrentChange (val) {
+      this.getList(val)
+    },
+    getBlockList (blcok) {
+      this.getTransactionBlock(blcok)
+    },
+    getList (page) {
+      this.getTransactionList(page)
+    }
+  },
+  watch: {
+    '$route' (to, from) {
+      this.getList(1)
+    }
+  }
+}
+</script>
+<style lang="less">
+  @import "../../assets/css/page.less";
+  @import "../../assets/css/describe.less";
+  @import "../../assets/css/list.less";
+</style>

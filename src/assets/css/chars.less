@@ -1,0 +1,75 @@
+.stat-chart-wrap{
+  border-top: 1px solid #3e6ddd;
+  background: #1a3a86;
+  padding: 20px 0 10px 0;
+}
+.statChartsClass{
+  width: 100%;
+}
+.chart-title-wrap {
+  position: relative;
+  font-size: 14px;
+  padding-left: 30px;
+}
+.chart-count-title{
+  color: #1cfbf8;
+}
+.chart-time-title {
+  color: #edcc74;
+}
+.chart-diff-title{
+  color: #28ff74;
+}
+.el-table__header{
+  position: relative;
+  img{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .caret-wrapper{
+    margin-left: 30px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .stat-chart-wrap{
+    padding: 0;
+    width: 100%;
+    border-top: none;
+  }
+  .statChartsClass{
+    width: 300px !important;
+    height: 300px !important;
+  }
+  .chart-title-wrap {
+    padding: 10px 0;
+    padding-left: 30px;
+  }
+  .border-bottom-style{
+    border-bottom: 1px solid #3e6ddd;
+  }
+  .chart-img{
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    width: 16px;
+  }
+  .chart-icon-wrap{
+    position: absolute;
+    right: 0;
+    display: inline-block;
+    width: 20%;
+    height: 20px;
+    img{
+      position: absolute;
+      top: 50%;
+      right: 20px;
+      transform: translateY(-50%);
+    }
+  }
+  .chart-count-title{
+      color: #1cfbf8;
+  }
+}
