@@ -1,0 +1,45 @@
+.fl{
+  float: left;
+}
+.fr{
+  float: right;
+}
+.wrap{
+  width: 1200px;
+  margin: 0 auto;
+}
+.wrap-pad{
+  padding: 0 40px;
+}
+.lg-show{
+  display: block;
+} 
+.sm-show{
+  display: none;
+}
+
+.sm-search-input-wrap{
+  margin: 0 10px;
+}
+
+@media screen and (max-width: 768px ) {
+  .wrap{
+    width: 100%;
+    margin: 0 auto;
+  }
+  .wrap-pad{
+    padding: 0;
+  }
+  .lg-show{
+    display: none;
+  }
+  .sm-show{
+    display: block;
+  }
+  .sm-search-input-wrap{
+    margin: 0;
+    padding: 0 10px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
