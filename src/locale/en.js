@@ -109,7 +109,8 @@ module.exports = {
       loading: 'loading...'
     },
     node: {
-
+      nodesByShard: 'Nodes By Shard',
+      nodesByShardTipname: 'Nodes Count'
     },
     network: {
       difficultyName: 'Seele Difficulty',
@@ -183,6 +184,10 @@ module.exports = {
   },
   forBlock: 'For Block',
   charMark: {
+    node: {
+      shardTitle: 'Nodes Count By Shard',
+      shardContent: 'Stat the nodes count by node shard'
+    },
     miner: {
       title: 'Top Miners',
       content: 'Stat the top 20 miners by blocks'
