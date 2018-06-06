@@ -2,7 +2,7 @@ import request from '../untils/request'
 import config from '../untils/config'
 
 const { API } = config
-const {chartTxUrl, chartDifficultyUrl, chartAddressUrl, chartBlocksUrl, chartHashRateUrl, chartBlockTimeUrl, chartMinerUrl} = API
+const {chartTxUrl, chartDifficultyUrl, chartAddressUrl, chartBlocksUrl, chartHashRateUrl, chartBlockTimeUrl, chartMinerUrl, chartNodeByShardUrl} = API
 
 async function chartTx (data) {
   return request({
@@ -60,6 +60,14 @@ async function chartMiner (data) {
   })
 }
 
+async function chartNodeByShard (data) {
+  return request({
+    url: chartNodeByShardUrl,
+    method: 'GET',
+    data
+  })
+}
+
 export {
   chartTx,
   chartDifficulty,
@@ -67,5 +75,6 @@ export {
   chartBlocks,
   chartHashRate,
   chartBlockTime,
-  chartMiner
+  chartMiner,
+  chartNodeByShard
 }

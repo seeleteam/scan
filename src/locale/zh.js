@@ -110,7 +110,7 @@ module.exports = {
       loading: '正在努力的读取数据中...'
     },
     node: {
-
+      nodesByShardName: '按分片号分组统计节点数'
     },
     network: {
       difficultyName: 'seele 挖矿难度趋势图',
@@ -184,28 +184,32 @@ module.exports = {
   },
   forBlock: '所在区块',
   charMark: {
+    node: {
+      shardTitle: '分片节点数统计图',
+      shardContent: '按节点分片分组统计节点数'
+    },
     miner: {
-      title: '高级矿工',
+      title: '矿工排名统计图',
       content: '按挖出区块数统计排名前20的矿工'
     },
     account: {
-      title: '地址增长率',
+      title: '账户增长趋势图',
       content: '统计账户地址增长趋势'
     },
     block: {
-      countTitle: '块计数',
+      countTitle: '区块数量增长趋势图',
       countContent: '统计区块数量以及增长趋势',
-      timeTitle: '区块时间历史',
+      timeTitle: '区块平均时间增长趋势图',
       timeContent: '统计历史区块的区块时间'
     },
     transactions: {
-      title: 'Seele 交易历史',
+      title: '历史交易增长趋势图',
       content: '统计交易数量以及增长趋势'
     },
     network: {
-      hashTitle: '哈希增长率',
+      hashTitle: '哈希速率增长趋势图',
       hashContent: '统计网络哈希速率以及增长趋势',
-      diffTitle: '块难度增长率',
+      diffTitle: '区块难度增长趋势图',
       diffContent: '统计区块难度以及增长趋势'
     }
   }

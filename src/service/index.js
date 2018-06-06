@@ -5,7 +5,7 @@ import { txList, txDetail } from './transaction'
 import { accountList, accountDetail } from './account'
 
 import { nodeList, nodeDetail, nodeMapList } from './node'
-import { chartTx, chartDifficulty, chartAddress, chartBlocks, chartHashRate, chartBlockTime, chartMiner } from './chart'
+import { chartTx, chartDifficulty, chartAddress, chartBlocks, chartHashRate, chartBlockTime, chartMiner, chartNodeByShard } from './chart'
 
 export {
   search,
@@ -35,6 +35,6 @@ export {
   chartBlocks,
   chartHashRate,
   chartBlockTime,
-  chartMiner
-
+  chartMiner,
+  chartNodeByShard
 }

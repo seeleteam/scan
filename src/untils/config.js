@@ -1,8 +1,8 @@
-// const URL = 'http://172.17.7.37:8888/api/v1'
-const URL = 'http://106.75.171.117:3003/api/v1'
+const URL = (process.env.SCAN_API_URL || 'http://localhost:3003') + (process.env.SCAN_API_PATH || '/api/v1')
+console.log(URL)
 module.exports = {
   name: 'seele-scan',
-  CORS: ['http://106.75.171.117:3003'],
+  CORS: [process.env.SCAN_API_URL || 'http://localhost:3003'],
   YQL: [''],
   API: {
     txcountUrl: `${URL}/txcount`,
@@ -32,6 +32,7 @@ module.exports = {
     chartBlocksUrl: `${URL}/chart/blocks`,
     chartHashRateUrl: `${URL}/chart/hashrate`,
     chartBlockTimeUrl: `${URL}/chart/blocktime`,
-    chartMinerUrl: `${URL}/chart/miner`
+    chartMinerUrl: `${URL}/chart/miner`,
+    chartNodeByShardUrl: `${URL}/chart/nodes`
   }
 }
