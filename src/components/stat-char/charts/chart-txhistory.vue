@@ -12,7 +12,7 @@ import _ from 'lodash'
 import { formatNumber } from '../../../untils/format'
 export default {
   mounted () {
-    this.getTxChart()
+    this.getTxChart(this.shardCharValue)
     this.drawStatChartsTxHistory()
   },
   computed: {
@@ -20,11 +20,22 @@ export default {
       get () {
         return this.$store.state.chart.txChart
       }
+    },
+    shardCharValue: {
+      get () {
+        return this.$store.state.shardChar.shardCharValue
+      }
     }
   },
   watch: {
     txChart: {
       handler: function (val, oldval) {
+        this.drawStatChartsTxHistory()
+      }
+    },
+    shardCharValue: {
+      handler: function (val, oldval) {
+        this.getTxChart(this.shardCharValue)
         this.drawStatChartsTxHistory()
       }
     }

@@ -17,7 +17,7 @@ export default {
     }
   },
   mounted () {
-    this.getAddressChart()
+    this.getAddressChart(this.shardCharValue)
     this.drawStatChartsAccount()
   },
   computed: {
@@ -25,11 +25,22 @@ export default {
       get () {
         return this.$store.state.chart.addressChart
       }
+    },
+    shardCharValue: {
+      get () {
+        return this.$store.state.shardChar.shardCharValue
+      }
     }
   },
   watch: {
     addressChart: {
       handler: function (val, oldval) {
+        this.drawStatChartsAccount()
+      }
+    },
+    shardCharValue: {
+      handler: function (val, oldval) {
+        this.getAddressChart(this.shardCharValue)
         this.drawStatChartsAccount()
       }
     }

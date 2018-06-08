@@ -16,6 +16,7 @@
               :content="content"
               :link="link"
             ></AccountDescribe>
+            <ShardSelect></ShardSelect>
             <el-table
               class="list-wrap"
               :empty-text="$t('message.noData')"
@@ -79,6 +80,8 @@ import searchInput from '../search-input'
 import AccountDescribe from '../describe'
 import Footer from '../footer'
 import { formatNumber } from '../../untils/format'
+import ShardSelect from '../shard-select'
+
 export default {
   data () {
     return {
@@ -93,7 +96,8 @@ export default {
     smHeader,
     searchInput,
     AccountDescribe,
-    Footer
+    Footer,
+    ShardSelect
   },
   mounted () {
     this.getList(1)
@@ -113,19 +117,24 @@ export default {
       get () {
         return this.$store.state.account.total
       }
+    },
+    shardValue: {
+      get () {
+        return this.$store.state.shard.shardValue
+      }
     }
   },
   methods: {
     ...mapActions(['getAccountList']),
 
     handleSizeChange (val) {
-      this.getList(val)
+      this.getList(val, this.shardValue)
     },
     handleCurrentChange (val) {
-      this.getList(val)
+      this.getList(val, this.shardValue)
     },
     getList (page) {
-      this.getAccountList(page)
+      this.getAccountList([page, this.shardValue])
     }
   },
   filters: {
@@ -134,6 +143,13 @@ export default {
     },
     txcountValue (value) {
       return formatNumber(value)
+    }
+  },
+  watch: {
+    shardValue: {
+      handler: function (val, oldval) {
+        this.getList(1, this.shardValue)
+      }
     }
   }
 }

@@ -12,7 +12,7 @@ import _ from 'lodash'
 import { formatNumber } from '../../../untils/format'
 export default {
   mounted () {
-    this.getHashRateChart()
+    this.getHashRateChart(this.shardCharValue)
     this.drawStatChartsHashRate()
   },
   computed: {
@@ -20,11 +20,22 @@ export default {
       get () {
         return this.$store.state.chart.hashrateChart
       }
+    },
+    shardCharValue: {
+      get () {
+        return this.$store.state.shardChar.shardCharValue
+      }
     }
   },
   watch: {
     statData: {
       handler: function (val, oldval) {
+        this.drawStatChartsHashRate()
+      }
+    },
+    shardCharValue: {
+      handler: function (val, oldval) {
+        this.getHashRateChart(this.shardCharValue)
         this.drawStatChartsHashRate()
       }
     }

@@ -28,7 +28,8 @@ const getters = {
 const actions = {
   getTxChart ({ commit, state }, params) {
     let data = {
-      test: 1
+      test: 1,
+      s: params
     }
     chartTx(data)
       .then(doc => {
@@ -62,7 +63,8 @@ const actions = {
   },
   getDifficultyChart ({ commit, state }, params) {
     let data = {
-      test: 1
+      test: 1,
+      s: params
     }
     chartDifficulty(data)
       .then(doc => {
@@ -91,7 +93,8 @@ const actions = {
   },
   getAddressChart ({ commit, state }, params) {
     let data = {
-      test: 1
+      test: 1,
+      s: params
     }
     chartAddress(data)
       .then(doc => {
@@ -121,7 +124,8 @@ const actions = {
   },
   getBlocksChart ({ commit, state }, params) {
     let data = {
-      test: 1
+      test: 1,
+      s: params
     }
     chartBlocks(data)
       .then(doc => {
@@ -151,7 +155,8 @@ const actions = {
   },
   getHashRateChart ({ commit, state }, params) {
     let data = {
-      test: 1
+      test: 1,
+      s: params
     }
     chartHashRate(data)
       .then(doc => {
@@ -180,7 +185,8 @@ const actions = {
   },
   getBlockTimeChart ({ commit, state }, params) {
     let data = {
-      test: 1
+      test: 1,
+      s: params
     }
     chartBlockTime(data)
       .then(doc => {
@@ -209,7 +215,8 @@ const actions = {
   },
   getMinerChart ({ commit, state }, params) {
     let data = {
-      test: 1
+      test: 1,
+      s: params
     }
     chartMiner(data)
       .then(doc => {

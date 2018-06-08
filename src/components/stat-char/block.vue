@@ -3,6 +3,7 @@
     <div class="char-title">
       {{$t("char.blockchain")}}
     </div>
+    <ShardCharSelect></ShardCharSelect>
     <el-row :gutter="20" class="char-el-row">
       <el-col :xs="24" :span="6" class="char-el-col">
         <div class="char-content" @click="showBlockCount">
@@ -47,6 +48,7 @@
 <script>
 import BlockCountChart from './charts/chart-blockcount'
 import BlockAvgTimeChart from './charts/chart-blockavgtime'
+import ShardCharSelect from '../shard-char-select'
 
 export default {
   data () {
@@ -57,7 +59,8 @@ export default {
   },
   components: {
     BlockCountChart,
-    BlockAvgTimeChart
+    BlockAvgTimeChart,
+    ShardCharSelect
   },
   methods: {
     showBlockCount () {

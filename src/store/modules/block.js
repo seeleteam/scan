@@ -19,9 +19,11 @@ const getters = {
 // actions
 const actions = {
   getBlocksList ({ commit, state }, params) {
+    console.log(params, 9630)
     let data = {
       test: 1,
-      p: params,
+      p: params[0],
+      s: params[1],
       ps: 25
     }
     blocksList(data)
