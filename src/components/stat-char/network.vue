@@ -3,6 +3,7 @@
     <div class="char-title">
       {{$t("char.network")}}
     </div>
+    <ShardCharSelect></ShardCharSelect>
     <el-row :gutter="20" class="char-el-row">
       <el-col :xs="24" :span="6" class="char-el-col">
         <div class="char-content" @click="showHashRate">
@@ -47,6 +48,7 @@
 <script>
 import NetworkHashRateChart from './charts/chart-hashrate'
 import NetworkDifficultyChart from './charts/chart-difficulty'
+import ShardCharSelect from '../shard-char-select'
 
 export default {
   data () {
@@ -57,7 +59,8 @@ export default {
   },
   components: {
     NetworkHashRateChart,
-    NetworkDifficultyChart
+    NetworkDifficultyChart,
+    ShardCharSelect
   },
   methods: {
     showHashRate () {

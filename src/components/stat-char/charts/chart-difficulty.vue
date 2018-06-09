@@ -12,7 +12,7 @@ import _ from 'lodash'
 import { formatNumber } from '../../../untils/format'
 export default {
   mounted () {
-    this.getDifficultyChart()
+    this.getDifficultyChart(this.shardCharValue)
     this.drawStatChartsDifficulty()
   },
   computed: {
@@ -20,11 +20,22 @@ export default {
       get () {
         return this.$store.state.chart.difficultyChart
       }
+    },
+    shardCharValue: {
+      get () {
+        return this.$store.state.shardChar.shardCharValue
+      }
     }
   },
   watch: {
     statData: {
       handler: function (val, oldval) {
+        this.drawStatChartsDifficulty()
+      }
+    },
+    shardCharValue: {
+      handler: function (val, oldval) {
+        this.getDifficultyChart(this.shardCharValue)
         this.drawStatChartsDifficulty()
       }
     }

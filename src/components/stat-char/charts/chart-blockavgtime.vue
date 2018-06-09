@@ -12,7 +12,7 @@ import _ from 'lodash'
 import { formatNumber } from '../../../untils/format'
 export default {
   mounted () {
-    this.getBlockTimeChart()
+    this.getBlockTimeChart(this.shardCharValue)
     this.drawStatChartsBlockAvgTime()
   },
   computed: {
@@ -20,11 +20,22 @@ export default {
       get () {
         return this.$store.state.chart.blocktimeChart
       }
+    },
+    shardCharValue: {
+      get () {
+        return this.$store.state.shardChar.shardCharValue
+      }
     }
   },
   watch: {
     statData: {
       handler: function (val, oldval) {
+        this.drawStatChartsBlockAvgTime()
+      }
+    },
+    shardCharValue: {
+      handler: function (val, oldval) {
+        this.getBlockTimeChart(this.shardCharValue)
         this.drawStatChartsBlockAvgTime()
       }
     }

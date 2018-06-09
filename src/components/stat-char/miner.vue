@@ -3,6 +3,7 @@
     <div class="char-title">
       {{$t("char.mining")}}
     </div>
+    <ShardCharSelect></ShardCharSelect>
     <el-row :gutter="20" class="char-el-row">
       <el-col :xs="24" :span="6" class="char-el-col">
         <div class="char-content" @click="showMinerTopByBlock">
@@ -28,6 +29,7 @@
 
 <script>
 import MinerTopByBlockChart from './charts/chart-miner'
+import ShardCharSelect from '../shard-char-select'
 
 export default {
   data () {
@@ -36,7 +38,8 @@ export default {
     }
   },
   components: {
-    MinerTopByBlockChart
+    MinerTopByBlockChart,
+    ShardCharSelect
   },
   methods: {
     showMinerTopByBlock () {

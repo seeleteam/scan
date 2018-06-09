@@ -22,6 +22,7 @@
                 <li class="current">{{link}}</li>
               </ul>
             </div>
+            <ShardSelect></ShardSelect>
             <el-table
               class="list-wrap"
               :data="transactionList"
@@ -99,6 +100,8 @@ import smHeader from '../sm-header'
 import searchInput from '../search-input'
 import TransactionDescribe from '../describe'
 import Footer from '../footer'
+import ShardSelect from '../shard-select'
+
 export default {
   data () {
     return {
@@ -119,7 +122,8 @@ export default {
     smHeader,
     searchInput,
     TransactionDescribe,
-    Footer
+    Footer,
+    ShardSelect
   },
   computed: {
     transactionList: {
@@ -136,6 +140,11 @@ export default {
       get () {
         return this.$store.state.transaction.total
       }
+    },
+    shardValue: {
+      get () {
+        return this.$store.state.shard.shardValue
+      }
     }
   },
   methods: {
@@ -143,21 +152,26 @@ export default {
     ...mapActions(['getTransactionBlock']),
 
     handleSizeChange (val) {
-      this.getList(val)
+      this.getList(val, this.shardValue)
     },
     handleCurrentChange (val) {
-      this.getList(val)
+      this.getList(val, this.shardValue)
     },
     getBlockList (blcok) {
       this.getTransactionBlock(blcok)
     },
     getList (page) {
-      this.getTransactionList(page)
+      this.getTransactionList([page, this.shardValue])
     }
   },
   watch: {
     '$route' (to, from) {
       this.getList(1)
+    },
+    shardValue: {
+      handler: function (val, oldval) {
+        this.getList(1, this.shardValue)
+      }
     }
   }
 }

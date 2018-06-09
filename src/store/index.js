@@ -7,6 +7,8 @@ import transaction from './modules/transaction.js'
 import account from './modules/account.js'
 import node from './modules/node.js'
 import chart from './modules/chart.js'
+import shard from './modules/shard.js'
+import shardChar from './modules/shardChar.js'
 // Change Logs
 import createLogger from 'vuex/dist/logger'
 
@@ -22,7 +24,9 @@ export default new vuex.Store({
     transaction,
     account,
     node,
-    chart
+    chart,
+    shard,
+    shardChar
   },
   // Displays status changes for vuex in a development environment
   plugins: debug ? [createLogger()] : []

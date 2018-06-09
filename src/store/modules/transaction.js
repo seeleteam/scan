@@ -22,7 +22,8 @@ const actions = {
   getTransactionList ({ commit, state }, params) {
     let data = {
       test: 1,
-      p: params,
+      p: params[0],
+      s: params[1],
       ps: 25
     }
     txList(data)

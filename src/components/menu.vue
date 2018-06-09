@@ -46,7 +46,6 @@ export default {
     }
   },
   mounted () {
-    console.log(this.radio1)
     sessionStorage.setItem('Network', this.radio1)
   },
   methods: {

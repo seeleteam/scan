@@ -1,5 +1,4 @@
 const URL = (process.env.SCAN_API_URL || 'http://localhost:3003') + (process.env.SCAN_API_PATH || '/api/v1')
-console.log(URL)
 module.exports = {
   name: 'seele-scan',
   CORS: [process.env.SCAN_API_URL || 'http://localhost:3003'],

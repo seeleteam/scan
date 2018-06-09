@@ -16,6 +16,7 @@
               :content="content"
               :link="link"
             ></BlockDescribe>
+            <ShardSelect></ShardSelect>
             <el-table
               class="list-wrap"
               :data="blocksList"
@@ -99,6 +100,7 @@ import smHeader from '../sm-header'
 import searchInput from '../search-input'
 import BlockDescribe from '../describe'
 import Footer from '../footer'
+import ShardSelect from '../shard-select'
 
 export default {
   data () {
@@ -116,7 +118,8 @@ export default {
     smHeader,
     searchInput,
     BlockDescribe,
-    Footer
+    Footer,
+    ShardSelect
   },
   mounted () {
     this.getList(1)
@@ -136,19 +139,31 @@ export default {
       get () {
         return this.$store.state.block.total
       }
+    },
+    shardValue: {
+      get () {
+        return this.$store.state.shard.shardValue
+      }
     }
   },
   methods: {
     ...mapActions(['getBlocksList']),
 
     handleSizeChange (val) {
-      this.getList(val)
+      this.getList(val, this.shardValue)
     },
     handleCurrentChange (val) {
-      this.getList(val)
+      this.getList(val, this.shardValue)
     },
     getList (page) {
-      this.getBlocksList(page)
+      this.getBlocksList([page, this.shardValue])
+    }
+  },
+  watch: {
+    shardValue: {
+      handler: function (val, oldval) {
+        this.getList(1, this.shardValue)
+      }
     }
   }
 }
