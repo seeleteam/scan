@@ -16,8 +16,20 @@ Vue.use(VueI18n)
 Vue.use(ElementUI)
 Vue.config.productionTip = false
 
+function getLocalLanguage () {
+  var localLanguage = navigator.language
+  var resLang = 'en'
+  if (localLanguage) {
+    var langArr = localLanguage.split('-')
+    if (langArr.length > 0) {
+      resLang = langArr[0]
+    }
+  }
+  return resLang
+}
+
 const i18n = new VueI18n({
-  locale: 'en',
+  locale: getLocalLanguage(),
   messages: {
     'zh': require('./locale/zh'),
     'en': require('./locale/en')

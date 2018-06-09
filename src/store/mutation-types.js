@@ -35,3 +35,5 @@ export const NODE_LIST_CITY_GEO = 'NODE_LIST_CITY_GEO'
 
 export const SHARD_VALUE = 'SHARD_VALUE'
 export const SHARD_CHAR_VALUE = 'SHARD_CHAR_VALUE'
+
+export const NODES_CHART = 'NODES_CHART'

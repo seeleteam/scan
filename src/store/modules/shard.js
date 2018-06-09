@@ -13,7 +13,6 @@ const getters = {
 // actions
 const actions = {
   setShardValue ({ commit, state }, params) {
-    console.log(params, 'setShardValue')
     commit(types.SHARD_VALUE, params)
   }
 }

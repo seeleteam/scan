@@ -1,5 +1,5 @@
 import * as types from '../mutation-types'
-import { chartTx, chartDifficulty, chartAddress, chartBlocks, chartHashRate, chartBlockTime, chartMiner } from '../../service'
+import { chartTx, chartDifficulty, chartAddress, chartBlocks, chartHashRate, chartBlockTime, chartMiner, chartNodeByShard } from '../../service'
 // import {} from '../../untils/format'
 
 const state = {
@@ -9,7 +9,8 @@ const state = {
   blocksChart: [],
   hashrateChart: [],
   blocktimeChart: [],
-  minerChart: []
+  minerChart: [],
+  nodesChart: []
 }
 
 // getters
@@ -21,7 +22,8 @@ const getters = {
   blocksChart: state => state.blocksChart,
   hashrateChart: state => state.hashrateChart,
   blocktimeChart: state => state.blocktimeChart,
-  minerChart: state => state.minerChart
+  minerChart: state => state.minerChart,
+  nodesChart: state => state.nodesChart
 }
 
 // actions
@@ -241,6 +243,33 @@ const actions = {
           commit(types.MINER_CHART, dataList)
         }
       })
+  },
+  getNodesByShardChart ({ commit, state }, params) {
+    let data = {
+      test: 1,
+      s: params
+    }
+    chartNodeByShard(data)
+      .then(doc => {
+        if (doc.success) {
+          let dataList = doc.data
+          var legendData = []
+          var seriesData = []
+          for (var i = 0; i < dataList.length; i++) {
+            var shardInfo = 'shard-' + dataList[i].shard
+            legendData.push(shardInfo)
+            seriesData.push({
+              name: shardInfo,
+              value: dataList[i].Nodes
+            })
+          }
+          dataList = {
+            'legendData': legendData,
+            'seriesData': seriesData
+          }
+          commit(types.NODES_CHART, dataList)
+        }
+      })
   }
 }
 
@@ -267,6 +296,9 @@ const mutations = {
   },
   [types.MINER_CHART] (state, dataList) {
     state.minerChart = dataList
+  },
+  [types.NODES_CHART] (state, dataList) {
+    state.nodesChart = dataList
   }
 }
 export default {

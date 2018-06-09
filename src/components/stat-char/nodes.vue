@@ -3,61 +3,52 @@
     <div class="char-title">
       {{$t("char.nodes")}}
     </div>
-    <!-- <el-row :gutter="20" class="char-el-row">
+    <ShardCharSelect></ShardCharSelect>
+    <el-row :gutter="20" class="char-el-row">
       <el-col :xs="24" :span="6" class="char-el-col">
-        <div class="char-content">
-          <div class="char-content-title">nodes</div>
-          <div class="char-content-img">
-            <img src="../../assets/imgs/char/line1.png" alt="line char">
-          </div>
-          <div class="char-content-mask">
-            <div class="char-content-title">nodes</div>
-          </div>
-        </div>
-      </el-col>
-      <el-col :xs="24" :span="6" class="char-el-col">
-        <div class="char-content">
-          <div class="char-content-title">nodes</div>
-          <div class="char-content-img">
-            <img src="../../assets/imgs/char/line2.png" alt="line char">
-          </div>
-          <div class="char-content-mask">
-            <div class="char-content-title">nodes</div>
-          </div>
-        </div>
-      </el-col>
-      <el-col :xs="24" :span="6" class="char-el-col">
-        <div class="char-content">
-          <div class="char-content-title">nodes</div>
+        <div class="char-content" @click="showNodesByShard">
+          <div class="char-content-title">{{$t('charMark.node.shardTitle')}}</div>
           <div class="char-content-img">
             <img src="../../assets/imgs/char/pie.png" alt="line char">
           </div>
-          <div class="char-content-mask">
-            <div class="char-content-title">nodes</div>
+           <div class="char-content-mask">
+            <div class="char-content-title">{{$t('charMark.node.shardTitle')}}</div>
+            <div class="char-content-content">{{$t('charMark.node.shardContent')}}</div>
           </div>
         </div>
       </el-col>
-      <el-col :xs="24" :span="6" class="char-el-col">
-        <div class="char-content">
-          <div class="char-content-title">nodes</div>
-          <div class="char-content-img">
-            <img src="../../assets/imgs/char/line.png" alt="line char">
-          </div>
-          <div class="char-content-mask">
-            <div class="char-content-title">nodes</div>
-          </div>
-        </div>
-      </el-col>
-    </el-row> -->
+    </el-row>
+    <el-dialog :title="$t('statcharts.node.nodesByShardName')" :visible.sync=" nodesByShardVisible">
+      <NodesByShardChart></NodesByShardChart>
+      <div slot="footer" class="dialog-footer">
+        <el-button type="primary" @click="nodesByShardVisible = false">{{$t('button.confirm')}}</el-button>
+      </div>
+    </el-dialog>
   </div>
 </template>
+
 <script>
+import NodesByShardChart from './charts/chart-nodes'
+import ShardCharSelect from '../shard-char-select'
+
 export default {
   data () {
-    return {}
+    return {
+      nodesByShardVisible: false
+    }
+  },
+  components: {
+    NodesByShardChart,
+    ShardCharSelect
+  },
+  methods: {
+    showNodesByShard () {
+      this.nodesByShardVisible = true
+    }
   }
 }
 </script>
+
 <style lang="less">
   @import "../../assets/css/char.less";
 </style>

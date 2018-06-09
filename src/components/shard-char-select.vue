@@ -28,7 +28,6 @@ export default {
   methods: {
     ...mapActions(['setShardCharValue']),
     selectShardChar (value) {
-      console.log(value, 963000000)
       this.setShardCharValue(value)
     }
   }

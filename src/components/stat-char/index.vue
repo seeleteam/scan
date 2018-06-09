@@ -48,10 +48,10 @@
                       <img src="../../assets/imgs/statChar/Mining.png" alt="Mining">
                       <span class="charts-title">{{$t("char.mining")}}</span>
                     </li>
-                    <li  @click="showChar(8)" :class="{'current-li':isShow === 8}">
+                    <!-- <li  @click="showChar(8)" :class="{'current-li':isShow === 8}">
                       <img src="../../assets/imgs/statChar/Macket.png" alt="Macket">
                       <span class="charts-title">{{$t("char.macket")}}</span>
-                    </li>
+                    </li> -->
                   </ul>
                 </div>
               </el-col>
@@ -134,7 +134,7 @@
                     </template>
                     <Miner></Miner>
                   </el-collapse-item>
-                  <el-collapse-item name="8">
+                  <!-- <el-collapse-item name="8">
                     <template slot="title">
                       <div class="char-collapse-wrap">
                         <img src="../../assets/imgs/statChar/Macket.png" alt="Macket">
@@ -142,7 +142,7 @@
                       </div>
                     </template>
                     <Market></Market>
-                  </el-collapse-item>
+                  </el-collapse-item> -->
                 </el-collapse>
                 <!-- <Nodes></Nodes>
                 <Network></Network>

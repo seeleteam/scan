@@ -5,7 +5,7 @@
       width="100"
       trigger="click">
       <div class="menu-content-wrap">
-        <div class="menu-network">
+        <!-- <div class="menu-network">
           <div class="title">{{$t("network.title")}}</div>
           <div class="contnet-wrap">
             <el-radio-group v-model="radio1" @change="changeNetwork()">
@@ -17,7 +17,7 @@
               </div>
             </el-radio-group>
           </div>
-        </div>
+        </div> -->
         <div class="menu-language">
           <div class="title">{{$t("language.title")}}</div>
           <div class="contnet-wrap">
@@ -41,7 +41,7 @@
 export default {
   data () {
     return {
-      radio1: 1,
+      radio1: process.env.NEW_WORK_ID || 1,
       radio2: 2
     }
   },
