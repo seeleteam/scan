@@ -23,12 +23,28 @@
                   <div class="li-content-width">{{nodeInfo.ID}}</div>
                 </li>
                 <li>
+                  <div class="li-width">{{$t("listHeader.shardnumber")}}: </div>
+                  <div class="li-content-width">{{nodeInfo.ShardNumber}}</div>
+                </li>
+                <li>
                   <div class="li-width">{{$t("listHeader.host")}}: </div>
                   <div class="li-content-width">{{nodeInfo.Host}}</div>
                 </li>
                 <li>
                   <div class="li-width">{{$t("listHeader.port")}}: </div>
                   <div class="li-content-width">{{nodeInfo.Port}}</div>
+                </li>
+                <li>
+                  <div class="li-width">{{$t("listHeader.country")}}: </div>
+                  <div class="li-content-width">{{nodeInfo.Country}}</div>
+                </li>
+                <li>
+                  <div class="li-width">{{$t("listHeader.region")}}: </div>
+                  <div class="li-content-width">{{nodeInfo.Region}}</div>
+                </li>
+                <li>
+                  <div class="li-width">{{$t("listHeader.city")}}: </div>
+                  <div class="li-content-width">{{nodeInfo.City}}</div>
                 </li>
                 <li>
                   <div class="li-width">{{$t("listHeader.client")}}: </div>
@@ -40,7 +56,7 @@
                 </li>
                 <li>
                   <div class="li-width">{{$t("listHeader.lastSeen")}}: </div>
-                  <div class="li-content-width">{{nodeInfo.LastSeen}}</div>
+                  <div class="li-content-width">{{nodeInfo.LastSeen | filterDateTime}}</div>
                 </li>
               </ul>
             </div>
@@ -51,7 +67,7 @@
 </template>
 <script>
 import { mapActions } from 'vuex'
-// import { formatNumber } from '../../untils/format'
+import { formatDateFromTimestamps } from '../../untils/format'
 import Header from '../header'
 import smHeader from '../sm-header'
 import searchInput from '../search-input'
@@ -84,6 +100,9 @@ export default {
     }
   },
   filters: {
+    filterDateTime (value) {
+      return formatDateFromTimestamps(value)
+    }
   },
   methods: {
     ...mapActions(['getNodeDetail']),

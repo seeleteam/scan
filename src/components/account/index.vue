@@ -49,6 +49,9 @@
                 prop="percentage"
                 :label="$t('listHeader.percentage')"
                 width="120">
+                <template slot-scope="scope">
+                    <span class="list-content">{{scope.row.percentage | filterPercent}}</span>
+                </template>
               </el-table-column>
               <el-table-column
                 prop="txcount"
@@ -79,7 +82,7 @@ import smHeader from '../sm-header'
 import searchInput from '../search-input'
 import AccountDescribe from '../describe'
 import Footer from '../footer'
-import { formatNumber } from '../../untils/format'
+import { formatNumber, formatAccountPercent } from '../../untils/format'
 import ShardSelect from '../shard-select'
 
 export default {
@@ -143,6 +146,9 @@ export default {
     },
     txcountValue (value) {
       return formatNumber(value)
+    },
+    filterPercent (value) {
+      return formatAccountPercent(value)
     }
   },
   watch: {

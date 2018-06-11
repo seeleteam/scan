@@ -35,7 +35,7 @@ const actions = {
               commit(types.ACCOUNT_DETAIL, info)
               break
             case 'contract':
-              router.push({path: '/contract/detail', query: { height: info.height }})
+              router.push({path: '/contract/detail', query: { address: info.address }})
               commit(types.CONTRACT_DETAIL, info)
               break
           }

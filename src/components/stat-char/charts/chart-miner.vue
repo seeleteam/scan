@@ -52,6 +52,8 @@ export default {
       var statChartsElement = document.getElementById('statChartsMiner')
       // charts instantiatte
       var statCharts = this.$echarts.init(statChartsElement)
+      // clean cache
+      statCharts.clear()
       if (_.isUndefined(this.statData.seriesData) || this.statData.seriesData.length === 0) {
         statCharts.showLoading({
           text: this.$t('statcharts.common.loading')
@@ -64,6 +66,10 @@ export default {
       //    tip display
       // define  charts option
       var option = {
+        title: {
+          text: '(' + (this.shardCharValue === '0' ? this.$t('statcharts.common.shardAll') : (this.$t('statcharts.common.shardTag') + this.shardCharValue)) + ')',
+          x: 'center'
+        },
         toolbox: {
           show: true,
           feature: {
@@ -111,8 +117,10 @@ export default {
           }
         ]
       }
+      // clean cache
+      statCharts.clear()
       // setting charts option
-      statCharts.setOption(option)
+      statCharts.setOption(option, true)
     }
   }
 }

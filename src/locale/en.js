@@ -97,6 +97,9 @@ module.exports = {
     nodeId: 'NodeID',
     host: 'Host',
     port: 'Port',
+    country: 'Country',
+    city: 'City',
+    region: 'Region',
     client: 'Client',
     caps: 'Caps',
     lastSeen: 'LastSeen'
@@ -113,7 +116,9 @@ module.exports = {
   },
   statcharts: {
     common: {
-      loading: 'loading...'
+      loading: 'loading...',
+      shardTag: 'Shard',
+      shardAll: 'ALL'
     },
     node: {
       nodesByShard: 'Nodes By Shard',
@@ -177,8 +182,8 @@ module.exports = {
     nodeCountry: 'Country',
     nodeCount: 'Nodes',
     nodeMapTitle: 'Seele Node Map',
-    nodeMapFoot: 'node distribution map',
-    nodeTip: 'node number'
+    nodeMapFoot: 'Node Distribution Map',
+    nodeTip: 'Node Number'
   },
   api: {
     blocksapi: 'Block API',

@@ -32,7 +32,7 @@
                 </li>
                 <li>
                   <div class="li-width">{{$t("listHeader.percentage")}}: </div>
-                  <div class="li-content-width">{{accountInfo.percentage}}</div>
+                  <div class="li-content-width">{{accountInfo.percentage | filterPercent}}</div>
                 </li>
                 <li>
                   <div class="li-width">{{$t("listHeader.txcount")}}: </div>
@@ -83,9 +83,8 @@
                       width="100"
                       :label="$t('listHeader.inorout')">
                       <template slot-scope="scope">
-                        <span class="list-content list-content-in" :class="{ 'list-content-out' : scope.row.inorout }">
-                          {{scope.row.inorout?$t('tx.in'):$t('tx.out')}}
-                        </span>
+                        <span v-if="scope.row.inorout === true" class="list-content list-content-in">{{$t('tx.in')}}</span>
+                        <span v-else class="list-content list-content-out">{{$t('tx.out')}}</span>
                       </template>
                     </el-table-column>
                     <el-table-column
@@ -118,7 +117,7 @@ import smHeader from '../sm-header'
 import searchInput from '../search-input'
 import AccountDescribe from '../describe'
 import Footer from '../footer'
-import { formatNumber } from '../../untils/format'
+import { formatNumber, formatAccountPercent } from '../../untils/format'
 export default {
   data () {
     return {
@@ -150,6 +149,9 @@ export default {
     },
     txcountValue (value) {
       return formatNumber(value)
+    },
+    filterPercent (value) {
+      return formatAccountPercent(value)
     }
   },
   methods: {

@@ -321,6 +321,45 @@ function formatNodePercent (nodeCount, nodePercent) {
   return result
 }
 
+/**
+ * @method formatDateFromTimestamps
+ * @param {number} timestamps
+ * @returns {string}  <br/>
+ * @desc
+ */
+function formatDateFromTimestamps (timestamps) {
+  if (common.isUndefined(timestamps) || typeof (timestamps) !== 'number') {
+    return ''
+  }
+  var strTimestamps = timestamps.toString()
+  if (strTimestamps.length === 10) {
+    timestamps = timestamps * 1000
+  }
+  var date = new Date(timestamps)
+  var Y = date.getFullYear() + '-'
+  var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-'
+  var D = date.getDate() + ' '
+  var h = date.getHours() + ':'
+  var m = date.getMinutes() + ':'
+  var s = date.getSeconds()
+  return Y + M + D + h + m + s
+}
+
+/**
+ * @method formatAccountPercent
+ * @param {number} value
+ * @returns {string}  <br/>
+ * @desc
+ */
+function formatAccountPercent (value) {
+  var retStr = '0'
+  if (common.isUndefined(value)) {
+    return retStr + '%'
+  }
+  retStr = (value * 100).toFixed(8)
+  return retStr + '%'
+}
+
 export {
   formatNumber,
   getTime,
@@ -333,5 +372,7 @@ export {
   formatAvgNetHashRate,
   formatNodeGeo,
   formatAvgBlockTime,
-  formatNodePercent
+  formatNodePercent,
+  formatDateFromTimestamps,
+  formatAccountPercent
 }
