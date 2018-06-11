@@ -60,14 +60,22 @@
           {{$t('navs.block')}}
         </router-link>
       </li>
-      <li :class="{'current': currentLink == 'transaction'}">
+      <li :class="{'current': currentLink == 'transaction' || currentLink == 'pendingtxs', 'tx-link': txLink}">
         <div class="sm-anv-img-wrap">
-          <img v-show="currentLink != 'transaction'" src="../assets/imgs/navs/Transaction_H.png" alt="">
-          <img v-show="currentLink == 'transaction'" src="../assets/imgs/navs/Transaction_B.png" alt="">
+          <img v-show="currentLink != 'transaction' || currentLink != 'pendingtxs'" src="../assets/imgs/navs/Transaction_H.png" alt="">
+          <img v-show="currentLink == 'transaction' || currentLink == 'pendingtxs'" src="../assets/imgs/navs/Transaction_B.png" alt="">
         </div>
-        <router-link :to="{path: '/transaction'}">
+        <a @click="TxShowLink">
           {{$t('navs.transaction')}}
-        </router-link>
+        </a>
+        <span v-show="txLink" class="tx-link-current">
+          <router-link :to="{path: '/transaction'}" :class="{'link-current': currentLink == 'transaction'}">
+            {{$t('navs.transaction')}}
+          </router-link>
+          <router-link :to="{path: '/pendingtxs'}" :class="{'link-current': currentLink == 'pendingtxs'}">
+            {{$t('navs.pendingtxs')}}
+          </router-link>
+        </span>
       </li>
       <li :class="{'current': currentLink == 'contract'}">
         <div class="sm-anv-img-wrap">
@@ -117,7 +125,8 @@ export default {
   data () {
     return {
       currentLink: '',
-      menuVisible: false
+      menuVisible: false,
+      txLink: false
     }
   },
   components: {
@@ -134,6 +143,15 @@ export default {
         }, 100)
       } else {
         this.menuVisible = !this.menuVisible
+      }
+    },
+    TxShowLink () {
+      if (this.txLink === true) {
+        setTimeout(() => {
+          this.txLink = !this.txLink
+        }, 100)
+      } else {
+        this.txLink = !this.txLink
       }
     }
   }
@@ -198,7 +216,7 @@ export default {
       position: relative;
       display: block;
       width: 100%;
-      height: 40px;
+      // height: 40px;
       line-height: 40px;
       margin: 0;
       padding: 0 20px;
@@ -218,6 +236,21 @@ export default {
         font-weight: bold;
         border-bottom: 1px solid #23479c;
       }
+      .tx-link{
+        height: 60px;
+        margin-bottom: 30px;
+        a{
+          color: #666;
+        }
+      }
+      .tx-link-current{
+        a{
+          color: #666;
+        }
+        .link-current{
+          color: #23479c;
+        }
+      }
     }
     .current{
       background: #f5f7fa;
@@ -232,8 +265,9 @@ export default {
     display: inline-block;
     img{
       position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
+      // top: 50%;
+      // transform: translateY(-50%);
+      top: 10px;
       width: 20px;
       margin-right: 8px;
     }

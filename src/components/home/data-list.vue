@@ -32,7 +32,7 @@
           <div class="grid-content bg-purple">
             <el-container>
               <el-aside class="img-wrap">
-                <img src="../../assets/imgs/data/HASHRATE.png" :alt="$t('blockStat.accountsCount')">
+                <img src="../../assets/imgs/data/ACCOUNT.png" :alt="$t('blockStat.accountsCount')">
               </el-aside>
               <div class="data-wrap">
                 <div class="data-title">{{$t("blockStat.accountsCount")}}</div>
@@ -45,7 +45,7 @@
           <div class="grid-content bg-purple">
             <el-container>
               <el-aside class="img-wrap">
-                <img src="../../assets/imgs/data/DIFFICULTY.png" :alt="$t('blockStat.contractsCount')">
+                <img src="../../assets/imgs/data/CONTRACT.png" :alt="$t('blockStat.contractsCount')">
               </el-aside>
               <div class="data-wrap">
                 <div class="data-title">{{$t("blockStat.contractsCount")}}</div>
@@ -165,7 +165,7 @@
         <div class="grid-content bg-purple">
           <el-container>
             <el-aside class="img-wrap">
-              <img src="../../assets/imgs/sm-data/HASHRATE.png" :alt="$t('blockStat.accountsCount')">
+              <img src="../../assets/imgs/sm-data/ACCOUNT.png" :alt="$t('blockStat.accountsCount')">
             </el-aside>
             <div class="data-wrap">
               <div class="data-title">{{accountsCount | numberFilter}}</div>
@@ -178,7 +178,7 @@
         <div class="grid-content bg-purple">
           <el-container>
             <el-aside class="img-wrap">
-              <img src="../../assets/imgs/sm-data/DIFFICULTY.png" :alt="$t('blockStat.contractsCount')">
+              <img src="../../assets/imgs/sm-data/CONTRACT.png" :alt="$t('blockStat.contractsCount')">
             </el-aside>
             <div class="data-wrap">
               <div class="data-title">{{contractsCount | numberFilter}}</div>
@@ -432,6 +432,7 @@ export default {
           top: 50%;
           transform: translateY(-50%);
           width: 100%;
+          height: 100%;
         }
       }
       .data-wrap {

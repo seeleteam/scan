@@ -100,6 +100,7 @@ export default {
     }
   },
   mounted () {
+    this.getList(1)
   },
   components: {
     Header,
@@ -141,7 +142,7 @@ export default {
       this.getList(val, this.shardValue)
     },
     getList (page) {
-      this.getTransactionList([page, this.shardValue])
+      this.getPendingtxsList([page, this.shardValue])
     }
   },
   watch: {
