@@ -55,6 +55,8 @@ export default {
       var statChartsElement = document.getElementById('statChartsAccount')
       // charts instantiatte
       var statCharts = this.$echarts.init(statChartsElement)
+      // clean cache
+      statCharts.clear()
       // method define:
       if (_.isUndefined(this.addressChart.y) || this.addressChart.y.length === 0) {
         statCharts.showLoading({
@@ -75,6 +77,10 @@ export default {
       }
       // define  charts option
       var option = {
+        title: {
+          text: '(' + (this.shardCharValue === '0' ? this.$t('statcharts.common.shardAll') : (this.$t('statcharts.common.shardTag') + this.shardCharValue)) + ')',
+          x: 'center'
+        },
         toolbox: {
           feature: {
             dataZoom: {
@@ -161,8 +167,10 @@ export default {
           }
         ]
       }
+      // clean cache
+      statCharts.clear()
       // setting charts option
-      statCharts.setOption(option)
+      statCharts.setOption(option, true)
     }
   }
 }

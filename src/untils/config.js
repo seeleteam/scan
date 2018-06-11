@@ -42,6 +42,6 @@ module.exports = {
     chartHashRateUrl: `${URL}/chart/hashrate`,
     chartBlockTimeUrl: `${URL}/chart/blocktime`,
     chartMinerUrl: `${URL}/chart/miner`,
-    chartNodeByShardUrl: `${URL}/chart/nodes`
+    chartNodeByShardUrl: `${URL}/chart/node`
   }
 }

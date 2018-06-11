@@ -12,7 +12,7 @@ import _ from 'lodash'
 import { formatNumber } from '../../../untils/format'
 export default {
   mounted () {
-    this.getNodesByShardChart(this.shardCharValue)
+    this.getNodesByShardChart()
     this.drawStatChartsNodes()
   },
   computed: {
@@ -20,22 +20,11 @@ export default {
       get () {
         return this.$store.state.chart.nodesChart
       }
-    },
-    shardCharValue: {
-      get () {
-        return this.$store.state.shardChar.shardCharValue
-      }
     }
   },
   watch: {
     statData: {
       handler: function (val, oldval) {
-        this.drawStatChartsNodes()
-      }
-    },
-    shardCharValue: {
-      handler: function (val, oldval) {
-        this.getNodesByShardChart(this.shardCharValue)
         this.drawStatChartsNodes()
       }
     }
@@ -52,6 +41,8 @@ export default {
       var statChartsElement = document.getElementById('statChartsNodes')
       // charts instantiatte
       var statCharts = this.$echarts.init(statChartsElement)
+      // clean cache
+      statCharts.clear()
       if (_.isUndefined(this.statData.seriesData) || this.statData.seriesData.length === 0) {
         statCharts.showLoading({
           text: this.$t('statcharts.common.loading')
@@ -111,8 +102,10 @@ export default {
           }
         ]
       }
+      // clean cache
+      statCharts.clear()
       // setting charts option
-      statCharts.setOption(option)
+      statCharts.setOption(option, true)
     }
   }
 }

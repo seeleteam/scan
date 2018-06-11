@@ -53,6 +53,8 @@ export default {
       var statChartsElement = document.getElementById('statChartsBlockCount')
       // charts instantiatte
       var statCharts = this.$echarts.init(statChartsElement)
+      // clean cache
+      statCharts.clear()
       if (_.isUndefined(this.statData.y) || this.statData.y.length === 0) {
         statCharts.showLoading({
           text: this.$t('statcharts.common.loading')
@@ -74,6 +76,10 @@ export default {
 
       // define  charts option
       var option = {
+        title: {
+          text: '(' + (this.shardCharValue === '0' ? this.$t('statcharts.common.shardAll') : (this.$t('statcharts.common.shardTag') + this.shardCharValue)) + ')',
+          x: 'center'
+        },
         toolbox: {
           feature: {
             dataZoom: {
@@ -160,8 +166,10 @@ export default {
           }
         ]
       }
+      // clean cache
+      statCharts.clear()
       // setting charts option
-      statCharts.setOption(option)
+      statCharts.setOption(option, true)
     }
   }
 }

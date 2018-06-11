@@ -41,12 +41,12 @@
               <el-table-column
                 prop="age"
                 :label="$t('listHeader.age')"
-                width="110">
+                width="100">
               </el-table-column>
               <el-table-column
                 prop="block"
                 :label="$t('listHeader.block')"
-                width="110">
+                width="100">
                 <template slot-scope="scope">
                   <router-link :to="{path: '/block/detail', query: { height: scope.row.block, s: shardValue }}">
                     <span class="table-link-color list-content">{{scope.row.block}}</span>
@@ -63,6 +63,15 @@
                   </router-link>
                 </template>
               </el-table-column>
+              <!-- <el-table-column
+                prop="inorout"
+                width="100"
+                :label="$t('listHeader.inorout')">
+                <template slot-scope="scope">
+                  <span v-if="scope.row.inorout === true" class="list-content list-content-in">{{$t('tx.in')}}</span>
+                  <span v-else class="list-content list-content-out">{{$t('tx.out')}}</span>
+                </template>
+              </el-table-column> -->
               <el-table-column
                 prop="to"
                 width="300"
@@ -75,6 +84,7 @@
               </el-table-column>
               <el-table-column
                 prop="value"
+                width="100"
                 :label="$t('listHeader.value')">
               </el-table-column>
             </el-table>

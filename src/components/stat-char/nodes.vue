@@ -3,7 +3,6 @@
     <div class="char-title">
       {{$t("char.nodes")}}
     </div>
-    <ShardCharSelect></ShardCharSelect>
     <el-row :gutter="20" class="char-el-row">
       <el-col :xs="24" :span="6" class="char-el-col">
         <div class="char-content" @click="showNodesByShard">
@@ -18,7 +17,7 @@
         </div>
       </el-col>
     </el-row>
-    <el-dialog :title="$t('statcharts.node.nodesByShardName')" :visible.sync=" nodesByShardVisible">
+    <el-dialog :title="$t('statcharts.node.nodesByShard')" :visible.sync=" nodesByShardVisible">
       <NodesByShardChart></NodesByShardChart>
       <div slot="footer" class="dialog-footer">
         <el-button type="primary" @click="nodesByShardVisible = false">{{$t('button.confirm')}}</el-button>
@@ -29,7 +28,6 @@
 
 <script>
 import NodesByShardChart from './charts/chart-nodes'
-import ShardCharSelect from '../shard-char-select'
 
 export default {
   data () {
@@ -38,8 +36,7 @@ export default {
     }
   },
   components: {
-    NodesByShardChart,
-    ShardCharSelect
+    NodesByShardChart
   },
   methods: {
     showNodesByShard () {

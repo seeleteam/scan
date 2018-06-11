@@ -41,6 +41,10 @@
                 :label="$t('listHeader.port')">
               </el-table-column>
               <el-table-column
+                prop="Country"
+                :label="$t('listHeader.country')">
+              </el-table-column>
+              <el-table-column
                 prop="Client"
                 :label="$t('listHeader.client')">
               </el-table-column>
@@ -51,6 +55,9 @@
               <el-table-column
                 prop="LastSeen"
                 :label="$t('listHeader.lastSeen')">
+                <template slot-scope="scope">
+                    <span class="list-content">{{scope.row.LastSeen | filterDateTime}}</span>
+                </template>
               </el-table-column>
             </el-table>
             <el-pagination
@@ -68,6 +75,7 @@
     </div>
 </template>
 <script>
+import { formatDateFromTimestamps } from '../../untils/format'
 import { mapActions } from 'vuex'
 import Header from '../header'
 import smHeader from '../sm-header'
@@ -118,6 +126,11 @@ export default {
       get () {
         return this.$store.state.shard.shardValue
       }
+    }
+  },
+  filters: {
+    filterDateTime (value) {
+      return formatDateFromTimestamps(value)
     }
   },
   methods: {

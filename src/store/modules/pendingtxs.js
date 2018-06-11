@@ -11,8 +11,6 @@ const state = {
 // getters
 // Gets the properties coming out from under this module
 const getters = {
-  page: state => state.page,
-  total: state => state.total,
   pendingtxsList: state => state.pendingtxsList,
   pendingtxsInfo: state => state.pendingtxsInfo
 }

@@ -98,8 +98,11 @@ module.exports = {
     nodeId: '节点ID',
     host: '节点地址',
     port: '节点端口',
+    country: '国家',
+    region: '省份',
+    city: '城市',
     client: '客户端',
-    caps: 'Caps',
+    caps: '协议',
     lastSeen: '最后一次更新'
   },
   char: {
@@ -114,10 +117,13 @@ module.exports = {
   },
   statcharts: {
     common: {
-      loading: '正在努力的读取数据中...'
+      loading: '正在努力的读取数据中...',
+      shardTag: '分片',
+      shardAll: '所有分片'
     },
     node: {
-      nodesByShardName: '按分片号分组统计节点数'
+      nodesByShard: '按分片号分组统计节点数',
+      nodesByShardTipname: '节点数'
     },
     network: {
       difficultyName: 'seele 挖矿难度趋势图',

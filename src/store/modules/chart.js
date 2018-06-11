@@ -1,4 +1,5 @@
 import * as types from '../mutation-types'
+import _ from 'lodash'
 import { chartTx, chartDifficulty, chartAddress, chartBlocks, chartHashRate, chartBlockTime, chartMiner, chartNodeByShard } from '../../service'
 // import {} from '../../untils/format'
 
@@ -40,18 +41,20 @@ const actions = {
           var xAxis = []
           var yAxis = []
           var toolTip = []
-          for (var i = 0; i < dataList.length; i++) {
-            var time = new Date(dataList[i].TimeStamp * 1000)
-            xAxis[i] = time.getFullYear() + '-' + (time.getMonth() + 1) + '-' + time.getDate()
-            yAxis[i] = dataList[i].TotalTxs
-            toolTip[i] = {
-              AvgDifficulty: dataList[i].Difficulty,
-              HashRate: dataList[i].HashRate,
-              AvgBlockTime: dataList[i].AvgTime,
-              TotalBlocks: dataList[i].TotalBlocks,
-              NewAddress: dataList[i].TodayIncrease,
-              TotalTxs: dataList[i].TotalTxs,
-              TimeStamp: dataList[i].TimeStamp
+          if (!_.isUndefined(dataList) && dataList !== null) {
+            for (var i = 0; i < dataList.length; i++) {
+              var time = new Date(dataList[i].TimeStamp * 1000)
+              xAxis[i] = time.getFullYear() + '-' + (time.getMonth() + 1) + '-' + time.getDate()
+              yAxis[i] = dataList[i].TotalTxs
+              toolTip[i] = {
+                AvgDifficulty: dataList[i].Difficulty,
+                HashRate: dataList[i].HashRate,
+                AvgBlockTime: dataList[i].AvgTime,
+                TotalBlocks: dataList[i].TotalBlocks,
+                NewAddress: dataList[i].TodayIncrease,
+                TotalTxs: dataList[i].TotalTxs,
+                TimeStamp: dataList[i].TimeStamp
+              }
             }
           }
           dataList = {
@@ -75,13 +78,15 @@ const actions = {
           var xAxis = []
           var yAxis = []
           var toolTip = []
-          for (var i = 0; i < dataList.length; i++) {
-            var time = new Date(dataList[i].TimeStamp * 1000)
-            xAxis[i] = time.getFullYear() + '-' + (time.getMonth() + 1) + '-' + time.getDate()
-            yAxis[i] = dataList[i].Difficulty
-            toolTip[i] = {
-              Difficulty: dataList[i].Difficulty,
-              TimeStamp: dataList[i].TimeStamp
+          if (!_.isUndefined(dataList) && dataList !== null) {
+            for (var i = 0; i < dataList.length; i++) {
+              var time = new Date(dataList[i].TimeStamp * 1000)
+              xAxis[i] = time.getFullYear() + '-' + (time.getMonth() + 1) + '-' + time.getDate()
+              yAxis[i] = dataList[i].Difficulty
+              toolTip[i] = {
+                Difficulty: dataList[i].Difficulty,
+                TimeStamp: dataList[i].TimeStamp
+              }
             }
           }
           dataList = {
@@ -105,14 +110,16 @@ const actions = {
           var xAxis = []
           var yAxis = []
           var toolTip = []
-          for (var i = 0; i < dataList.length; i++) {
-            var time = new Date(dataList[i].TimeStamp * 1000)
-            xAxis[i] = time.getFullYear() + '-' + (time.getMonth() + 1) + '-' + time.getDate()
-            yAxis[i] = dataList[i].TotalAddresss
-            toolTip[i] = {
-              TotalAddresss: dataList[i].TotalAddresss,
-              DailyIncrease: dataList[i].TodayIncrease,
-              TimeStamp: dataList[i].TimeStamp
+          if (!_.isUndefined(dataList) && dataList !== null) {
+            for (var i = 0; i < dataList.length; i++) {
+              var time = new Date(dataList[i].TimeStamp * 1000)
+              xAxis[i] = time.getFullYear() + '-' + (time.getMonth() + 1) + '-' + time.getDate()
+              yAxis[i] = dataList[i].TotalAddresss
+              toolTip[i] = {
+                TotalAddresss: dataList[i].TotalAddresss,
+                DailyIncrease: dataList[i].TodayIncrease,
+                TimeStamp: dataList[i].TimeStamp
+              }
             }
           }
           dataList = {
@@ -136,14 +143,16 @@ const actions = {
           var xAxis = []
           var yAxis = []
           var toolTip = []
-          for (var i = 0; i < dataList.length; i++) {
-            var time = new Date(dataList[i].TimeStamp * 1000)
-            xAxis[i] = time.getFullYear() + '-' + (time.getMonth() + 1) + '-' + time.getDate()
-            yAxis[i] = dataList[i].TotalBlocks
-            toolTip[i] = {
-              TotalBlocks: dataList[i].TotalBlocks,
-              TimeStamp: dataList[i].TimeStamp,
-              DailyBlockRewards: dataList[i].Rewards
+          if (!_.isUndefined(dataList) && dataList !== null) {
+            for (var i = 0; i < dataList.length; i++) {
+              var time = new Date(dataList[i].TimeStamp * 1000)
+              xAxis[i] = time.getFullYear() + '-' + (time.getMonth() + 1) + '-' + time.getDate()
+              yAxis[i] = dataList[i].TotalBlocks
+              toolTip[i] = {
+                TotalBlocks: dataList[i].TotalBlocks,
+                TimeStamp: dataList[i].TimeStamp,
+                DailyBlockRewards: dataList[i].Rewards
+              }
             }
           }
           dataList = {
@@ -167,13 +176,15 @@ const actions = {
           var xAxis = []
           var yAxis = []
           var toolTip = []
-          for (var i = 0; i < dataList.length; i++) {
-            var time = new Date(dataList[i].TimeStamp * 1000)
-            xAxis[i] = time.getFullYear() + '-' + (time.getMonth() + 1) + '-' + time.getDate()
-            yAxis[i] = dataList[i].HashRate
-            toolTip[i] = {
-              HashRate: dataList[i].HashRate,
-              TimeStamp: dataList[i].TimeStamp
+          if (!_.isUndefined(dataList) && dataList !== null) {
+            for (var i = 0; i < dataList.length; i++) {
+              var time = new Date(dataList[i].TimeStamp * 1000)
+              xAxis[i] = time.getFullYear() + '-' + (time.getMonth() + 1) + '-' + time.getDate()
+              yAxis[i] = dataList[i].HashRate
+              toolTip[i] = {
+                HashRate: dataList[i].HashRate,
+                TimeStamp: dataList[i].TimeStamp
+              }
             }
           }
           dataList = {
@@ -197,13 +208,15 @@ const actions = {
           var xAxis = []
           var yAxis = []
           var toolTip = []
-          for (var i = 0; i < dataList.length; i++) {
-            var time = new Date(dataList[i].TimeStamp * 1000)
-            xAxis[i] = time.getFullYear() + '-' + (time.getMonth() + 1) + '-' + time.getDate()
-            yAxis[i] = dataList[i].AvgTime
-            toolTip[i] = {
-              HashRate: dataList[i].HashRate,
-              AvgTime: dataList[i].AvgTime
+          if (!_.isUndefined(dataList) && dataList !== null) {
+            for (var i = 0; i < dataList.length; i++) {
+              var time = new Date(dataList[i].TimeStamp * 1000)
+              xAxis[i] = time.getFullYear() + '-' + (time.getMonth() + 1) + '-' + time.getDate()
+              yAxis[i] = dataList[i].AvgTime
+              toolTip[i] = {
+                HashRate: dataList[i].HashRate,
+                AvgTime: dataList[i].AvgTime
+              }
             }
           }
           dataList = {
@@ -224,17 +237,19 @@ const actions = {
       .then(doc => {
         if (doc.success) {
           let dataList = doc.data
-          let rankArray = dataList[0].Rank
           var legendData = []
           var seriesData = []
-          for (var i = 0; i < rankArray.length; i++) {
-            var address = rankArray[i].Address
-            address = address.substring(0, 30) + '...'
-            legendData.push(address)
-            seriesData.push({
-              name: address,
-              value: rankArray[i].Mined
-            })
+          if (!_.isUndefined(dataList) && dataList !== null && dataList.length > 0) {
+            let rankArray = dataList[0].Rank
+            for (var i = 0; i < rankArray.length; i++) {
+              var address = rankArray[i].Address
+              address = address.substring(0, 30) + '...'
+              legendData.push(address)
+              seriesData.push({
+                name: address,
+                value: rankArray[i].Mined
+              })
+            }
           }
           dataList = {
             'legendData': legendData,
@@ -255,13 +270,15 @@ const actions = {
           let dataList = doc.data
           var legendData = []
           var seriesData = []
-          for (var i = 0; i < dataList.length; i++) {
-            var shardInfo = 'shard-' + dataList[i].shard
-            legendData.push(shardInfo)
-            seriesData.push({
-              name: shardInfo,
-              value: dataList[i].Nodes
-            })
+          if (!_.isUndefined(dataList) && dataList !== null) {
+            for (var key in dataList) {
+              var shardInfo = 'shard-' + key
+              legendData.push(shardInfo)
+              seriesData.push({
+                name: shardInfo,
+                value: dataList[key]
+              })
+            }
           }
           dataList = {
             'legendData': legendData,
