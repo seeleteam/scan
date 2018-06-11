@@ -219,5 +219,9 @@ module.exports = {
       diffTitle: 'Block Difficulty Growth',
       diffContent: 'Stat the block difficulty and growth rate'
     }
+  },
+  tx: {
+    in: 'IN',
+    out: 'OUT'
   }
 }

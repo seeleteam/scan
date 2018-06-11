@@ -28,7 +28,7 @@
               </li>
               <li>
                 <div class="li-width">{{$t("listHeader.block")}}: </div>
-                <router-link :to="{path: '/block/detail', query: { height: transactionInfo.block }}">
+                <router-link :to="{path: '/block/detail', query: { height: transactionInfo.block, s:transactionInfo.shardnumber }}">
                   <div class="li-content-width li-content-link">{{transactionInfo.block}}</div>
                 </router-link>
               </li>

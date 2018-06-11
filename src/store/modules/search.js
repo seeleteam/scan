@@ -30,6 +30,14 @@ const actions = {
               router.push({path: '/block/detail', query: { height: info.height }})
               commit(types.BLOCKS_DETAIL, info)
               break
+            case 'account':
+              router.push({path: '/account/detail', query: { address: info.address }})
+              commit(types.ACCOUNT_DETAIL, info)
+              break
+            case 'contract':
+              router.push({path: '/contract/detail', query: { height: info.height }})
+              commit(types.CONTRACT_DETAIL, info)
+              break
           }
         }
       })

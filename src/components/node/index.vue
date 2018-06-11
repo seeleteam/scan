@@ -16,6 +16,7 @@
               :content="content"
               :link="link"
             ></NodeDescribe>
+            <ShardSelect></ShardSelect>
             <el-table
               class="list-wrap"
               :data="nodeList"
@@ -73,6 +74,7 @@ import smHeader from '../sm-header'
 import searchInput from '../search-input'
 import NodeDescribe from '../describe'
 import Footer from '../footer'
+import ShardSelect from '../shard-select'
 
 export default {
   data () {
@@ -90,6 +92,7 @@ export default {
     smHeader,
     searchInput,
     NodeDescribe,
+    ShardSelect,
     Footer
   },
   mounted () {
@@ -110,19 +113,31 @@ export default {
       get () {
         return this.$store.state.node.total
       }
+    },
+    shardValue: {
+      get () {
+        return this.$store.state.shard.shardValue
+      }
     }
   },
   methods: {
     ...mapActions(['getNodeList']),
 
     handleSizeChange (val) {
-      this.getList(val)
+      this.getList(val, this.shardValue)
     },
     handleCurrentChange (val) {
-      this.getList(val)
+      this.getList(val, this.shardValue)
     },
     getList (page) {
-      this.getNodeList(page)
+      this.getNodeList([page, this.shardValue])
+    }
+  },
+  watch: {
+    shardValue: {
+      handler: function (val, oldval) {
+        this.getList(1, this.shardValue)
+      }
     }
   }
 }
