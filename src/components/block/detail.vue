@@ -59,7 +59,7 @@
                 </li>
                 <li>
                   <div class="li-width">{{$t("listHeader.txcount")}}: </div>
-                  <router-link :to="{path: '/transaction', query: { block: blocksInfo.height }}">
+                  <router-link :to="{path: '/transaction', query: { block: blocksInfo.height, s: shardValue  }}">
                     <div class="li-content-width li-content-link">{{blocksInfo.txcount}}</div>
                   </router-link>
                 </li>
@@ -101,6 +101,11 @@ export default {
     blocksInfo: {
       get () {
         return this.$store.state.block.blocksInfo
+      }
+    },
+    shardValue: {
+      get () {
+        return this.$store.state.shard.shardValue
       }
     }
   },

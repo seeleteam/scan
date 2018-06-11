@@ -83,7 +83,9 @@
                       width="100"
                       :label="$t('listHeader.inorout')">
                       <template slot-scope="scope">
-                        <span class="list-content">{{scope.row.inorout?'In':'Out'}}</span>
+                        <span class="list-content list-content-in" :class="{ 'list-content-out' : scope.row.inorout }">
+                          {{scope.row.inorout?$t('tx.in'):$t('tx.out')}}
+                        </span>
                       </template>
                     </el-table-column>
                     <el-table-column
@@ -92,7 +94,7 @@
                       :label="$t('listHeader.to')">
                       <template slot-scope="scope">
                         <span v-if="scope.row.inorout === false" class="list-content table-link-color" @click="toTx(scope.row.to)">{{scope.row.to}}</span>
-                        <span v-else class="list-content">{{scope.row.from}}</span>
+                        <span v-else class="list-content">{{scope.row.to}}</span>
                       </template>
                     </el-table-column>
                     <el-table-column
