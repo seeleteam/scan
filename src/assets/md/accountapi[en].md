@@ -5,6 +5,7 @@
 #### Parameter 
 1. p:The page number to display, the default value is 1
 2. ps: The number of pages displayed, the default value is 25
+3. s: The shardNumber 
 
 #### Return
 1. code: Error code, 0 is normal, non-zero is wrong
@@ -15,36 +16,39 @@
 
 #### Example
 	//Request
-	http://api.seelescan.io/api/v1/blocks?p=1&ps=10
+	http://api.seelescan.io/api/v1/accounts?p=1&ps=10&s=1
 	
 	//Return
 	{
-			"code": 0, 
-			"data": {
-					"list": [
-							{
-									"rank": 1, 
-									"address": "0x4dd6881d13ab5152127533c5954e4e062eb4bb2dcd93becf4f4e9b1d2d69f1363eea0395e8e76a2716b033d1e3cc8da2bf24811b1e31a86ac8bcacca4c4b29bd", 
-									"balance": 318600, 
-									"percentage": 0, 
-									"txcount": 1593
-							}, 
-							{
-									"rank": 2, 
-									"address": "0x1cba7cc4097c34ef9d90c0bf1fa9babd7e2fb26db7b49d7b1eb8f580726e3a99d3aec263fc8de535e74a79138622d320b3765b0a75fabd084985c456c6fe65bb", 
-									"balance": 54910, 
-									"percentage": 0, 
-									"txcount": 5491
-							}
-					], 
-					"pageInfo": {
-							"begin": 0, 
-							"curPage": 1, 
-							"end": 2, 
-							"totalCount": 2
-					}
-			}, 
-			"message": ""
+		"code": 0, 
+		"data": {
+			"list": [
+				{
+					"shardnumber": 1, 
+					"rank": 1, 
+					"address": "0x0b252fa6de61be780facf36815e4d4b763352f81", 
+					"balance": 194400000000000, 
+					"percentage": 0.5045157271877919, 
+					"txcount": 21115
+				}, 
+				{
+					"shardnumber": 1, 
+					"rank": 2, 
+					"address": "0x4c10f2cd2159bb432094e3be7e17904c2b4aeb21", 
+					"balance": 190920000000000, 
+					"percentage": 0.495484272812208, 
+					"txcount": 21120
+				}
+			], 
+			"pageInfo": {
+				"begin": 0, 
+				"curPage": 1, 
+				"end": 2, 
+				"totalBalance": 385320000000000, 
+				"totalCount": 2
+			}
+		}, 
+		"message": ""
 	}
 
 >## Get account details
@@ -59,28 +63,45 @@ Returns details of a specified account
 
 #### Example
 	//Request
-	https://api.seelescan.io/api/v1/account?address=0x4dd6881d13ab5152127533c5954e4e062eb4bb2dcd93becf4f4e9b1d2d69f1363eea0395e8e76a2716b033d1e3cc8da2bf24811b1e31a86ac8bcacca4c4b29bd
+	https://api.seelescan.io/api/v1/account?address=0x0b252fa6de61be780facf36815e4d4b763352f81
 	
 	//Return
 	{
-        "code": 0, 
-        "data": {
-                "address": "0x4dd6881d13ab5152127533c5954e4e062eb4bb2dcd93becf4f4e9b1d2d69f1363eea0395e8e76a2716b033d1e3cc8da2bf24811b1e31a86ac8bcacca4c4b29bd", 
-                "balance": 318600, 
-                "percentage": 0, 
-                "txcount": 1593, 
-                "txs": [
-                        {
-                                "hash": "0x199de9e63d8f986cb26c52ebc553cd2f020d08e15ac842ed7669310a036d5eca", 
-                                "block": 7084, 
-                                "from": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000", 
-                                "to": "0x4dd6881d13ab5152127533c5954e4e062eb4bb2dcd93becf4f4e9b1d2d69f1363eea0395e8e76a2716b033d1e3cc8da2bf24811b1e31a86ac8bcacca4c4b29bd", 
-                                "amount": 200, 
-                                "age": "1 secs ago", 
-                                "txfee": 0, 
-                                "inorout": true
-                        }
-                ]
-        }, 
-        "message": ""
+		"code": 0, 
+		"data": {
+			"shardnumber": 1, 
+			"address": "0x0b252fa6de61be780facf36815e4d4b763352f81", 
+			"balance": 196440000000000, 
+			"percentage": 0.5048054684689315, 
+			"txcount": 21338, 
+			"txs": [
+				{
+					"shardnumber": 1, 
+					"txtype": 0, 
+					"hash": "0x134b22d2397191046c76431b4839ceb4c5e6b060443e7cfaf81273191bdedb6a", 
+					"block": "19456", 
+					"from": "0x0000000000000000000000000000000000000000", 
+					"to": "0x0b252fa6de61be780facf36815e4d4b763352f81", 
+					"amount": 20000000000, 
+					"age": "1 mins ago", 
+					"fee": 0, 
+					"inorout": true, 
+					"pending": false
+				}, 
+				{
+					"shardnumber": 1, 
+					"txtype": 0, 
+					"hash": "0xbce7eaa4de7cd19d2fe821d9fbf89518f008a70fc1afe2d728494f0d64ffa1c2", 
+					"block": "19427", 
+					"from": "0x0000000000000000000000000000000000000000", 
+					"to": "0x0b252fa6de61be780facf36815e4d4b763352f81", 
+					"amount": 20000000000, 
+					"age": "7 mins ago", 
+					"fee": 0, 
+					"inorout": true, 
+					"pending": false
+				}
+			]
+		}, 
+		"message": ""
 	}

@@ -1,15 +1,15 @@
->## 获取最新区块高度
+>## 获取交易总数量
 #### URL
-	https://api.seelescan.io/api/v1/lastblock
+	https://api.seelescan.io/api/v1/txcount
 
 #### 返回
 1. code: 错误码,0为正常,非0为错误
 2. message: 错误提示,正确执行会空
-3. data: 最新区块的高度
+3. data: 交易总数量
 
 #### 例子
 	//Request
-	https://api.seelescan.io/api/v1/lastblock
+	https://api.seelescan.io/api/v1/txcount
 	
 	//Return
 	{
@@ -18,59 +18,18 @@
 			"message": ""
 	}
 	
->## 获取最新区块生成时间
+>## 获取区块总数量
 #### URL
-	https://api.seelescan.io/api/v1/bestblock
+	https://api.seelescan.io/api/v1/blockcount
 	
 #### 返回
 1. code: 错误码,0为正常,非0为错误
 2. message: 错误提示,正确执行会空
-3. data: 最新区块的生成时间
+3. data: 区块总数量
 
 #### 例子
 	//Request
-	https://api.seelescan.io/api/v1/bestblock
-	
-	//Return
-	{
-        "code": 0, 
-        "data": "31 secs ago", 
-        "message": ""
-	}
-	
->## 获取平均区块生成时间
-#### URL
-	https://api.seelescan.io/api/v1/avgblocktime
-	
-#### 返回
-1. code: 错误码,0为正常,非0为错误
-2. message: 错误提示,正确执行会空
-3. data: 平均区块的生成时间,单位是秒
-
-#### 例子
-	//Request
-	https://api.seelescan.io/api/v1/avgblocktime
-	
-	//Return
-	{
-			"code": 0, 
-			"data": 14, 
-			"message": ""
-	}
-	
-
->## 获取交易总数量
-#### URL
-	https://api.seelescan.io/api/v1/txcount
-	
-#### 返回
-1. code: 错误码,0为正常,非0为错误
-2. message: 错误提示,正确执行会空
-3. data: 平均区块的生成时间,单位是秒
-
-#### 例子
-	//Request
-	https://api.seelescan.io/api/v1/txcount
+	https://api.seelescan.io/api/v1/blockcount
 	
 	//Return
 	{
@@ -79,43 +38,43 @@
 			"message": ""
 	}
 	
->## 获取平均区块难度
+>## 获取账号总数量
 #### URL
-	https://api.seelescan.io/api/v1/difficulty
+	https://api.seelescan.io/api/v1/accountcount
 	
 #### 返回
 1. code: 错误码,0为正常,非0为错误
 2. message: 错误提示,正确执行会空
-3. data: 区块平均难度
+3. data: 账号总数量
 
 #### 例子
 	//Request
-	https://api.seelescan.io/api/v1/txcount
+	https://api.seelescan.io/api/v1/accountcount
 	
 	//Return
 	{
 			"code": 0, 
-			"data": 16628715, 
+			"data": 44842, 
 			"message": ""
 	}
 	
->## 获取平均哈希速率
+
+>## 获取合约总数量
 #### URL
-	https://api.seelescan.io/api/v1/hashrate
+	https://api.seelescan.io/api/v1/contractcount
 	
 #### 返回
 1. code: 错误码,0为正常,非0为错误
 2. message: 错误提示,正确执行会空
-3. data: 平均哈希速率
+3. data: 合约总数量
 
 #### 例子
 	//Request
-	https://api.seelescan.io/api/v1/txcount
+	https://api.seelescan.io/api/v1/contractcount
 	
 	//Return
 	{
 			"code": 0, 
-			"data": 1217636.8141435185, 
+			"data": 44842, 
 			"message": ""
 	}
-	

@@ -2,6 +2,9 @@
 #### URL
 	https://api.seelescan.io/api/v1/chart/tx
 	
+#### Parameter
+1. s: The shardNumber
+
 #### Return
 1. code: Error code, 0 is normal, non-zero is wrong
 2. message: Errors, correct implementation of the empty
@@ -9,22 +12,33 @@
 
 #### Example
 	//Request
-	https://api.seelescan.io/api/v1/chart/tx
+	https://api.seelescan.io/api/v1/chart/tx?s=1
 	
 	//Return
 	{
 		"code": 0, 
 		"data": [
 			{
-				"TotalTxs": 6095, 
-				"TotalBlocks": 6095, 
-				"HashRate": 1216530.3790393518, 
-				"Difficulty": 17244991.75537326, 
-				"AvgTime": 14.175553732567678, 
-				"Rewards": 121900000000000, 
+				"TotalTxs": 353, 
+				"TotalBlocks": 353, 
+				"HashRate": 24336.20261574074, 
+				"Difficulty": 5956509.648725213, 
+				"AvgTime": 244.75920679886684, 
+				"Rewards": 7060000000000, 
 				"TotalAddresss": 2, 
+				"TodayIncrease": 2, 
+				"TimeStamp": 1528300800
+			}, 
+			{
+				"TotalTxs": 5931, 
+				"TotalBlocks": 5931, 
+				"HashRate": 57816.37788194444, 
+				"Difficulty": 842241.6201315124, 
+				"AvgTime": 14.56752655538695, 
+				"Rewards": 118620000000000, 
+				"TotalAddresss": 0, 
 				"TodayIncrease": 0, 
-				"TimeStamp": 1527350400
+				"TimeStamp": 1528560001
 			}
 		], 
 		"message": ""
@@ -34,6 +48,9 @@
 #### URL
 	https://api.seelescan.io/api/v1/chart/difficulty
 	
+#### Parameter
+1. s: The shardNumber
+
 #### Return
 1. code: Error code, 0 is normal, non-zero is wrong
 2. message: Errors, correct implementation of the empty
@@ -41,15 +58,31 @@
 
 #### Example
 	//Request
-	https://api.seelescan.io/api/v1/chart/difficulty
+	https://api.seelescan.io/api/v1/chart/difficulty?s=1
 	
 	//Return
 	{
 		"code": 0, 
 		"data": [
 			{
-				"Difficulty": 17244991.75537326, 
-				"TimeStamp": 1527350400
+				"Difficulty": 5956509.648725213, 
+				"TimeStamp": 1528300800, 
+				"ShardNumber": 1
+			}, 
+			{
+				"Difficulty": 1493377.806868972, 
+				"TimeStamp": 1528387201, 
+				"ShardNumber": 1
+			}, 
+			{
+				"Difficulty": 958906.9916434541, 
+				"TimeStamp": 1528473601, 
+				"ShardNumber": 1
+			}, 
+			{
+				"Difficulty": 842241.6201315124, 
+				"TimeStamp": 1528560001, 
+				"ShardNumber": 1
 			}
 		], 
 		"message": ""
@@ -58,7 +91,10 @@
 >## Get Address Growth Chart
 #### URL
 	https://api.seelescan.io/api/v1/chart/address
-	
+		
+#### Parameter
+1. s: The shardNumber
+
 #### Return
 1. code: Error code, 0 is normal, non-zero is wrong
 2. message: Errors, correct implementation of the empty
@@ -66,16 +102,23 @@
 
 #### Example
 	//Request
-	https://api.seelescan.io/api/v1/chart/address
+	https://api.seelescan.io/api/v1/chart/address?s=1
 	
 	//Return
 	{
 		"code": 0, 
 		"data": [
 			{
-				"TotalAddresss": 2, 
+				"TotalAddresss": 4, 
+				"TodayIncrease": 4, 
+				"TimeStamp": 1528300800, 
+				"ShardNumber": 1
+			}, 
+			{
+				"TotalAddresss": 0, 
 				"TodayIncrease": 0, 
-				"TimeStamp": 1527350400
+				"TimeStamp": 1528560001, 
+				"ShardNumber": 1
 			}
 		], 
 		"message": ""
@@ -85,6 +128,9 @@
 #### URL
 	https://api.seelescan.io/api/v1/chart/blocks
 	
+#### Parameter
+1. s: The shardNumber
+
 #### Return
 1. code: Error code, 0 is normal, non-zero is wrong
 2. message: Errors, correct implementation of the empty
@@ -92,16 +138,17 @@
 
 #### Example
 	//Request
-	https://api.seelescan.io/api/v1/chart/blocks
+	https://api.seelescan.io/api/v1/chart/blocks?s=1
 	
 	//Return
 	{
 		"code": 0, 
 		"data": [
 			{
-				"TotalBlocks": 6095, 
-				"Rewards": 121900000000000, 
-				"TimeStamp": 1527350400
+				"TotalBlocks": 353, 
+				"Rewards": 7060000000000, 
+				"TimeStamp": 1528300800, 
+				"ShardNumber": 1
 			}
 		], 
 		"message": ""
@@ -111,6 +158,9 @@
 #### URL
 	https://api.seelescan.io/api/v1/chart/hashrate
 	
+#### Parameter
+1. s: The shardNumber
+
 #### Return
 1. code: Error code, 0 is normal, non-zero is wrong
 2. message: Errors, correct implementation of the empty
@@ -118,24 +168,28 @@
 
 #### Example
 	//Request
-	https://api.seelescan.io/api/v1/chart/hashrate
+	https://api.seelescan.io/api/v1/chart/hashrate?s=1
 	
 	//Return
 	{
 		"code": 0, 
 		"data": [
 			{
-				"TotalBlocks": 6095, 
-				"Rewards": 121900000000000, 
-				"TimeStamp": 1527350400
+				"HashRate": 24336.20261574074, 
+				"TimeStamp": 1528300800, 
+				"ShardNumber": 1
 			}
 		], 
 		"message": ""
 	}
+
 >## Get average block time chart
 #### URL
 	https://api.seelescan.io/api/v1/chart/blocktime
 	
+#### Parameter
+1. s: The shardNumber
+
 #### Return
 1. code: Error code, 0 is normal, non-zero is wrong
 2. message: Errors, correct implementation of the empty
@@ -143,15 +197,16 @@
 
 #### Example
 	//Request
-	https://api.seelescan.io/api/v1/chart/blocktime
+	https://api.seelescan.io/api/v1/chart/blocktime&s=1
 	
 	//Return
 	{
 		"code": 0, 
 		"data": [
 			{
-				"AvgTime": 14.175553732567678, 
-				"TimeStamp": 1527350400
+				"AvgTime": 244.75920679886684, 
+				"TimeStamp": 1528300800, 
+				"ShardNumber": 1
 			}
 		], 
 		"message": ""
@@ -161,6 +216,9 @@
 #### URL
 	https://api.seelescan.io/api/v1/chart/miner
 	
+#### Parameter
+1. s: The shardNumber
+
 #### Return
 1. code: Error code, 0 is normal, non-zero is wrong
 2. message: Errors, correct implementation of the empty
@@ -168,7 +226,7 @@
 
 #### Example
 	//Request
-	https://api.seelescan.io/api/v1/chart/miner
+	https://api.seelescan.io/api/v1/chart/miner?s=1
 	
 	//Return
 	{
@@ -177,17 +235,62 @@
 			{
 				"Rank": [
 					{
-						"Address": "0x4dd6881d13ab5152127533c5954e4e062eb4bb2dcd93becf4f4e9b1d2d69f1363eea0395e8e76a2716b033d1e3cc8da2bf24811b1e31a86ac8bcacca4c4b29bd", 
-						"Mined": 21215, 
-						"Percentage": 0.5217658632562715
+						"Address": "0x0b252fa6de61be780facf36815e4d4b763352f81", 
+						"Mined": 8171, 
+						"Percentage": 0.5019350082928927
 					}, 
 					{
-						"Address": "0x23ddfb54a488f906cdb9cbd257eac5663a4c74ba25619bb902651602a4491be4ce437907fcc567b31be6746a014931f4670ac116c0010e5beb28b0dce2c6eaad", 
-						"Mined": 19445, 
-						"Percentage": 0.4782341367437285
+						"Address": "0x4c10f2cd2159bb432094e3be7e17904c2b4aeb21", 
+						"Mined": 8108, 
+						"Percentage": 0.49806499170710733
 					}
-				]
+				], 
+				"ShardNumber": 1
 			}
 		], 
+		"message": ""
+	}
+
+>## Node Count Chart
+#### URL
+	https://api.seelescan.io/api/v1/chart/node
+	
+#### Parameter
+1. s: The shardNumber
+
+#### Return
+1. code: Error code, 0 is normal, non-zero is wrong
+2. message: Errors, correct implementation of the empty
+3. data: Returns the list of node count by shardnumber
+
+#### Example
+	//Request
+	https://api.seelescan.io/api/v1/chart/node&s=1
+	
+	//Return
+	{
+		"code": 0, 
+		"data": {
+			"1": 15, 
+			"2": 0, 
+			"3": 0, 
+			"4": 0, 
+			"5": 0, 
+			"6": 0, 
+			"7": 0, 
+			"8": 0, 
+			"9": 0, 
+			"10": 0, 
+			"11": 0, 
+			"12": 0, 
+			"13": 0, 
+			"14": 0, 
+			"15": 0, 
+			"16": 0, 
+			"17": 0, 
+			"18": 0, 
+			"19": 0, 
+			"20": 0
+		}, 
 		"message": ""
 	}

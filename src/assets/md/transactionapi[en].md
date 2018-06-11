@@ -1,11 +1,12 @@
 >## Get transaction list
     
-	https://api.seelescan.io/api/v1/txs?p=1&ps=10&block=5567
+	https://api.seelescan.io/api/v1/txs
 	
 #### Parameter 
 1. p:The page number to display, the default value is 1
 2. ps: The number of pages displayed, the default value is 25
 3. block:Block height
+4. s: The shardNumber
 
 #### Return
 1. code: Error code, 0 is normal, non-zero is wrong
@@ -17,9 +18,9 @@
 #### Example
 	//Request
 	//By Default
-	https://api.seelescan.io/api/v1/txs?p=1&ps=10
+	https://api.seelescan.io/api/v1/txs?p=1&ps=10&s=1
 	//By Block
-	https://api.seelescan.io/api/v1/txs?p=1&ps=10&block=5567
+	https://api.seelescan.io/api/v1/txs?p=1&ps=10&block=5567&s=1
 	
 	//Return
 	{
@@ -27,18 +28,27 @@
 		"data": {
 			"list": [
 				{
-					"Hash": "0x26d8ecfb5b75e3f6da5750b072ac6b8bd969d1ce453206f7f33062cad89397eb", 
-					"From": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000", 
-					"To": "0x1cba7cc4097c34ef9d90c0bf1fa9babd7e2fb26db7b49d7b1eb8f580726e3a99d3aec263fc8de535e74a79138622d320b3765b0a75fabd084985c456c6fe65bb", 
-					"Amount": "10", 
-					"Timestamp": "1525425890093552640"
+					"shardnumber": 1, 
+					"txHash": "0x6023d99cbc8c8f5811e1cd6e1f324c1810bece91e61a83a21913ebb41535826c", 
+					"block": 19236, 
+					"age": "9 secs ago", 
+					"from": "0x0000000000000000000000000000000000000000", 
+					"to": "0x0b252fa6de61be780facf36815e4d4b763352f81"
+				}, 
+				{
+					"shardnumber": 1, 
+					"txHash": "0xe0d314fae79f5b59c3bc991b29b2a123eb48672f4359690cb1fce23d492b2aef", 
+					"block": 19227, 
+					"age": "3 mins ago", 
+					"from": "0x0000000000000000000000000000000000000000", 
+					"to": "0x4c10f2cd2159bb432094e3be7e17904c2b4aeb21"
 				}
 			], 
 			"pageInfo": {
-				"begin": 0, 
-				"curPage": 0, 
-				"end": 1, 
-				"totalCount": 1
+				"begin": 21080, 
+				"curPage": 1, 
+				"end": 21090, 
+				"totalCount": 21090
 			}
 		}, 
 		"message": ""
@@ -64,12 +74,69 @@
 	{
 		"code": 0, 
 		"data": {
-			"txHash": "0x649b7ab12c0bf721e9a5bda7fa19f1029e3f70ed2d6fd49eafe066149e7cbf98", 
-			"block": 4, 
-			"age": "14 days ago", 
-			"from": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000", 
-			"to": "0x1cba7cc4097c34ef9d90c0bf1fa9babd7e2fb26db7b49d7b1eb8f580726e3a99d3aec263fc8de535e74a79138622d320b3765b0a75fabd084985c456c6fe65bb", 
-			"value": "10"
+			"info": {
+				"txtype": 0, 
+				"shardnumber": 1, 
+				"txHash": "0x78d89b33d5a04451ba1bb73528704105d13f9662edfc54ac9ecd3620a11a3e3d", 
+				"block": 20300, 
+				"age": "17 secs ago", 
+				"from": "0x0000000000000000000000000000000000000000", 
+				"to": "0x0b252fa6de61be780facf36815e4d4b763352f81", 
+				"value": 20000000000, 
+				"pending": false, 
+				"fee": 0, 
+				"accountNonce": "0", 
+				"payload": ""
+			}, 
+			"type": "transaction"
+		}, 
+		"message": ""
+	}
+
+>## Get pending transaction list
+    
+	https://api.seelescan.io/api/v1/pendingtxs
+	
+#### Parameter 
+1. p:The page number to display, the default value is 1
+2. ps: The number of pages displayed, the default value is 25
+3. s: The shardNumber
+
+#### Return
+1. code: Error code, 0 is normal, non-zero is wrong
+2. message: Errors, correct implementation of the empty
+3. data: Returns a list of transactions in descending order of transaction number with a specified page number
+	- lsit: Transaction list
+	- pageInfo: Paging details information
+
+#### Example
+	//Request
+	https://api.seelescan.io/api/v1/pendingtxs?p=1&ps=10&s=1
+
+	//Return
+	{
+		"code": 0, 
+		"data": {
+			"list": [
+				{
+					"txtype": 0, 
+					"shardnumber": 1, 
+					"txHash": "0x5d93f8fd642b296e9ad6e82eabbd6e3c77d5878e0abf8626add82a3d1709139b", 
+					"block": 0, 
+					"age": "16 secs ago", 
+					"from": "0x2a87b6504cd00af95a83b9887112016a2a991cf1", 
+					"to": "0x4fb7c8b0287378f0cf8b5a9262bf3ef7e101f8d1", 
+					"value": 8, 
+					"pending": true, 
+					"fee": 62
+				}
+			], 
+			"pageInfo": {
+				"begin": 0, 
+				"curPage": 1, 
+				"end": 8, 
+				"totalCount": 8
+			}
 		}, 
 		"message": ""
 	}

@@ -3,7 +3,7 @@
 	https://api.seelescan.io/api/v1/search
 
 #### Parameter 
-1. content: Block height, transaction hash, account address
+1. content: Block height, transaction hash, account address, contract address
 
 #### Return
 1. code: Error code, 0 is normal, non-zero is wrong
@@ -20,75 +20,84 @@ Query transaction
 	
 	//Return
 	{
-			"code": 0, 
-			"data": {
-					"info": {
-							"txHash": "0x649b7ab12c0bf721e9a5bda7fa19f1029e3f70ed2d6fd49eafe066149e7cbf98", 
-							"block": 4, 
-							"age": "15 days ago", 
-							"from": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000", 
-							"to": "0x1cba7cc4097c34ef9d90c0bf1fa9babd7e2fb26db7b49d7b1eb8f580726e3a99d3aec263fc8de535e74a79138622d320b3765b0a75fabd084985c456c6fe65bb", 
-							"value": "10"
-					}, 
-					"type": "transaction"
+		"code": 0, 
+		"data": {
+			"info": {
+				"txtype": 0, 
+				"shardnumber": 1, 
+				"txHash": "0x78d89b33d5a04451ba1bb73528704105d13f9662edfc54ac9ecd3620a11a3e3d", 
+				"block": 20300, 
+				"age": "17 secs ago", 
+				"from": "0x0000000000000000000000000000000000000000", 
+				"to": "0x0b252fa6de61be780facf36815e4d4b763352f81", 
+				"value": 20000000000, 
+				"pending": false, 
+				"fee": 0, 
+				"accountNonce": "0", 
+				"payload": ""
 			}, 
-			"message": ""
+			"type": "transaction"
+		}, 
+		"message": ""
 	}
 
 Query block
 	
 	//Request
-	http://106.75.171.117:3003/api/v1/search?content=1000
+	http://106.75.171.117:3003/api/v1/search?content=0x0000004e4d103d2447aa02429deb9f36a81dae66a10f5cc0a54717e3b0de7367
 	
 	//Return
 	{
-			"code": 0, 
-			"data": {
-					"info": {
-							"headHash": "0x0000002485f23e29bbc541e0b2e3be07f41d91b0ccbf2d1faeb9c5aa8aa35328", 
-							"preBlockHash": "0x000000b844bc2a667ecac99f88127d8affd40fd6ef7d6a5b989411d381fd0c2a", 
-							"height": 1000, 
-							"age": "7 days ago", 
-							"difficulty": 12570123, 
-							"miner": "0x4dd6881d13ab5152127533c5954e4e062eb4bb2dcd93becf4f4e9b1d2d69f1363eea0395e8e76a2716b033d1e3cc8da2bf24811b1e31a86ac8bcacca4c4b29bd", 
-							"nonce": "11984700971403517952", 
-							"txcount": 1, 
-							"maxheight": 44802, 
-							"minheight": 0
-					}, 
-					"type": "block"
-			}, 
-			"message": ""
+		"code": 0, 
+		"data": {
+			"shardnumber": 1, 
+			"headHash": "0x0000004e4d103d2447aa02429deb9f36a81dae66a10f5cc0a54717e3b0de7367", 
+			"preBlockHash": "0x00000173380e849321d71509bd7c7d2999835c1cfa24ed8eb3048550a186cd24", 
+			"height": 2, 
+			"age": "3 days ago", 
+			"difficulty": 10004882, 
+			"miner": "0x4c10f2cd2159bb432094e3be7e17904c2b4aeb21", 
+			"nonce": "3045711209742202368", 
+			"txcount": 1, 
+			"maxheight": 19211, 
+			"minheight": 0
+		}, 
+		"message": ""
 	}
 	
 Query account
 	
 	//Request
-	http://106.75.171.117:3003/api/v1/search?content=0x4dd6881d13ab5152127533c5954e4e062eb4bb2dcd93becf4f4e9b1d2d69f1363eea0395e8e76a2716b033d1e3cc8da2bf24811b1e31a86ac8bcacca4c4b29bd
+	http://106.75.171.117:3003/api/v1/search?content=0x0ea2a45ab5a909c309439b0e004c61b7b2a3e831
 	
 	//Return
 	{
-			"code": 0, 
-			"data": {
-					"info": {
-							"address": "0x4dd6881d13ab5152127533c5954e4e062eb4bb2dcd93becf4f4e9b1d2d69f1363eea0395e8e76a2716b033d1e3cc8da2bf24811b1e31a86ac8bcacca4c4b29bd", 
-							"balance": 467080000000000, 
-							"percentage": 0, 
-							"txcount": 23354, 
-							"txs": [
-									{
-											"hash": "0xe078976326b60829e6a2d91de5402cdc0f8440158869c6c9a9fddfe38871bbb7", 
-											"block": 44805, 
-											"from": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000", 
-											"to": "0x4dd6881d13ab5152127533c5954e4e062eb4bb2dcd93becf4f4e9b1d2d69f1363eea0395e8e76a2716b033d1e3cc8da2bf24811b1e31a86ac8bcacca4c4b29bd", 
-											"amount": 20000000000, 
-											"age": "1 secs ago", 
-											"txfee": 0, 
-											"inorout": true
-									}
-							]
-					}, 
-					"type": "account"
+		"code": 0, 
+		"data": {
+			"info": {
+				"accType": 0, 
+				"shardnumber": 2, 
+				"address": "0x0ea2a45ab5a909c309439b0e004c61b7b2a3e831", 
+				"balance": 198300000000000, 
+				"percentage": 0.48982314000592825, 
+				"txcount": 22056, 
+				"txs": [
+					{
+						"shardnumber": 2, 
+						"txtype": 0, 
+						"hash": "0x4e2170ad3c9d7a4d468e292be95f1f0ac36d7aadad7f0cd2aab90d20307b484f", 
+						"block": "20241", 
+						"from": "0x0000000000000000000000000000000000000000", 
+						"to": "0x0ea2a45ab5a909c309439b0e004c61b7b2a3e831", 
+						"amount": 20000000000, 
+						"age": "1 mins ago", 
+						"fee": 0, 
+						"inorout": true, 
+						"pending": false
+					}
+				]
 			}, 
-			"message": ""
+			"type": "account"
+		}, 
+		"message": ""
 	}

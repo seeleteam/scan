@@ -1,64 +1,3 @@
->## Get the latest block height
-#### URL
-	https://api.seelescan.io/api/v1/lastblock
-
-#### Return
-1. code: Error code, 0 is normal, non-zero is wrong
-2. message: Errors, correct implementation of the empty
-3. data: Latest block height
-
-#### Example
-	//Request
-	https://api.seelescan.io/api/v1/lastblock
-	
-	//Return
-	{
-			"code": 0, 
-			"data": 44825, 
-			"message": ""
-	}
-	
->## Get the latest block generation time
-#### URL
-	https://api.seelescan.io/api/v1/bestblock
-	
-#### Return
-1. code: Error code, 0 is normal, non-zero is wrong
-2. message: Errors, correct implementation of the empty
-3. data: Latest block generation time
-
-#### Example
-	//Request
-	https://api.seelescan.io/api/v1/bestblock
-	
-	//Return
-	{
-        "code": 0, 
-        "data": "31 secs ago", 
-        "message": ""
-	}
-	
->## Get average block generation time
-#### URL
-	https://api.seelescan.io/api/v1/avgblocktime
-	
-#### Return
-1. code: Error code, 0 is normal, non-zero is wrong
-2. message: Errors, correct implementation of the empty
-3. data: Average block generation time, in seconds
-
-#### Example
-	//Request
-	https://api.seelescan.io/api/v1/avgblocktime
-	
-	//Return
-	{
-			"code": 0, 
-			"data": 14, 
-			"message": ""
-	}
-	
-
 >## Get the total number of transactions
 #### URL
 	https://api.seelescan.io/api/v1/txcount
@@ -66,7 +5,7 @@
 #### Return
 1. code: Error code, 0 is normal, non-zero is wrong
 2. message: Errors, correct implementation of the empty
-3. data: Average block generation time, in seconds
+3. data: total number of transactions
 
 #### Example
 	//Request
@@ -78,44 +17,63 @@
 			"data": 44842, 
 			"message": ""
 	}
-	
->## Get average block difficulty
+
+>## Get the total number of block
 #### URL
-	https://api.seelescan.io/api/v1/difficulty
+	https://api.seelescan.io/api/v1/blockcount
 	
 #### Return
 1. code: Error code, 0 is normal, non-zero is wrong
 2. message: Errors, correct implementation of the empty
-3. data: Block average difficulty
+3. data: total number of blocks
 
 #### Example
 	//Request
-	https://api.seelescan.io/api/v1/txcount
+	https://api.seelescan.io/api/v1/blockcount
 	
 	//Return
 	{
 			"code": 0, 
-			"data": 16628715, 
+			"data": 44842, 
 			"message": ""
 	}
 	
->## Get average hash rate
+>## Get the total number of accounts
 #### URL
-	https://api.seelescan.io/api/v1/hashrate
+	https://api.seelescan.io/api/v1/accountcount
 	
 #### Return
 1. code: Error code, 0 is normal, non-zero is wrong
 2. message: Errors, correct implementation of the empty
-3. data: Average hash rate
+3. data: total number of account
 
 #### Example
 	//Request
-	https://api.seelescan.io/api/v1/txcount
+	https://api.seelescan.io/api/v1/accountcount
 	
 	//Return
 	{
 			"code": 0, 
-			"data": 1217636.8141435185, 
+			"data": 44842, 
 			"message": ""
 	}
+
+>## Get the total number of contracts
+#### URL
+	https://api.seelescan.io/api/v1/contractcount
 	
+#### Return
+1. code: Error code, 0 is normal, non-zero is wrong
+2. message: Errors, correct implementation of the empty
+3. data: total number of contracts
+
+#### Example
+	//Request
+	https://api.seelescan.io/api/v1/contractcount
+	
+	//Return
+	{
+			"code": 0, 
+			"data": 44842, 
+			"message": ""
+	}
