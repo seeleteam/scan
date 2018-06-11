@@ -1,8 +1,8 @@
 <template>
   <div>
     <div class="el-row-wrap lg-show">
-      <el-row type="flex" class="row-bg" justify="space-between">
-        <el-col :span="4">
+      <el-row type="flex" class="row-bg" justify="center">
+        <el-col :span="5">
           <div class="grid-content bg-purple">
             <el-container>
               <el-aside class="img-wrap">
@@ -15,7 +15,7 @@
             </el-container>
           </div>
         </el-col>
-        <el-col :span="4">
+        <el-col :span="5">
           <div class="grid-content bg-purple">
             <el-container>
               <el-aside class="img-wrap">
@@ -28,7 +28,7 @@
             </el-container>
           </div>
         </el-col>
-        <el-col :span="4">
+        <el-col :span="5">
           <div class="grid-content bg-purple">
             <el-container>
               <el-aside class="img-wrap">
@@ -41,7 +41,7 @@
             </el-container>
           </div>
         </el-col>
-        <el-col :span="4">
+        <el-col :span="5">
           <div class="grid-content bg-purple">
             <el-container>
               <el-aside class="img-wrap">
@@ -401,7 +401,7 @@ export default {
   }
   .data-wrap {
     padding: 0;
-    // padding-left: 10px;
+    margin-left: 10px;
     color: #23479c;
     text-align: right;
     .data-title {
