@@ -36,13 +36,11 @@
                 </li>
                 <li>
                   <div class="li-width">{{$t("listHeader.txcount")}}: </div>
-                  <router-link :to="{path: '/transaction'}">
-                    <div class="li-content-width li-content-link">{{accountInfo.txcount | txcountValue}}</div>
-                  </router-link>
+                  <div class="li-content-width li-content-link" @click="getShardValue(accountInfo.shardnumber)">{{accountInfo.txcount | txcountValue}}</div>
                 </li>
                 <li>
                   <br/>
-                  <div class="li-content-width">{{$t("listHeader.listDescription")}} {{accountInfo.txcount | txcountValue}})</div>
+                  <div class="li-content-width" style="color: #999;">{{$t("listHeader.listDescription")}} {{accountInfo.txcount | txcountValue}})</div>
                   <el-table
                     class="list-wrap"
                     :empty-text="$t('message.noData')"
@@ -76,7 +74,8 @@
                       :label="$t('listHeader.from')"
                       width="200">
                       <template slot-scope="scope">
-                        <span class="list-content">{{scope.row.from}}</span>
+                        <span v-if="scope.row.inorout === true" class="list-content table-link-color" @click="toTx(scope.row.from)">{{scope.row.from}}</span>
+                        <span v-else class="list-content">{{scope.row.from}}</span>
                       </template>
                     </el-table-column>
                     <el-table-column
@@ -84,7 +83,7 @@
                       width="100"
                       :label="$t('listHeader.inorout')">
                       <template slot-scope="scope">
-                        <span class="list-content">{{scope.row.inorout}}</span>
+                        <span class="list-content">{{scope.row.inorout?'In':'Out'}}</span>
                       </template>
                     </el-table-column>
                     <el-table-column
@@ -92,7 +91,8 @@
                       width="200"
                       :label="$t('listHeader.to')">
                       <template slot-scope="scope">
-                        <span class="list-content">{{scope.row.to}}</span>
+                        <span v-if="scope.row.inorout === false" class="list-content table-link-color" @click="toTx(scope.row.to)">{{scope.row.to}}</span>
+                        <span v-else class="list-content">{{scope.row.from}}</span>
                       </template>
                     </el-table-column>
                     <el-table-column
@@ -110,6 +110,7 @@
 </template>
 <script>
 import { mapActions } from 'vuex'
+import router from '../../router'
 import Header from '../header'
 import smHeader from '../sm-header'
 import searchInput from '../search-input'
@@ -151,8 +152,16 @@ export default {
   },
   methods: {
     ...mapActions(['getAccountDetail']),
+    ...mapActions(['setShardValue']),
     getDetail (height) {
       this.getAccountDetail(height)
+    },
+    getShardValue (shardNumber) {
+      router.push({path: '/transaction'})
+      this.setShardValue(shardNumber)
+    },
+    toTx (txHash) {
+      router.push({path: '/transaction/detail', query: { txhash: txHash }})
     }
   },
   watch: {

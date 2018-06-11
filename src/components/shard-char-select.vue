@@ -22,7 +22,7 @@ export default {
   data () {
     return {
       options: shardCharOptions,
-      value: '0'
+      value: this.$store.state.shardChar.shardCharValue + ''
     }
   },
   methods: {

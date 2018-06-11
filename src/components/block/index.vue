@@ -27,7 +27,7 @@
                 :label="$t('listHeader.height')"
                 min-width="120">
                 <template slot-scope="scope" class="">
-                  <router-link :to="{path: '/block/detail', query: { height: scope.row.height }}">
+                  <router-link :to="{path: '/block/detail', query: { height: scope.row.height, s: shardValue }}">
                     <span class="table-link-color height">{{scope.row.height}}</span>
                   </router-link>
                 </template>
@@ -45,7 +45,7 @@
                 min-width="100"
                 :label="$t('listHeader.txn')">
                 <template slot-scope="scope">
-                  <router-link :to="{path: '/transaction', query: { block: scope.row.height }}">
+                  <router-link :to="{path: '/transaction', query: { block: scope.row.height, s:shardValue }}">
                     <span class="table-link-color">{{scope.row.txn}}</span>
                   </router-link>
                 </template>
