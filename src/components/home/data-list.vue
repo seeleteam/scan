@@ -1,8 +1,8 @@
 <template>
   <div>
     <div class="el-row-wrap lg-show">
-      <el-row type="flex" class="row-bg" justify="space-between">
-        <el-col :span="4">
+      <el-row type="flex" class="row-bg" justify="center">
+        <el-col :span="5">
           <div class="grid-content bg-purple">
             <el-container>
               <el-aside class="img-wrap">
@@ -15,7 +15,7 @@
             </el-container>
           </div>
         </el-col>
-        <el-col :span="4">
+        <el-col :span="5">
           <div class="grid-content bg-purple">
             <el-container>
               <el-aside class="img-wrap">
@@ -28,11 +28,11 @@
             </el-container>
           </div>
         </el-col>
-        <el-col :span="4">
+        <el-col :span="5">
           <div class="grid-content bg-purple">
             <el-container>
               <el-aside class="img-wrap">
-                <img src="../../assets/imgs/data/HASHRATE.png" :alt="$t('blockStat.accountsCount')">
+                <img src="../../assets/imgs/data/ACCOUNT.png" :alt="$t('blockStat.accountsCount')">
               </el-aside>
               <div class="data-wrap">
                 <div class="data-title">{{$t("blockStat.accountsCount")}}</div>
@@ -41,11 +41,11 @@
             </el-container>
           </div>
         </el-col>
-        <el-col :span="4">
+        <el-col :span="5">
           <div class="grid-content bg-purple">
             <el-container>
               <el-aside class="img-wrap">
-                <img src="../../assets/imgs/data/DIFFICULTY.png" :alt="$t('blockStat.contractsCount')">
+                <img src="../../assets/imgs/data/CONTRACT.png" :alt="$t('blockStat.contractsCount')">
               </el-aside>
               <div class="data-wrap">
                 <div class="data-title">{{$t("blockStat.contractsCount")}}</div>
@@ -165,7 +165,7 @@
         <div class="grid-content bg-purple">
           <el-container>
             <el-aside class="img-wrap">
-              <img src="../../assets/imgs/sm-data/HASHRATE.png" :alt="$t('blockStat.accountsCount')">
+              <img src="../../assets/imgs/sm-data/ACCOUNT.png" :alt="$t('blockStat.accountsCount')">
             </el-aside>
             <div class="data-wrap">
               <div class="data-title">{{accountsCount | numberFilter}}</div>
@@ -178,7 +178,7 @@
         <div class="grid-content bg-purple">
           <el-container>
             <el-aside class="img-wrap">
-              <img src="../../assets/imgs/sm-data/DIFFICULTY.png" :alt="$t('blockStat.contractsCount')">
+              <img src="../../assets/imgs/sm-data/CONTRACT.png" :alt="$t('blockStat.contractsCount')">
             </el-aside>
             <div class="data-wrap">
               <div class="data-title">{{contractsCount | numberFilter}}</div>
@@ -401,7 +401,7 @@ export default {
   }
   .data-wrap {
     padding: 0;
-    // padding-left: 10px;
+    margin-left: 10px;
     color: #23479c;
     text-align: right;
     .data-title {
@@ -432,6 +432,7 @@ export default {
           top: 50%;
           transform: translateY(-50%);
           width: 100%;
+          height: 100%;
         }
       }
       .data-wrap {

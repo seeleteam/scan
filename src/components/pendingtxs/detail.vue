@@ -87,9 +87,9 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['getTransactionDetail']),
+    ...mapActions(['getPendingtxsDetail']),
     getDetail (height) {
-      this.getTransactionDetail(height)
+      this.getPendingtxsDetail(height)
     }
   }
 }

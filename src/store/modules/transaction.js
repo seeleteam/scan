@@ -39,6 +39,7 @@ const actions = {
     let data = {
       test: 1,
       block: params.block,
+      s: params.s,
       p: 1,
       ps: 25
     }

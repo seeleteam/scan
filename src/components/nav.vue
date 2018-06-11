@@ -21,10 +21,24 @@
           {{$t('navs.block')}}
         </router-link>
       </li>
-      <li :class="{'current': currentLink == 'transaction'}">
-        <router-link :to="{path: '/transaction'}">
-          {{$t('navs.transaction')}}
-        </router-link>
+      <li :class="{'current': currentLink == 'transaction' || currentLink == 'pendingtxs'}">
+        <el-dropdown trigger="click">
+          <span class="el-dropdown-link">
+            {{$t('navs.transaction')}}
+          </span>
+          <el-dropdown-menu slot="dropdown">
+            <el-dropdown-item :class="{'dropd-current':currentLink == 'transaction' }">
+              <router-link :to="{path: '/transaction'}">
+                {{$t('navs.transaction')}}
+              </router-link>
+            </el-dropdown-item>
+            <el-dropdown-item :class="{'dropd-current':currentLink == 'pendingtxs' }">
+              <router-link :to="{path: '/pendingtxs'}">
+                {{$t('navs.pendingtxs')}}
+              </router-link>
+            </el-dropdown-item>
+          </el-dropdown-menu>
+        </el-dropdown>
       </li>
       <li :class="{'current': currentLink == 'contract'}">
         <router-link :to="{path: '/contract'}">
@@ -136,13 +150,17 @@ export default {
       margin-right: 30px;
       border-bottom: 2px solid #fff;
       font-size: 16px;
+      .el-dropdown{
+        color: #666;
+        font-size: 16px;
+      }
       a{
         display: inline-block;
         width: 100%;
         color: #666;
       }
       &:hover{
-        a{
+        a, .el-dropdown{
           color: #23479c;
         }
         font-weight: bold;
@@ -150,11 +168,23 @@ export default {
       }
     }
     .current{
-      a{
+      a, .el-dropdown{
         color: #23479c;
       }
       font-weight: bold;
       border-bottom: 2px solid #23479c;
+    }
+  }
+}
+.el-dropdown-menu{
+  .el-dropdown-menu__item{
+    a{
+      color: #666;
+    }
+  }
+  .dropd-current{
+    a{
+      color: #23479c;
     }
   }
 }

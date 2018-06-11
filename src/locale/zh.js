@@ -219,5 +219,9 @@ module.exports = {
       diffTitle: '区块难度增长趋势图',
       diffContent: '统计区块难度以及增长趋势'
     }
+  },
+  tx: {
+    in: '转入',
+    out: '转出'
   }
 }

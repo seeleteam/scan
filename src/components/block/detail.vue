@@ -21,9 +21,9 @@
                 <li>
                   <div class="li-width">{{$t("listHeader.height")}}: </div>
                   <div class="li-content-width">
-                    <span class="height-button prev" @click="getPrevDetail(blocksInfo.height, blocksInfo.minheight)">{{$t("button.prev")}}</span>
+                    <span class="height-button prev" @click="getPrevDetail(blocksInfo.height, blocksInfo.minheight, blocksInfo.shardnumber)">{{$t("button.prev")}}</span>
                     {{blocksInfo.height}}
-                    <span class="height-button next" @click="getNextDetail(blocksInfo.height, blocksInfo.maxheight-1)">{{$t("button.next")}}</span>
+                    <span class="height-button next" @click="getNextDetail(blocksInfo.height, blocksInfo.maxheight-1, blocksInfo.shardnumber)">{{$t("button.next")}}</span>
                   </div>
                 </li>
                 <li>
@@ -59,7 +59,7 @@
                 </li>
                 <li>
                   <div class="li-width">{{$t("listHeader.txcount")}}: </div>
-                  <router-link :to="{path: '/transaction', query: { block: blocksInfo.height }}">
+                  <router-link :to="{path: '/transaction', query: { block: blocksInfo.height, s: shardValue  }}">
                     <div class="li-content-width li-content-link">{{blocksInfo.txcount}}</div>
                   </router-link>
                 </li>
@@ -102,6 +102,11 @@ export default {
       get () {
         return this.$store.state.block.blocksInfo
       }
+    },
+    shardValue: {
+      get () {
+        return this.$store.state.shard.shardValue
+      }
     }
   },
   filters: {
@@ -114,14 +119,15 @@ export default {
     getDetail (height) {
       this.getBlocksDetail(height)
     },
-    getPrevDetail (sedHeight, height) {
+    getPrevDetail (sedHeight, height, s) {
       let data = {}
       if (sedHeight !== height) {
         data = {
-          height: sedHeight - 1
+          height: sedHeight - 1,
+          s: s
         }
         this.getDetail(data)
-        this.$router.push({path: '/block/detail', query: {height: sedHeight}})
+        this.$router.push({path: '/block/detail', query: {height: sedHeight, s: s}})
       } else if (sedHeight === height) {
         this.$message({
           showClose: true,
@@ -130,14 +136,15 @@ export default {
         })
       }
     },
-    getNextDetail (sedHeight, height) {
+    getNextDetail (sedHeight, height, s) {
       let data = {}
       if (sedHeight !== height) {
         data = {
-          height: sedHeight + 1
+          height: sedHeight + 1,
+          s: s
         }
         this.getDetail(data)
-        this.$router.push({path: '/block/detail', query: {height: sedHeight}})
+        this.$router.push({path: '/block/detail', query: {height: sedHeight, s: s}})
       } else if (sedHeight === height) {
         this.$message({
           showClose: true,

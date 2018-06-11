@@ -48,7 +48,7 @@
                 :label="$t('listHeader.block')"
                 width="110">
                 <template slot-scope="scope">
-                  <router-link :to="{path: '/block/detail', query: { height: scope.row.block }}">
+                  <router-link :to="{path: '/block/detail', query: { height: scope.row.block, s: shardValue }}">
                     <span class="table-link-color list-content">{{scope.row.block}}</span>
                   </router-link>
                 </template>

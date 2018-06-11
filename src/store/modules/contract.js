@@ -28,7 +28,7 @@ const actions = {
       .then(doc => {
         if (doc.success) {
           let dataList = doc.data
-          commit(types.ACCOUNT_LIST, dataList)
+          commit(types.CONTRACT_LIST, dataList)
         }
       })
   },
@@ -37,7 +37,7 @@ const actions = {
       .then(doc => {
         if (doc.success) {
           let info = doc.data
-          commit(types.ACCOUNT_DETAIL, info)
+          commit(types.CONTRACT_DETAIL, info)
         }
       })
   }
@@ -46,12 +46,12 @@ const actions = {
 // mutations
 // state modification
 const mutations = {
-  [types.ACCOUNT_LIST] (state, dataList) {
+  [types.CONTRACT_LIST] (state, dataList) {
     state.page = dataList.pageInfo.curPage
     state.total = dataList.pageInfo.totalCount
     state.contractList = dataList.list
   },
-  [types.ACCOUNT_DETAIL] (state, info) {
+  [types.CONTRACT_DETAIL] (state, info) {
     state.contractInfo = info
   }
 }
