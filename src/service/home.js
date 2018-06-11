@@ -2,7 +2,7 @@ import request from '../untils/request'
 import config from '../untils/config'
 
 const { API } = config
-const { txcountUrl, lastblockUrl, bestblockUrl, avgblocktimeUrl, hashrateUrl, networkdifficultyUrl } = API
+const { txcountUrl, lastblockUrl, bestblockUrl, avgblocktimeUrl, hashrateUrl, networkdifficultyUrl, blocksCountUrl, transactionsCountUrl, accountsCountUrl, contractsCountUrl } = API
 
 async function txCount (data) {
   return request({
@@ -46,6 +46,34 @@ async function networkDifficulty (data) {
     data
   })
 }
+async function blocksCount (data) {
+  return request({
+    url: blocksCountUrl,
+    method: 'GET',
+    data
+  })
+}
+async function transactionsCount (data) {
+  return request({
+    url: transactionsCountUrl,
+    method: 'GET',
+    data
+  })
+}
+async function accountsCount (data) {
+  return request({
+    url: accountsCountUrl,
+    method: 'GET',
+    data
+  })
+}
+async function contractsCount (data) {
+  return request({
+    url: contractsCountUrl,
+    method: 'GET',
+    data
+  })
+}
 
 export {
   txCount,
@@ -53,5 +81,9 @@ export {
   bestBlock,
   avgBlockTime,
   hashRate,
-  networkDifficulty
+  networkDifficulty,
+  blocksCount,
+  transactionsCount,
+  accountsCount,
+  contractsCount
 }

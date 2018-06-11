@@ -1,5 +1,5 @@
 <template>
-    <div class="home-header-wrap">
+    <div>
       <div class="fl home-nav-wrap">
         <Nav></Nav>
       </div>
@@ -24,8 +24,6 @@ export default {
 }
 </script>
 <style lang="less">
-.home-header-wrap{
-}
 @media screen and (max-width: 768px ) {
   .home-nav-wrap{
     width: 100%;

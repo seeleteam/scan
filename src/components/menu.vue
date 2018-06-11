@@ -42,7 +42,7 @@ export default {
   data () {
     return {
       radio1: process.env.NEW_WORK_ID || 1,
-      radio2: 2
+      radio2: this.$i18n.locale === 'en' ? 2 : 1
     }
   },
   mounted () {
@@ -53,9 +53,9 @@ export default {
       sessionStorage.setItem('Network', this.radio1)
     },
     changeLanguage () {
-      this.$i18n.locale = this.radio2 === 2
+      this.$i18n.locale = (this.radio2 === 2
         ? 'en'
-        : this.radio1 === 1 ? 'zh' : ''
+        : this.radio2 === 1 ? 'zh' : '')
     }
   }
 }

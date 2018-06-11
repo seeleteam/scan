@@ -7,7 +7,7 @@ module.exports = {
     noNext: '无下一区块'
   },
   placeholder: {
-    searchInput: '按 地址 / 交易哈希 / 区块高度 / 合约地址等 搜索'
+    searchInput: '按 账户地址 / 交易哈希 / 区块哈希 / 合约地址等 搜索'
   },
   network: {
     title: '网络类型',
@@ -31,26 +31,33 @@ module.exports = {
     account: '账户',
     block: '区块',
     transaction: '交易',
+    pendingtxs: '交易池',
     contract: '合约',
     token: '代币',
     statChar: '统计图',
     api: 'Api'
   },
   blockStat: {
+    blocksCount: '区块总数',
+    transactionsCount: '交易总数',
+    accountsCount: '账户总数',
+    contractsCount: '合约总数',
     bestBlock: '最新区块',
     lastBlock: '上个区块',
     avgBLockTime: '平均区块时间',
-    activeNodes: '活跃节点',
     tranSactions: '交易数',
+    activeNodes: '活跃节点',
     hashRate: '哈希速率',
     networkDifficulty: '网络难度'
   },
   listHeader: {
-    rank: '等级',
+    shardnumber: '分片',
+    rank: '序号',
     address: '地址',
     balance: '余额',
     percentage: '百分比',
     txCount: '交易数',
+    listDescription: '账户交易列表 (仅展示最近的25条记录，共获取',
 
     txHash: '交易哈希',
     age: '年龄',
@@ -61,12 +68,12 @@ module.exports = {
 
     height: '高度',
     txn: '交易数',
-    uncles: 'UnclesX',
+    uncles: '叔伯块',
     miner: '挖矿工',
-    gasLimit: 'GasLimitX',
+    gasLimit: '燃料限制',
     difficulty: '难度',
-    hashRate: 'HashRateX',
-    reward: 'RewardX',
+    hashRate: '哈希速率',
+    reward: '奖励',
 
     contractName: '合约名称',
     compiler: '编译',
@@ -74,15 +81,15 @@ module.exports = {
     dateVerified: '数据',
 
     block: '区块',
-    headHash: 'HeadHashX',
-    nonce: 'NonceX',
+    headHash: '哈希',
+    nonce: '一次有效随机串',
     preBlockHash: '上一区块哈希',
     txcount: '交易数',
 
     amount: 'amountX',
     hash: '哈希',
-    inorout: 'inoroutX',
-    txfee: 'txfeeX',
+    inorout: '转入转出',
+    txfee: '手续费',
 
     nodeRank: '排名',
     nodeRegion: '国家',
@@ -93,7 +100,7 @@ module.exports = {
     port: '节点端口',
     client: '客户端',
     caps: 'Caps',
-    lastSeen: 'LastSeen'
+    lastSeen: '最后一次更新'
   },
   char: {
     accounts: '账户统计图',
@@ -136,9 +143,9 @@ module.exports = {
       historyTipTotal: '总交易量',
       historyTipAvgDifficulty: '平均难度变化趋势图',
       historyTipHashRate: '网络哈希效率',
-      historyTipAvgBlockTime: 'Avg BlockTime',
-      historyTipTotalBlockCount: 'Total BlockCount',
-      historyTipNewAddressSeen: 'New Address seen'
+      historyTipAvgBlockTime: '平均区块时间',
+      historyTipTotalBlockCount: '区块总数',
+      historyTipNewAddressSeen: '新增账户'
     },
     block: {
       avgTimeName: '区块平均时间趋势图',

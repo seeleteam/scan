@@ -27,8 +27,7 @@
         </router-link>
       </li>
       <li :class="{'current': currentLink == 'contract'}">
-        <!-- <router-link :to="{path: '/'}"> -->
-        <router-link to="">
+        <router-link :to="{path: '/contract'}">
           {{$t('navs.contract')}}
         </router-link>
       </li>

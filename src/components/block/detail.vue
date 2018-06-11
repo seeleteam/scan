@@ -27,6 +27,10 @@
                   </div>
                 </li>
                 <li>
+                  <div class="li-width">{{$t("listHeader.shardnumber")}}: </div>
+                  <div class="li-content-width">{{blocksInfo.shardnumber}}</div>
+                </li>
+                <li>
                   <div class="li-width">{{$t("listHeader.age")}}: </div>
                   <div class="li-content-width">{{blocksInfo.age}}</div>
                 </li>
