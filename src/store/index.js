@@ -4,7 +4,9 @@ import block from './modules/block.js'
 import search from './modules/search.js'
 import home from './modules/home.js'
 import transaction from './modules/transaction.js'
+import pendingtxs from './modules/pendingtxs.js'
 import account from './modules/account.js'
+import contract from './modules/contract.js'
 import node from './modules/node.js'
 import chart from './modules/chart.js'
 import shard from './modules/shard.js'
@@ -22,7 +24,9 @@ export default new vuex.Store({
     block,
     home,
     transaction,
+    pendingtxs,
     account,
+    contract,
     node,
     chart,
     shard,

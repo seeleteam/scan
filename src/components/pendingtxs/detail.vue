@@ -20,37 +20,31 @@
             <ul class="detail-wrap wrap-pad">
               <li>
                 <div class="li-width">{{$t("listHeader.txHash")}}: </div>
-                <div class="li-content-width">{{transactionInfo.txHash}}</div>
+                <div class="li-content-width">{{pendingtxsInfo.txHash}}</div>
               </li>
               <li>
                 <div class="li-width">{{$t("listHeader.shardnumber")}}: </div>
-                <div class="li-content-width">{{transactionInfo.shardnumber}}</div>
-              </li>
-              <li>
-                <div class="li-width">{{$t("listHeader.block")}}: </div>
-                <router-link :to="{path: '/block/detail', query: { height: transactionInfo.block }}">
-                  <div class="li-content-width li-content-link">{{transactionInfo.block}}</div>
-                </router-link>
+                <div class="li-content-width">{{pendingtxsInfo.shardnumber}}</div>
               </li>
               <li>
                 <div class="li-width">{{$t("listHeader.age")}}: </div>
-                <div class="li-content-width">{{transactionInfo.age}}</div>
+                <div class="li-content-width">{{pendingtxsInfo.age}}</div>
               </li>
               <li>
                 <div class="li-width">{{$t("listHeader.from")}}: </div>
-                <router-link :to="{path: '/account/detail', query: { address: transactionInfo.from }}">
-                  <div class="li-content-width li-content-link">{{transactionInfo.from}}</div>
+                <router-link :to="{path: '/account/detail', query: { address: pendingtxsInfo.from }}">
+                  <div class="li-content-width li-content-link">{{pendingtxsInfo.from}}</div>
                 </router-link>
               </li>
               <li>
                 <div class="li-width">{{$t("listHeader.to")}}: </div>
-                <router-link :to="{path: '/account/detail', query: { address: transactionInfo.to }}">
-                  <div class="li-content-width li-content-link">{{transactionInfo.to}}</div>
+                <router-link :to="{path: '/account/detail', query: { address: pendingtxsInfo.to }}">
+                  <div class="li-content-width li-content-link">{{pendingtxsInfo.to}}</div>
                 </router-link>
               </li>
               <li>
                 <div class="li-width">{{$t("listHeader.value")}}: </div>
-                <div class="li-content-width">{{transactionInfo.value}}</div>
+                <div class="li-content-width">{{pendingtxsInfo.value}}</div>
               </li>
             </ul>
           </div>
@@ -70,9 +64,9 @@ import Footer from '../footer'
 export default {
   data () {
     return {
-      title: this.$t('navs.transaction'),
+      title: this.$t('navs.pendingtxs'),
       content: '',
-      link: this.$t('navs.transaction')
+      link: this.$t('navs.pendingtxs')
     }
   },
   components: {
@@ -86,9 +80,9 @@ export default {
     this.getDetail(this.$route.query)
   },
   computed: {
-    transactionInfo: {
+    pendingtxsInfo: {
       get () {
-        return this.$store.state.transaction.transactionInfo
+        return this.$store.state.pendingtxs.pendingtxsInfo
       }
     }
   },
@@ -103,7 +97,7 @@ export default {
 <style lang="less">
 @import "../../assets/css/page.less";
 @import "../../assets/css/detail.less";
-.transaction-wrap{
+.pendingtxs-wrap{
   height: 100%;
 }
 </style>

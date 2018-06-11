@@ -74,8 +74,7 @@
           <img v-show="currentLink != 'contract'" src="../assets/imgs/navs/Contract_H.png" alt="">
           <img v-show="currentLink == 'contract'" src="../assets/imgs/navs/Contract_B.png" alt="">
         </div>
-        <!-- <router-link :to="{path: '/'}"> -->
-        <router-link to="">
+        <router-link :to="{path: '/contract'}">
           {{$t('navs.contract')}}
         </router-link>
       </li>

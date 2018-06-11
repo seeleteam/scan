@@ -23,6 +23,10 @@
                   <div class="li-content-width">{{accountInfo.address}}</div>
                 </li>
                 <li>
+                  <div class="li-width">{{$t("listHeader.shardnumber")}}: </div>
+                  <div class="li-content-width">{{accountInfo.shardnumber}}</div>
+                </li>
+                <li>
                   <div class="li-width">{{$t("listHeader.balance")}}: </div>
                   <div class="li-content-width">{{accountInfo.balance | balanceValue}}</div>
                 </li>
@@ -37,21 +41,31 @@
                   </router-link>
                 </li>
                 <li>
+                  <br/>
+                  <div class="li-content-width">{{$t("listHeader.listDescription")}} {{accountInfo.txcount | txcountValue}})</div>
                   <el-table
                     class="list-wrap"
                     :empty-text="$t('message.noData')"
                     :data="accountInfo.txs"
                     style="width: 100%; background: transparent">
                     <el-table-column
+                      prop="hash"
+                      width="200"
+                      :label="$t('listHeader.hash')">
+                      <template slot-scope="scope">
+                        <span class="list-content">{{scope.row.hash}}</span>
+                      </template>
+                    </el-table-column>
+                    <el-table-column
                       prop="age"
                       width="120"
                       :label="$t('listHeader.age')">
                     </el-table-column>
-                    <el-table-column
+                    <!-- <el-table-column
                       prop="amount"
                       width="100"
                       :label="$t('listHeader.amount')">
-                    </el-table-column>
+                    </el-table-column> -->
                     <el-table-column
                       prop="block"
                       :label="$t('listHeader.block')"
@@ -63,14 +77,6 @@
                       width="200">
                       <template slot-scope="scope">
                         <span class="list-content">{{scope.row.from}}</span>
-                      </template>
-                    </el-table-column>
-                    <el-table-column
-                      prop="hash"
-                      width="200"
-                      :label="$t('listHeader.hash')">
-                      <template slot-scope="scope">
-                        <span class="list-content">{{scope.row.hash}}</span>
                       </template>
                     </el-table-column>
                     <el-table-column

@@ -11,46 +11,58 @@
         </div>
         <div class="main-wrap">
           <div class="wrap">
-            <ContractDescribe
-              :title="title"
-              :content="content"
-              :link="link"
-            ></ContractDescribe>
+            <div class="describe-title-wrap">
+              <span class="title">{{title}}</span>
+              <ul class="link-wrap">
+                <li><a href="/">{{$t("navs.home")}}</a></li>
+                <li><i class="el-icon-arrow-right"></i></li>
+                <li class="current">{{link}}</li>
+              </ul>
+            </div>
             <ShardSelect></ShardSelect>
             <el-table
               class="list-wrap"
+              :data="pendingtxsList"
               :empty-text="$t('message.noData')"
-              :data="contractList"
               style="width: 100%">
               <el-table-column
-                prop="address"
-                width="500"
-                :label="$t('listHeader.address')">
+                prop="txHash"
+                width="300"
+                :label="$t('listHeader.txHash')">
                 <template slot-scope="scope">
-                  <router-link :to="{path: '/contract/detail', query: { address: scope.row.address }}">
-                    <span class="table-link-color list-content">{{scope.row.address}}</span>
+                  <router-link :to="{path: '/pendingtxs/detail', query: { txhash: scope.row.txHash }}">
+                    <span class="table-link-color list-content">{{scope.row.txHash}}</span>
                   </router-link>
                 </template>
               </el-table-column>
               <el-table-column
-                prop="balance"
-                :label="$t('listHeader.balance')"
-                width="300">
+                prop="age"
+                :label="$t('listHeader.age')"
+                width="110">
+              </el-table-column>
+              <el-table-column
+                prop="from"
+                width="300"
+                :label="$t('listHeader.from')">
                 <template slot-scope="scope">
-                    <span class="list-content">{{scope.row.balance | balanceValue}}</span>
+                  <router-link :to="{path: '/account/detail', query: { address: scope.row.from }}">
+                    <span class="table-link-color list-content">{{scope.row.from}}</span>
+                  </router-link>
                 </template>
               </el-table-column>
               <el-table-column
-                prop="percentage"
-                :label="$t('listHeader.percentage')"
-                width="120">
+                prop="to"
+                width="300"
+                :label="$t('listHeader.to')">
+                <template slot-scope="scope">
+                  <router-link :to="{path: '/account/detail', query: { address: scope.row.to }}">
+                    <span class="table-link-color list-content">{{scope.row.to}}</span>
+                  </router-link>
+                </template>
               </el-table-column>
               <el-table-column
-                prop="txcount"
-                :label="$t('listHeader.txcount')">
-                <template slot-scope="scope">
-                    <span class="list-content">{{scope.row.txcount | txcountValue}}</span>
-                </template>
+                prop="value"
+                :label="$t('listHeader.value')">
               </el-table-column>
             </el-table>
             <el-pagination
@@ -69,48 +81,48 @@
 </template>
 <script>
 import { mapActions } from 'vuex'
+
 import Header from '../header'
 import smHeader from '../sm-header'
 import searchInput from '../search-input'
-import ContractDescribe from '../describe'
+import PendingtxsDescribe from '../describe'
 import Footer from '../footer'
-import { formatNumber } from '../../untils/format'
 import ShardSelect from '../shard-select'
 
 export default {
   data () {
     return {
-      title: this.$t('navs.contract'),
-      content: '',
-      link: this.$t('navs.contract'),
+      title: this.$t('navs.pendingtxs'),
+      isShow: false,
+      link: this.$t('navs.pendingtxs'),
+
       pageSize: 25
     }
+  },
+  mounted () {
   },
   components: {
     Header,
     smHeader,
     searchInput,
-    ContractDescribe,
+    PendingtxsDescribe,
     Footer,
     ShardSelect
   },
-  mounted () {
-    this.getList(1)
-  },
   computed: {
-    contractList: {
+    pendingtxsList: {
       get () {
-        return this.$store.state.contract.contractList
+        return this.$store.state.pendingtxs.pendingtxsList
       }
     },
     page: {
       get () {
-        return this.$store.state.contract.page
+        return this.$store.state.pendingtxs.page
       }
     },
     total: {
       get () {
-        return this.$store.state.contract.total
+        return this.$store.state.pendingtxs.total
       }
     },
     shardValue: {
@@ -120,7 +132,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['getContractList']),
+    ...mapActions(['getPendingtxsList']),
 
     handleSizeChange (val) {
       this.getList(val, this.shardValue)
@@ -129,18 +141,13 @@ export default {
       this.getList(val, this.shardValue)
     },
     getList (page) {
-      this.getContractList([page, this.shardValue])
-    }
-  },
-  filters: {
-    balanceValue (value) {
-      return formatNumber(value)
-    },
-    txcountValue (value) {
-      return formatNumber(value)
+      this.getTransactionList([page, this.shardValue])
     }
   },
   watch: {
+    '$route' (to, from) {
+      this.getList(1)
+    },
     shardValue: {
       handler: function (val, oldval) {
         this.getList(1, this.shardValue)
@@ -150,6 +157,7 @@ export default {
 }
 </script>
 <style lang="less">
-@import "../../assets/css/page.less";
-@import "../../assets/css/list.less";
+  @import "../../assets/css/page.less";
+  @import "../../assets/css/describe.less";
+  @import "../../assets/css/list.less";
 </style>

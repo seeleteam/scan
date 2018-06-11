@@ -10,6 +10,10 @@ module.exports = {
     avgblocktimeUrl: `${URL}/avgblocktime`,
     hashrateUrl: `${URL}/hashrate`,
     networkdifficultyUrl: `${URL}/difficulty`,
+    blocksCountUrl: `${URL}/blockcount`,
+    transactionsCountUrl: `${URL}/txcount`,
+    accountsCountUrl: `${URL}/accountcount`,
+    contractsCountUrl: `${URL}/contractcount`,
 
     blocksUrl: `${URL}/blocks`,
     blocksDetailUrl: `${URL}/block`,
@@ -18,8 +22,14 @@ module.exports = {
     txsUrl: `${URL}/txs`,
     txUrl: `${URL}/tx`,
 
+    pendingtxsUrl: `${URL}/pendingtxs`,
+    pendingtxUrl: `${URL}/tx`,
+
     accountsUrl: `${URL}/accounts`,
     accountUrl: `${URL}/account`,
+
+    contractsUrl: `${URL}/contracts`,
+    contractUrl: `${URL}/contract`,
 
     nodesUrl: `${URL}/nodes`,
     nodeUrl: `${URL}/node`,

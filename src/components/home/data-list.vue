@@ -2,7 +2,59 @@
   <div>
     <div class="el-row-wrap lg-show">
       <el-row type="flex" class="row-bg" justify="space-between">
-        <el-col :span="3">
+        <el-col :span="4">
+          <div class="grid-content bg-purple">
+            <el-container>
+              <el-aside class="img-wrap">
+                <img src="../../assets/imgs/data/BESTBLOCK.png" :alt="$t('blockStat.blocksCount')">
+              </el-aside>
+              <div class="data-wrap">
+                <div class="data-title">{{$t("blockStat.blocksCount")}}</div>
+                <div class="data-content">{{blocksCount | numberFilter}}</div>
+              </div>
+            </el-container>
+          </div>
+        </el-col>
+        <el-col :span="4">
+          <div class="grid-content bg-purple">
+            <el-container>
+              <el-aside class="img-wrap">
+                <img src="../../assets/imgs/data/TRANSACTIONS.png" :alt="$t('blockStat.transactionsCount')">
+              </el-aside>
+              <div class="data-wrap">
+                <div class="data-title">{{$t("blockStat.transactionsCount")}}</div>
+                <div class="data-content">{{transactionsCount | numberFilter}}</div>
+              </div>
+            </el-container>
+          </div>
+        </el-col>
+        <el-col :span="4">
+          <div class="grid-content bg-purple">
+            <el-container>
+              <el-aside class="img-wrap">
+                <img src="../../assets/imgs/data/HASHRATE.png" :alt="$t('blockStat.accountsCount')">
+              </el-aside>
+              <div class="data-wrap">
+                <div class="data-title">{{$t("blockStat.accountsCount")}}</div>
+                <div class="data-content">{{accountsCount | numberFilter}}</div>
+              </div>
+            </el-container>
+          </div>
+        </el-col>
+        <el-col :span="4">
+          <div class="grid-content bg-purple">
+            <el-container>
+              <el-aside class="img-wrap">
+                <img src="../../assets/imgs/data/DIFFICULTY.png" :alt="$t('blockStat.contractsCount')">
+              </el-aside>
+              <div class="data-wrap">
+                <div class="data-title">{{$t("blockStat.contractsCount")}}</div>
+                <div class="data-content">{{contractsCount | numberFilter}}</div>
+              </div>
+            </el-container>
+          </div>
+        </el-col>
+        <!-- <el-col :span="3">
           <div class="grid-content bg-purple">
             <el-container>
               <el-aside class="img-wrap">
@@ -41,7 +93,7 @@
             </el-container>
           </div>
         </el-col>
-        <!-- <el-col :span="4">
+        <el-col :span="4">
           <div class="grid-content bg-purple">
             <el-container>
               <el-aside class="img-wrap">
@@ -53,25 +105,12 @@
               </div>
             </el-container>
           </div>
-        </el-col> -->
-        <el-col :span="3">
-          <div class="grid-content bg-purple">
-            <el-container>
-              <el-aside class="img-wrap">
-                <img src="../../assets/imgs/data/TRANSACTIONS.png" :alt="$t('blockStat.tranSactions')">
-              </el-aside>
-              <div class="data-wrap">
-                <div class="data-title">{{$t("blockStat.tranSactions")}}</div>
-                <div class="data-content">{{txCount | tranSactionsValue}}</div>
-              </div>
-            </el-container>
-          </div>
         </el-col>
         <el-col :span="3">
           <div class="grid-content bg-purple">
             <el-container>
               <el-aside class="img-wrap">
-                <img src="../../assets/imgs/data/HASHRATE.png" :alt="$t('blockStat.tranSactions')">
+                <img src="../../assets/imgs/data/HASHRATE.png" :alt="$t('blockStat.hashRate')">
               </el-aside>
               <div class="data-wrap">
                 <div class="data-title">{{$t("blockStat.hashRate")}}</div>
@@ -84,7 +123,7 @@
           <div class="grid-content bg-purple">
             <el-container>
               <el-aside class="img-wrap">
-                <img src="../../assets/imgs/data/DIFFICULTY.png" :alt="$t('blockStat.tranSactions')">
+                <img src="../../assets/imgs/data/DIFFICULTY.png" :alt="$t('blockStat.networkDifficulty')">
               </el-aside>
               <div class="data-wrap">
                 <div class="data-title">{{$t("blockStat.networkDifficulty")}}</div>
@@ -92,11 +131,63 @@
               </div>
             </el-container>
           </div>
-        </el-col>
+        </el-col> -->
       </el-row>
     </div>
     <el-row class="row-bg sm-el-row-wrap sm-show">
-      <el-col :span="24" class="el-col-wrap el-col-best">
+      <el-col :span="24" class="el-col-wrap el-col-blockscount">
+        <div class="grid-content bg-purple">
+          <el-container>
+            <el-aside class="img-wrap">
+              <img src="../../assets/imgs/sm-data/BESTBLOCK.png" :alt="$t('blockStat.blocksCount')">
+            </el-aside>
+            <div class="data-wrap">
+              <div class="data-title"># {{blocksCount | numberFilter}}</div>
+              <div class="data-content">{{$t("blockStat.blocksCount")}}</div>
+            </div>
+          </el-container>
+        </div>
+      </el-col>
+      <el-col :span="24" class="el-col-wrap el-col-transactionscount">
+        <div class="grid-content bg-purple">
+          <el-container>
+            <el-aside class="img-wrap">
+              <img src="../../assets/imgs/sm-data/TRANSACTIONS.png" :alt="$t('blockStat.transactionsCount')">
+            </el-aside>
+            <div class="data-wrap">
+              <div class="data-title">{{transactionsCount | numberFilter}}</div>
+              <div class="data-content">{{$t("blockStat.transactionsCount")}}</div>
+            </div>
+          </el-container>
+        </div>
+      </el-col>
+      <el-col :span="24" class="el-col-wrap el-col-accountscount">
+        <div class="grid-content bg-purple">
+          <el-container>
+            <el-aside class="img-wrap">
+              <img src="../../assets/imgs/sm-data/HASHRATE.png" :alt="$t('blockStat.accountsCount')">
+            </el-aside>
+            <div class="data-wrap">
+              <div class="data-title">{{accountsCount | numberFilter}}</div>
+              <div class="data-content">{{$t("blockStat.accountsCount")}}</div>
+            </div>
+          </el-container>
+        </div>
+      </el-col>
+      <el-col :span="24" class="el-col-wrap el-col-contractscount">
+        <div class="grid-content bg-purple">
+          <el-container>
+            <el-aside class="img-wrap">
+              <img src="../../assets/imgs/sm-data/DIFFICULTY.png" :alt="$t('blockStat.contractsCount')">
+            </el-aside>
+            <div class="data-wrap">
+              <div class="data-title">{{contractsCount | numberFilter}}</div>
+              <div class="data-content">{{$t("blockStat.contractsCount")}}</div>
+            </div>
+          </el-container>
+        </div>
+      </el-col>
+      <!-- <el-col :span="24" class="el-col-wrap el-col-best">
         <div class="grid-content bg-purple">
           <el-container>
             <el-aside class="img-wrap">
@@ -135,7 +226,7 @@
           </el-container>
         </div>
       </el-col>
-      <!-- <el-col :span="24" class="el-col-wrap el-col-active">
+      <el-col :span="24" class="el-col-wrap el-col-active">
         <div class="grid-content bg-purple">
           <el-container>
             <el-aside class="img-wrap">
@@ -147,7 +238,7 @@
             </div>
           </el-container>
         </div>
-      </el-col> -->
+      </el-col>
       <el-col :span="24" class="el-col-wrap el-col-tran">
         <div class="grid-content bg-purple">
           <el-container>
@@ -186,13 +277,14 @@
             </div>
           </el-container>
         </div>
-      </el-col>
+      </el-col> -->
     </el-row>
     </div>
 </template>
 <script>
 import { mapActions } from 'vuex'
-import { formatNumber, formatTime, formatCount, formatDifficulty, formatAvgNetHashRate } from '../../untils/format'
+// import { formatNumber, formatTime, formatCount, formatDifficulty, formatAvgNetHashRate } from '../../untils/format'
+import { formatCount } from '../../untils/format'
 
 export default {
   data () {
@@ -203,63 +295,91 @@ export default {
     this.dataList()
   },
   computed: {
-    txCount: {
+    // txCount: {
+    //   get () {
+    //     return this.$store.state.home.txCount
+    //   }
+    // },
+    // lastBlock: {
+    //   get () {
+    //     return this.$store.state.home.lastBlock
+    //   }
+    // },
+    // bestBlock: {
+    //   get () {
+    //     return this.$store.state.home.bestBlock
+    //   }
+    // },
+    // avgBlockTime: {
+    //   get () {
+    //     return this.$store.state.home.avgBlockTime
+    //   }
+    // },
+    // hashRate: {
+    //   get () {
+    //     return this.$store.state.home.hashRate
+    //   }
+    // },
+    // networkDifficulty: {
+    //   get () {
+    //     return this.$store.state.home.networkDifficulty
+    //   }
+    // },
+    blocksCount: {
       get () {
-        return this.$store.state.home.txCount
+        return this.$store.state.home.blocksCount
       }
     },
-    lastBlock: {
+    transactionsCount: {
       get () {
-        return this.$store.state.home.lastBlock
+        return this.$store.state.home.transactionsCount
       }
     },
-    bestBlock: {
+    accountsCount: {
       get () {
-        return this.$store.state.home.bestBlock
+        return this.$store.state.home.accountsCount
       }
     },
-    avgBlockTime: {
+    contractsCount: {
       get () {
-        return this.$store.state.home.avgBlockTime
-      }
-    },
-    hashRate: {
-      get () {
-        return this.$store.state.home.hashRate
-      }
-    },
-    networkDifficulty: {
-      get () {
-        return this.$store.state.home.networkDifficulty
+        return this.$store.state.home.contractsCount
       }
     }
   },
   filters: {
-    bastBlockValue (value) {
-      return formatNumber(value)
-    },
-    tranSactionsValue (value) {
+    // bastBlockValue (value) {
+    //   return formatNumber(value)
+    // },
+    // tranSactionsValue (value) {
+    //   return formatCount(value)
+    // },
+    // avgValue (value) {
+    //   return formatTime(value)
+    // },
+    // hashRateFilter (value) {
+    //   return formatAvgNetHashRate(value)
+    // },
+    // networkDifficultyFilter (value) {
+    //   return formatDifficulty(value)
+    // },
+    numberFilter (value) {
       return formatCount(value)
-    },
-    avgValue (value) {
-      return formatTime(value)
-    },
-    hashRateFilter (value) {
-      return formatAvgNetHashRate(value)
-    },
-    networkDifficultyFilter (value) {
-      return formatDifficulty(value)
     }
   },
   methods: {
-    ...mapActions(['getTxCount', 'getLastBlock', 'getBestBlock', 'getAvgBlockTime', 'getHashRate', 'getNetworkDifficulty']),
+    // ...mapActions(['getTxCount', 'getLastBlock', 'getBestBlock', 'getAvgBlockTime', 'getHashRate', 'getNetworkDifficulty']),
+    ...mapActions(['getBlocksCount', 'getTransactionsCount', 'getAccountsCount', 'getContractsCount']),
     dataList () {
-      this.getTxCount()
-      this.getLastBlock()
-      this.getBestBlock()
-      this.getAvgBlockTime()
-      this.getHashRate()
-      this.getNetworkDifficulty()
+      // this.getTxCount()
+      // this.getLastBlock()
+      // this.getBestBlock()
+      // this.getAvgBlockTime()
+      // this.getHashRate()
+      // this.getNetworkDifficulty()
+      this.getBlocksCount()
+      this.getTransactionsCount()
+      this.getAccountsCount()
+      this.getContractsCount()
     }
   }
 }
@@ -329,6 +449,18 @@ export default {
           font-size: 12px;
         }
       }
+    }
+    .el-col-blockscount{
+      background: #1bce5a;
+    }
+    .el-col-transactionscount{
+      background: #0fb6da;
+    }
+    .el-col-accountscount{
+      background: #daad0f;
+    }
+    .el-col-contractscount{
+      background: #254ad2;
     }
     .el-col-best{
       background: #1bce5a;

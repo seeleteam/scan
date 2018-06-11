@@ -3,8 +3,12 @@ import Router from 'vue-router'
 import home from '@/components/home/index'
 import account from '@/components/account/index'
 import accountDetail from '@/components/account/detail'
+import contract from '@/components/contract/index'
+import contractDetail from '@/components/contract/detail'
 import transaction from '@/components/transaction/index'
 import transactionDetail from '@/components/transaction/detail'
+import pendingtxs from '@/components/pendingtxs/index'
+import pendingtxsDetail from '@/components/pendingtxs/detail'
 import block from '@/components/block/index'
 import blockDetail from '@/components/block/detail'
 import node from '@/components/node/index'
@@ -33,6 +37,16 @@ export default new Router({
       component: accountDetail
     },
     {
+      path: '/contract',
+      name: 'contract',
+      component: contract
+    },
+    {
+      path: '/contract/detail',
+      name: 'contractDetail',
+      component: contractDetail
+    },
+    {
       path: '/nodemap',
       name: 'nodemap',
       component: nodemap
@@ -56,6 +70,16 @@ export default new Router({
       path: '/transaction/detail',
       name: 'transactionDetail',
       component: transactionDetail
+    },
+    {
+      path: '/pendingtxs',
+      name: 'pendingtxs',
+      component: pendingtxs
+    },
+    {
+      path: '/pendingtxs/detail',
+      name: 'pendingtxsDetail',
+      component: pendingtxsDetail
     },
     {
       path: '/block',

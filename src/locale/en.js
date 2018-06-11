@@ -6,7 +6,7 @@ module.exports = {
     noNext: 'No Next'
   },
   placeholder: {
-    searchInput: 'Search by Address / Txhash / Block / Contract'
+    searchInput: 'Search by Address / TxHash / BlockHash / Contract'
   },
   network: {
     title: 'Monitor Network',
@@ -30,12 +30,17 @@ module.exports = {
     account: 'Account',
     block: 'Block',
     transaction: 'Transaction',
+    pendingtxs: 'PendingTxs',
     contract: 'Contract',
     token: 'Token',
     statChar: 'StatChar',
     api: 'Api'
   },
   blockStat: {
+    blocksCount: 'BLOCKS',
+    transactionsCount: 'TRANSACTIONS',
+    accountsCount: 'ACCOUNTS',
+    contractsCount: 'CONTRACTS',
     bestBlock: 'BEST BLOCK',
     lastBlock: 'LAST BLOCK',
     avgBLockTime: 'AVG BLOCK TIME',
@@ -45,11 +50,13 @@ module.exports = {
     networkDifficulty: 'DIFFICULTY'
   },
   listHeader: {
+    shardnumber: 'ShardNumber',
     rank: 'Rank',
     address: 'Address',
     balance: 'Balance',
     percentage: 'Percentage',
     txCount: 'TxCount',
+    listDescription: 'Account Txns List (Showing the last 25 records from a total Of ',
 
     txHash: 'TxHash',
     age: 'Age',
@@ -59,7 +66,7 @@ module.exports = {
     token: 'Token',
 
     height: 'Height',
-    txn: 'txn',
+    txn: 'Txns',
     uncles: 'Uncles',
     miner: 'Miner',
     gasLimit: 'GasLimit',
@@ -78,10 +85,10 @@ module.exports = {
     preBlockHash: 'PreBlockHash',
     txcount: 'TxCount',
 
-    amount: 'amount',
-    hash: 'hash',
-    inorout: 'inorout',
-    txfee: 'txfee',
+    amount: 'Amount',
+    hash: 'Hash',
+    inorout: 'Inorout',
+    txfee: 'TxFee',
 
     nodeRank: 'Rank',
     nodeRegion: 'Region',
