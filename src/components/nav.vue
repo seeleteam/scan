@@ -22,34 +22,25 @@
         </router-link>
       </li>
       <li :class="{'current': currentLink == 'transaction' || currentLink == 'pendingtxs'}">
-        <el-dropdown trigger="click">
+        <div trigger="click" class="dropd-title-wrap menu-li">
           <span class="el-dropdown-link">
-            {{$t('navs.transaction')}}
+            {{$t('navs.tx')}}
           </span>
-          <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item :class="{'dropd-current':currentLink == 'transaction' }">
-              <router-link :to="{path: '/transaction'}">
-                {{$t('navs.transaction')}}
-              </router-link>
-            </el-dropdown-item>
-            <el-dropdown-item :class="{'dropd-current':currentLink == 'pendingtxs' }">
-              <router-link :to="{path: '/pendingtxs'}">
-                {{$t('navs.pendingtxs')}}
-              </router-link>
-            </el-dropdown-item>
-          </el-dropdown-menu>
-        </el-dropdown>
+          <div class="dropd-content-wrap">
+            <div :class="{'dropd-current':currentLink == 'transaction' }" class="dropd dropd1" @click="linkTo('transaction')">
+              {{$t('navs.transaction')}}
+            </div>
+            <div :class="{'dropd-current':currentLink == 'pendingtxs' }" class="dropd" @click="linkTo('pendingtxs')">
+              {{$t('navs.pendingtxs')}}
+            </div>
+          </div>
+        </div>
       </li>
       <li :class="{'current': currentLink == 'contract'}">
         <router-link :to="{path: '/contract'}">
           {{$t('navs.contract')}}
         </router-link>
       </li>
-      <!-- <li :class="{'current': currentLink == 'token'}">
-        <router-link :to="{path: '/'}">
-          {{$t('navs.token')}}
-        </router-link>
-      </li> -->
       <li :class="{'current': currentLink == 'statChar'}">
         <router-link :to="{path: '/statChar'}">
           {{$t('navs.statChar')}}
@@ -61,60 +52,11 @@
         </router-link>
       </li>
     </ul>
-    <!-- <div class="sm-show nav-sm-wrap">
-      <div class="sm-show fl">
-        <img src="../assets/imgs/logo_s.png" alt="logo">
-      </div>
-      <div class="header-menu fr">
-        <i v-if="menuVisible === false" @click="clickMenu" class="el-icon-menu"></i>
-        <i v-else @click="clickMenu" class="el-icon-close"></i>
-      </div>
-    </div>
-    <ul v-show="menuVisible" class="nav-wrap">
-      <li :class="{'current': currentLink == ''}">
-        <router-link :to="{path: '/'}">
-          {{$t('navs.home')}}
-        </router-link>
-      </li>
-      <li :class="{'current': currentLink == 'nodemap'}">
-        <router-link :to="{path: 'nodemap'}">
-          {{$t('navs.node')}}
-        </router-link>
-      </li>
-      <li :class="{'current': currentLink == 'account'}">
-        <router-link :to="{path: 'account'}">
-          {{$t('navs.account')}}
-        </router-link>
-      </li>
-      <li :class="{'current': currentLink == 'block'}">
-        <router-link :to="{path: 'block'}">
-          {{$t('navs.block')}}
-        </router-link>
-      </li>
-      <li :class="{'current': currentLink == 'transaction'}">
-        <router-link :to="{path: 'transaction'}">
-          {{$t('navs.transaction')}}
-        </router-link>
-      </li>
-      <li :class="{'current': currentLink == 'contract'}">
-        <router-link :to="{path: 'contract'}">
-          {{$t('navs.contract')}}
-        </router-link>
-      </li>
-      <li :class="{'current': currentLink == 'token'}">
-        <router-link :to="{path: 'token'}">
-          {{$t('navs.token')}}
-        </router-link>
-      </li>
-      <li :class="{'current': currentLink == 'statChar'}">
-        <router-link :to="{path: 'statChar'}">
-          {{$t('navs.statChar')}}
-        </router-link>
-      </li>
-    </ul> -->
   </div>
 </template>
 <script>
+import router from '../router'
+
 export default {
   data () {
     return {
@@ -128,7 +70,7 @@ export default {
   methods: {
     handleChange (val) {
     },
-    clickMenu () {
+    txIsShow () {
       if (this.menuVisible === true) {
         setTimeout(() => {
           this.menuVisible = !this.menuVisible
@@ -136,6 +78,16 @@ export default {
       } else {
         this.menuVisible = !this.menuVisible
       }
+    },
+    txShow () {
+      this.menuVisible = true
+    },
+    txHid () {
+      this.menuVisible = false
+    },
+    linkTo (path) {
+      router.push({path: path})
+      this.menuVisible = false
     }
   }
 }
@@ -150,41 +102,75 @@ export default {
       margin-right: 30px;
       border-bottom: 2px solid #fff;
       font-size: 16px;
-      .el-dropdown{
-        color: #666;
-        font-size: 16px;
-      }
       a{
         display: inline-block;
         width: 100%;
         color: #666;
       }
       &:hover{
-        a, .el-dropdown{
+        a, .menu-li{
+          cursor: pointer;
           color: #23479c;
+          font-weight: bold;
         }
-        font-weight: bold;
         border-bottom: 2px solid #23479c;
+      }
+      .dropd-title-wrap{
+        position: relative;
+        .dropd-content-wrap{
+          font-size: 14px;
+          position: absolute;
+          top: 63px;
+          left: -5px;
+          height: 0px;
+          min-width: 100px;
+          opacity: 0;
+          padding-bottom: 10px;
+          background: #fff;
+          border: 1px solid #dcdfe6;
+          border-radius: 3px;
+          line-height: 20px;
+          z-index: 1000;
+          transition: all 0.2s ease-out;
+          font-weight: 400;
+          color: #666;
+          .dropd{
+            padding: 10px;
+            border-radius: 3px;
+            &:hover{
+              color: #409EFF;
+              font-weight: 600;
+              background: #f5f7fa;
+              // border-left: 2px solid #23479c;
+            }
+          }
+          .dropd1{
+            border-bottom: 1px solid #dcdfe6;
+            padding-bottom: 10px;
+          }
+          .dropd-current{
+            color: #409EFF;
+            font-weight: 600;
+            background: #f5f7fa;
+            // #f5fffa
+            // border-left: 2px solid #23479c;
+          }
+        }
+        &:hover{
+          .dropd-content-wrap{
+            height: 71px;
+            opacity: 1;
+            transition: all 0.3s ease-in
+          }
+        }
       }
     }
     .current{
-      a, .el-dropdown{
+      a, .menu-li{
         color: #23479c;
       }
       font-weight: bold;
       border-bottom: 2px solid #23479c;
-    }
-  }
-}
-.el-dropdown-menu{
-  .el-dropdown-menu__item{
-    a{
-      color: #666;
-    }
-  }
-  .dropd-current{
-    a{
-      color: #23479c;
     }
   }
 }
