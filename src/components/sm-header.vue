@@ -66,16 +66,24 @@
           <img v-show="currentLink == 'transaction' || currentLink == 'pendingtxs'" src="../assets/imgs/navs/Transaction_B.png" alt="">
         </div>
         <a @click="TxShowLink">
-          {{$t('navs.transaction')}}
+          {{$t('navs.tx')}}
         </a>
-        <span v-show="txLink" class="tx-link-current">
-          <router-link :to="{path: '/transaction'}" :class="{'link-current': currentLink == 'transaction'}">
-            {{$t('navs.transaction')}}
-          </router-link>
-          <router-link :to="{path: '/pendingtxs'}" :class="{'link-current': currentLink == 'pendingtxs'}">
-            {{$t('navs.pendingtxs')}}
-          </router-link>
-        </span>
+        <div v-show="txLink" class="tx-link-current">
+          <div class="tx-link-current-img">
+            <img v-show="currentLink != 'transaction'" src="../assets/imgs/navs/Tx_H.png" alt="">
+            <img v-show="currentLink == 'transaction'" src="../assets/imgs/navs/Tx_B.png" alt="">
+            <router-link :to="{path: '/transaction'}" :class="{'link-current': currentLink == 'transaction'}">
+              {{$t('navs.transaction')}}
+            </router-link>
+          </div>
+          <div class="tx-link-current-img">
+            <img v-show="currentLink != 'pendingtxs'" src="../assets/imgs/navs/Tx_H.png" alt="">
+            <img v-show="currentLink == 'pendingtxs'" src="../assets/imgs/navs/Tx_B.png" alt="">
+            <router-link :to="{path: '/pendingtxs'}" :class="{'link-current': currentLink == 'pendingtxs'}">
+              {{$t('navs.pendingtxs')}}
+            </router-link>
+          </div>
+        </div>
       </li>
       <li :class="{'current': currentLink == 'contract'}">
         <div class="sm-anv-img-wrap">
@@ -244,8 +252,19 @@ export default {
         }
       }
       .tx-link-current{
+        .tx-link-current-img{
+          position: relative;
+          padding-left: 35px;
+        }
         a{
           color: #666;
+          margin-left: 30px;
+        }
+        img{
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 20px;
         }
         .link-current{
           color: #23479c;

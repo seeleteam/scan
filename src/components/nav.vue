@@ -24,10 +24,10 @@
       <li :class="{'current': currentLink == 'transaction' || currentLink == 'pendingtxs'}">
         <div trigger="click" class="dropd-title-wrap menu-li">
           <span class="el-dropdown-link">
-            {{$t('navs.transaction')}}
+            {{$t('navs.tx')}}
           </span>
           <div class="dropd-content-wrap">
-            <div :class="{'dropd-current':currentLink == 'transaction' }" class="dropd" @click="linkTo('transaction')">
+            <div :class="{'dropd-current':currentLink == 'transaction' }" class="dropd dropd1" @click="linkTo('transaction')">
               {{$t('navs.transaction')}}
             </div>
             <div :class="{'dropd-current':currentLink == 'pendingtxs' }" class="dropd" @click="linkTo('pendingtxs')">
@@ -118,37 +118,47 @@ export default {
       .dropd-title-wrap{
         position: relative;
         .dropd-content-wrap{
+          font-size: 14px;
           position: absolute;
-          top: 62px;
+          top: 63px;
           left: -5px;
-          height: 0;
-          min-width: 80px;
+          height: 0px;
+          min-width: 100px;
           opacity: 0;
           padding-bottom: 10px;
-          padding-right: 10px;
           background: #fff;
-          border-top: 1px solid #f0f0f0;
-          border-radius: 5px;
+          border: 1px solid #dcdfe6;
+          border-radius: 3px;
           line-height: 20px;
           z-index: 1000;
           transition: all 0.2s ease-out;
           font-weight: 400;
           color: #666;
           .dropd{
-            padding: 10px 0 0 10px;
+            padding: 10px;
+            border-radius: 3px;
             &:hover{
-              color: #23479c;
+              color: #409EFF;
               font-weight: 600;
+              background: #f5f7fa;
+              // border-left: 2px solid #23479c;
             }
           }
+          .dropd1{
+            border-bottom: 1px solid #dcdfe6;
+            padding-bottom: 10px;
+          }
           .dropd-current{
-            color: #23479c;
+            color: #409EFF;
             font-weight: 600;
+            background: #f5f7fa;
+            // #f5fffa
+            // border-left: 2px solid #23479c;
           }
         }
         &:hover{
           .dropd-content-wrap{
-            height: 60px;
+            height: 71px;
             opacity: 1;
             transition: all 0.3s ease-in
           }
