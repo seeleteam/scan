@@ -229,5 +229,8 @@ module.exports = {
   tx: {
     in: 'IN',
     out: 'OUT'
+  },
+  tab: {
+    Tx: 'Transactions'
   }
 }

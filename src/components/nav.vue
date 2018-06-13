@@ -27,10 +27,10 @@
             {{$t('navs.tx')}}
           </span>
           <div class="dropd-content-wrap">
-            <div :class="{'dropd-current':currentLink == 'transaction' }" class="dropd dropd1" @click="linkTo('transaction')">
+            <div :class="{'dropd-current':currentLink == 'transaction' }" class="dropd dropd1" @click="linkTo('/transaction')">
               {{$t('navs.transaction')}}
             </div>
-            <div :class="{'dropd-current':currentLink == 'pendingtxs' }" class="dropd" @click="linkTo('pendingtxs')">
+            <div :class="{'dropd-current':currentLink == 'pendingtxs' }" class="dropd" @click="linkTo('/pendingtxs')">
               {{$t('navs.pendingtxs')}}
             </div>
           </div>

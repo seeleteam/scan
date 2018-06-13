@@ -52,6 +52,10 @@
                 <div class="li-width">{{$t("listHeader.value")}}: </div>
                 <div class="li-content-width">{{transactionInfo.value}}</div>
               </li>
+              <li>
+                <div class="li-width">{{$t("listHeader.txfee")}}: </div>
+                <div class="li-content-width">{{transactionInfo.fee}}</div>
+              </li>
             </ul>
           </div>
           </div>

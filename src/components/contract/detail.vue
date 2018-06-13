@@ -32,74 +32,80 @@
                 </li>
                 <li>
                   <div class="li-width">{{$t("listHeader.percentage")}}: </div>
-                  <div class="li-content-width">{{contractInfo.percentage}}</div>
+                  <div class="li-content-width">{{contractInfo.percentage | filterPercent}}</div>
                 </li>
                 <li>
                   <div class="li-width">{{$t("listHeader.txcount")}}: </div>
-                  <router-link :to="{path: '/transaction'}">
-                    <div class="li-content-width li-content-link">{{contractInfo.txcount | txcountValue}}</div>
-                  </router-link>
-                </li>
-                <li>
-                  <el-table
-                    class="list-wrap"
-                    :empty-text="$t('message.noData')"
-                    :data="contractInfo.txs"
-                    style="width: 100%; background: transparent">
-                    <el-table-column
-                      prop="age"
-                      width="120"
-                      :label="$t('listHeader.age')">
-                    </el-table-column>
-                    <el-table-column
-                      prop="amount"
-                      width="100"
-                      :label="$t('listHeader.amount')">
-                    </el-table-column>
-                    <el-table-column
-                      prop="block"
-                      :label="$t('listHeader.block')"
-                      width="120">
-                    </el-table-column>
-                    <el-table-column
-                      prop="from"
-                      :label="$t('listHeader.from')"
-                      width="200">
-                      <template slot-scope="scope">
-                        <span class="list-content">{{scope.row.from}}</span>
-                      </template>
-                    </el-table-column>
-                    <el-table-column
-                      prop="hash"
-                      width="200"
-                      :label="$t('listHeader.hash')">
-                      <template slot-scope="scope">
-                        <span class="list-content">{{scope.row.hash}}</span>
-                      </template>
-                    </el-table-column>
-                    <el-table-column
-                      prop="inorout"
-                      width="100"
-                      :label="$t('listHeader.inorout')">
-                      <template slot-scope="scope">
-                        <span class="list-content">{{scope.row.inorout}}</span>
-                      </template>
-                    </el-table-column>
-                    <el-table-column
-                      prop="to"
-                      width="200"
-                      :label="$t('listHeader.to')">
-                      <template slot-scope="scope">
-                        <span class="list-content">{{scope.row.to}}</span>
-                      </template>
-                    </el-table-column>
-                    <el-table-column
-                      prop="txfee"
-                      :label="$t('listHeader.txfee')">
-                    </el-table-column>
-                  </el-table>
+                  <div class="li-content-width li-content-link" @click="getShardValue(accountInfo.shardnumber)">{{accountInfo.txcount | txcountValue}}</div>
                 </li>
               </ul>
+               <el-tabs type="border-card" class="el-tab-wrap">
+                <el-tab-pane :label="$t('tab.Tx')">
+                  <ul class="el-tab-detail-wrap wrap-pad">
+                    <li>
+                      <el-table
+                        class="list-wrap"
+                        :empty-text="$t('message.noData')"
+                        :data="contractInfo.txs"
+                        style="width: 100%; background: transparent">
+                        <el-table-column
+                          prop="hash"
+                          width="200"
+                          :label="$t('listHeader.hash')">
+                          <template slot-scope="scope">
+                            <span class="list-content">{{scope.row.hash}}</span>
+                          </template>
+                        </el-table-column>
+                        <el-table-column
+                          prop="age"
+                          width="120"
+                          :label="$t('listHeader.age')">
+                        </el-table-column>
+                        <el-table-column
+                          prop="block"
+                          :label="$t('listHeader.block')"
+                          width="120">
+                        </el-table-column>
+                        <el-table-column
+                          prop="from"
+                          :label="$t('listHeader.from')"
+                          width="200">
+                          <template slot-scope="scope">
+                            <span v-if="scope.row.inorout === true" class="list-content table-link-color" @click="toTx(scope.row.from)">{{scope.row.from}}</span>
+                            <span v-else class="list-content">{{scope.row.from}}</span>
+                          </template>
+                        </el-table-column>
+                        <el-table-column
+                          prop="inorout"
+                          width="100"
+                          :label="$t('listHeader.inorout')">
+                          <template slot-scope="scope">
+                            <span v-if="scope.row.inorout === true" class="list-content list-content-in">{{$t('tx.in')}}</span>
+                            <span v-else class="list-content list-content-out">{{$t('tx.out')}}</span>
+                          </template>
+                        </el-table-column>
+                        <el-table-column
+                          prop="to"
+                          width="200"
+                          :label="$t('listHeader.to')">
+                          <template slot-scope="scope">
+                            <span v-if="scope.row.inorout === false" class="list-content table-link-color" @click="toTx(scope.row.to)">{{scope.row.to}}</span>
+                            <span v-else class="list-content">{{scope.row.to}}</span>
+                          </template>
+                        </el-table-column>
+                        <el-table-column
+                          prop="value"
+                          :label="$t('listHeader.value')">
+                        </el-table-column>
+                        <el-table-column
+                          prop="fee"
+                          :label="$t('listHeader.txfee')">
+                        </el-table-column>
+                      </el-table>
+                    </li>
+                  </ul>
+                </el-tab-pane>
+               </el-tabs>
             </div>
           </div>
         </div>
@@ -108,12 +114,13 @@
 </template>
 <script>
 import { mapActions } from 'vuex'
+import router from '../../router'
 import Header from '../header'
 import smHeader from '../sm-header'
 import searchInput from '../search-input'
 import ContractDescribe from '../describe'
 import Footer from '../footer'
-import { formatNumber } from '../../untils/format'
+import { formatNumber, formatAccountPercent } from '../../untils/format'
 export default {
   data () {
     return {
@@ -145,12 +152,23 @@ export default {
     },
     txcountValue (value) {
       return formatNumber(value)
+    },
+    filterPercent (value) {
+      return formatAccountPercent(value)
     }
   },
   methods: {
     ...mapActions(['getContractDetail']),
+    ...mapActions(['setShardValue']),
     getDetail (height) {
       this.getContractDetail(height)
+    },
+    getShardValue (shardNumber) {
+      router.push({path: '/transaction'})
+      this.setShardValue(shardNumber)
+    },
+    toTx (txHash) {
+      router.push({path: '/transaction/detail', query: { txhash: txHash }})
     }
   },
   watch: {

@@ -230,5 +230,8 @@ module.exports = {
   tx: {
     in: '转入',
     out: '转出'
+  },
+  tab: {
+    Tx: '交易列表'
   }
 }
