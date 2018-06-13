@@ -55,7 +55,7 @@
               </el-table-column>
               <el-table-column
                 prop="from"
-                width="300"
+                width="250"
                 :label="$t('listHeader.from')">
                 <template slot-scope="scope">
                   <router-link :to="{path: '/account/detail', query: { address: scope.row.from }}">
@@ -63,18 +63,19 @@
                   </router-link>
                 </template>
               </el-table-column>
-              <!-- <el-table-column
+              <el-table-column
                 prop="inorout"
                 width="100"
                 :label="$t('listHeader.inorout')">
                 <template slot-scope="scope">
                   <span v-if="scope.row.inorout === true" class="list-content list-content-in">{{$t('tx.in')}}</span>
-                  <span v-else class="list-content list-content-out">{{$t('tx.out')}}</span>
+                  <span v-if="scope.row.inorout === false" class="list-content list-content-out">{{$t('tx.out')}}</span>
+                  <span v-else class="list-content list-content-in">{{$t('tx.in')}}</span>
                 </template>
-              </el-table-column> -->
+              </el-table-column>
               <el-table-column
                 prop="to"
-                width="300"
+                width="250"
                 :label="$t('listHeader.to')">
                 <template slot-scope="scope">
                   <router-link :to="{path: '/account/detail', query: { address: scope.row.to }}">
