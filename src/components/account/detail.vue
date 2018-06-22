@@ -36,7 +36,7 @@
                 </li>
                 <li>
                   <div class="li-width">{{$t("listHeader.txcount")}}: </div>
-                  <div class="li-content-width li-content-link" @click="getShardValue(accountInfo.shardnumber)">{{accountInfo.txcount | txcountValue}}</div>
+                  <div class="li-content-width li-content-link" @click="getShardValue(accountInfo.address)">{{accountInfo.txcount | txcountValue}}</div>
                 </li>
               </ul>
               <el-tabs type="border-card" class="el-tab-wrap">
@@ -167,16 +167,14 @@ export default {
   },
   methods: {
     ...mapActions(['getAccountDetail']),
-    ...mapActions(['setShardValue']),
     getDetail (height) {
       this.getAccountDetail(height)
     },
-    getShardValue (shardNumber) {
-      router.push({path: '/transaction'})
-      this.setShardValue(shardNumber)
+    getShardValue (address) {
+      router.push({path: '/account/txlist', query: {address: address}})
     },
     toTx (txHash) {
-      router.push({path: '/transaction/detail', query: { txhash: txHash }})
+      router.push({path: '/account/detail', query: { address: txHash }})
     }
   },
   watch: {

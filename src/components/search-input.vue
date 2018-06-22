@@ -1,6 +1,6 @@
 <template>
     <div class="search-wrap">
-        <el-input :placeholder="$t('placeholder.searchInput')" v-model="input5"></el-input>
+        <el-input :placeholder="$t('placeholder.searchInput')" v-model="input5" @keyup.enter.native="search"></el-input>
         <span class="icon-search-wrap" @click="search()">
         <i class="el-icon-search"></i>
         </span>

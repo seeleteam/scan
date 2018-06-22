@@ -1,4 +1,5 @@
 import * as types from '../mutation-types'
+import router from '../../router'
 import { blocksList, blocksDetail } from '../../service'
 // import doc from './data'
 
@@ -34,12 +35,13 @@ const actions = {
       })
   },
   getBlocksDetail ({ commit, state }, params) {
-    let data = params
-    blocksDetail(data)
+    blocksDetail(params)
       .then(doc => {
         if (doc.success) {
           let info = doc.data
           commit(types.BLOCKS_DETAIL, info)
+          commit(types.SHARD_VALUE, info.shardnumber)
+          router.push({path: '/block/detail', query: {height: info.height, s: info.shardnumber}})
         }
       })
   }

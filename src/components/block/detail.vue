@@ -59,7 +59,7 @@
                 </li>
                 <li>
                   <div class="li-width">{{$t("listHeader.txcount")}}: </div>
-                  <router-link :to="{path: '/transaction', query: { block: blocksInfo.height, s: shardValue  }}">
+                  <router-link :to="{path: '/transaction', query: { height: blocksInfo.height, s: shardValue  }}">
                     <div class="li-content-width li-content-link">{{blocksInfo.txcount}}</div>
                   </router-link>
                 </li>
@@ -116,8 +116,20 @@ export default {
   },
   methods: {
     ...mapActions(['getBlocksDetail']),
-    getDetail (height) {
-      this.getBlocksDetail(height)
+    getDetail (params) {
+      if (params.height) {
+        let data = {
+          height: params.height,
+          s: this.shardValue
+        }
+        this.getBlocksDetail(data)
+      } else if (params.hash) {
+        let data = {
+          hash: params.hash,
+          s: this.shardValue
+        }
+        this.getBlocksDetail(data)
+      }
     },
     getPrevDetail (sedHeight, height, s) {
       let data = {}
@@ -127,7 +139,6 @@ export default {
           s: s
         }
         this.getDetail(data)
-        this.$router.push({path: '/block/detail', query: {height: sedHeight, s: s}})
       } else if (sedHeight === height) {
         this.$message({
           showClose: true,
@@ -144,7 +155,6 @@ export default {
           s: s
         }
         this.getDetail(data)
-        this.$router.push({path: '/block/detail', query: {height: sedHeight, s: s}})
       } else if (sedHeight === height) {
         this.$message({
           showClose: true,

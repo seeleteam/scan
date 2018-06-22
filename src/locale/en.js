@@ -35,7 +35,9 @@ module.exports = {
     contract: 'Contract',
     token: 'Token',
     statChar: 'StatChar',
-    api: 'Api'
+    api: 'Api',
+    accountTx: 'AccountTxs',
+    accountHash: 'AccountHash'
   },
   blockStat: {
     blocksCount: 'BLOCKS',
