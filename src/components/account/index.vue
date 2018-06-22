@@ -24,12 +24,12 @@
               style="width: 100%">
               <el-table-column
                 prop="rank"
-                width="120"
+                width="80"
                 :label="$t('listHeader.rank')">
               </el-table-column>
               <el-table-column
                 prop="address"
-                width="500"
+                width="400"
                 :label="$t('listHeader.address')">
                 <template slot-scope="scope">
                   <router-link :to="{path: '/account/detail', query: { address: scope.row.address }}">
@@ -48,7 +48,7 @@
               <el-table-column
                 prop="percentage"
                 :label="$t('listHeader.percentage')"
-                width="120">
+                width="300">
                 <template slot-scope="scope">
                     <span class="list-content">{{scope.row.percentage | filterPercent}}</span>
                 </template>

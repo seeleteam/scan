@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import home from '@/components/home/index'
 import account from '@/components/account/index'
 import accountDetail from '@/components/account/detail'
+import accountTxList from '@/components/account/tx-list'
 import contract from '@/components/contract/index'
 import contractDetail from '@/components/contract/detail'
 import transaction from '@/components/transaction/index'
@@ -35,6 +36,11 @@ export default new Router({
       path: '/account/detail',
       name: 'accountDetail',
       component: accountDetail
+    },
+    {
+      path: '/account/txlist',
+      name: 'accountTxList',
+      component: accountTxList
     },
     {
       path: '/contract',

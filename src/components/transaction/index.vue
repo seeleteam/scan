@@ -41,7 +41,7 @@
               <el-table-column
                 prop="age"
                 :label="$t('listHeader.age')"
-                width="100">
+                width="130">
               </el-table-column>
               <el-table-column
                 prop="block"
@@ -55,7 +55,7 @@
               </el-table-column>
               <el-table-column
                 prop="from"
-                width="250"
+                width="270"
                 :label="$t('listHeader.from')">
                 <template slot-scope="scope">
                   <router-link :to="{path: '/account/detail', query: { address: scope.row.from }}">
@@ -64,18 +64,8 @@
                 </template>
               </el-table-column>
               <el-table-column
-                prop="inorout"
-                width="100"
-                :label="$t('listHeader.inorout')">
-                <template slot-scope="scope">
-                  <span v-if="scope.row.inorout === true" class="list-content list-content-in">{{$t('tx.in')}}</span>
-                  <span v-if="scope.row.inorout === false" class="list-content list-content-out">{{$t('tx.out')}}</span>
-                  <span v-else class="list-content list-content-in">{{$t('tx.in')}}</span>
-                </template>
-              </el-table-column>
-              <el-table-column
                 prop="to"
-                width="250"
+                width="270"
                 :label="$t('listHeader.to')">
                 <template slot-scope="scope">
                   <router-link :to="{path: '/account/detail', query: { address: scope.row.to }}">
@@ -85,7 +75,7 @@
               </el-table-column>
               <el-table-column
                 prop="value"
-                width="100"
+                width="130"
                 :label="$t('listHeader.value')">
               </el-table-column>
             </el-table>

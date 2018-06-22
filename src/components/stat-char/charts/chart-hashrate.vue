@@ -77,7 +77,7 @@ export default {
       var option = {
         title: {
           text: '(' + (this.shardCharValue === '0' ? this.$t('statcharts.common.shardAll') : (this.$t('statcharts.common.shardTag') + this.shardCharValue)) + ')',
-          x: 'center'
+          x: 'left'
         },
         toolbox: {
           feature: {

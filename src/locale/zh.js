@@ -36,7 +36,9 @@ module.exports = {
     contract: '合约',
     token: '代币',
     statChar: '统计图',
-    api: 'Api'
+    api: 'Api',
+    accountTx: '账户交易列表',
+    accountHash: '账户哈希'
   },
   blockStat: {
     blocksCount: '区块总数',
