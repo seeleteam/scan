@@ -27,7 +27,7 @@
               style="width: 100%">
               <el-table-column
                 prop="txHash"
-                width="300"
+                width="330"
                 :label="$t('listHeader.txHash')">
                 <template slot-scope="scope">
                   <router-link :to="{path: '/pendingtxs/detail', query: { txhash: scope.row.txHash }}">
@@ -35,14 +35,14 @@
                   </router-link>
                 </template>
               </el-table-column>
-              <el-table-column
+              <!-- <el-table-column
                 prop="age"
                 :label="$t('listHeader.age')"
                 width="110">
-              </el-table-column>
+              </el-table-column> -->
               <el-table-column
                 prop="from"
-                width="300"
+                width="330"
                 :label="$t('listHeader.from')">
                 <template slot-scope="scope">
                   <router-link :to="{path: '/account/detail', query: { address: scope.row.from }}">
@@ -52,7 +52,7 @@
               </el-table-column>
               <el-table-column
                 prop="to"
-                width="300"
+                width="330"
                 :label="$t('listHeader.to')">
                 <template slot-scope="scope">
                   <router-link :to="{path: '/account/detail', query: { address: scope.row.to }}">

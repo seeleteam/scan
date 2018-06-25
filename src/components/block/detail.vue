@@ -59,9 +59,7 @@
                 </li>
                 <li>
                   <div class="li-width">{{$t("listHeader.txcount")}}: </div>
-                  <router-link :to="{path: '/transaction', query: { height: blocksInfo.height, s: shardValue  }}">
-                    <div class="li-content-width li-content-link">{{blocksInfo.txcount}}</div>
-                  </router-link>
+                  <div class="li-content-width li-content-link" @click="toTxList(blocksInfo.height)" >{{blocksInfo.txcount}}</div>
                 </li>
               </ul>
             </div>
@@ -72,6 +70,7 @@
 </template>
 <script>
 import { mapActions } from 'vuex'
+import router from '../../router'
 import { formatNumber } from '../../untils/format'
 import Header from '../header'
 import smHeader from '../sm-header'
@@ -116,6 +115,8 @@ export default {
   },
   methods: {
     ...mapActions(['getBlocksDetail']),
+    ...mapActions(['getHeightShow']),
+
     getDetail (params) {
       if (params.height) {
         let data = {
@@ -162,6 +163,10 @@ export default {
           type: 'warning'
         })
       }
+    },
+    toTxList (height) {
+      router.push({path: '/transaction', query: { block: height, s: this.shardValue }})
+      this.getHeightShow(true)
     }
   },
   watch: {

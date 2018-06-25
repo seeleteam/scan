@@ -12,14 +12,14 @@
 1. code: 错误码,0为正常,非0为错误
 2. message: 错误提示,正确执行会空
 3. data: 返回一个指定页码的按照账户余额降序排序的账户列表
-	- lsit: 账户列表
+	- list: 账户列表
 	- pageInfo: 分页详情信息
 
 #### 例子
 	//Request
 	http://api.seelescan.io/api/v1/accounts?p=1&ps=10&s=1
 	
-	//Return
+	//Return 
 	{
 		"code": 0, 
 		"data": {

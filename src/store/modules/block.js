@@ -7,14 +7,16 @@ const state = {
   page: 1,
   total: 0,
   blocksList: [],
-  blocksInfo: {}
+  blocksInfo: {},
+  heightShow: false
 }
 
 // getters
 // Gets the properties coming out from under this module
 const getters = {
   blocksList: state => state.blocksList,
-  blocksInfo: state => state.blocksInfo
+  blocksInfo: state => state.blocksInfo,
+  heightShow: state => state.heightShow
 }
 
 // actions
@@ -44,6 +46,10 @@ const actions = {
           router.push({path: '/block/detail', query: {height: info.height, s: info.shardnumber}})
         }
       })
+  },
+  getHeightShow ({ commit, state }, params) {
+    let isShow = params
+    commit(types.HEIGHT_SHOW, isShow)
   }
 }
 
@@ -57,6 +63,9 @@ const mutations = {
   },
   [types.BLOCKS_DETAIL] (state, info) {
     state.blocksInfo = info
+  },
+  [types.HEIGHT_SHOW] (state, isShow) {
+    state.heightShow = isShow
   }
 }
 export default {

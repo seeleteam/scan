@@ -28,7 +28,7 @@
                 min-width="120">
                 <template slot-scope="scope" class="">
                   <router-link :to="{path: '/block/detail', query: { height: scope.row.height, s: shardValue }}">
-                    <span class="table-link-color height">{{scope.row.height}}</span>
+                  <span class="table-link-color height">{{scope.row.height}}</span>
                   </router-link>
                 </template>
               </el-table-column>
@@ -45,9 +45,7 @@
                 min-width="100"
                 :label="$t('listHeader.txn')">
                 <template slot-scope="scope">
-                  <router-link :to="{path: '/transaction', query: { block: scope.row.height, s:shardValue }}">
-                    <span class="table-link-color">{{scope.row.txn}}</span>
-                  </router-link>
+                  <span class="table-link-color" @click="toTxList(scope.row.height)">{{scope.row.txn}}</span>
                 </template>
               </el-table-column>
               <!-- <el-table-column
@@ -95,6 +93,7 @@
 </template>
 <script>
 import { mapActions } from 'vuex'
+import router from '../../router'
 import Header from '../header'
 import smHeader from '../sm-header'
 import searchInput from '../search-input'
@@ -148,6 +147,7 @@ export default {
   },
   methods: {
     ...mapActions(['getBlocksList']),
+    ...mapActions(['getHeightShow']),
 
     handleSizeChange (val) {
       this.getList(val, this.shardValue)
@@ -157,6 +157,10 @@ export default {
     },
     getList (page) {
       this.getBlocksList([page, this.shardValue])
+    },
+    toTxList (height) {
+      router.push({path: '/transaction', query: { block: height, s: this.shardValue }})
+      this.getHeightShow(true)
     }
   },
   watch: {

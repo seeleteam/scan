@@ -91,7 +91,7 @@ module.exports = {
 
     amount: 'amountX',
     hash: '哈希',
-    inorout: '转入转出',
+    inorout: '转入/转出',
     txfee: '手续费',
 
     nodeRank: '排名',

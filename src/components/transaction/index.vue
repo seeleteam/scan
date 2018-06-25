@@ -30,7 +30,7 @@
               style="width: 100%">
               <el-table-column
                 prop="txHash"
-                width="300"
+                width="340"
                 :label="$t('listHeader.txHash')">
                 <template slot-scope="scope">
                   <router-link :to="{path: '/transaction/detail', query: { txhash: scope.row.txHash }}">
@@ -38,15 +38,15 @@
                   </router-link>
                 </template>
               </el-table-column>
-              <el-table-column
+              <!-- <el-table-column
                 prop="age"
                 :label="$t('listHeader.age')"
                 width="130">
-              </el-table-column>
+              </el-table-column> -->
               <el-table-column
                 prop="block"
                 :label="$t('listHeader.block')"
-                width="100">
+                width="110">
                 <template slot-scope="scope">
                   <router-link :to="{path: '/block/detail', query: { height: scope.row.block, s: shardValue }}">
                     <span class="table-link-color list-content">{{scope.row.block}}</span>
@@ -55,7 +55,7 @@
               </el-table-column>
               <el-table-column
                 prop="from"
-                width="270"
+                width="310"
                 :label="$t('listHeader.from')">
                 <template slot-scope="scope">
                   <router-link :to="{path: '/account/detail', query: { address: scope.row.from }}">
@@ -65,7 +65,7 @@
               </el-table-column>
               <el-table-column
                 prop="to"
-                width="270"
+                width="310"
                 :label="$t('listHeader.to')">
                 <template slot-scope="scope">
                   <router-link :to="{path: '/account/detail', query: { address: scope.row.to }}">
@@ -108,15 +108,19 @@ export default {
     return {
       title: this.$t('navs.transaction'),
       content: this.$route.query.block,
-      isShow: false,
       link: this.$t('navs.transaction'),
 
       pageSize: 25
     }
   },
   mounted () {
-    this.$route.query.block ? this.getBlockList(this.$route.query) : this.getList(1)
-    this.isShow = this.$route.query.block ? !false : false
+    if (this.$route.query.block) {
+      this.getHeightShow(true)
+      this.getBlockList(1, this.$route.query)
+    } else {
+      this.getList(1)
+      this.getHeightShow(false)
+    }
   },
   components: {
     Header,
@@ -142,6 +146,11 @@ export default {
         return this.$store.state.transaction.total
       }
     },
+    isShow: {
+      get () {
+        return this.$store.state.block.heightShow
+      }
+    },
     shardValue: {
       get () {
         return this.$store.state.shard.shardValue
@@ -151,15 +160,20 @@ export default {
   methods: {
     ...mapActions(['getTransactionList']),
     ...mapActions(['getTransactionBlock']),
+    ...mapActions(['getHeightShow']),
 
     handleSizeChange (val) {
       this.getList(val, this.shardValue)
     },
     handleCurrentChange (val) {
-      this.getList(val, this.shardValue)
+      if (this.isShow) {
+        this.getBlockList(val, this.$route.query)
+      } else {
+        this.getList(val, this.shardValue)
+      }
     },
-    getBlockList (blcok) {
-      this.getTransactionBlock(blcok)
+    getBlockList (page, params) {
+      this.getTransactionBlock([page, params])
     },
     getList (page) {
       this.getTransactionList([page, this.shardValue])
@@ -168,6 +182,7 @@ export default {
   watch: {
     '$route' (to, from) {
       this.getList(1)
+      this.getHeightShow(false)
     },
     shardValue: {
       handler: function (val, oldval) {

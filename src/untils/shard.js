@@ -1,6 +1,6 @@
 const shard = process.env.SCAN_SHARD || 20
 const shardOptions = []
-for (let i = 1; i < shard; i++) {
+for (let i = 1; i <= shard; i++) {
   let n = i
   if (i < 10) {
     n = `0${i}`
