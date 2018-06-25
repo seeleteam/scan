@@ -36,9 +36,9 @@ const actions = {
   getTransactionBlock ({ commit, state }, params) {
     let data = {
       test: 1,
-      block: params.block,
-      s: params.s,
-      p: 1,
+      block: params[1].block,
+      s: params[1].s,
+      p: params[0],
       ps: 25
     }
     txList(data)

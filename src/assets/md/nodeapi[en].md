@@ -11,7 +11,7 @@
 1. code: Error code, 0 is normal, non-zero is wrong
 2. message: Errors, correct implementation of the empty
 3. data: Returns a list of nodes with a specified page number
-	- lsit: Node list
+	- list: Node list
 	- pageInfo: Paging details information
 
 #### Example

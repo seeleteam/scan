@@ -90,7 +90,7 @@ module.exports = {
 
     amount: 'Amount',
     hash: 'Hash',
-    inorout: 'Inorout',
+    inorout: 'In/Out',
     txfee: 'TxFee',
 
     nodeRank: 'Rank',

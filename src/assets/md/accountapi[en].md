@@ -11,7 +11,7 @@
 1. code: Error code, 0 is normal, non-zero is wrong
 2. message: Errors, correct implementation of the empty
 3. data: Returns a list of accounts of the specified page number in descending order by account balance
-	- lsit: List of accounts
+	- list: List of accounts
 	- pageInfo: Paging details information
 
 #### Example

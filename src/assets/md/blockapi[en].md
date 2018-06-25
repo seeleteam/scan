@@ -11,7 +11,7 @@
 1. code: Error code, 0 is normal, non-zero is wrong
 2. message: Errors, correct implementation of the empty
 3. data: Returns a list of blocks in descending order of block height for a given page number
-	- lsit: Block list
+	- list: Block list
 	- pageInfo: Paging details information
 
 #### Example
