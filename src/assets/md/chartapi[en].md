@@ -1,6 +1,6 @@
 >## Get Trading History Chart
 #### URL
-	https://api.seelescan.io/api/v1/chart/tx
+	https://api.seelescan.net/api/v1/chart/tx
 	
 #### Parameter
 1. s: The shardNumber
@@ -12,7 +12,7 @@
 
 #### Example
 	//Request
-	https://api.seelescan.io/api/v1/chart/tx?s=1
+	https://api.seelescan.net/api/v1/chart/tx?s=1
 	
 	//Return
 	{
@@ -46,7 +46,7 @@
 
 >## Get Block Difficulty Growth Chart
 #### URL
-	https://api.seelescan.io/api/v1/chart/difficulty
+	https://api.seelescan.net/api/v1/chart/difficulty
 	
 #### Parameter
 1. s: The shardNumber
@@ -58,7 +58,7 @@
 
 #### Example
 	//Request
-	https://api.seelescan.io/api/v1/chart/difficulty?s=1
+	https://api.seelescan.net/api/v1/chart/difficulty?s=1
 	
 	//Return
 	{
@@ -90,7 +90,7 @@
 
 >## Get Address Growth Chart
 #### URL
-	https://api.seelescan.io/api/v1/chart/address
+	https://api.seelescan.net/api/v1/chart/address
 		
 #### Parameter
 1. s: The shardNumber
@@ -102,7 +102,7 @@
 
 #### Example
 	//Request
-	https://api.seelescan.io/api/v1/chart/address?s=1
+	https://api.seelescan.net/api/v1/chart/address?s=1
 	
 	//Return
 	{
@@ -126,7 +126,7 @@
 
 >## Get Blocks and Rewards Chart
 #### URL
-	https://api.seelescan.io/api/v1/chart/blocks
+	https://api.seelescan.net/api/v1/chart/blocks
 	
 #### Parameter
 1. s: The shardNumber
@@ -138,7 +138,7 @@
 
 #### Example
 	//Request
-	https://api.seelescan.io/api/v1/chart/blocks?s=1
+	https://api.seelescan.net/api/v1/chart/blocks?s=1
 	
 	//Return
 	{
@@ -156,7 +156,7 @@
 
 >## Get Hash Rate Chart
 #### URL
-	https://api.seelescan.io/api/v1/chart/hashrate
+	https://api.seelescan.net/api/v1/chart/hashrate
 	
 #### Parameter
 1. s: The shardNumber
@@ -168,7 +168,7 @@
 
 #### Example
 	//Request
-	https://api.seelescan.io/api/v1/chart/hashrate?s=1
+	https://api.seelescan.net/api/v1/chart/hashrate?s=1
 	
 	//Return
 	{
@@ -185,7 +185,7 @@
 
 >## Get average block time chart
 #### URL
-	https://api.seelescan.io/api/v1/chart/blocktime
+	https://api.seelescan.net/api/v1/chart/blocktime
 	
 #### Parameter
 1. s: The shardNumber
@@ -197,7 +197,7 @@
 
 #### Example
 	//Request
-	https://api.seelescan.io/api/v1/chart/blocktime&s=1
+	https://api.seelescan.net/api/v1/chart/blocktime&s=1
 	
 	//Return
 	{
@@ -214,7 +214,7 @@
 	
 >## Get Top Miners Chart
 #### URL
-	https://api.seelescan.io/api/v1/chart/miner
+	https://api.seelescan.net/api/v1/chart/miner
 	
 #### Parameter
 1. s: The shardNumber
@@ -226,7 +226,7 @@
 
 #### Example
 	//Request
-	https://api.seelescan.io/api/v1/chart/miner?s=1
+	https://api.seelescan.net/api/v1/chart/miner?s=1
 	
 	//Return
 	{
@@ -253,7 +253,7 @@
 
 >## Node Count Chart
 #### URL
-	https://api.seelescan.io/api/v1/chart/node
+	https://api.seelescan.net/api/v1/chart/node
 	
 #### Parameter
 1. s: The shardNumber
@@ -265,7 +265,7 @@
 
 #### Example
 	//Request
-	https://api.seelescan.io/api/v1/chart/node&s=1
+	https://api.seelescan.net/api/v1/chart/node&s=1
 	
 	//Return
 	{
