@@ -36,7 +36,7 @@
                 </li>
                 <li>
                   <div class="li-width">{{$t("listHeader.txcount")}}: </div>
-                  <div class="li-content-width li-content-link" @click="getShardValue(accountInfo.shardnumber)">{{accountInfo.txcount | txcountValue}}</div>
+                  <div class="li-content-width li-content-link" @click="getShardValue(contractInfo.address)">{{contractInfo.txcount | txcountValue}}</div>
                 </li>
               </ul>
                <el-tabs type="border-card" class="el-tab-wrap">
@@ -53,7 +53,9 @@
                           width="200"
                           :label="$t('listHeader.hash')">
                           <template slot-scope="scope">
-                            <span class="list-content">{{scope.row.hash}}</span>
+                            <router-link :to="{path: '/transaction/detail', query: { txhash: scope.row.hash }}">
+                              <span class="list-content table-link-color">{{scope.row.hash}}</span>
+                            </router-link>
                           </template>
                         </el-table-column>
                         <el-table-column
@@ -163,12 +165,11 @@ export default {
     getDetail (height) {
       this.getContractDetail(height)
     },
-    getShardValue (shardNumber) {
-      router.push({path: '/transaction'})
-      this.setShardValue(shardNumber)
+    getShardValue (address) {
+      router.push({path: '/contract/txList', query: {address: address}})
     },
     toTx (txHash) {
-      router.push({path: '/transaction/detail', query: { txhash: txHash }})
+      router.push({path: '/account/detail', query: { address: txHash }})
     }
   },
   watch: {

@@ -2,24 +2,24 @@
   <div class="lg-nav">
     <ul class="nav-wrap lg-show">
       <li :class="{'current': currentLink == ''}">
-        <router-link :to="{path: '/'}">
+        <a @click="linkTo('/')">
           {{$t('navs.home')}}
-        </router-link>
+        </a>
       </li>
       <li :class="{'current': currentLink == 'nodemap'}">
-        <router-link :to="{path: '/nodemap'}">
+        <a @click="linkTo('/nodemap')">
           {{$t('navs.node')}}
-        </router-link>
+        </a>
       </li>
       <li :class="{'current': currentLink == 'account'}">
-        <router-link :to="{path: '/account'}">
+        <a @click="linkTo('/account')">
           {{$t('navs.account')}}
-        </router-link>
+        </a>
       </li>
       <li :class="{'current': currentLink == 'block'}">
-        <router-link :to="{path: '/block'}">
+        <a @click="linkTo('/block')">
           {{$t('navs.block')}}
-        </router-link>
+        </a>
       </li>
       <li :class="{'current': currentLink == 'transaction' || currentLink == 'pendingtxs'}">
         <div trigger="click" class="dropd-title-wrap menu-li">
@@ -27,35 +27,36 @@
             {{$t('navs.tx')}}
           </span>
           <div class="dropd-content-wrap">
-            <div :class="{'dropd-current':currentLink == 'transaction' }" class="dropd dropd1" @click="linkTo('/transaction')">
+            <a :class="{'dropd-current':currentLink == 'transaction' }" class="dropd dropd1" @click="linkTo('/transaction')">
               {{$t('navs.transaction')}}
-            </div>
-            <div :class="{'dropd-current':currentLink == 'pendingtxs' }" class="dropd" @click="linkTo('/pendingtxs')">
+            </a>
+            <a :class="{'dropd-current':currentLink == 'pendingtxs' }" class="dropd" @click="linkTo('/pendingtxs')">
               {{$t('navs.pendingtxs')}}
-            </div>
+            </a>
           </div>
         </div>
       </li>
       <li :class="{'current': currentLink == 'contract'}">
-        <router-link :to="{path: '/contract'}">
+        <a @click="linkTo('/contract')">
           {{$t('navs.contract')}}
-        </router-link>
+        </a>
       </li>
       <li :class="{'current': currentLink == 'statChar'}">
-        <router-link :to="{path: '/statChar'}">
+        <a @click="linkTo('/statChar')">
           {{$t('navs.statChar')}}
-        </router-link>
+        </a>
       </li>
-      <li :class="{'current': currentLink == 'api'}">
-        <router-link :to="{path: '/api'}">
+      <li @click="linkTo('/api')">
+        <a :to="{path: '/api'}">
           {{$t('navs.api')}}
-        </router-link>
+        </a>
       </li>
     </ul>
   </div>
 </template>
 <script>
 import router from '../router'
+import { mapActions } from 'vuex'
 
 export default {
   data () {
@@ -68,6 +69,7 @@ export default {
     this.currentLink = window.location.href.split('/')[4]
   },
   methods: {
+    ...mapActions(['setShardValue']),
     handleChange (val) {
     },
     txIsShow () {
@@ -88,6 +90,7 @@ export default {
     linkTo (path) {
       router.push({path: path})
       this.menuVisible = false
+      this.setShardValue(1)
     }
   }
 }

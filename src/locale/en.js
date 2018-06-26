@@ -26,18 +26,20 @@ module.exports = {
   },
   navs: {
     home: 'Home',
-    node: 'Node',
-    account: 'Account',
-    block: 'Block',
-    tx: 'Transaction',
+    node: 'Nodes',
+    account: 'Accounts',
+    block: 'Blocks',
+    tx: 'Transactions',
     transaction: 'BlockChainTxs',
     pendingtxs: 'PendingTxs',
-    contract: 'Contract',
+    contract: 'Contracts',
     token: 'Token',
-    statChar: 'StatChar',
+    statChar: 'Stat Charts',
     api: 'Api',
     accountTx: 'AccountTxs',
-    accountHash: 'AccountHash'
+    accountAddress: 'AccountAddress',
+    contractTx: 'ContractTxs',
+    contractAddress: 'ContractAddress'
   },
   blockStat: {
     blocksCount: 'BLOCKS',

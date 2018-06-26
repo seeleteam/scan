@@ -6,6 +6,7 @@ import accountDetail from '@/components/account/detail'
 import accountTxList from '@/components/account/tx-list'
 import contract from '@/components/contract/index'
 import contractDetail from '@/components/contract/detail'
+import contractTxList from '@/components/contract/tx-list'
 import transaction from '@/components/transaction/index'
 import transactionDetail from '@/components/transaction/detail'
 import pendingtxs from '@/components/pendingtxs/index'
@@ -51,6 +52,11 @@ export default new Router({
       path: '/contract/detail',
       name: 'contractDetail',
       component: contractDetail
+    },
+    {
+      path: '/contract/txList',
+      name: 'contractTxList',
+      component: contractTxList
     },
     {
       path: '/nodemap',

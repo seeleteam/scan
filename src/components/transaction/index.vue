@@ -167,13 +167,13 @@ export default {
     },
     handleCurrentChange (val) {
       if (this.isShow) {
-        this.getBlockList(val, this.$route.query)
+        this.getBlockList(val, this.$route.query, this.shardValue)
       } else {
         this.getList(val, this.shardValue)
       }
     },
     getBlockList (page, params) {
-      this.getTransactionBlock([page, params])
+      this.getTransactionBlock([page, params, this.shardValue])
     },
     getList (page) {
       this.getTransactionList([page, this.shardValue])
@@ -186,7 +186,11 @@ export default {
     },
     shardValue: {
       handler: function (val, oldval) {
-        this.getList(1, this.shardValue)
+        if (this.isShow) {
+          this.getBlockList(1, this.$route.query, this.shardValue)
+        } else {
+          this.getList(1, this.shardValue)
+        }
       }
     }
   }
