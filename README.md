@@ -53,6 +53,7 @@ SCAN_API_PATH: '"/api/v1"' // scan-api path
 ``` bash
 NODE_ENV: '"production"', // prod mode
 NEW_WORK_ID: 2, // net work type, ex: 1 main 2 test
+SCAN_SHARD: 20, // shard number
 SCAN_API_URL: '"http://localhost:3003"', // scan-api url
 SCAN_API_PATH: '"/api/v1"' // scan-api path
 ```
