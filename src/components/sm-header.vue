@@ -4,12 +4,12 @@
       <!-- <div class="sm-show sm-header-menu-wrap"> -->
       <div class="sm-header-menu-wrap">
         <div v-show="!isLogo" class="fl sm-header-logo">
-          <router-link :to="{path: '/'}">
+          <a @click="linkTo('/')">
             <img src="../assets/imgs/logo_s.png" alt="logo">
              <span class="logo-title">
               {{$t("blockExplore")}}
             </span>
-          </router-link>
+          </a>
         </div>
         <div class="fr">
           <span class="sm-header-nav-wrap">
@@ -29,36 +29,36 @@
           <img v-show="currentLink != ''" src="../assets/imgs/navs/Home_H.png" alt="">
           <img v-show="currentLink == ''" src="../assets/imgs/navs/Home_B.png" alt="">
         </div>
-        <router-link :to="{path: '/'}">
+        <a @click="linkTo('/')">
           {{$t('navs.home')}}
-        </router-link>
+        </a>
       </li>
       <li :class="{'current': currentLink == 'nodemap'}">
         <div class="sm-anv-img-wrap">
           <img v-show="currentLink != 'node'" src="../assets/imgs/navs/Node_H.png" alt="">
           <img v-show="currentLink == 'node'" src="../assets/imgs/navs/node_B.png" alt="">
         </div>
-        <router-link :to="{path: '/nodemap'}">
+        <a @click="linkTo('/nodemap')">
           {{$t('navs.node')}}
-        </router-link>
+        </a>
       </li>
       <li :class="{'current': currentLink == 'account'}">
         <div class="sm-anv-img-wrap">
           <img v-show="currentLink != 'account'" src="../assets/imgs/navs/Account_H.png" alt="">
           <img v-show="currentLink == 'account'" src="../assets/imgs/navs/Account_B.png" alt="">
         </div>
-        <router-link :to="{path: '/account'}">
+        <a @click="linkTo('/account')">
           {{$t('navs.account')}}
-        </router-link>
+        </a>
       </li>
       <li :class="{'current': currentLink == 'block'}">
         <div class="sm-anv-img-wrap">
           <img v-show="currentLink != 'block'" src="../assets/imgs/navs/block_H.png" alt="">
           <img v-show="currentLink == 'block'" src="../assets/imgs/navs/block_B.png" alt="">
         </div>
-        <router-link :to="{path: '/block'}">
+        <a @click="linkTo('/block')">
           {{$t('navs.block')}}
-        </router-link>
+        </a>
       </li>
       <li :class="{'current': currentLink == 'transaction' || currentLink == 'pendingtxs', 'tx-link': txLink}">
         <div class="sm-anv-img-wrap">
@@ -72,16 +72,16 @@
           <div class="tx-link-current-img">
             <img v-show="currentLink != 'transaction'" src="../assets/imgs/navs/Tx_H.png" alt="">
             <img v-show="currentLink == 'transaction'" src="../assets/imgs/navs/Tx_B.png" alt="">
-            <router-link :to="{path: '/transaction'}" :class="{'link-current': currentLink == 'transaction'}">
+            <a @click="linkTo('/transaction')" :class="{'link-current': currentLink == 'transaction'}">
               {{$t('navs.transaction')}}
-            </router-link>
+            </a>
           </div>
           <div class="tx-link-current-img">
             <img v-show="currentLink != 'pendingtxs'" src="../assets/imgs/navs/Tx_H.png" alt="">
             <img v-show="currentLink == 'pendingtxs'" src="../assets/imgs/navs/Tx_B.png" alt="">
-            <router-link :to="{path: '/pendingtxs'}" :class="{'link-current': currentLink == 'pendingtxs'}">
+            <a @click="linkTo('/pendingtxs')" :class="{'link-current': currentLink == 'pendingtxs'}">
               {{$t('navs.pendingtxs')}}
-            </router-link>
+            </a>
           </div>
         </div>
       </li>
@@ -90,42 +90,45 @@
           <img v-show="currentLink != 'contract'" src="../assets/imgs/navs/Contract_H.png" alt="">
           <img v-show="currentLink == 'contract'" src="../assets/imgs/navs/Contract_B.png" alt="">
         </div>
-        <router-link :to="{path: '/contract'}">
+        <a @click="linkTo('/contract')">
           {{$t('navs.contract')}}
-        </router-link>
+        </a>
       </li>
       <!-- <li :class="{'current': currentLink == 'token'}">
         <div class="sm-anv-img-wrap">
           <img v-show="currentLink != 'token'" src="../assets/imgs/navs/Token_H.png" alt="">
           <img v-show="currentLink == 'token'" src="../assets/imgs/navs/Token_B.png" alt="">
         </div>
-        <router-link :to="{path: '/'}">
+        <a @click="linkTo('/')">
           {{$t('navs.token')}}
-        </router-link>
+        </a>
       </li> -->
       <li :class="{'current': currentLink == 'statChar'}">
         <div class="sm-anv-img-wrap">
           <img v-show="currentLink != 'statChar'" src="../assets/imgs/navs/StatChar_H.png" alt="">
           <img v-show="currentLink == 'statChar'" src="../assets/imgs/navs/StatChar_B.png" alt="">
         </div>
-        <router-link :to="{path: '/statChar'}">
+        <a @click="linkTo('/statChar')">
           {{$t('navs.statChar')}}
-        </router-link>
+        </a>
       </li>
       <li :class="{'current': currentLink == 'api'}">
         <div class="sm-anv-img-wrap">
           <img v-show="currentLink != 'api'" src="../assets/imgs/navs/API_H.png" alt="">
           <img v-show="currentLink == 'api'" src="../assets/imgs/navs/API_B.png" alt="">
         </div>
-        <router-link :to="{path: '/api'}">
+        <a @click="linkTo('/api')">
           {{$t('navs.api')}}
-        </router-link>
+        </a>
       </li>
     </ul>
   </div>
 </template>
 <script>
 import Menu from './menu'
+import router from '../router'
+import { mapActions } from 'vuex'
+
 export default {
   props: {
     isLogo: Boolean
@@ -144,6 +147,7 @@ export default {
     this.currentLink = window.location.href.split('/')[4]
   },
   methods: {
+    ...mapActions(['setShardValue']),
     clickMenu () {
       if (this.menuVisible === true) {
         setTimeout(() => {
@@ -161,6 +165,10 @@ export default {
       } else {
         this.txLink = !this.txLink
       }
+    },
+    linkTo (path) {
+      router.push({path: path})
+      this.setShardValue(1)
     }
   }
 }

@@ -38,7 +38,9 @@ module.exports = {
     statChar: '统计图',
     api: 'Api',
     accountTx: '账户交易列表',
-    accountHash: '账户哈希'
+    accountAddress: '账户地址',
+    contractTx: '合约交易列表',
+    contractAddress: '合约地址'
   },
   blockStat: {
     blocksCount: '区块总数',

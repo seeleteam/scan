@@ -12,15 +12,15 @@
         <div class="main-wrap">
           <div class="wrap">
             <div class="describe-title-wrap">
-              <span class="title">{{$t("navs.accountTx")}}</span>
+              <span class="title">{{$t("navs.contractTx")}}</span>
               <ul class="link-wrap">
                 <li><a href="/">{{$t("navs.home")}}</a></li>
                 <li><i class="el-icon-arrow-right"></i></li>
-                <li class="current">{{$t("navs.accountTx")}}</li>
+                <li class="current">{{$t("navs.contractTx")}}</li>
               </ul>
             </div>
             <div class="des-title">
-              {{$t("navs.accountAddress")}}: {{title}}
+              {{$t("navs.contractAddress")}}: {{title}}
             </div>
             <el-table
               class="list-wrap"
