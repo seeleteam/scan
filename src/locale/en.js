@@ -35,7 +35,7 @@ module.exports = {
     contract: 'Contracts',
     token: 'Token',
     statChar: 'Stat Charts',
-    api: 'Api',
+    api: 'API',
     accountTx: 'AccountTxs',
     accountAddress: 'AccountAddress',
     contractTx: 'ContractTxs',
@@ -221,7 +221,7 @@ module.exports = {
     },
     transactions: {
       title: 'Seele Transaction History',
-      content: 'Stat the count of transactions and growth rate'
+      content: 'Statistics of transactions and growth rate'
     },
     network: {
       hashTitle: 'HashRate Growth Rate',
