@@ -1,6 +1,6 @@
 >## 获取区块列表
 #### URL
-	https://api.seelescan.net/api/v1/blocks
+	http://api.seelescan.net/api/v1/blocks
 
 #### 参数 
 1. p:要显示的页码,默认值为1

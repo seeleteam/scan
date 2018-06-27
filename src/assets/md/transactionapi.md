@@ -1,6 +1,6 @@
 >## 获取交易列表
 #### URL
-	https://api.seelescan.net/api/v1/txs
+	http://api.seelescan.net/api/v1/txs
 	
 #### 参数 
 1. p:要显示的页码 
@@ -18,9 +18,9 @@
 #### 例子
 	//Request
 	//By Default
-	https://api.seelescan.net/api/v1/txs?p=1&ps=10&s=1
+	http://api.seelescan.net/api/v1/txs?p=1&ps=10&s=1
 	//By Block
-	https://api.seelescan.net/api/v1/txs?p=1&ps=10&block=5567&s=1
+	http://api.seelescan.net/api/v1/txs?p=1&ps=10&block=5567&s=1
 	
 	//Return
 	{
@@ -56,7 +56,7 @@
 
 >## 获取交易详细
 #### URL
-	https://api.seelescan.net/api/v1/tx
+	http://api.seelescan.net/api/v1/tx
 	
 #### 参数 
 1. txhash: 交易的哈希值
@@ -68,7 +68,7 @@
 
 #### 例子
 	//Request
-	https://api.seelescan.net/api/v1/tx?txhash=0x4d58d1edcbdb91f9942186b3db4d0214c5d2ab9fff5c79766d7beb46cac7881f
+	http://api.seelescan.net/api/v1/tx?txhash=0x4d58d1edcbdb91f9942186b3db4d0214c5d2ab9fff5c79766d7beb46cac7881f
 	
 	//Return
 	{
@@ -95,7 +95,7 @@
 
 >## 获取交易队列列表
 #### URL
-	https://api.seelescan.net/api/v1/pendingtxs
+	http://api.seelescan.net/api/v1/pendingtxs
 	
 #### 参数 
 1. p:要显示的页码 
@@ -111,7 +111,7 @@
 
 #### 例子
 	//Request
-	https://api.seelescan.net/api/v1/pendingtxs?p=1&ps=10&s=1
+	http://api.seelescan.net/api/v1/pendingtxs?p=1&ps=10&s=1
 	
 	//Return
 	{

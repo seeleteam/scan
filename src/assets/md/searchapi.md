@@ -1,6 +1,6 @@
 >## 查询账户，区块或者交易的详细信息
 #### URL
-	https://api.seelescan.net/api/v1/search
+	http://api.seelescan.net/api/v1/search
 
 #### 参数 
 1. content: 区块的哈希值，交易的哈希值，账户的地址，合约的地址之一
@@ -16,7 +16,7 @@
 查询交易
 
 	//Request
-	https://api.seelescan.net/api/v1/search?content=0x4d58d1edcbdb91f9942186b3db4d0214c5d2ab9fff5c79766d7beb46cac7881f
+	http://api.seelescan.net/api/v1/search?content=0x4d58d1edcbdb91f9942186b3db4d0214c5d2ab9fff5c79766d7beb46cac7881f
 	
 	//Return
 	{

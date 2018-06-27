@@ -1,6 +1,6 @@
 >## Get block list
 #### URL
-	https://api.seelescan.net/api/v1/blocks
+	http://api.seelescan.net/api/v1/blocks
 
 #### Parameter 
 1. p:The page number to display, the default value is 1

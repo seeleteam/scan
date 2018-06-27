@@ -1,6 +1,6 @@
 >## Get a list of accounts
 #### URL
-	https://api.seelescan.net/api/v1/accounts
+	http://api.seelescan.net/api/v1/accounts
 
 #### Parameter 
 1. p:The page number to display, the default value is 1
@@ -53,7 +53,7 @@
 
 >## Get account details
 #### URL
-	https://api.seelescan.net/api/v1/account
+	http://api.seelescan.net/api/v1/account
 
 #### Parameter 
 1. address: Account address
@@ -63,7 +63,7 @@ Returns details of a specified account
 
 #### Example
 	//Request
-	https://api.seelescan.net/api/v1/account?address=0x0b252fa6de61be780facf36815e4d4b763352f81
+	http://api.seelescan.net/api/v1/account?address=0x0b252fa6de61be780facf36815e4d4b763352f81
 	
 	//Return
 	{
