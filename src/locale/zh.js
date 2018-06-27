@@ -36,7 +36,7 @@ module.exports = {
     contract: '合约',
     token: '代币',
     statChar: '统计图',
-    api: 'Api',
+    api: 'API',
     accountTx: '账户交易列表',
     accountAddress: '账户地址',
     contractTx: '合约交易列表',

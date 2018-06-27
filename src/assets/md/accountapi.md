@@ -1,7 +1,7 @@
 
 >## 获取账户列表
 #### URL
-	https://api.seelescan.net/api/v1/accounts
+	http://api.seelescan.net/api/v1/accounts
 
 #### 参数 
 1. p:要显示的页码,默认值为1
@@ -54,7 +54,7 @@
 
 >## 获取账户详细
 #### URL
-	https://api.seelescan.net/api/v1/account
+	http://api.seelescan.net/api/v1/account
 
 #### 参数 
 1. address: 账户的地址
@@ -64,7 +64,7 @@
 
 #### 例子
 	//Request
-	https://api.seelescan.net/api/v1/account?address=0x0b252fa6de61be780facf36815e4d4b763352f81
+	http://api.seelescan.net/api/v1/account?address=0x0b252fa6de61be780facf36815e4d4b763352f81
 	
 	//Return
 	{

@@ -1,6 +1,6 @@
 >## 获取交易总数量
 #### URL
-	https://api.seelescan.net/api/v1/txcount
+	http://api.seelescan.net/api/v1/txcount
 
 #### 返回
 1. code: 错误码,0为正常,非0为错误
@@ -9,7 +9,7 @@
 
 #### 例子
 	//Request
-	https://api.seelescan.net/api/v1/txcount
+	http://api.seelescan.net/api/v1/txcount
 	
 	//Return
 	{
@@ -20,7 +20,7 @@
 	
 >## 获取区块总数量
 #### URL
-	https://api.seelescan.net/api/v1/blockcount
+	http://api.seelescan.net/api/v1/blockcount
 	
 #### 返回
 1. code: 错误码,0为正常,非0为错误
@@ -29,7 +29,7 @@
 
 #### 例子
 	//Request
-	https://api.seelescan.net/api/v1/blockcount
+	http://api.seelescan.net/api/v1/blockcount
 	
 	//Return
 	{
@@ -40,7 +40,7 @@
 	
 >## 获取账号总数量
 #### URL
-	https://api.seelescan.net/api/v1/accountcount
+	http://api.seelescan.net/api/v1/accountcount
 	
 #### 返回
 1. code: 错误码,0为正常,非0为错误
@@ -49,7 +49,7 @@
 
 #### 例子
 	//Request
-	https://api.seelescan.net/api/v1/accountcount
+	http://api.seelescan.net/api/v1/accountcount
 	
 	//Return
 	{
@@ -61,7 +61,7 @@
 
 >## 获取合约总数量
 #### URL
-	https://api.seelescan.net/api/v1/contractcount
+	http://api.seelescan.net/api/v1/contractcount
 	
 #### 返回
 1. code: 错误码,0为正常,非0为错误
@@ -70,7 +70,7 @@
 
 #### 例子
 	//Request
-	https://api.seelescan.net/api/v1/contractcount
+	http://api.seelescan.net/api/v1/contractcount
 	
 	//Return
 	{

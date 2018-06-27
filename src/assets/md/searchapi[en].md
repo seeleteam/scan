@@ -1,6 +1,6 @@
 >## Query account, block or transaction details
 #### URL
-	https://api.seelescan.net/api/v1/search
+	http://api.seelescan.net/api/v1/search
 
 #### Parameter 
 1. content: Block height, transaction hash, account address, contract address
@@ -16,7 +16,7 @@
 Query transaction
 	
 	//Request
-	https://api.seelescan.net/api/v1/search?content=0x4d58d1edcbdb91f9942186b3db4d0214c5d2ab9fff5c79766d7beb46cac7881f
+	http://api.seelescan.net/api/v1/search?content=0x4d58d1edcbdb91f9942186b3db4d0214c5d2ab9fff5c79766d7beb46cac7881f
 	
 	//Return
 	{

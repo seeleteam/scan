@@ -1,6 +1,6 @@
 >## Get node list
 #### URL
-	https://api.seelescan.net/api/v1/nodes
+	http://api.seelescan.net/api/v1/nodes
 	
 #### Parameter 
 1. p:The page number to display, the default value is 1
@@ -16,7 +16,7 @@
 
 #### Example
 	//Request
-	https://api.seelescan.net/api/v1/nodes?p=1&ps=10&s=1
+	http://api.seelescan.net/api/v1/nodes?p=1&ps=10&s=1
 	
 	//Return
 	{
@@ -49,7 +49,7 @@
 	
 >## Get node details
 #### URL
-	https://api.seelescan.net/api/v1/node
+	http://api.seelescan.net/api/v1/node
 
 #### Parameter 
 1. id: node's ID
@@ -61,7 +61,7 @@
 
 #### Example
 	//Request
-	https://api.seelescan.net/api/v1/node?id=23ddfb54a488f906cdb9cbd257eac5663a4c74ba25619bb902651602a4491be4ce437907fcc567b31be6746a014931f4670ac116c0010e5beb28b0dce2c6eaad
+	http://api.seelescan.net/api/v1/node?id=23ddfb54a488f906cdb9cbd257eac5663a4c74ba25619bb902651602a4491be4ce437907fcc567b31be6746a014931f4670ac116c0010e5beb28b0dce2c6eaad
 	
 	//Return
 	{
@@ -84,7 +84,7 @@
 
 >## Get node map
 #### URL
-	https://api.seelescan.net/api/v1/nodemap
+	http://api.seelescan.net/api/v1/nodemap
 
 #### Return
 1. code: Error code, 0 is normal, non-zero is wrong
@@ -93,7 +93,7 @@
 
 #### Example
 	//Request
-	https://api.seelescan.net/api/v1/nodemap
+	http://api.seelescan.net/api/v1/nodemap
 	
 	//Return
 	{
