@@ -35,7 +35,7 @@ module.exports = {
     contract: 'Contracts',
     token: 'Token',
     statChar: 'Stat Charts',
-    api: 'Api',
+    api: 'API',
     accountTx: 'AccountTxs',
     accountAddress: 'AccountAddress',
     contractTx: 'ContractTxs',
