@@ -46,6 +46,12 @@
                 <div class="li-width">{{$t("listHeader.value")}}: </div>
                 <div class="li-content-width">{{pendingtxsInfo.value}}</div>
               </li>
+              <li>
+                <div class="li-width">{{$t("listHeader.payload")}}: </div>
+                <div class="li-content-width">
+                  <el-input type="textarea" :rows="1" v-model="pendingtxsInfo.payload" disabled></el-input>
+                </div>
+              </li>
             </ul>
           </div>
           </div>

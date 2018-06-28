@@ -69,7 +69,7 @@ module.exports = {
     from: '来源',
     to: '去向',
     value: '值',
-    token: '记号',
+    token: '代币',
 
     height: '高度',
     txn: '交易数',
@@ -108,7 +108,10 @@ module.exports = {
     city: '城市',
     client: '客户端',
     caps: '协议',
-    lastSeen: '最后一次更新'
+    lastSeen: '最后一次更新',
+
+    payload: '负载',
+    contractCreationCode: 'Contract Creation Code'
   },
   char: {
     accounts: '账户统计图',
@@ -236,6 +239,7 @@ module.exports = {
     out: '转出'
   },
   tab: {
-    Tx: '交易列表'
+    Tx: '交易列表',
+    Code: '编码'
   }
 }

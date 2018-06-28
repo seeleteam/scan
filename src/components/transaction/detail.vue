@@ -56,6 +56,12 @@
                 <div class="li-width">{{$t("listHeader.txfee")}}: </div>
                 <div class="li-content-width">{{transactionInfo.fee}}</div>
               </li>
+              <li>
+                <div class="li-width">{{$t("listHeader.payload")}}: </div>
+                <div class="li-content-width">
+                  <el-input type="textarea" :rows="1" v-model="transactionInfo.payload" disabled></el-input>
+                </div>
+              </li>
             </ul>
           </div>
           </div>

@@ -107,6 +107,14 @@
                     </li>
                   </ul>
                 </el-tab-pane>
+                <el-tab-pane :label="$t('tab.Code')">
+                  <ul class="detail-wrap wrap-pad">
+                    <li>
+                      <div class="li-width">{{$t("listHeader.contractCreationCode")}}: </div><br/>
+                      <div class="li-content-width li-content-height">{{contractInfo.contractCreationCode}}</div>
+                    </li>
+                  </ul>
+                </el-tab-pane>
                </el-tabs>
             </div>
           </div>
