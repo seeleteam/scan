@@ -26,10 +26,10 @@
                 <div class="li-width">{{$t("listHeader.shardnumber")}}: </div>
                 <div class="li-content-width">{{pendingtxsInfo.shardnumber}}</div>
               </li>
-              <li>
+              <!-- <li>
                 <div class="li-width">{{$t("listHeader.age")}}: </div>
                 <div class="li-content-width">{{pendingtxsInfo.age}}</div>
-              </li>
+              </li> -->
               <li>
                 <div class="li-width">{{$t("listHeader.from")}}: </div>
                 <router-link :to="{path: '/account/detail', query: { address: pendingtxsInfo.from }}">

@@ -58,11 +58,11 @@
                             </router-link>
                           </template>
                         </el-table-column>
-                        <el-table-column
+                        <!-- <el-table-column
                           prop="age"
                           width="120"
                           :label="$t('listHeader.age')">
-                        </el-table-column>
+                        </el-table-column> -->
                         <el-table-column
                           prop="block"
                           :label="$t('listHeader.block')"
