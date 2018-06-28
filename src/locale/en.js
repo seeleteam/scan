@@ -107,7 +107,10 @@ module.exports = {
     region: 'Region',
     client: 'Client',
     caps: 'Caps',
-    lastSeen: 'LastSeen'
+    lastSeen: 'LastSeen',
+
+    payload: 'Payload',
+    contractCreationCode: 'Contract Creation Code'
   },
   char: {
     accounts: 'Accounts Charts',
@@ -235,6 +238,7 @@ module.exports = {
     out: 'OUT'
   },
   tab: {
-    Tx: 'Transactions'
+    Tx: 'Transactions',
+    Code: 'Code'
   }
 }

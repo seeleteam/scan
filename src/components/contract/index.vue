@@ -11,11 +11,14 @@
         </div>
         <div class="main-wrap">
           <div class="wrap">
-            <ContractDescribe
-              :title="title"
-              :content="content"
-              :link="link"
-            ></ContractDescribe>
+            <div class="describe-title-wrap">
+              <span class="title">{{$t('navs.contract')}}</span>
+              <ul class="link-wrap">
+                <li><a href="/">{{$t("navs.home")}}</a></li>
+                <li><i class="el-icon-arrow-right"></i></li>
+                <li class="current">{{$t('navs.contract')}}</li>
+              </ul>
+            </div>
             <ShardSelect></ShardSelect>
             <el-table
               class="list-wrap"
@@ -75,7 +78,6 @@ import { mapActions } from 'vuex'
 import Header from '../header'
 import smHeader from '../sm-header'
 import searchInput from '../search-input'
-import ContractDescribe from '../describe'
 import Footer from '../footer'
 import { formatNumber, formatAccountPercent } from '../../untils/format'
 import ShardSelect from '../shard-select'
@@ -83,9 +85,7 @@ import ShardSelect from '../shard-select'
 export default {
   data () {
     return {
-      title: this.$t('navs.contract'),
       content: '',
-      link: this.$t('navs.contract'),
       pageSize: 25
     }
   },
@@ -93,7 +93,6 @@ export default {
     Header,
     smHeader,
     searchInput,
-    ContractDescribe,
     Footer,
     ShardSelect
   },

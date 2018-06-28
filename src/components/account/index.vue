@@ -11,11 +11,14 @@
         </div>
         <div class="main-wrap">
           <div class="wrap">
-            <AccountDescribe
-              :title="title"
-              :content="content"
-              :link="link"
-            ></AccountDescribe>
+            <div class="describe-title-wrap">
+              <span class="title">{{$t('navs.account')}}</span>
+              <ul class="link-wrap">
+                <li><a href="/">{{$t("navs.home")}}</a></li>
+                <li><i class="el-icon-arrow-right"></i></li>
+                <li class="current">{{$t('navs.account')}}</li>
+              </ul>
+            </div>
             <ShardSelect></ShardSelect>
             <el-table
               class="list-wrap"
@@ -80,7 +83,6 @@ import { mapActions } from 'vuex'
 import Header from '../header'
 import smHeader from '../sm-header'
 import searchInput from '../search-input'
-import AccountDescribe from '../describe'
 import Footer from '../footer'
 import { formatNumber, formatAccountPercent } from '../../untils/format'
 import ShardSelect from '../shard-select'
@@ -88,9 +90,6 @@ import ShardSelect from '../shard-select'
 export default {
   data () {
     return {
-      title: this.$t('navs.account'),
-      content: 'Showing Block (#5466185 to #5466161) out of 5466211 total blocks',
-      link: this.$t('navs.account'),
       pageSize: 25
     }
   },
@@ -98,7 +97,6 @@ export default {
     Header,
     smHeader,
     searchInput,
-    AccountDescribe,
     Footer,
     ShardSelect
   },
@@ -162,5 +160,6 @@ export default {
 </script>
 <style lang="less">
 @import "../../assets/css/page.less";
+@import "../../assets/css/describe.less";
 @import "../../assets/css/list.less";
 </style>

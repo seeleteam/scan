@@ -11,11 +11,14 @@
         </div>
         <div class="main-wrap">
           <div class="wrap">
-            <nodeDescribe
-              :title="title"
-              :content="content"
-              :link="link"
-            ></nodeDescribe>
+            <div class="describe-title-wrap">
+              <span class="title">{{$t('navs.node')}}</span>
+              <ul class="link-wrap">
+                <li><a href="/">{{$t("navs.home")}}</a></li>
+                <li><i class="el-icon-arrow-right"></i></li>
+                <li class="current">{{$t('navs.node')}}</li>
+              </ul>
+            </div>
             <el-row :gutter="20" class="layout-wrap">
               <el-col :xs="24" :md="7" :lg="7" class="lg-show hide-padding">
                 <div class="layout-left-wrap bg-layout node-map-wrap">
@@ -109,7 +112,6 @@ import { mapActions } from 'vuex'
 import Header from '../header'
 import smHeader from '../sm-header'
 import searchInput from '../search-input'
-import nodeDescribe from '../describe'
 import Footer from '../footer'
 // eslint-disable-next-line
 import world from 'echarts/map/js/world'
@@ -117,9 +119,6 @@ import { formatNumber, formatNodePercent } from '../../untils/format'
 export default {
   data () {
     return {
-      title: this.$t('navs.node'),
-      content: 'All seele nodes.',
-      link: this.$t('navs.node'),
       isShow: 1
     }
   },
@@ -127,7 +126,6 @@ export default {
     Header,
     smHeader,
     searchInput,
-    nodeDescribe,
     Footer
   },
   mounted () {
@@ -285,6 +283,7 @@ export default {
 </script>
 <style lang="less">
 @import "../../assets/css/page.less";
+@import "../../assets/css/describe.less";
 @import "../../assets/css/char.less";
 .chartNodesDistribution{
   width: 100%;

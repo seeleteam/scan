@@ -11,11 +11,14 @@
         </div>
         <div class="main-wrap">
           <div class="wrap">
-            <BlockDescribe
-              :title="title"
-              :content="content"
-              :link="link"
-            ></BlockDescribe>
+            <div class="describe-title-wrap">
+              <span class="title">{{$t('navs.block')}}</span>
+              <ul class="link-wrap">
+                <li><a href="/">{{$t("navs.home")}}</a></li>
+                <li><i class="el-icon-arrow-right"></i></li>
+                <li class="current">{{$t('navs.block')}}</li>
+              </ul>
+            </div>
             <ShardSelect></ShardSelect>
             <el-table
               class="list-wrap"
@@ -97,7 +100,6 @@ import router from '../../router'
 import Header from '../header'
 import smHeader from '../sm-header'
 import searchInput from '../search-input'
-import BlockDescribe from '../describe'
 import Footer from '../footer'
 import ShardSelect from '../shard-select'
 
@@ -116,7 +118,6 @@ export default {
     Header,
     smHeader,
     searchInput,
-    BlockDescribe,
     Footer,
     ShardSelect
   },
@@ -174,5 +175,6 @@ export default {
 </script>
 <style lang="less">
 @import "../../assets/css/page.less";
+@import "../../assets/css/describe.less";
 @import "../../assets/css/list.less";
 </style>
