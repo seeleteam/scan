@@ -111,7 +111,7 @@ module.exports = {
     lastSeen: '最后一次更新',
 
     payload: '负载',
-    contractCreationCode: 'Contract Creation Code'
+    contractCreationCode: '合约创建编码'
   },
   char: {
     accounts: '账户统计图',

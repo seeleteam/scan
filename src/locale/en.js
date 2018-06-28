@@ -110,7 +110,7 @@ module.exports = {
     lastSeen: 'LastSeen',
 
     payload: 'Payload',
-    contractCreationCode: '合约创建编码'
+    contractCreationCode: 'Contract Creation Code'
   },
   char: {
     accounts: 'Accounts Charts',

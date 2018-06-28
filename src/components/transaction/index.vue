@@ -12,14 +12,14 @@
         <div class="main-wrap">
           <div class="wrap">
             <div class="describe-title-wrap">
-              <span class="title">{{title}}</span>
+              <span class="title">{{$t('navs.transaction')}}</span>
               <span v-show="isShow" class="title-content">
               {{$t('forBlock')}} {{content}}
               </span>
               <ul class="link-wrap">
                 <li><a href="/">{{$t("navs.home")}}</a></li>
                 <li><i class="el-icon-arrow-right"></i></li>
-                <li class="current">{{link}}</li>
+                <li class="current">{{$t('navs.transaction')}}</li>
               </ul>
             </div>
             <ShardSelect></ShardSelect>
@@ -106,9 +106,7 @@ import ShardSelect from '../shard-select'
 export default {
   data () {
     return {
-      title: this.$t('navs.transaction'),
       content: this.$route.query.block,
-      link: this.$t('navs.transaction'),
 
       pageSize: 25
     }

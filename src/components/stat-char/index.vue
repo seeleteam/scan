@@ -11,11 +11,14 @@
         </div>
         <div class="main-wrap">
           <div class="wrap">
-            <AccountDescribe
-              :title="title"
-              :content="content"
-              :link="link"
-            ></AccountDescribe>
+            <div class="describe-title-wrap">
+              <span class="title">{{$t('navs.statChar')}}</span>
+              <ul class="link-wrap">
+                <li><a href="/">{{$t("navs.home")}}</a></li>
+                <li><i class="el-icon-arrow-right"></i></li>
+                <li class="current">{{$t('navs.statChar')}}</li>
+              </ul>
+            </div>
             <el-row :gutter="20" class="layout-wrap lg-show">
               <el-col :span="5" class="lg-show">
                 <div class="layout-left-wrap bg-layout">
@@ -164,7 +167,6 @@
 import Header from '../header'
 import smHeader from '../sm-header'
 import searchInput from '../search-input'
-import AccountDescribe from '../describe'
 import Footer from '../footer'
 
 import Nodes from './nodes'
@@ -179,9 +181,7 @@ export default {
   data () {
     return {
       tabPosition: 'left',
-      title: this.$t('navs.statChar'),
       content: '',
-      link: this.$t('navs.statChar'),
 
       isShow: 1,
       activeNames: ['1', '2', '3', '4', '5', '6', '7', '8']
@@ -191,7 +191,6 @@ export default {
     Header,
     smHeader,
     searchInput,
-    AccountDescribe,
     Footer,
 
     Nodes,
@@ -216,5 +215,6 @@ export default {
 </script>
 <style lang="less">
 @import "../../assets/css/page.less";
+@import "../../assets/css/describe.less";
 @import "../../assets/css/char.less";
 </style>

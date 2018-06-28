@@ -11,11 +11,14 @@
         </div>
         <div class="main-wrap">
           <div class="wrap">
-            <NodeDescribe
-              :title="title"
-              :content="content"
-              :link="link"
-            ></NodeDescribe>
+            <div class="describe-title-wrap">
+              <span class="title">{{$t('navs.node')}}</span>
+              <ul class="link-wrap">
+                <li><a href="/">{{$t("navs.home")}}</a></li>
+                <li><i class="el-icon-arrow-right"></i></li>
+                <li class="current">{{$t('navs.node')}}</li>
+              </ul>
+            </div>
             <ShardSelect></ShardSelect>
             <el-table
               class="list-wrap"
@@ -80,7 +83,6 @@ import { mapActions } from 'vuex'
 import Header from '../header'
 import smHeader from '../sm-header'
 import searchInput from '../search-input'
-import NodeDescribe from '../describe'
 import Footer from '../footer'
 import ShardSelect from '../shard-select'
 
@@ -88,9 +90,6 @@ export default {
   data () {
     return {
       isDetail: false,
-      title: this.$t('navs.node'),
-      content: 'All nodes List.',
-      link: this.$t('navs.node'),
 
       pageSize: 25
     }
@@ -99,7 +98,6 @@ export default {
     Header,
     smHeader,
     searchInput,
-    NodeDescribe,
     ShardSelect,
     Footer
   },
@@ -157,5 +155,6 @@ export default {
 </script>
 <style lang="less">
 @import "../../assets/css/page.less";
+@import "../../assets/css/describe.less";
 @import "../../assets/css/list.less";
 </style>

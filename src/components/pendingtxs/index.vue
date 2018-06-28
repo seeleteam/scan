@@ -12,11 +12,11 @@
         <div class="main-wrap">
           <div class="wrap">
             <div class="describe-title-wrap">
-              <span class="title">{{title}}</span>
+              <span class="title">{{$t('navs.pendingtxs')}}</span>
               <ul class="link-wrap">
                 <li><a href="/">{{$t("navs.home")}}</a></li>
                 <li><i class="el-icon-arrow-right"></i></li>
-                <li class="current">{{link}}</li>
+                <li class="current">{{$t('navs.pendingtxs')}}</li>
               </ul>
             </div>
             <ShardSelect></ShardSelect>
@@ -92,9 +92,7 @@ import ShardSelect from '../shard-select'
 export default {
   data () {
     return {
-      title: this.$t('navs.pendingtxs'),
       isShow: false,
-      link: this.$t('navs.pendingtxs'),
 
       pageSize: 25
     }
