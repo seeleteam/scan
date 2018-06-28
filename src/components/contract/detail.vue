@@ -50,7 +50,7 @@
                         style="width: 100%; background: transparent">
                         <el-table-column
                           prop="hash"
-                          width="200"
+                          width="230"
                           :label="$t('listHeader.hash')">
                           <template slot-scope="scope">
                             <router-link :to="{path: '/transaction/detail', query: { txhash: scope.row.hash }}">
@@ -58,11 +58,11 @@
                             </router-link>
                           </template>
                         </el-table-column>
-                        <el-table-column
+                        <!-- <el-table-column
                           prop="age"
                           width="120"
                           :label="$t('listHeader.age')">
-                        </el-table-column>
+                        </el-table-column> -->
                         <el-table-column
                           prop="block"
                           :label="$t('listHeader.block')"
@@ -71,7 +71,7 @@
                         <el-table-column
                           prop="from"
                           :label="$t('listHeader.from')"
-                          width="200">
+                          width="230">
                           <template slot-scope="scope">
                             <span v-if="scope.row.inorout === true" class="list-content table-link-color" @click="toTx(scope.row.from)">{{scope.row.from}}</span>
                             <span v-else class="list-content">{{scope.row.from}}</span>
@@ -79,7 +79,7 @@
                         </el-table-column>
                         <el-table-column
                           prop="inorout"
-                          width="100"
+                          width="120"
                           :label="$t('listHeader.inorout')">
                           <template slot-scope="scope">
                             <span v-if="scope.row.inorout === true" class="list-content list-content-in">{{$t('tx.in')}}</span>
@@ -88,7 +88,7 @@
                         </el-table-column>
                         <el-table-column
                           prop="to"
-                          width="200"
+                          width="230"
                           :label="$t('listHeader.to')">
                           <template slot-scope="scope">
                             <span v-if="scope.row.inorout === false" class="list-content table-link-color" @click="toTx(scope.row.to)">{{scope.row.to}}</span>
