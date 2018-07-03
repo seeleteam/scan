@@ -30,7 +30,7 @@
           <a href="https://github.com/seeleteam" target="_blank">
             <div class="footer-icons-icon"></div>
           </a>
-          <a href="http://weibo.com/SeeleTech" target="_blank">
+          <a href="https://weibo.com/u/6561132287" target="_blank">
             <div class="footer-icons-icon"></div>
           </a>
       </div>
