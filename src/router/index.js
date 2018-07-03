@@ -1,23 +1,23 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import home from '@/components/home/index'
-import account from '@/components/account/index'
-import accountDetail from '@/components/account/detail'
-import accountTxList from '@/components/account/tx-list'
-import contract from '@/components/contract/index'
-import contractDetail from '@/components/contract/detail'
-import contractTxList from '@/components/contract/tx-list'
-import transaction from '@/components/transaction/index'
-import transactionDetail from '@/components/transaction/detail'
-import pendingtxs from '@/components/pendingtxs/index'
-import pendingtxsDetail from '@/components/pendingtxs/detail'
-import block from '@/components/block/index'
-import blockDetail from '@/components/block/detail'
-import node from '@/components/node/index'
-import nodemap from '@/components/node/nodemap'
-import nodeDetail from '@/components/node/detail'
-import statChar from '@/components/stat-char'
-import api from '@/components/api'
+const home = () => import('@/components/home/index')
+const account = () => import('@/components/account/index')
+const accountDetail = () => import('@/components/account/detail')
+const accountTxList = () => import('@/components/account/tx-list')
+const contract = () => import('@/components/contract/index')
+const contractDetail = () => import('@/components/contract/detail')
+const contractTxList = () => import('@/components/contract/tx-list')
+const transaction = () => import('@/components/transaction/index')
+const transactionDetail = () => import('@/components/transaction/detail')
+const pendingtxs = () => import('@/components/pendingtxs/index')
+const pendingtxsDetail = () => import('@/components/pendingtxs/detail')
+const block = () => import('@/components/block/index')
+const blockDetail = () => import('@/components/block/detail')
+const node = () => import('@/components/node/index')
+const nodemap = () => import('@/components/node/nodemap')
+const nodeDetail = () => import('@/components/node/detail')
+const statChar = () => import('@/components/stat-char')
+const api = () => import('@/components/api')
 
 Vue.use(Router)
 

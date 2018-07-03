@@ -3,7 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import ElementUI from 'element-ui'
+import { Tabs, TabPane, Table, TableColumn, Pagination, Collapse, CollapseItem, Row, Col, Container, Aside, Popover, Option, OptionGroup, Input, Button, Dialog, Select, Radio, RadioGroup } from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import store from './store'
 import VueI18n from 'vue-i18n'
@@ -13,7 +13,28 @@ import echarts from 'echarts'
 Vue.prototype.$echarts = echarts
 Vue.use(vuex)
 Vue.use(VueI18n)
-Vue.use(ElementUI)
+
+Vue.use(Tabs)
+Vue.use(TabPane)
+Vue.use(Table)
+Vue.use(TableColumn)
+Vue.use(Pagination)
+Vue.use(Collapse)
+Vue.use(CollapseItem)
+Vue.use(Row)
+Vue.use(Col)
+Vue.use(Container)
+Vue.use(Aside)
+Vue.use(Popover)
+Vue.use(Option)
+Vue.use(OptionGroup)
+Vue.use(Input)
+Vue.use(Button)
+Vue.use(Dialog)
+Vue.use(Select)
+Vue.use(Radio)
+Vue.use(RadioGroup)
+
 Vue.config.productionTip = false
 
 function getLocalLanguage () {
