@@ -10,6 +10,7 @@
 import { mapActions } from 'vuex'
 import _ from 'lodash'
 import { formatNumber } from '../../../untils/format'
+import echarts from 'echarts'
 export default {
   mounted () {
     this.getHashRateChart(this.shardCharValue)
@@ -52,7 +53,7 @@ export default {
       // charts locate
       var statChartsElement = document.getElementById('statChartsHashRate')
       // charts instantiatte
-      var statCharts = this.$echarts.init(statChartsElement)
+      var statCharts = echarts.init(statChartsElement)
       // clean cache
       statCharts.clear()
       if (_.isUndefined(this.statData.y) || this.statData.y.length === 0) {
