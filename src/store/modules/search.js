@@ -19,7 +19,7 @@ const getters = {
 // actions
 const actions = {
   getSearch ({ commit, state }, params) {
-    search(params)
+    search(params[0])
       .then(doc => {
         if (doc.success && doc.code === 0) {
           let type = doc.data.type
@@ -48,12 +48,23 @@ const actions = {
               break
           }
         } else if (doc.success && doc.code !== 0) {
-          Message({
-            showClose: true,
-            dangerouslyUseHTMLString: true,
-            message: `<strong>There are no results for</strong> <br/><br/><span style="word-break:break-all;">${params}</span> <br/><br/> Check your spelling or try different keywords`,
-            type: 'warning'
-          })
+          // Todo
+          // Internationalization, passed in through params
+          if (params[1] === 'zh') {
+            Message({
+              showClose: true,
+              dangerouslyUseHTMLString: true,
+              message: `<strong>没有与此相关的结果:<br/><br/><span style="word-break:break-all;">${params[0]}</span>`,
+              type: 'warning'
+            })
+          } else if (params[1] === 'en') {
+            Message({
+              showClose: true,
+              dangerouslyUseHTMLString: true,
+              message: `<strong>There are no results for<br/><br/><span style="word-break:break-all;">${params[0]}</span><br/><br/>Check your spelling or try different keywords`,
+              type: 'warning'
+            })
+          }
         }
       })
   },

@@ -18,7 +18,7 @@ export default {
   methods: {
     ...mapActions(['getSearch']),
     search () {
-      this.getSearch(this.input5.replace(/^\s+|\s+$/g, ''))
+      this.getSearch([this.input5.replace(/^\s+|\s+$/g, ''), this.$i18n.locale])
     }
   }
 }
