@@ -77,6 +77,7 @@ import smHeader from '../sm-header'
 import searchInput from '../search-input'
 import BlockDescribe from '../describe'
 import Footer from '../footer'
+import { Message } from 'element-ui'
 export default {
   data () {
     return {
@@ -141,7 +142,7 @@ export default {
         }
         this.getDetail(data)
       } else if (sedHeight === height) {
-        this.$message({
+        Message({
           showClose: true,
           message: this.$t('message.noPrev'),
           type: 'warning'
@@ -157,7 +158,7 @@ export default {
         }
         this.getDetail(data)
       } else if (sedHeight === height) {
-        this.$message({
+        Message({
           showClose: true,
           message: this.$t('message.noNext'),
           type: 'warning'

@@ -1,6 +1,7 @@
 import * as types from '../mutation-types'
 import router from '../../router'
 import { search } from '../../service'
+import { Message } from 'element-ui'
 // import doc from './data'
 
 const state = {
@@ -20,7 +21,7 @@ const actions = {
   getSearch ({ commit, state }, params) {
     search(params)
       .then(doc => {
-        if (doc.success) {
+        if (doc.success && doc.code === 0) {
           let type = doc.data.type
           let info = doc.data.info
           let searchType = true
@@ -46,6 +47,13 @@ const actions = {
               commit(types.SEARCH_TYPE, searchType)
               break
           }
+        } else if (doc.success && doc.code !== 0) {
+          Message({
+            showClose: true,
+            dangerouslyUseHTMLString: true,
+            message: `<strong>There are no results for</strong> <br/><br/><span style="word-break:break-all;">${params}</span> <br/><br/> Check your spelling or try different keywords`,
+            type: 'warning'
+          })
         }
       })
   },
