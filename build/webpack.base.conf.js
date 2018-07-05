@@ -40,6 +40,9 @@ module.exports = {
       'jquery': 'jquery'
     }
   },
+  externals: {
+    echarts: 'echarts'
+  },
   module: {
     rules: [
       ...(config.dev.useEslint ? [createLintingRule()] : []),

@@ -1,6 +1,7 @@
 import * as types from '../mutation-types'
 import router from '../../router'
 import { search } from '../../service'
+import { Message } from 'element-ui'
 // import doc from './data'
 
 const state = {
@@ -18,9 +19,9 @@ const getters = {
 // actions
 const actions = {
   getSearch ({ commit, state }, params) {
-    search(params)
+    search(params[0])
       .then(doc => {
-        if (doc.success) {
+        if (doc.success && doc.code === 0) {
           let type = doc.data.type
           let info = doc.data.info
           let searchType = true
@@ -45,6 +46,24 @@ const actions = {
               commit(types.CONTRACT_DETAIL, info)
               commit(types.SEARCH_TYPE, searchType)
               break
+          }
+        } else if (doc.success && doc.code !== 0) {
+          // Todo
+          // Internationalization, passed in through params
+          if (params[1] === 'zh') {
+            Message({
+              showClose: true,
+              dangerouslyUseHTMLString: true,
+              message: `<strong>没有与此相关的结果:<br/><br/><span style="word-break:break-all;">${params[0]}</span>`,
+              type: 'warning'
+            })
+          } else if (params[1] === 'en') {
+            Message({
+              showClose: true,
+              dangerouslyUseHTMLString: true,
+              message: `<strong>There are no results for<br/><br/><span style="word-break:break-all;">${params[0]}</span><br/><br/>Check your spelling or try different keywords`,
+              type: 'warning'
+            })
           }
         }
       })

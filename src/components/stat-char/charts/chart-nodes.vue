@@ -10,6 +10,7 @@
 import { mapActions } from 'vuex'
 import _ from 'lodash'
 import { formatNumber } from '../../../untils/format'
+import echarts from 'echarts'
 export default {
   mounted () {
     this.getNodesByShardChart()
@@ -40,7 +41,7 @@ export default {
       // charts locate
       var statChartsElement = document.getElementById('statChartsNodes')
       // charts instantiatte
-      var statCharts = this.$echarts.init(statChartsElement)
+      var statCharts = echarts.init(statChartsElement)
       // clean cache
       statCharts.clear()
       if (_.isUndefined(this.statData.seriesData) || this.statData.seriesData.length === 0) {

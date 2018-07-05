@@ -10,6 +10,7 @@
 import { mapActions } from 'vuex'
 import _ from 'lodash'
 // import { formatNumber } from '../../../untils/format'
+import echarts from 'echarts'
 export default {
   data () {
     return {
@@ -54,7 +55,7 @@ export default {
       // charts locate
       var statChartsElement = document.getElementById('statChartsAccount')
       // charts instantiatte
-      var statCharts = this.$echarts.init(statChartsElement)
+      var statCharts = echarts.init(statChartsElement)
       // clean cache
       statCharts.clear()
       // method define:

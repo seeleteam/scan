@@ -114,8 +114,9 @@ import smHeader from '../sm-header'
 import searchInput from '../search-input'
 import Footer from '../footer'
 // eslint-disable-next-line
-import world from 'echarts/map/js/world'
+// import world from 'echarts/map/js/world'
 import { formatNumber, formatNodePercent } from '../../untils/format'
+import echarts from 'echarts'
 export default {
   data () {
     return {
@@ -174,7 +175,7 @@ export default {
     ...mapActions(['getNodeListByCountry', 'getNodeListByCity']),
     drawChartNodesDistribution () {
       var nodeDistributionChart = document.getElementById('chartNodesDistribution')
-      var chartNodeDistribution = this.$echarts.init(nodeDistributionChart)
+      var chartNodeDistribution = echarts.init(nodeDistributionChart)
       var self = this
       var convertData = function (data) {
         var cityGeo = self.nodeListCityGeo
