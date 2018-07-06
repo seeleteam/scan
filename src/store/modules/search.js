@@ -20,7 +20,8 @@ const getters = {
 const actions = {
   getSearch ({ commit, state }, params) {
     let loading = Loading.service({
-      lock: true
+      lock: false,
+      target: document.querySelector('.search-wrap')
     })
     search(params[0])
       .then(doc => {
