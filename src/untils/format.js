@@ -106,7 +106,7 @@ function formatCount (data) {
     return result + ' ' + unit
   }
 
-  if (data !== 0 && data < 1000) {
+  if (data < 1000) {
     result = data
     unit = ''
     return result + ' ' + unit
