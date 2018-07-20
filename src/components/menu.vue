@@ -47,6 +47,7 @@ export default {
   },
   mounted () {
     sessionStorage.setItem('Network', this.radio1)
+    // Change default lang settings from zh_cn to us_en
     this.$i18n.locale = this.radio2 === 2 ? 'en' : ''
   },
   methods: {
