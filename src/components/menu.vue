@@ -47,15 +47,16 @@ export default {
   },
   mounted () {
     sessionStorage.setItem('Network', this.radio1)
+    // Change default lang settings from zh_cn to us_en
+    this.$i18n.locale = this.radio2 === 2 ? 'en' : ''
   },
   methods: {
     changeNetwork () {
       sessionStorage.setItem('Network', this.radio1)
     },
     changeLanguage () {
-      this.$i18n.locale = (this.radio2 === 2
-        ? 'en'
-        : this.radio2 === 1 ? 'zh' : '')
+      this.$i18n.locale =
+        this.radio2 === 2 ? 'en' : this.radio2 === 1 ? 'zh' : ''
     }
   }
 }
@@ -90,7 +91,7 @@ export default {
     }
   }
 }
-@media screen and (max-width: 768px ) {
+@media screen and (max-width: 768px) {
   .menu-wrap {
     height: 60px;
     position: relative;
