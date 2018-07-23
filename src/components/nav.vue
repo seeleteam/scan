@@ -107,7 +107,7 @@ export default {
       font-size: 16px;
       a{
         display: inline-block;
-        width: 100%;
+        // width: 100%;
         color: #666;
       }
       &:hover{
