@@ -77,7 +77,8 @@ export default {
   }
 }
 .detail-search-wrap{
-  width: 460px;
+  // width: 460px;
+  width: 440px;
   margin-top: 10px;
 }
 
