@@ -46,7 +46,7 @@
           {{$t('navs.statChar')}}
         </a>
       </li>
-      <li @click="linkTo('/api')">
+      <li :class="{'current': currentLink == 'api'}" @click="linkTo('/api')">
         <a :to="{path: '/api'}">
           {{$t('navs.api')}}
         </a>
