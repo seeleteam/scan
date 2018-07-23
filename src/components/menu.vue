@@ -42,13 +42,13 @@ export default {
   data () {
     return {
       radio1: process.env.NEW_WORK_ID || 1,
-      radio2: this.$i18n.locale === 'en' ? 2 : 1
+      radio2: this.$i18n.locale === 'zh' ? 2 : 1
     }
   },
   mounted () {
-    sessionStorage.setItem('Network', this.radio1)
     // Change default lang settings from zh_cn to us_en
-    this.$i18n.locale = this.radio2 === 2 ? 'en' : ''
+    this.changeLanguage()
+    sessionStorage.setItem('Network', this.radio1)
   },
   methods: {
     changeNetwork () {
