@@ -42,7 +42,7 @@ export default {
   data () {
     return {
       radio1: process.env.NEW_WORK_ID || 1,
-      radio2: this.$i18n.locale === 'zh' ? 2 : 1
+      radio2: this.$i18n.locale === 'zh' ? 1 : 2
     }
   },
   mounted () {
