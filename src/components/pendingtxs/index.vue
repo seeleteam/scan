@@ -45,9 +45,7 @@
                 width="330"
                 :label="$t('listHeader.from')">
                 <template slot-scope="scope">
-                  <router-link :to="{path: '/account/detail', query: { address: scope.row.from }}">
-                    <span class="table-link-color list-content">{{scope.row.from}}</span>
-                  </router-link>
+                  <span :class="{'table-link-color': isLink(scope.row.from)}" class="list-content" @click="toFrom(scope.row.from)">{{scope.row.from}}</span>
                 </template>
               </el-table-column>
               <el-table-column
@@ -81,14 +79,14 @@
 </template>
 <script>
 import { mapActions } from 'vuex'
-
+import router from '../../router'
 import Header from '../header'
 import smHeader from '../sm-header'
 import searchInput from '../search-input'
 import PendingtxsDescribe from '../describe'
 import Footer from '../footer'
 import ShardSelect from '../shard-select'
-
+import { filtersAd } from '../../untils/format'
 export default {
   data () {
     return {
@@ -141,6 +139,12 @@ export default {
     },
     getList (page) {
       this.getPendingtxsList([page, this.shardValue])
+    },
+    toFrom (address) {
+      return filtersAd(address) ? router.push({path: '/account/detail', query: {address: address}}) : ''
+    },
+    isLink (address) {
+      return filtersAd(address)
     }
   },
   watch: {

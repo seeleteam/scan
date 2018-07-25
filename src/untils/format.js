@@ -359,6 +359,20 @@ function formatAccountPercent (value) {
   retStr = (value * 100).toFixed(8)
   return retStr + '%'
 }
+/**
+ * @method filtersAd
+ * @param {string} value
+ * @returns {boolean}  <br/>
+ * @desc
+ */
+const address = '0x0000000000000000000000000000000000000000'
+function filtersAd (value) {
+  if (value === address) {
+    return false
+  } else {
+    return true
+  }
+}
 
 export {
   formatNumber,
@@ -374,5 +388,6 @@ export {
   formatAvgBlockTime,
   formatNodePercent,
   formatDateFromTimestamps,
-  formatAccountPercent
+  formatAccountPercent,
+  filtersAd
 }
