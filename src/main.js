@@ -4,26 +4,26 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import {
-    Tabs,
-    TabPane,
-    Table,
-    TableColumn,
-    Pagination,
-    Collapse,
-    CollapseItem,
-    Row,
-    Col,
-    Container,
-    Aside,
-    Popover,
-    Option,
-    OptionGroup,
-    Input,
-    Button,
-    Dialog,
-    Select,
-    Radio,
-    RadioGroup
+  Tabs,
+  TabPane,
+  Table,
+  TableColumn,
+  Pagination,
+  Collapse,
+  CollapseItem,
+  Row,
+  Col,
+  Container,
+  Aside,
+  Popover,
+  Option,
+  OptionGroup,
+  Input,
+  Button,
+  Dialog,
+  Select,
+  Radio,
+  RadioGroup
 } from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import store from './store'
@@ -55,31 +55,32 @@ Vue.use(Radio)
 Vue.use(RadioGroup)
 Vue.config.productionTip = false
 
+// eslint-disable-next-line
 function getLocalLanguage() {
-    var localLanguage = navigator.language
-    var resLang = 'en'
-    if (localLanguage) {
-        var langArr = localLanguage.split('-')
-        if (langArr.length > 0) {
-            resLang = langArr[0]
-        }
+  var localLanguage = navigator.language
+  var resLang = 'en'
+  if (localLanguage) {
+    var langArr = localLanguage.split('-')
+    if (langArr.length > 0) {
+      resLang = langArr[0]
     }
-    return resLang
+  }
+  return resLang
 }
 const i18n = new VueI18n({
-        // Change default lang settings from zh_cn to us_en
-        locale: 'en',
-        messages: {
-            'zh': require('./locale/zh'),
-            'en': require('./locale/en')
-        }
-    })
-    /* eslint-disable no-new */
+  // Change default lang settings from zh_cn to us_en
+  locale: 'en',
+  messages: {
+    'zh': require('./locale/zh'),
+    'en': require('./locale/en')
+  }
+})
+/* eslint-disable no-new */
 new Vue({
-    el: '#app',
-    router,
-    store,
-    i18n,
-    components: { App },
-    template: '<App/>'
+  el: '#app',
+  router,
+  store,
+  i18n,
+  components: { App },
+  template: '<App/>'
 })

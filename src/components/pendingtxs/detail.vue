@@ -32,15 +32,11 @@
               </li> -->
               <li>
                 <div class="li-width">{{$t("listHeader.from")}}: </div>
-                <router-link :to="{path: '/account/detail', query: { address: pendingtxsInfo.from }}">
-                  <div class="li-content-width li-content-link">{{pendingtxsInfo.from}}</div>
-                </router-link>
+                <span :class="{'li-content-link': isLink(pendingtxsInfo.from)}" class="list-content-width" @click="toFrom(pendingtxsInfo.from)">{{pendingtxsInfo.from}}</span>
               </li>
               <li>
                 <div class="li-width">{{$t("listHeader.to")}}: </div>
-                <router-link :to="{path: '/account/detail', query: { address: pendingtxsInfo.to }}">
-                  <div class="li-content-width li-content-link">{{pendingtxsInfo.to}}</div>
-                </router-link>
+                <span :class="{'li-content-link': isLink(pendingtxsInfo.to)}" class="list-content-width" @click="toFrom(pendingtxsInfo.to)">{{pendingtxsInfo.to}}</span>
               </li>
               <li>
                 <div class="li-width">{{$t("listHeader.value")}}: </div>
@@ -61,12 +57,13 @@
 </template>
 <script>
 import { mapActions } from 'vuex'
-
+import router from '../../router'
 import Header from '../header'
 import smHeader from '../sm-header'
 import searchInput from '../search-input'
 import TransactionDescribe from '../describe'
 import Footer from '../footer'
+import { filtersAd } from '../../untils/format'
 export default {
   data () {
     return {
@@ -96,6 +93,12 @@ export default {
     ...mapActions(['getPendingtxsDetail']),
     getDetail (height) {
       this.getPendingtxsDetail(height)
+    },
+    toFrom (address) {
+      return filtersAd(address) ? router.push({path: '/account/detail', query: {address: address}}) : ''
+    },
+    isLink (address) {
+      return filtersAd(address)
     }
   }
 }

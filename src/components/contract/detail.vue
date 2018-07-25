@@ -73,7 +73,7 @@
                           :label="$t('listHeader.from')"
                           width="230">
                           <template slot-scope="scope">
-                            <span v-if="scope.row.inorout === true" class="list-content table-link-color" @click="toTx(scope.row.from)">{{scope.row.from}}</span>
+                            <span v-if="scope.row.inorout === true" :class="{'table-link-color': isLink(scope.row.from)}" class="list-content" @click="toTx(scope.row.from)">{{scope.row.from}}</span>
                             <span v-else class="list-content">{{scope.row.from}}</span>
                           </template>
                         </el-table-column>
@@ -91,7 +91,7 @@
                           width="230"
                           :label="$t('listHeader.to')">
                           <template slot-scope="scope">
-                            <span v-if="scope.row.inorout === false" class="list-content table-link-color" @click="toTx(scope.row.to)">{{scope.row.to}}</span>
+                            <span v-if="scope.row.inorout === false" :class="{'table-link-color': isLink(scope.row.to)}" class="list-content" @click="toTx(scope.row.to)">{{scope.row.to}}</span>
                             <span v-else class="list-content">{{scope.row.to}}</span>
                           </template>
                         </el-table-column>
@@ -130,7 +130,8 @@ import smHeader from '../sm-header'
 import searchInput from '../search-input'
 import ContractDescribe from '../describe'
 import Footer from '../footer'
-import { formatNumber, formatAccountPercent } from '../../untils/format'
+import { formatNumber, formatAccountPercent, filtersAd } from '../../untils/format'
+
 export default {
   data () {
     return {
@@ -177,7 +178,10 @@ export default {
       router.push({path: '/contract/txList', query: {address: address}})
     },
     toTx (txHash) {
-      router.push({path: '/account/detail', query: { address: txHash }})
+      return filtersAd(txHash) ? router.push({path: '/account/detail', query: { address: txHash }}) : ''
+    },
+    isLink (address) {
+      return filtersAd(address)
     }
   },
   watch: {
