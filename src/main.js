@@ -67,6 +67,7 @@ function getLocalLanguage() {
   }
   return resLang
 }
+
 const i18n = new VueI18n({
   // Change default lang settings from zh_cn to us_en
   locale: 'en',

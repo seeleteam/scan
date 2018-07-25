@@ -55,7 +55,7 @@ export default {
       var statCharts = echarts.init(statChartsElement)
       // clean cache
       statCharts.clear()
-      if (_.isUndefined(this.statData.seriesData) || this.statData.seriesData.length === 0) {
+      if (_.isUndefined(this.statData.code)) {
         statCharts.showLoading({
           text: this.$t('statcharts.common.loading')
         })
@@ -96,7 +96,8 @@ export default {
           right: 10,
           top: 20,
           bottom: 20,
-          data: this.statData.legendData
+          data: this.statData.legendData,
+          selected: this.statData.selected
         },
         series: [
           {
@@ -107,7 +108,7 @@ export default {
             symbolSize: 5,
             sampling: 'average',
             radius: '40%',
-            center: ['50%', '50%'],
+            center: ['70%', '50%'],
             itemStyle: {
               emphasis: {
                 shadowBlur: 10,
