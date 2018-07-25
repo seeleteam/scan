@@ -57,6 +57,7 @@ export default {
       // define  charts option
       var option = {
         toolbox: {
+          padding: [0, 25, 0, 0],
           show: true,
           feature: {
             mark: {show: true},

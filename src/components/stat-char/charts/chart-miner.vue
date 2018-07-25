@@ -73,6 +73,7 @@ export default {
         },
         toolbox: {
           show: true,
+          padding: [0, 25, 0, 0],
           feature: {
             mark: {show: true},
             dataView: {show: true, readOnly: false},
