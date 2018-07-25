@@ -38,6 +38,7 @@ const actions = {
       .then(doc => {
         if (doc.success) {
           let dataList = doc.data
+          let dataCode = doc.code
           var xAxis = []
           var yAxis = []
           var toolTip = []
@@ -60,7 +61,8 @@ const actions = {
           dataList = {
             'x': xAxis,
             'y': yAxis,
-            'tooltip': toolTip
+            'tooltip': toolTip,
+            'code': dataCode
           }
           commit(types.TX_CHART, dataList)
         }
@@ -75,6 +77,7 @@ const actions = {
       .then(doc => {
         if (doc.success) {
           let dataList = doc.data
+          let dataCode = doc.code
           var xAxis = []
           var yAxis = []
           var toolTip = []
@@ -92,7 +95,8 @@ const actions = {
           dataList = {
             'x': xAxis,
             'y': yAxis,
-            'tooltip': toolTip
+            'tooltip': toolTip,
+            'code': dataCode
           }
           commit(types.DIFFICULTY_CHART, dataList)
         }
@@ -107,6 +111,7 @@ const actions = {
       .then(doc => {
         if (doc.success) {
           let dataList = doc.data
+          let dataCode = doc.code
           var xAxis = []
           var yAxis = []
           var toolTip = []
@@ -125,7 +130,8 @@ const actions = {
           dataList = {
             'x': xAxis,
             'y': yAxis,
-            'tooltip': toolTip
+            'tooltip': toolTip,
+            'code': dataCode
           }
           commit(types.ADDRESS_CHART, dataList)
         }
@@ -140,6 +146,7 @@ const actions = {
       .then(doc => {
         if (doc.success) {
           let dataList = doc.data
+          let dataCode = doc.code
           var xAxis = []
           var yAxis = []
           var toolTip = []
@@ -158,7 +165,8 @@ const actions = {
           dataList = {
             'x': xAxis,
             'y': yAxis,
-            'tooltip': toolTip
+            'tooltip': toolTip,
+            'code': dataCode
           }
           commit(types.BLOCKS_CHART, dataList)
         }
@@ -173,6 +181,7 @@ const actions = {
       .then(doc => {
         if (doc.success) {
           let dataList = doc.data
+          let dataCode = doc.code
           var xAxis = []
           var yAxis = []
           var toolTip = []
@@ -190,7 +199,8 @@ const actions = {
           dataList = {
             'x': xAxis,
             'y': yAxis,
-            'tooltip': toolTip
+            'tooltip': toolTip,
+            'code': dataCode
           }
           commit(types.HASHRATE_CHART, dataList)
         }
@@ -205,6 +215,7 @@ const actions = {
       .then(doc => {
         if (doc.success) {
           let dataList = doc.data
+          let dataCode = doc.code
           var xAxis = []
           var yAxis = []
           var toolTip = []
@@ -222,7 +233,8 @@ const actions = {
           dataList = {
             'x': xAxis,
             'y': yAxis,
-            'tooltip': toolTip
+            'tooltip': toolTip,
+            'code': dataCode
           }
           commit(types.BLOCKTIME_CHART, dataList)
         }
@@ -237,8 +249,10 @@ const actions = {
       .then(doc => {
         if (doc.success) {
           let dataList = doc.data
+          let dataCode = doc.code
           var legendData = []
           var seriesData = []
+          var selected = {}
           if (!_.isUndefined(dataList) && dataList !== null && dataList.length > 0) {
             let rankArray = dataList[0].Rank
             for (var i = 0; i < rankArray.length; i++) {
@@ -249,11 +263,14 @@ const actions = {
                 name: address,
                 value: rankArray[i].Mined
               })
+              selected[address] = i < 15
             }
           }
           dataList = {
             'legendData': legendData,
-            'seriesData': seriesData
+            'seriesData': seriesData,
+            'selected': selected,
+            'code': dataCode
           }
           commit(types.MINER_CHART, dataList)
         }
@@ -268,21 +285,28 @@ const actions = {
       .then(doc => {
         if (doc.success) {
           let dataList = doc.data
+          let dataCode = doc.code
           var legendData = []
           var seriesData = []
+          var selected = {}
           if (!_.isUndefined(dataList) && dataList !== null) {
+            var i = 0
             for (var key in dataList) {
+              i++
               var shardInfo = 'shard-' + key
               legendData.push(shardInfo)
               seriesData.push({
                 name: shardInfo,
                 value: dataList[key]
               })
+              selected[shardInfo] = i < 20
             }
           }
           dataList = {
             'legendData': legendData,
-            'seriesData': seriesData
+            'seriesData': seriesData,
+            'selected': selected,
+            'code': dataCode
           }
           commit(types.NODES_CHART, dataList)
         }

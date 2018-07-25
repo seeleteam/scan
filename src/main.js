@@ -55,6 +55,7 @@ Vue.use(Radio)
 Vue.use(RadioGroup)
 Vue.config.productionTip = false
 
+<<<<<<< Updated upstream
 // eslint-disable-next-line
 function getLocalLanguage() {
   var localLanguage = navigator.language
@@ -67,6 +68,20 @@ function getLocalLanguage() {
   }
   return resLang
 }
+=======
+// explore language for default
+// function getLocalLanguage () {
+//   var localLanguage = navigator.language
+//   var resLang = 'en'
+//   if (localLanguage) {
+//     var langArr = localLanguage.split('-')
+//     if (langArr.length > 0) {
+//       resLang = langArr[0]
+//     }
+//   }
+//   return resLang
+// }
+>>>>>>> Stashed changes
 const i18n = new VueI18n({
   // Change default lang settings from zh_cn to us_en
   locale: 'en',

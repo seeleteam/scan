@@ -1,7 +1,7 @@
 // template define
 <template>
     <div class='grid-content bg-purple'>
-      <div id='statChartsNodes' class="statChartsClass" :style="{ 'min-width': '300px', width: '835px', height: '500px'}"></div>
+      <div id='statChartsMinerPhone' class="statChartsClass" :style="{ 'min-width': '300px', width: '835px', height: '500px'}"></div>
     </div>
 </template>
 
@@ -13,20 +13,31 @@ import { formatNumber } from '../../../untils/format'
 import echarts from 'echarts'
 export default {
   mounted () {
-    this.getNodesByShardChart()
-    this.drawStatChartsNodes()
+    this.getMinerChart(this.shardCharValue)
+    this.drawStatChartsMiner()
   },
   computed: {
     statData: {
       get () {
-        return this.$store.state.chart.nodesChart
+        return this.$store.state.chart.minerChart
+      }
+    },
+    shardCharValue: {
+      get () {
+        return this.$store.state.shardChar.shardCharValue
       }
     }
   },
   watch: {
     statData: {
       handler: function (val, oldval) {
-        this.drawStatChartsNodes()
+        this.drawStatChartsMiner()
+      }
+    },
+    shardCharValue: {
+      handler: function (val, oldval) {
+        this.getMinerChart(this.shardCharValue)
+        this.drawStatChartsMiner()
       }
     }
   },
@@ -36,10 +47,10 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['getNodesByShardChart']),
-    drawStatChartsNodes () {
+    ...mapActions(['getMinerChart']),
+    drawStatChartsMiner () {
       // charts locate
-      var statChartsElement = document.getElementById('statChartsNodes')
+      var statChartsElement = document.getElementById('statChartsMinerPhone')
       // charts instantiatte
       var statCharts = echarts.init(statChartsElement)
       // clean cache
@@ -56,8 +67,22 @@ export default {
       //    tip display
       // define  charts option
       var option = {
+        title: {
+          text: '(' + (this.shardCharValue === '0' ? this.$t('statcharts.common.shardAll') : (this.$t('statcharts.common.shardTag') + this.shardCharValue)) + ')',
+          x: 'left'
+        },
+        legend: {
+          type: 'scroll',
+          orient: 'vertical',
+          x: 'left',
+          show: false,
+          right: 10,
+          top: 20,
+          bottom: 20,
+          data: this.statData.legendData,
+          selected: this.statData.selected
+        },
         toolbox: {
-          padding: [0, 25, 0, 0],
           show: true,
           feature: {
             mark: {show: true},
@@ -72,21 +97,11 @@ export default {
         },
         tooltip: {
           trigger: 'item',
-          formatter: '{b} ({d}%) <br/> ' + this.$t('statcharts.node.nodesByShardTipname') + ': {c} '
-        },
-        legend: {
-          type: 'scroll',
-          orient: 'vertical',
-          x: 'left',
-          right: 10,
-          top: 20,
-          bottom: 20,
-          data: this.statData.legendData,
-          selected: this.statData.selected
+          formatter: '{b} ({d}%) <br/> ' + this.$t('statcharts.miner.minerByBlockTipname') + ': {c} '
         },
         series: [
           {
-            name: this.$t('statcharts.node.nodesByShard'),
+            name: this.$t('statcharts.miner.minerByBlockName'),
             type: 'pie',
             smooth: true,
             symbol: 'circle',

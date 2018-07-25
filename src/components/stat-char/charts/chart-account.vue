@@ -59,7 +59,7 @@ export default {
       // clean cache
       statCharts.clear()
       // method define:
-      if (_.isUndefined(this.addressChart.y) || this.addressChart.y.length === 0) {
+      if (_.isUndefined(this.addressChart.code)) {
         statCharts.showLoading({
           text: this.$t('statcharts.common.loading')
         })
