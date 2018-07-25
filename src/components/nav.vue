@@ -70,8 +70,7 @@ export default {
   },
   methods: {
     ...mapActions(['setShardValue']),
-    handleChange (val) {
-    },
+    handleChange (val) {},
     txIsShow () {
       if (this.menuVisible === true) {
         setTimeout(() => {
@@ -88,7 +87,7 @@ export default {
       this.menuVisible = false
     },
     linkTo (path) {
-      router.push({path: path})
+      router.push({ path: path })
       this.menuVisible = false
       this.setShardValue(1)
     }
@@ -97,30 +96,31 @@ export default {
 </script>
 
 <style lang="less">
-.lg-nav{
+.lg-nav {
   .nav-wrap {
     line-height: 60px;
-    li{
+    li {
       display: inline-block;
       margin-right: 30px;
       border-bottom: 2px solid #fff;
       font-size: 16px;
-      a{
+      a {
         display: inline-block;
         // width: 100%;
         color: #666;
       }
-      &:hover{
-        a, .menu-li{
+      &:hover {
+        a,
+        .menu-li {
           cursor: pointer;
           color: #23479c;
           font-weight: bold;
         }
         border-bottom: 2px solid #23479c;
       }
-      .dropd-title-wrap{
+      .dropd-title-wrap {
         position: relative;
-        .dropd-content-wrap{
+        .dropd-content-wrap {
           font-size: 14px;
           position: absolute;
           top: 63px;
@@ -137,39 +137,41 @@ export default {
           transition: all 0.2s ease-out;
           font-weight: 400;
           color: #666;
-          .dropd{
+          .dropd {
             padding: 10px;
             border-radius: 3px;
-            &:hover{
-              color: #409EFF;
+            &:hover {
+              color: #409eff;
               font-weight: 600;
               background: #f5f7fa;
+              width: calc(100% - 20px);
               // border-left: 2px solid #23479c;
             }
           }
-          .dropd1{
+          .dropd1 {
             border-bottom: 1px solid #dcdfe6;
             padding-bottom: 10px;
           }
-          .dropd-current{
-            color: #409EFF;
+          .dropd-current {
+            color: #409eff;
             font-weight: 600;
             background: #f5f7fa;
             // #f5fffa
             // border-left: 2px solid #23479c;
           }
         }
-        &:hover{
-          .dropd-content-wrap{
+        &:hover {
+          .dropd-content-wrap {
             height: 71px;
             opacity: 1;
-            transition: all 0.3s ease-in
+            transition: all 0.3s ease-in;
           }
         }
       }
     }
-    .current{
-      a, .menu-li{
+    .current {
+      a,
+      .menu-li {
         color: #23479c;
       }
       font-weight: bold;

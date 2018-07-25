@@ -82,6 +82,7 @@ export default {
           x: 'left'
         },
         toolbox: {
+          padding: [0, 25, 0, 0],
           feature: {
             dataZoom: {
               yAxisIndex: 'none'

@@ -83,6 +83,7 @@ export default {
           x: 'left'
         },
         toolbox: {
+          padding: [0, 25, 0, 0],
           feature: {
             dataZoom: {
               yAxisIndex: 'none'
@@ -91,7 +92,7 @@ export default {
             magicType: {
               type: ['line', 'bar']
             },
-            saveAsImage: {}
+            saveAsImage: {show: true}
           }
         },
         tooltip: {
