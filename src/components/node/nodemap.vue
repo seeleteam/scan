@@ -132,7 +132,7 @@ export default {
   mounted () {
     this.getNodeListByCountry()
     this.getNodeListByCity()
-    this.drawChartNodesDistribution()
+    this.drawChartNodesDistribution('')
   },
   computed: {
     nodeListByCountry: {
@@ -159,7 +159,7 @@ export default {
   watch: {
     nodeListByCity: {
       handler: function (val, oldval) {
-        this.drawChartNodesDistribution()
+        this.drawChartNodesDistribution('')
       }
     }
   },

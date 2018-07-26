@@ -56,7 +56,7 @@ export default {
       var statCharts = echarts.init(statChartsElement)
       // clean cache
       statCharts.clear()
-      if (_.isUndefined(this.statData.y) || this.statData.y.length === 0) {
+      if (_.isUndefined(this.statData.code)) {
         statCharts.showLoading({
           text: this.$t('statcharts.common.loading')
         })
