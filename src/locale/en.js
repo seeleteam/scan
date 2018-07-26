@@ -210,7 +210,7 @@ module.exports = {
     },
     miner: {
       title: 'Top Miners',
-      content: 'Stat the top 20 miners by blocks'
+      content: 'Stat the top 15 miners by blocks'
     },
     account: {
       title: 'Unique Address Growth Rate',
