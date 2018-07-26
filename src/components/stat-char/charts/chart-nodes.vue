@@ -1,7 +1,7 @@
 // template define
 <template>
     <div class='grid-content bg-purple'>
-      <div id='statChartsNodes' class="statChartsClass" :style="{ 'min-width': '300px', width: '835px', height: '500px'}"></div>
+      <div id='statChartsNodes' class="statChartsClass" :style="{ 'min-width': '300px', width: '835px', height: '500px', 'overflow': 'inherit'}"></div>
     </div>
 </template>
 
@@ -15,6 +15,7 @@ export default {
   mounted () {
     this.getNodesByShardChart()
     this.drawStatChartsNodes()
+    document.getElementById('test').parentNode.style.border = '1px solid #000'
   },
   computed: {
     statData: {
@@ -57,17 +58,53 @@ export default {
       // define  charts option
       var option = {
         toolbox: {
-          padding: [0, 25, 0, 0],
+          padding: [0, 35, 0, 0],
           show: true,
           feature: {
-            mark: {show: true},
-            dataView: {show: true, readOnly: false},
+            mark: {
+              show: true
+            },
+            dataView: {
+              show: true,
+              readOnly: false,
+              textareaBorderColor: '#000',
+              textColor: '#000',
+              buttonColor: '#409EFF',
+              buttonTextColor: '#fff',
+              title: this.$t('statcharts.charts.dataView'),
+              lang: [this.$t('statcharts.charts.dataView'), this.$t('statcharts.charts.close'), this.$t('statcharts.charts.refresh')],
+              optionToContent: function (opt) {
+                var axisData = opt.series[0].data
+                var tableDom = document.createElement('table')
+                tableDom.setAttribute('id', 'test')
+                tableDom.setAttribute('class', 'table-data-table')
+                tableDom.style.width = '100%'
+                tableDom.style.paddingLeft = '20px'
+                var table = '<tbody>'
+                for (var i = 0, l = axisData.length; i < l; i++) {
+                  table += '<tr>' + '<td>' + axisData[i].name + '</td>' + '<td>' + axisData[i].value + '</td>' + '</tr>'
+                }
+                table += '</tbody>'
+                tableDom.innerHTML = table
+                return tableDom
+              }
+            },
             magicType: {
               show: true,
-              type: ['pie', 'funnel']
+              type: ['pie', 'funnel'],
+              title: {
+                pie: this.$t('statcharts.charts.pie'),
+                funnel: this.$t('statcharts.charts.funnel')
+              }
             },
-            restore: {show: true},
-            saveAsImage: {show: true}
+            restore: {
+              show: true,
+              title: this.$t('statcharts.charts.restore')
+            },
+            saveAsImage: {
+              show: true,
+              title: this.$t('statcharts.charts.save')
+            }
           }
         },
         tooltip: {

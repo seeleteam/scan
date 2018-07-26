@@ -128,6 +128,19 @@ module.exports = {
       shardTag: 'Shard',
       shardAll: 'ALL'
     },
+    charts: {
+      dataView: 'Data view',
+      restore: 'Restore',
+      save: 'Save as picture',
+      close: 'Close',
+      refresh: 'Refresh',
+      zoom: 'region scaling',
+      back: 'region scaling reduction',
+      line: 'switch to line chart',
+      bar: 'switch to bar chart',
+      pie: 'switch to pie chart',
+      funnel: 'switch to funnel chart'
+    },
     node: {
       nodesByShard: 'Nodes By Shard',
       nodesByShardTipname: 'Nodes Count'

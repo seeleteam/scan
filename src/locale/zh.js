@@ -129,6 +129,19 @@ module.exports = {
       shardTag: '分片',
       shardAll: '所有分片'
     },
+    charts: {
+      dataView: '数据视图',
+      restore: '还原',
+      save: '保存为图片',
+      close: '关闭',
+      refresh: '刷新',
+      zoom: '区域缩放',
+      back: '区域缩放还原',
+      line: '切换为折线图',
+      bar: '切换为柱状图',
+      pie: '切换为饼图',
+      funnel: '切换为漏斗图'
+    },
     node: {
       nodesByShard: '按分片号分组统计节点数',
       nodesByShardTipname: '节点数'
