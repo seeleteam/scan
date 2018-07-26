@@ -81,16 +81,28 @@ export default {
           x: 'left'
         },
         toolbox: {
-          padding: [0, 25, 0, 0],
+          padding: [0, 35, 0, 0],
           feature: {
             dataZoom: {
-              yAxisIndex: 'none'
+              yAxisIndex: 'none',
+              title: {
+                zoom: this.$t('statcharts.charts.zoom'),
+                back: this.$t('statcharts.charts.back')
+              }
             },
-            restore: {},
+            restore: {
+              title: this.$t('statcharts.charts.restore')
+            },
             magicType: {
-              type: ['line', 'bar']
+              type: ['line', 'bar'],
+              title: {
+                line: this.$t('statcharts.charts.line'),
+                bar: this.$t('statcharts.charts.bar')
+              }
             },
-            saveAsImage: {}
+            saveAsImage: {
+              title: this.$t('statcharts.charts.save')
+            }
           }
         },
         tooltip: {

@@ -53,8 +53,7 @@ export default {
       sessionStorage.setItem('Network', this.radio1)
     },
     changeLanguage () {
-      this.$i18n.locale =
-        this.radio2 === 2 ? 'en' : this.radio2 === 1 ? 'zh' : ''
+      this.$i18n.locale = this.radio2 === 2 ? 'en' : this.radio2 === 1 ? 'zh' : ''
     }
   }
 }

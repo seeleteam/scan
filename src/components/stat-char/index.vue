@@ -182,7 +182,6 @@ export default {
     return {
       tabPosition: 'left',
       content: '',
-
       isShow: 1,
       activeNames: ['1', '2', '3', '4', '5', '6', '7', '8']
     }

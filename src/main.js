@@ -55,18 +55,17 @@ Vue.use(Radio)
 Vue.use(RadioGroup)
 Vue.config.productionTip = false
 
-// eslint-disable-next-line
-function getLocalLanguage() {
-  var localLanguage = navigator.language
-  var resLang = 'en'
-  if (localLanguage) {
-    var langArr = localLanguage.split('-')
-    if (langArr.length > 0) {
-      resLang = langArr[0]
-    }
-  }
-  return resLang
-}
+// function getLocalLanguage() {
+//   var localLanguage = navigator.language
+//   var resLang = 'en'
+//   if (localLanguage) {
+//     var langArr = localLanguage.split('-')
+//     if (langArr.length > 0) {
+//       resLang = langArr[0]
+//     }
+//   }
+//   return resLang
+// }
 
 const i18n = new VueI18n({
   // Change default lang settings from zh_cn to us_en
