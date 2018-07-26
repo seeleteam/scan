@@ -15,7 +15,6 @@ export default {
   mounted () {
     this.getNodesByShardChart()
     this.drawStatChartsNodes()
-    document.getElementById('test').parentNode.style.border = '1px solid #000'
   },
   computed: {
     statData: {
