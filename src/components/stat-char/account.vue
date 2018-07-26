@@ -13,7 +13,7 @@
           </div>
           <div class="char-content-mask">
             <div class="char-content-title">{{$t('charMark.account.title')}}</div>
-            <div class="char-content-content">{{$t('charMark.miner.content')}}</div>
+            <div class="char-content-content">{{$t('charMark.account.content')}}</div>
           </div>
         </div>
       </el-col>

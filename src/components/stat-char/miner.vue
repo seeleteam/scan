@@ -19,7 +19,12 @@
       </el-col>
     </el-row>
     <el-dialog :title="$t('statcharts.miner.minerByBlockName')" :visible.sync=" minerTopByBlockVisible">
-      <MinerTopByBlockChart></MinerTopByBlockChart>
+      <div class="lg-show">
+        <MinerTopByBlockChart></MinerTopByBlockChart>
+      </div>
+      <div class="sm-show">
+        <MinerTopByBlockPhoneChart></MinerTopByBlockPhoneChart>
+      </div>
       <div slot="footer" class="dialog-footer">
         <el-button type="primary" @click="minerTopByBlockVisible = false">{{$t('button.confirm')}}</el-button>
       </div>
@@ -30,7 +35,7 @@
 <script>
 import MinerTopByBlockChart from './charts/chart-miner'
 import ShardCharSelect from '../shard-char-select'
-
+import MinerTopByBlockPhoneChart from './charts/chart-miner-phone'
 export default {
   data () {
     return {
@@ -39,6 +44,7 @@ export default {
   },
   components: {
     MinerTopByBlockChart,
+    MinerTopByBlockPhoneChart,
     ShardCharSelect
   },
   methods: {

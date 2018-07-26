@@ -224,7 +224,7 @@ module.exports = {
     },
     miner: {
       title: '矿工排名统计图',
-      content: '按挖出区块数统计排名前20的矿工'
+      content: '按挖出区块数统计排名前15的矿工'
     },
     account: {
       title: '账户增长趋势图',

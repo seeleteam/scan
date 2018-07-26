@@ -3,7 +3,28 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import {Tabs, TabPane, Table, TableColumn, Pagination, Collapse, CollapseItem, Row, Col, Container, Aside, Popover, Option, OptionGroup, Input, Button, Dialog, Select, Radio, RadioGroup} from 'element-ui'
+import {
+  Tabs,
+  TabPane,
+  Table,
+  TableColumn,
+  Pagination,
+  Collapse,
+  CollapseItem,
+  Row,
+  Col,
+  Container,
+  Aside,
+  Popover,
+  Option,
+  OptionGroup,
+  Input,
+  Button,
+  Dialog,
+  Select,
+  Radio,
+  RadioGroup
+} from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import store from './store'
 import VueI18n from 'vue-i18n'
@@ -45,6 +66,7 @@ Vue.config.productionTip = false
 //   }
 //   return resLang
 // }
+
 const i18n = new VueI18n({
   // Change default lang settings from zh_cn to us_en
   locale: 'en',
