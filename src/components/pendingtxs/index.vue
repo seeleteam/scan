@@ -45,7 +45,7 @@
                 width="330"
                 :label="$t('listHeader.from')">
                 <template slot-scope="scope">
-                  <span :class="{'table-link-color': isLink(scope.row.from)}" class="list-content" @click="toFrom(scope.row.from)">{{scope.row.from}}</span>
+                  <span :class="{'table-link-color': isLink(scope.row.from)}" class="list-content" @click="toFrom(scope.row.from)">{{[scope.row.from, 'from'] | setFormatAd}}</span>
                 </template>
               </el-table-column>
               <el-table-column
@@ -86,7 +86,7 @@ import searchInput from '../search-input'
 import PendingtxsDescribe from '../describe'
 import Footer from '../footer'
 import ShardSelect from '../shard-select'
-import { filtersAd } from '../../untils/format'
+import { filtersAd, formatAd } from '../../untils/format'
 export default {
   data () {
     return {
@@ -105,6 +105,11 @@ export default {
     PendingtxsDescribe,
     Footer,
     ShardSelect
+  },
+  filters: {
+    setFormatAd (params) {
+      return formatAd(params)
+    }
   },
   computed: {
     pendingtxsList: {

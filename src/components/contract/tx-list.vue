@@ -57,7 +57,7 @@
                 :label="$t('listHeader.from')"
                 width="240">
                 <template slot-scope="scope">
-                  <span v-if="scope.row.inorout === true" :class="{'table-link-color': isLink(scope.row.from)}" class="list-content" @click="toTx(scope.row.from)">{{scope.row.from}}</span>
+                  <span v-if="scope.row.inorout === true" :class="{'table-link-color': isLink(scope.row.from)}" class="list-content" @click="toTx(scope.row.from)">{{[scope.row.from, 'from'] | setFormatAd}}</span>
                   <span v-else class="list-content">{{scope.row.from}}</span>
                 </template>
               </el-table-column>
@@ -75,7 +75,7 @@
                 width="240"
                 :label="$t('listHeader.to')">
                 <template slot-scope="scope">
-                  <span v-if="scope.row.inorout === false" :class="{'table-link-color': isLink(scope.row.to)}" class="list-content" @click="toTx(scope.row.to)">{{scope.row.to}}</span>
+                  <span v-if="scope.row.inorout === false" :class="{'table-link-color': isLink(scope.row.to)}" class="list-content" @click="toTx(scope.row.to)">{{[scope.row.to, 'to'] | setFormatAd}}</span>
                   <span v-else class="list-content">{{scope.row.to}}</span>
                 </template>
               </el-table-column>
@@ -109,7 +109,7 @@ import Header from '../header'
 import smHeader from '../sm-header'
 import searchInput from '../search-input'
 import Footer from '../footer'
-import { filtersAd } from '../../untils/format'
+import { filtersAd, formatAd } from '../../untils/format'
 
 export default {
   data () {
@@ -143,6 +143,11 @@ export default {
       get () {
         return this.$store.state.account.total
       }
+    }
+  },
+  filters: {
+    setFormatAd (params) {
+      return formatAd(params)
     }
   },
   methods: {

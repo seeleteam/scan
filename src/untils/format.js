@@ -367,13 +367,23 @@ function formatAccountPercent (value) {
  */
 const address = '0x0000000000000000000000000000000000000000'
 function filtersAd (value) {
-  if (value === address) {
+  if (value === address || value === '') {
     return false
   } else {
     return true
   }
 }
-
+function formatAd (params) {
+  if (params[0]) {
+    return params[0]
+  } else {
+    if (params[1] === 'to') {
+      return 'Contract Creation'
+    } else if (params[1] === 'from') {
+      return 'Miner Reward'
+    }
+  }
+}
 export {
   formatNumber,
   getTime,
@@ -389,5 +399,6 @@ export {
   formatNodePercent,
   formatDateFromTimestamps,
   formatAccountPercent,
-  filtersAd
+  filtersAd,
+  formatAd
 }

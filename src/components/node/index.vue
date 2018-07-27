@@ -59,7 +59,7 @@
                 prop="LastSeen"
                 :label="$t('listHeader.lastSeen')">
                 <template slot-scope="scope">
-                    <span class="list-content">{{scope.row.LastSeen | filterDateTime}}</span>
+                  <span class="list-content">{{scope.row.LastSeen | filterDateTime}}</span>
                 </template>
               </el-table-column>
             </el-table>
