@@ -110,8 +110,8 @@
                 <el-tab-pane :label="$t('tab.Code')">
                   <ul class="detail-wrap wrap-pad">
                     <li>
-                      <div class="li-width">{{$t("listHeader.contractCreationCode")}}: </div><br/>
-                      <div class="li-content-width li-content-height">{{contractInfo.contractCreationCode}}</div>
+                      <div class="li-width">{{$t("listHeader.contractCreationCode")}}: </div>
+                      <div class="li-content-height">{{contractInfo.contractCreationCode}}</div>
                     </li>
                   </ul>
                 </el-tab-pane>
@@ -193,6 +193,7 @@ export default {
 </script>
 <style lang="less">
 @import "../../assets/css/page.less";
+@import "../../assets/css/describe.less";
 @import "../../assets/css/detail.less";
 @import "../../assets/css/list.less";
 </style>
