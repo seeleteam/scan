@@ -75,7 +75,7 @@
                 width="240"
                 :label="$t('listHeader.to')">
                 <template slot-scope="scope">
-                  <span v-if="scope.row.inorout === false" :class="{'table-link-color': isLink(scope.row.to)}" class="list-content table-link-color" @click="toTx(scope.row.to)">{{[scope.row.to, 'to'] | setFormatAd}}</span>
+                  <span v-if="scope.row.inorout === false" :class="{'table-link-color': isLink(scope.row.to)}" class="list-content" @click="toTx(scope.row.to)">{{[scope.row.to, 'to'] | setFormatAd}}</span>
                   <span v-else class="list-content">{{[scope.row.to, 'to'] | setFormatAd}}</span>
                 </template>
               </el-table-column>
