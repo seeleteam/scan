@@ -74,7 +74,7 @@
                           width="230">
                           <template slot-scope="scope">
                             <span v-if="scope.row.inorout === true" :class="{'table-link-color': isLink(scope.row.from)}" class="list-content" @click="toTx(scope.row.from)">{{[scope.row.from, 'from'] | setFormatAd}}</span>
-                            <span v-else class="list-content">{{scope.row.from}}</span>
+                            <span v-else class="list-content">{{[scope.row.from, 'from'] | setFormatAd}}</span>
                           </template>
                         </el-table-column>
                         <el-table-column
@@ -92,7 +92,7 @@
                           :label="$t('listHeader.to')">
                           <template slot-scope="scope">
                             <span v-if="scope.row.inorout === false" :class="{'table-link-color': isLink(scope.row.to)}" class="list-content" @click="toTx(scope.row.to)">{{[scope.row.to, 'to'] | setFormatAd}}</span>
-                            <span v-else class="list-content">{{scope.row.to}}</span>
+                            <span v-else class="list-content">{{[scope.row.to, 'to'] | setFormatAd}}</span>
                           </template>
                         </el-table-column>
                         <el-table-column
