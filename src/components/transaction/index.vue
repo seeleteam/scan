@@ -58,7 +58,7 @@
                 width="310"
                 :label="$t('listHeader.from')">
                 <template slot-scope="scope">
-                  <span :class="{'table-link-color': isLink(scope.row.from)}" class="list-content" @click="toFrom(scope.row.from)">{{scope.row.from}}</span>
+                  <span :class="{'table-link-color': isLink(scope.row.from)}" class="list-content" @click="toFrom(scope.row.from)">{{[scope.row.from, 'from'] | setFormatAd}}</span>
                 </template>
               </el-table-column>
               <el-table-column
@@ -66,7 +66,7 @@
                 width="310"
                 :label="$t('listHeader.to')">
                 <template slot-scope="scope">
-                  <span :class="{'table-link-color': isLink(scope.row.to)}" class="list-content" @click="toFrom(scope.row.to)">{{scope.row.to}}</span>
+                  <span :class="{'table-link-color': isLink(scope.row.to)}" class="list-content" @click="toFrom(scope.row.to)">{{[scope.row.to, 'to'] | setFormatAd}}</span>
                 </template>
               </el-table-column>
               <el-table-column
@@ -98,7 +98,7 @@ import searchInput from '../search-input'
 import TransactionDescribe from '../describe'
 import Footer from '../footer'
 import ShardSelect from '../shard-select'
-import { filtersAd } from '../../untils/format'
+import { filtersAd, formatAd } from '../../untils/format'
 
 export default {
   data () {
@@ -150,6 +150,11 @@ export default {
       get () {
         return this.$store.state.shard.shardValue
       }
+    }
+  },
+  filters: {
+    setFormatAd (params) {
+      return formatAd(params)
     }
   },
   methods: {
