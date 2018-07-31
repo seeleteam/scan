@@ -6,7 +6,7 @@
           {{$t('navs.home')}}
         </a>
       </li>
-      <li :class="{'current': currentLink == '/node'}">
+      <li :class="{'current': currentLink == 'node'}">
         <a @click="linkTo('/node')">
           {{$t('navs.node')}}
         </a>
