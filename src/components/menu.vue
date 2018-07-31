@@ -64,6 +64,7 @@ export default {
   position: relative;
   img {
     position: absolute;
+    cursor: pointer;
     right: 0;
     top: 50%;
     transform: translateY(-50%);
