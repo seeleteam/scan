@@ -48,7 +48,7 @@
                 min-width="100"
                 :label="$t('listHeader.txn')">
                 <template slot-scope="scope">
-                  <span class="table-link-color" @click="toTxList(scope.row.height)">{{scope.row.txn}}</span>
+                  <span class="table-link-color">{{scope.row.txn}}</span>
                 </template>
               </el-table-column>
               <!-- <el-table-column
@@ -60,7 +60,9 @@
                 min-width="600"
                 :label="$t('listHeader.miner')">
                 <template slot-scope="scope">
-                  <span class="list-content miner">{{scope.row.miner}}</span>
+                  <router-link :to="{path: '/account/detail', query: { address: scope.row.miner }}">
+                    <span class="list-content miner table-link-color">{{scope.row.miner}}</span>
+                  </router-link>
                 </template>
               </el-table-column>
               <!-- <el-table-column
