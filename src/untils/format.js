@@ -375,7 +375,11 @@ function filtersAd (value) {
 }
 function formatAd (params) {
   if (params[0]) {
-    return params[0]
+    if (params[0] === '0x0000000000000000000000000000000000000000') {
+      return 'Miner Reward'
+    } else {
+      return params[0]
+    }
   } else {
     if (params[1] === 'to') {
       return 'Contract Creation'

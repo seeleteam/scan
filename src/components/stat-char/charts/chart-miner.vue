@@ -79,6 +79,10 @@ export default {
             dataView: {
               show: true,
               readOnly: true,
+              textareaBorderColor: '#000',
+              textColor: '#000',
+              buttonColor: '#409EFF',
+              buttonTextColor: '#fff',
               title: this.$t('statcharts.charts.dataView'),
               lang: [this.$t('statcharts.charts.dataView'), this.$t('statcharts.charts.close'), this.$t('statcharts.charts.refresh')],
               optionToContent: function (opt) {
