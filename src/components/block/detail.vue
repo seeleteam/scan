@@ -21,9 +21,9 @@
                 <li>
                   <div class="li-width">{{$t("listHeader.height")}}: </div>
                   <div class="li-content-width">
-                    <span class="height-button prev" @click="getPrevDetail(blocksInfo.height, blocksInfo.minheight, blocksInfo.shardnumber)">{{$t("button.prev")}}</span>
-                    {{blocksInfo.height}}
-                    <span class="height-button next" @click="getNextDetail(blocksInfo.height, blocksInfo.maxheight-1, blocksInfo.shardnumber)">{{$t("button.next")}}</span>
+                    <button class="height-button prev" :class="{ grey: disabledPrev }" :disabled="disabledPrev" @click="getPrevDetail(blocksInfo.height, blocksInfo.minheight, blocksInfo.shardnumber)">{{$t("button.prev")}}</button>
+                    <span>{{blocksInfo.height}}</span>
+                    <button class="height-button next" :class="{ grey: disabledNext }" :disabled="disabledNext" @click="getNextDetail(blocksInfo.height, blocksInfo.maxheight-1, blocksInfo.shardnumber)">{{$t("button.next")}}</button>
                   </div>
                 </li>
                 <li>
@@ -81,6 +81,8 @@ import { Message } from 'element-ui'
 export default {
   data () {
     return {
+      disabledPrev: false,
+      disabledNext: false,
       isDetail: false,
       title: this.$t('navs.block'),
       content: 'A total of more than > 10,000,000 blocks found (showing the last 100000 records only)',
@@ -135,12 +137,17 @@ export default {
     },
     getPrevDetail (sedHeight, height, s) {
       let data = {}
+      this.disabledPrev = true
+      this.disabledNext = false
       if (sedHeight !== height) {
         data = {
           height: sedHeight - 1,
           s: s
         }
         this.getDetail(data)
+        setTimeout(() => {
+          this.disabledPrev = false
+        }, 3000)
       } else if (sedHeight === height) {
         Message({
           showClose: true,
@@ -151,12 +158,17 @@ export default {
     },
     getNextDetail (sedHeight, height, s) {
       let data = {}
+      this.disabledNext = true
+      this.disabledPrev = false
       if (sedHeight !== height) {
         data = {
           height: sedHeight + 1,
           s: s
         }
         this.getDetail(data)
+        setTimeout(() => {
+          this.disabledNext = false
+        }, 3000)
       } else if (sedHeight === height) {
         Message({
           showClose: true,
@@ -180,4 +192,21 @@ export default {
 <style lang="less">
 @import "../../assets/css/page.less";
 @import "../../assets/css/detail.less";
+</style>
+<style scoped>
+.li-content-width span{
+  float: left;
+  line-height: 31px;
+}
+.li-content-width button{
+  border: none;
+}
+.detail-wrap li:nth-child(1) .li-content-width{
+  margin-top: -7px;
+}
+.detail-wrap li .li-content-width .grey{
+    color: #fff;
+    background: #b8b8b8;
+    border-color: #b8b8b8;
+}
 </style>
