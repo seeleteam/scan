@@ -78,7 +78,7 @@ export default {
             mark: {show: true},
             dataView: {
               show: true,
-              readOnly: false,
+              readOnly: true,
               title: this.$t('statcharts.charts.dataView'),
               lang: [this.$t('statcharts.charts.dataView'), this.$t('statcharts.charts.close'), this.$t('statcharts.charts.refresh')],
               optionToContent: function (opt) {

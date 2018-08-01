@@ -137,7 +137,7 @@ export default {
           name: this.$t('statcharts.block.countYname'),
           nameLocation: 'middle',
           nameTextStyle: {
-
+            padding: [0, 0, 20, 0]
           },
           nameGap: 50,
           type: 'value',

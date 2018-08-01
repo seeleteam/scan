@@ -65,7 +65,7 @@ export default {
             },
             dataView: {
               show: true,
-              readOnly: false,
+              readOnly: true,
               textareaBorderColor: '#000',
               textColor: '#000',
               buttonColor: '#409EFF',

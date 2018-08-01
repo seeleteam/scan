@@ -135,7 +135,7 @@ export default {
           name: this.$t('statcharts.block.avgTimeYname'),
           nameLocation: 'middle',
           nameTextStyle: {
-
+            padding: [0, 0, 20, 0]
           },
           nameGap: 50,
           type: 'value',
