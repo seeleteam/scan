@@ -38,7 +38,8 @@
               </li> -->
               <li>
                 <div class="li-width">{{$t("listHeader.from")}}: </div>
-                <span :class="{'li-content-link': isLink(transactionInfo.from)}" class="list-content-width" @click="toFrom(transactionInfo.from)">{{transactionInfo.from}}</span>
+                <span v-if="transactionInfo.inorout === true" :class="{'table-link-color': isLink(transactionInfo.from)}" class="list-content-width" @click="toFrom(transactionInfo.from)">{{transactionInfo.from}}</span>
+                <span v-else class="list-content-width">{{scope.row.from}}</span>
               </li>
               <li>
                 <div class="li-width">{{$t("listHeader.to")}}: </div>

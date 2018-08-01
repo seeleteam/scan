@@ -139,7 +139,7 @@ export default {
           name: this.$t('statcharts.account.growthYname'),
           nameLocation: 'middle',
           nameTextStyle: {
-
+            padding: [0, 30, 0, 0]
           },
           nameGap: 50,
           type: 'value',

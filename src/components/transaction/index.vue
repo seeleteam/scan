@@ -58,7 +58,8 @@
                 width="310"
                 :label="$t('listHeader.from')">
                 <template slot-scope="scope">
-                  <span :class="{'table-link-color': isLink(scope.row.from)}" class="list-content" @click="toFrom(scope.row.from)">{{scope.row.from}}</span>
+                  <span v-if="scope.row.inorout === true" :class="{'table-link-color': isLink(scope.row.from)}" class="list-content" @click="toTx(scope.row.from)">{{scope.row.from}}</span>
+                  <span v-else class="list-content">{{scope.row.from}}</span>
                 </template>
               </el-table-column>
               <el-table-column
