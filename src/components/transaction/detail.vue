@@ -38,12 +38,11 @@
               </li> -->
               <li>
                 <div class="li-width">{{$t("listHeader.from")}}: </div>
-                <span v-if="transactionInfo.inorout === true" :class="{'table-link-color': isLink(transactionInfo.from)}" class="list-content-width" @click="toFrom(transactionInfo.from)">{{transactionInfo.from}}</span>
-                <span v-else class="list-content-width">{{scope.row.from}}</span>
+                <span :class="{'li-content-link': isLink(transactionInfo.from)}" class="list-content-width" @click="toFrom(transactionInfo.from)">{{[transactionInfo.from, 'from'] | setFormatAd}}</span>
               </li>
               <li>
                 <div class="li-width">{{$t("listHeader.to")}}: </div>
-                <span :class="{'li-content-link': isLink(transactionInfo.to)}" class="list-content-width" @click="toFrom(transactionInfo.to)">{{transactionInfo.to}}</span>
+                <span :class="{'li-content-link': isLink(transactionInfo.to)}" class="list-content-width" @click="toFrom(transactionInfo.to)">{{[transactionInfo.to] | setFormatAd}}</span>
               </li>
               <li>
                 <div class="li-width">{{$t("listHeader.value")}}: </div>
@@ -74,7 +73,7 @@ import smHeader from '../sm-header'
 import searchInput from '../search-input'
 import TransactionDescribe from '../describe'
 import Footer from '../footer'
-import { filtersAd } from '../../untils/format'
+import { filtersAd, formatAd } from '../../untils/format'
 export default {
   data () {
     return {
@@ -98,6 +97,11 @@ export default {
       get () {
         return this.$store.state.transaction.transactionInfo
       }
+    }
+  },
+  filters: {
+    setFormatAd (params) {
+      return formatAd(params)
     }
   },
   methods: {

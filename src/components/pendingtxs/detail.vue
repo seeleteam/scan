@@ -32,11 +32,11 @@
               </li> -->
               <li>
                 <div class="li-width">{{$t("listHeader.from")}}: </div>
-                <span :class="{'li-content-link': isLink(pendingtxsInfo.from)}" class="list-content-width" @click="toFrom(pendingtxsInfo.from)">{{pendingtxsInfo.from}}</span>
+                <span :class="{'li-content-link': isLink(pendingtxsInfo.from)}" class="list-content-width" @click="toFrom(pendingtxsInfo.from)">{{[scope.row.from, 'from'] | setFormatAd}}</span>
               </li>
               <li>
                 <div class="li-width">{{$t("listHeader.to")}}: </div>
-                <span :class="{'li-content-link': isLink(pendingtxsInfo.to)}" class="list-content-width" @click="toFrom(pendingtxsInfo.to)">{{pendingtxsInfo.to}}</span>
+                <span :class="{'li-content-link': isLink(pendingtxsInfo.to)}" class="list-content-width" @click="toFrom(pendingtxsInfo.to)">{{[scope.row.to, 'to'] | setFormatAd}}</span>
               </li>
               <li>
                 <div class="li-width">{{$t("listHeader.value")}}: </div>
@@ -63,7 +63,7 @@ import smHeader from '../sm-header'
 import searchInput from '../search-input'
 import TransactionDescribe from '../describe'
 import Footer from '../footer'
-import { filtersAd } from '../../untils/format'
+import { filtersAd, formatAd } from '../../untils/format'
 export default {
   data () {
     return {
@@ -87,6 +87,11 @@ export default {
       get () {
         return this.$store.state.pendingtxs.pendingtxsInfo
       }
+    }
+  },
+  filters: {
+    setFormatAd (params) {
+      return formatAd(params)
     }
   },
   methods: {
