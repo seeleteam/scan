@@ -45,8 +45,6 @@ export default {
 @media screen and (max-width: 768px ) {
   .search-wrap {
     top: 10px;
-    .icon-search-wrap {
-    }
   }
 }
 </style>

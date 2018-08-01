@@ -3,7 +3,7 @@
       <div class="fl home-nav-wrap">
         <Nav></Nav>
       </div>
-      <div class="fr">
+      <div class="fr" style="display:none">
         <Menu></Menu>
       </div>
     </div>
