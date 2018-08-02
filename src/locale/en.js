@@ -1,5 +1,5 @@
 module.exports = {
-  blockExplore: 'Block Explore',
+  blockExplore: 'Block Explorer',
   message: {
     noData: 'No Data',
     noPrev: 'No Prev',
