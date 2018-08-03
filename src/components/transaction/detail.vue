@@ -124,4 +124,7 @@ export default {
 .transaction-wrap{
   height: 100%;
 }
+.detail-wrap li:nth-child(5){
+  padding: 0;
+}
 </style>
