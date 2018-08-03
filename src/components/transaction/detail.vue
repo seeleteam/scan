@@ -42,7 +42,7 @@
               </li>
               <li>
                 <div class="li-width">{{$t("listHeader.to")}}: </div>
-                <span :class="{'li-content-link': isLink(transactionInfo.to)}" class="list-content-width" @click="toFrom(transactionInfo.to)">{{[transactionInfo.to] | setFormatAd}}</span>
+                <span :class="{'li-content-link': isLink(transactionInfo.to)}" class="list-content-width" @click="toFrom(transactionInfo.to)">{{[transactionInfo.to, 'to'] | setFormatAd}}</span>
               </li>
               <li>
                 <div class="li-width">{{$t("listHeader.value")}}: </div>
