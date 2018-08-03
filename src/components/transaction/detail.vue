@@ -121,6 +121,8 @@ export default {
 <style lang="less">
 @import "../../assets/css/page.less";
 @import "../../assets/css/detail.less";
+</style>
+<style scoped>
 .transaction-wrap{
   height: 100%;
 }
