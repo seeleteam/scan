@@ -76,6 +76,7 @@ const actions = {
           }
         })
     } else {
+      return false
     }
   },
   setSearchType ({ commit, state }, params) {
