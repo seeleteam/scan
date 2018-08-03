@@ -43,14 +43,14 @@
                 prop="Port"
                 :label="$t('listHeader.port')">
               </el-table-column>
-              <el-table-column
+              <!-- <el-table-column
                 prop="Country"
                 :label="$t('listHeader.country')">
               </el-table-column>
               <el-table-column
                 prop="Client"
                 :label="$t('listHeader.client')">
-              </el-table-column>
+              </el-table-column> -->
               <el-table-column
                 prop="Caps"
                 :label="$t('listHeader.caps')">
