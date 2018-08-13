@@ -1,7 +1,8 @@
-const URL = (process.env.SCAN_API_URL || 'http://localhost:3003') + (process.env.SCAN_API_PATH || '/api/v1')
+// localhost:3003
+const URL = (process.env.SCAN_API_URL || 'http://106.75.77.247:3002') + (process.env.SCAN_API_PATH || '/api/v1')
 module.exports = {
   name: 'seele-scan',
-  CORS: [process.env.SCAN_API_URL || 'http://localhost:3003'],
+  CORS: [process.env.SCAN_API_URL || 'http://106.75.77.247:3002'],
   YQL: [''],
   API: {
     txcountUrl: `${URL}/txcount`,
