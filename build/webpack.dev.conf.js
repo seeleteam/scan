@@ -55,6 +55,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: 'index.html',
+      favicon: path.resolve('favicon.ico'),
       inject: true
     }),
     // copy custom static assets
@@ -88,8 +89,7 @@ module.exports = new Promise((resolve, reject) => {
         ? utils.createNotifierCallback()
         : undefined
       }))
-
-      resolve(devWebpackConfig)
+     resolve(devWebpackConfig)
     }
   })
 })
