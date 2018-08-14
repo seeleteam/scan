@@ -353,7 +353,7 @@ function formatDateFromTimestamps (timestamps) {
  */
 function formatAccountPercent (value) {
   var retStr = '0'
-  if (common.isUndefined(value)) {
+  if (common.isUndefined(value) || value < 0.00000001) {
     return retStr + '%'
   }
   retStr = value.toFixed(8)
