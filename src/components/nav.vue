@@ -153,6 +153,7 @@ export default {
             padding-bottom: 10px;
           }
           .dropd-current {
+            width: calc(100% - 20px);
             color: #409eff;
             font-weight: 600;
             background: #f5f7fa;

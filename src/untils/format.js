@@ -356,7 +356,7 @@ function formatAccountPercent (value) {
   if (common.isUndefined(value)) {
     return retStr + '%'
   }
-  retStr = (value * 100).toFixed(8)
+  retStr = value.toFixed(8)
   return retStr + '%'
 }
 /**
