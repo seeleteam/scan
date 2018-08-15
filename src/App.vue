@@ -23,4 +23,15 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.loadingIcon{
+  width: 100%;
+  height: 600px;
+  position: absolute;
+  left: 55%;
+  top: 50%;
+  transform: translate(-50%,-67%);
+  display: inline-block;
+  background: url(./assets/imgs/nodata.gif) center center no-repeat;
+  background-size: 50% auto;
+}
 </style>
