@@ -96,12 +96,44 @@ export default {
 </script>
 
 <style lang="less">
+@media (min-width: 1200px) {
+  .lg-nav {
+    .nav-wrap {
+      li{
+        &:nth-child(1) {
+          width: 44px;
+        }
+        &:nth-child(2) {
+          width: 48px;
+        }
+        &:nth-child(3) {
+          width: 73px;
+        }
+        &:nth-child(4) {
+          width: 52px;
+        }
+        &:nth-child(5) {
+          width: 98px;
+        }
+        &:nth-child(6) {
+          width: 74px;
+        }
+        &:nth-child(7) {
+          width: 86px;
+        }
+        &:nth-child(8) {
+          width: 26px;
+        }
+      }
+    }
+  }
+}
 .lg-nav {
   .nav-wrap {
     line-height: 60px;
     li {
       display: inline-block;
-      margin-right: 30px;
+      margin-right: 28px;
       border-bottom: 2px solid #fff;
       font-size: 16px;
       a {
