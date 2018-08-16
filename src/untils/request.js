@@ -7,18 +7,18 @@ import { YQL, CORS } from './config'
 import { Message, Loading } from 'element-ui'
 
 const fetch = (options) => {
-  let {
-    method = 'get',
-    data,
-    fetchType,
-    url
-  } = options
   const loading = Loading.service({
     lock: true,
     text: '',
     spinner: 'loadingIcon',
     background: 'rgba(255, 255, 255, 0.7)'
   })
+  let {
+    method = 'get',
+    data,
+    fetchType,
+    url
+  } = options
   const cloneData = lodash.cloneDeep(data)
 
   try {

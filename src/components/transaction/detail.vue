@@ -55,7 +55,7 @@
               <li>
                 <div class="li-width">{{$t("listHeader.payload")}}: </div>
                 <div class="li-content-width">
-                  <el-input type="textarea" :rows="1" v-model="transactionInfo.payload" disabled></el-input>
+                  <el-input type="textarea" :rows="5" v-model="transactionInfo.payload" disabled></el-input>
                 </div>
               </li>
             </ul>
@@ -128,5 +128,9 @@ export default {
 }
 .detail-wrap li:nth-child(5){
   padding: 0;
+}
+.detail-wrap li:last-child{
+  margin-bottom:20px;
+  float: left;
 }
 </style>
