@@ -209,4 +209,8 @@ export default {
     background: #b8b8b8;
     border-color: #b8b8b8;
 }
+.detail-wrap li:last-child{
+  margin-bottom:20px;
+  float: left;
+}
 </style>

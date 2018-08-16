@@ -121,3 +121,9 @@ export default {
 @import "../../assets/css/page.less";
 @import "../../assets/css/detail.less";
 </style>
+<style scoped>
+.detail-wrap li:last-child{
+  padding-bottom:30px;
+  float: left;
+}
+</style>
