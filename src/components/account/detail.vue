@@ -43,7 +43,7 @@
                 <el-tab-pane :label="$t('tab.Tx')">
                   <ul class="el-tab-detail-wrap wrap-pad">
                     <li>
-                      <div class="li-content-width" style="color: #999;">{{$t("listHeader.listDescription")}} {{accountInfo.txcount | txcountValue}})</div>
+                      <div class="li-content-width" style="color: #999;">{{$t("listHeader.listDescription")}}{{accountInfo.txcount | txcountValue}}{{$t("listHeader.listTotal")}})</div>
                     </li>
                     <li>
                       <el-table
