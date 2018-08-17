@@ -48,7 +48,7 @@
                 min-width="100"
                 :label="$t('listHeader.txn')">
                 <template slot-scope="scope">
-                  <span class="table-link-color">{{scope.row.txn}}</span>
+                  <span>{{scope.row.txn}}</span>
                 </template>
               </el-table-column>
               <!-- <el-table-column
