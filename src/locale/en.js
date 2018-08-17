@@ -61,8 +61,8 @@ module.exports = {
     balance: 'Balance',
     percentage: 'Percentage',
     txCount: 'TxCount',
-    listDescription: 'Account Txns List (Showing the last 25 records from a total Of ',
-
+    listDescription: 'Account Txns List (Showing the last 25 records of a total of ',
+    listTotal: ' records',
     txHash: 'TxHash',
     age: 'Age',
     from: 'From',
