@@ -18,10 +18,12 @@ const nodemap = () => import('@/components/node/nodemap')
 const nodeDetail = () => import('@/components/node/detail')
 const statChar = () => import('@/components/stat-char')
 const api = () => import('@/components/api')
+const notFound = () => import('@/components/error/404')
 
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
   routes: [
     {
       path: '/',
@@ -112,6 +114,15 @@ export default new Router({
       path: '/api',
       name: 'api',
       component: api
+    },
+    {
+      path: '/error',
+      name: 'notFound',
+      component: notFound
+    },
+    {
+      path: '*',
+      redirect: '/error'
     }
   ]
 })
