@@ -189,6 +189,17 @@ export default {
   }
 }
 </script>
+<style>
+.el-loading-parent--hidden{
+  overflow: unset!important;
+}
+.loadingIcon{
+  display: none;
+}
+.el-loading-mask.is-fullscreen{
+  display: none;
+}
+</style>
 <style lang="less">
 @import "../../assets/css/page.less";
 @import "../../assets/css/detail.less";
