@@ -29,6 +29,7 @@ import 'element-ui/lib/theme-chalk/index.css'
 import store from './store'
 import VueI18n from 'vue-i18n'
 import vuex from 'vuex'
+import axios from './untils/http'
 
 Vue.use(vuex)
 Vue.use(VueI18n)
@@ -81,6 +82,7 @@ new Vue({
   router,
   store,
   i18n,
+  axios,
   components: { App },
   template: '<App/>'
 })

@@ -4,15 +4,9 @@ import jsonp from 'jsonp'
 import lodash from 'lodash'
 import pathToRegexp from 'path-to-regexp'
 import { YQL, CORS } from './config'
-import { Message, Loading } from 'element-ui'
+import { Message } from 'element-ui'
 
 const fetch = (options) => {
-  const loading = Loading.service({
-    lock: true,
-    text: '',
-    spinner: 'loadingIcon',
-    background: 'rgba(255, 255, 255, 0.7)'
-  })
   let {
     method = 'get',
     data,
@@ -34,7 +28,6 @@ const fetch = (options) => {
         delete cloneData[item.name]
       }
     }
-    loading.close()
     url = domin + url
   } catch (e) {
     throw e
