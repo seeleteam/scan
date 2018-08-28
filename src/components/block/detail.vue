@@ -157,7 +157,6 @@ export default {
       }
     },
     getNextDetail (sedHeight, height, s) {
-      console.log(1)
       let data = {}
       this.disabledNext = true
       this.disabledPrev = false

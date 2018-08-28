@@ -25,6 +25,7 @@
               :data="nodeList"
               :empty-text="$t('message.noData')"
               style="width: 100%">
+              <el-table-column label="Id" type="index"></el-table-column>
               <el-table-column
                 prop="ID"
                 :label="$t('listHeader.nodeId')"
