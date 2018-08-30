@@ -79,8 +79,7 @@
                         </el-table-column>
                         <el-table-column
                           prop="inorout"
-                          width="120"
-                          :label="$t('listHeader.inorout')">
+                          width="120">
                           <template slot-scope="scope">
                             <span v-if="scope.row.inorout === true" class="list-content list-content-in">{{$t('tx.in')}}</span>
                             <span v-else class="list-content list-content-out">{{$t('tx.out')}}</span>
