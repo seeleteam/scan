@@ -375,7 +375,7 @@ function filtersAd (value) {
 }
 function formatAd (params) {
   if (params[0]) {
-    if (params[0] === '0x0000000000000000000000000000000000000000') {
+    if (params[0] === address) {
       return 'Miner Reward'
     } else {
       return params[0]

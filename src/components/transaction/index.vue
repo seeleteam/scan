@@ -207,3 +207,11 @@ export default {
   @import "../../assets/css/describe.less";
   @import "../../assets/css/list.less";
 </style>
+<style scoped>
+.table-link-color{
+  min-width: 340px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+</style>
