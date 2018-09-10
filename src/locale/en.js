@@ -75,6 +75,7 @@ module.exports = {
     uncles: 'Uncles',
     miner: 'Miner',
     gasLimit: 'GasLimit',
+    fee: 'Fee',
     difficulty: 'Difficulty',
     hashRate: 'HashRate',
     reward: 'Reward',
