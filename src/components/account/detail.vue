@@ -28,7 +28,7 @@
                 </li>
                 <li>
                   <div class="li-width">{{$t("listHeader.balance")}}: </div>
-                  <div class="li-content-width">{{accountInfo.balance | balanceValue}}</div>
+                  <div class="li-content-width">{{accountInfo.balance | balanceValue}}  <span class="unit">Seele</span></div>
                 </li>
                 <li>
                   <div class="li-width">{{$t("listHeader.percentage")}}: </div>
@@ -111,6 +111,7 @@
                         <el-table-column
                           prop="fee"
                           :label="$t('listHeader.txfee')">
+                          <template slot-scope="scope">{{scope.row.fee}} <span class="unit">Fan</span></template>
                         </el-table-column>
                       </el-table>
                     </li>
