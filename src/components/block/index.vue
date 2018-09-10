@@ -57,7 +57,7 @@
               </el-table-column> -->
               <el-table-column
                 prop="miner"
-                min-width="600"
+                min-width="280"
                 :label="$t('listHeader.miner')">
                 <template slot-scope="scope">
                   <router-link :to="{path: '/account/detail', query: { address: scope.row.miner }}">
@@ -65,21 +65,21 @@
                   </router-link>
                 </template>
               </el-table-column>
-              <!-- <el-table-column
-                prop="address"
-                :label="$t('listHeader.gasLimit')">
+              <el-table-column
+                prop="reward"
+                :label="$t('listHeader.reward')">
               </el-table-column>
               <el-table-column
+                prop="fee"
+                :label="$t('listHeader.fee')">
+              </el-table-column>
+              <!-- <el-table-column
                 prop="address"
                 :label="$t('listHeader.difficulty')">
               </el-table-column>
               <el-table-column
                 prop="address"
                 :label="$t('listHeader.hashRate')">
-              </el-table-column>
-              <el-table-column
-                prop="address"
-                :label="$t('listHeader.reward')">
               </el-table-column> -->
             </el-table>
             <el-pagination
