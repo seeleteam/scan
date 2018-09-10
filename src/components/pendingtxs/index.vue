@@ -27,7 +27,7 @@
               style="width: 100%">
               <el-table-column
                 prop="txHash"
-                width="330"
+                width="280"
                 :label="$t('listHeader.txHash')">
                 <template slot-scope="scope">
                   <router-link :to="{path: '/pendingtxs/detail', query: { txhash: scope.row.txHash }}">
@@ -42,7 +42,7 @@
               </el-table-column> -->
               <el-table-column
                 prop="from"
-                width="330"
+                width="280"
                 :label="$t('listHeader.from')">
                 <template slot-scope="scope">
                   <span :class="{'table-link-color': isLink(scope.row.from)}" class="list-content" @click="toFrom(scope.row.from)">{{[scope.row.from, 'from'] | setFormatAd}}</span>
@@ -50,7 +50,7 @@
               </el-table-column>
               <el-table-column
                 prop="to"
-                width="330"
+                width="280"
                 :label="$t('listHeader.to')">
                 <template slot-scope="scope">
                   <router-link :to="{path: '/account/detail', query: { address: scope.row.to }}">
@@ -61,6 +61,14 @@
               <el-table-column
                 prop="value"
                 :label="$t('listHeader.value')">
+              </el-table-column>
+              <el-table-column
+                prop="nonce"
+                :label="$t('listHeader.nonce')">
+              </el-table-column>
+              <el-table-column
+                prop="fee"
+                :label="$t('listHeader.fee')">
               </el-table-column>
             </el-table>
             <el-pagination
