@@ -46,7 +46,7 @@
               <el-table-column
                 prop="block"
                 :label="$t('listHeader.block')"
-                width="110">
+                width="100">
                 <template slot-scope="scope">
                   <router-link :to="{path: '/block/detail', query: { height: scope.row.block, s: shardValue }}">
                     <span class="table-link-color list-content">{{scope.row.block}}</span>
@@ -55,7 +55,7 @@
               </el-table-column>
               <el-table-column
                 prop="from"
-                width="310"
+                width="120"
                 :label="$t('listHeader.from')">
                 <template slot-scope="scope">
                   <span :class="{'table-link-color': isLink(scope.row.from)}" class="list-content" @click="toFrom(scope.row.from)">{{[scope.row.from, 'from'] | setFormatAd}}</span>
@@ -73,6 +73,15 @@
                 prop="value"
                 width="130"
                 :label="$t('listHeader.value')">
+              </el-table-column>
+              <el-table-column
+                prop="nonce"
+                :label="$t('listHeader.nonce')">
+              </el-table-column>
+              <el-table-column
+                prop="fee"
+                :label="$t('listHeader.fee')">
+                <template slot-scope="scope">{{scope.row.fee}} <span class="unit">Fan</span></template>
               </el-table-column>
             </el-table>
             <el-pagination
