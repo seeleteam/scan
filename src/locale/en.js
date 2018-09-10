@@ -68,6 +68,7 @@ module.exports = {
     from: 'From',
     to: 'To',
     value: 'Value',
+    nonce: 'Nonce',
     token: 'Token',
 
     height: 'Height',
@@ -87,7 +88,6 @@ module.exports = {
 
     block: 'Block',
     headHash: 'HeadHash',
-    nonce: 'Nonce',
     preBlockHash: 'PreBlockHash',
     txcount: 'TxCount',
 
