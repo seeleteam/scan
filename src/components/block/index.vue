@@ -72,6 +72,7 @@
               <el-table-column
                 prop="fee"
                 :label="$t('listHeader.fee')">
+                <template slot-scope="scope">{{scope.row.fee}} <span class="unit">Fan</span></template>
               </el-table-column>
               <!-- <el-table-column
                 prop="address"

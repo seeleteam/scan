@@ -40,7 +40,7 @@
                 :label="$t('listHeader.balance')"
                 width="300">
                 <template slot-scope="scope">
-                    <span class="list-content">{{scope.row.balance | balanceValue}}</span>
+                    <span class="list-content">{{scope.row.balance | balanceValue}} <span class="unit">Seele</span></span>
                 </template>
               </el-table-column>
               <el-table-column
