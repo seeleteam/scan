@@ -1,157 +1,142 @@
 import * as types from '../mutation-types'
-import { txCount, lastBlock, bestBlock, avgBlockTime, hashRate, networkDifficulty,
-  blocksCount,
-  transactionsCount,
-  accountsCount,
-  contractsCount } from '../../service'
+import _ from 'lodash'
+import { lastBlockTime, transactionTotal, blockTxsTps, accountTotal, contractTotal, chartData, accountRanking, minerRanking } from '../../service'
 
 const state = {
-  txCount: '0',
-  lastBlock: '0',
-  bestBlock: '0',
-  avgBlockTime: '0',
-  hashRate: '0',
-  networkDifficulty: '0',
-  blocksCount: '0',
-  transactionsCount: '0',
-  accountsCount: '0',
-  contractsCount: '0'
+  lastBlockList: [],
+  transactionTotal: 0,
+  blockTxsTps: 0,
+  accountTotal: 0,
+  contractTotal: 0,
+  chartDataList: [],
+  accountRanking: [],
+  minerRanking: []
 }
 
 // getters
 // Gets the properties coming out from under this module
 const getters = {
-  txCount: state => state.txCount,
-  lastBlock: state => state.lastBlock,
-  bestBlock: state => state.bestBlock,
-  avgBlockTime: state => state.avgBlockTime,
-  hashRate: state => state.hashRate,
-  networkDifficulty: state => state.networkDifficulty,
-  blocksCount: state => state.blocksCount,
-  transactionsCount: state => state.transactionsCount,
-  accountsCount: state => state.accountsCount,
-  contractsCount: state => state.contractsCount
+  lastBlockList: state => state.lastBlockList,
+  transactionTotal: state => state.transactionTotal,
+  blockTxsTps: state => state.blockTxsTps,
+  accountTotal: state => state.accountTotal,
+  contractTotal: state => state.contractTotal,
+  chartDataList: state => state.chartDataList,
+  accountRanking: state => state.accountRanking,
+  minerRanking: state => state.minerRanking
 }
 
 // actions
 const actions = {
-  getTxCount ({ commit, state }, params) {
+  getLastBlockTime ({ commit, state }, params) {
     let data = {
       test: 1
     }
-    txCount(data)
+    lastBlockTime(data)
       .then(doc => {
         if (doc.success) {
-          let txCount = doc.data
-          commit(types.TXCOUNT, txCount)
+          let lastBlockList = doc.data
+          commit(types.LASTBLOCKLIST, lastBlockList)
         }
       })
   },
-  getLastBlock ({ commit, state }, params) {
+  getTransactionTotal ({ commit, state }, params) {
     let data = {
       test: 1
     }
-    lastBlock(data)
+    transactionTotal(data)
       .then(doc => {
         if (doc.success) {
-          let lastBlock = doc.data
-          commit(types.LASTBLOCK, lastBlock)
+          let transactionTotal = doc.data
+          commit(types.TRANSACTIONTOTAL, transactionTotal)
         }
       })
   },
-  getBestBlock ({ commit, state }, params) {
+  getBlockTxsTps ({ commit, state }, params) {
     let data = {
       test: 1
     }
-    bestBlock(data)
+    blockTxsTps(data)
       .then(doc => {
         if (doc.success) {
-          let bestBlock = doc.data
-          commit(types.BESTBLOCK, bestBlock)
+          let blockTxsTps = doc.data
+          commit(types.BLOCKTXSTPS, blockTxsTps)
         }
       })
   },
-  getAvgBlockTime ({ commit, state }, params) {
+  getAccountTotal ({ commit, state }, params) {
     let data = {
       test: 1
     }
-    avgBlockTime(data)
+    accountTotal(data)
       .then(doc => {
         if (doc.success) {
-          let avgBlockTime = doc.data
-          commit(types.AVGBLOCKTIME, avgBlockTime)
+          let accountTotal = doc.data
+          commit(types.ACCOUNTTOTAL, accountTotal)
         }
       })
   },
-  getHashRate ({ commit, state }, params) {
+  getContractTotal ({ commit, state }, params) {
     let data = {
       test: 1
     }
-    hashRate(data)
+    contractTotal(data)
       .then(doc => {
         if (doc.success) {
-          let hashRate = doc.data
-          commit(types.HASHRATE, hashRate)
+          let contractTotal = doc.data
+          commit(types.CONTRACTTOTAL, contractTotal)
         }
       })
   },
-  getNetworkDifficulty ({ commit, state }, params) {
+  getChartData ({ commit, state }, params) {
     let data = {
-      test: 1
+      test: 1,
+      s: params
     }
-    networkDifficulty(data)
+    chartData(data)
       .then(doc => {
         if (doc.success) {
-          let networkDifficulty = doc.data
-          commit(types.NETWORKDIFFICULTY, networkDifficulty)
+          let chartDataList = doc.data
+          let chartDataCode = doc.code
+          var stime = []
+          var txcount = []
+          if (!_.isUndefined(chartDataList) && chartDataList !== null) {
+            for (var i = 0; i < chartDataList.length; i++) {
+              var time = new Date(chartDataList[i].stime * 1000)
+              stime[i] = (time.getMonth() + 1) + '/' + time.getDate()
+              txcount[i] = chartDataList[i].txcount
+            }
+          }
+          chartDataList = {
+            'stime': stime,
+            'txcount': txcount,
+            'code': chartDataCode
+          }
+          commit(types.CHARTDATALIST, chartDataList)
         }
       })
   },
-  getBlocksCount ({ commit, state }, params) {
+  getAccountRanking ({ commit, state }, params) {
     let data = {
       test: 1
     }
-    blocksCount(data)
+    accountRanking(data)
       .then(doc => {
         if (doc.success) {
-          let blocksCount = doc.data
-          commit(types.BLOCKSCOUNT, blocksCount)
+          let accountRanking = doc.data
+          commit(types.ACCOUNTRANKING, accountRanking)
         }
       })
   },
-  getTransactionsCount ({ commit, state }, params) {
+  getMinerRanking ({ commit, state }, params) {
     let data = {
       test: 1
     }
-    transactionsCount(data)
+    minerRanking(data)
       .then(doc => {
         if (doc.success) {
-          let transactionsCount = doc.data
-          commit(types.TRANSACTIONSCOUNT, transactionsCount)
-        }
-      })
-  },
-  getAccountsCount ({ commit, state }, params) {
-    let data = {
-      test: 1
-    }
-    accountsCount(data)
-      .then(doc => {
-        if (doc.success) {
-          let accountsCount = doc.data
-          commit(types.ACCOUNTSCOUNT, accountsCount)
-        }
-      })
-  },
-  getContractsCount ({ commit, state }, params) {
-    let data = {
-      test: 1
-    }
-    contractsCount(data)
-      .then(doc => {
-        if (doc.success) {
-          let contractsCount = doc.data
-          commit(types.CONTRACTSCOUNT, contractsCount)
+          let minerRanking = doc.data
+          commit(types.MINERANKING, minerRanking)
         }
       })
   }
@@ -160,35 +145,29 @@ const actions = {
 // mutations
 // state modification
 const mutations = {
-  [types.TXCOUNT] (state, txCount) {
-    state.txCount = txCount
+  [types.LASTBLOCKLIST] (state, lastBlockList) {
+    state.lastBlockList = lastBlockList
   },
-  [types.LASTBLOCK] (state, lastBlock) {
-    state.lastBlock = lastBlock
+  [types.TRANSACTIONTOTAL] (state, transactionTotal) {
+    state.transactionTotal = transactionTotal
   },
-  [types.BESTBLOCK] (state, bestBlock) {
-    state.bestBlock = bestBlock
+  [types.BLOCKTXSTPS] (state, blockTxsTps) {
+    state.blockTxsTps = blockTxsTps
   },
-  [types.AVGBLOCKTIME] (state, avgBlockTime) {
-    state.avgBlockTime = avgBlockTime
+  [types.ACCOUNTTOTAL] (state, accountTotal) {
+    state.accountTotal = accountTotal
   },
-  [types.HASHRATE] (state, hashRate) {
-    state.hashRate = hashRate
+  [types.CONTRACTTOTAL] (state, contractTotal) {
+    state.contractTotal = contractTotal
   },
-  [types.NETWORKDIFFICULTY] (state, networkDifficulty) {
-    state.networkDifficulty = networkDifficulty
+  [types.CHARTDATALIST] (state, chartDataList) {
+    state.chartDataList = chartDataList
   },
-  [types.BLOCKSCOUNT] (state, blocksCount) {
-    state.blocksCount = blocksCount
+  [types.ACCOUNTRANKING] (state, accountRanking) {
+    state.accountRanking = accountRanking
   },
-  [types.TRANSACTIONSCOUNT] (state, transactionsCount) {
-    state.transactionsCount = transactionsCount
-  },
-  [types.ACCOUNTSCOUNT] (state, accountsCount) {
-    state.accountsCount = accountsCount
-  },
-  [types.CONTRACTSCOUNT] (state, contractsCount) {
-    state.contractsCount = contractsCount
+  [types.MINERANKING] (state, minerRanking) {
+    state.minerRanking = minerRanking
   }
 }
 export default {
