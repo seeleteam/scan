@@ -1,102 +1,74 @@
 <template>
-    <div class="page-wrap">
-        <div class="wrap lg-show">
-          <Header></Header>
-        </div>
-        <div class="sm-show page-sm-header-wrap">
-          <smHeader></smHeader>
-        </div>
-        <div class="sm-show sm-search-input-wrap">
-          <searchInput></searchInput>
-        </div>
-        <div class="main-wrap">
-          <div class="wrap">
-            <div class="describe-title-wrap">
-              <span class="title">{{$t('navs.transaction')}}</span>
-              <span v-show="isShow" class="title-content">
-              {{$t('forBlock')}} {{content}}
-              </span>
-              <ul class="link-wrap">
-                <li><a href="/">{{$t("navs.home")}}</a></li>
-                <li><i class="el-icon-arrow-right"></i></li>
-                <li class="current">{{$t('navs.transaction')}}</li>
-              </ul>
-            </div>
-            <ShardSelect></ShardSelect>
-            <el-table
-              class="list-wrap"
-              :data="transactionList"
-              :empty-text="$t('message.noData')"
-              style="width: 100%">
-              <el-table-column
-                prop="txHash"
-                width="340"
-                :label="$t('listHeader.txHash')">
-                <template slot-scope="scope">
-                  <router-link :to="{path: '/transaction/detail', query: { txhash: scope.row.txHash }}">
-                    <span class="table-link-color list-content">{{scope.row.txHash}}</span>
-                  </router-link>
-                </template>
-              </el-table-column>
-              <!-- <el-table-column
-                prop="age"
-                :label="$t('listHeader.age')"
-                width="130">
-              </el-table-column> -->
-              <el-table-column
-                prop="block"
-                :label="$t('listHeader.block')"
-                width="100">
-                <template slot-scope="scope">
-                  <router-link :to="{path: '/block/detail', query: { height: scope.row.block, s: shardValue }}">
-                    <span class="table-link-color list-content">{{scope.row.block}}</span>
-                  </router-link>
-                </template>
-              </el-table-column>
-              <el-table-column
-                prop="from"
-                width="120"
-                :label="$t('listHeader.from')">
-                <template slot-scope="scope">
-                  <span :class="{'table-link-color': isLink(scope.row.from)}" class="list-content" @click="toFrom(scope.row.from)">{{[scope.row.from, 'from'] | setFormatAd}}</span>
-                </template>
-              </el-table-column>
-              <el-table-column
-                prop="to"
-                width="310"
-                :label="$t('listHeader.to')">
-                <template slot-scope="scope">
-                  <span :class="{'table-link-color': isLink(scope.row.to)}" class="list-content" @click="toFrom(scope.row.to)">{{[scope.row.to, 'to'] | setFormatAd}}</span>
-                </template>
-              </el-table-column>
-              <el-table-column
-                prop="value"
-                width="130"
-                :label="$t('listHeader.value')">
-              </el-table-column>
-              <el-table-column
-                prop="nonce"
-                :label="$t('listHeader.nonce')">
-              </el-table-column>
-              <el-table-column
-                prop="fee"
-                :label="$t('listHeader.fee')">
-                <template slot-scope="scope">{{scope.row.fee}} <span class="unit">Fan</span></template>
-              </el-table-column>
-            </el-table>
-            <el-pagination
-              class="el-pagination-wrap fr"
-              @size-change="handleSizeChange"
-              @current-change="handleCurrentChange"
-              :current-page="page"
-              :page-size="pageSize"
-              layout="prev, pager, next"
-              :total="total">
-            </el-pagination>
-          </div>
-        </div>
-        <Footer></Footer>
+  <div class="page-wrap">
+    <Header></Header>
+    <div class="sm-show page-sm-header-wrap">
+      <smHeader></smHeader>
     </div>
+    <div class="sm-show sm-search-input-wrap">
+      <searchInput></searchInput>
+    </div>
+    <div class="main-wrap">
+      <div class="wrap">
+        <div class="describe-title-wrap">
+          <vue-particles color="#fff" :particleOpacity="0.7" :particlesNumber="80" shapeType="circle" :particleSize="4" linesColor="#000" :linesWidth="1" :lineLinked="true" :lineOpacity="0.4" :linesDistance="150" :moveSpeed="3" :hoverEffect="true" hoverMode="grab" :clickEffect="true" clickMode="push" class="particles"></vue-particles>
+          <span class="title">{{$t('navs.transaction')}}</span>
+          <span v-show="isShow" class="title-content">
+            {{$t('forBlock')}} {{content}}
+          </span>
+          <ul class="link-wrap">
+            <li>
+              <a href="/">{{$t("navs.home")}}</a>
+            </li>
+            <li>
+              <i class="el-icon-arrow-right"></i>
+            </li>
+            <li class="current">{{$t('navs.transaction')}}</li>
+          </ul>
+        </div>
+        <ShardSelect></ShardSelect>
+        <el-table class="list-wrap" :data="transactionList" :empty-text="$t('message.noData')" style="width: 100%">
+          <el-table-column prop="txHash" width="340" :label="$t('listHeader.txHash')">
+            <template slot-scope="scope">
+              <router-link :to="{path: '/transaction/detail', query: { txhash: scope.row.txHash }}">
+                <span class="table-link-color list-content">{{scope.row.txHash}}</span>
+              </router-link>
+            </template>
+          </el-table-column>
+          <el-table-column prop="block" :label="$t('listHeader.block')" width="100">
+            <template slot-scope="scope">
+              <router-link :to="{path: '/block/detail', query: { height: scope.row.block, s: shardValue }}">
+                <span class="table-link-color list-content">{{scope.row.block}}</span>
+              </router-link>
+            </template>
+          </el-table-column>
+          <el-table-column prop="from" width="120" :label="$t('listHeader.from')">
+            <template slot-scope="scope">
+              <span :class="{'table-link-color': isLink(scope.row.from)}" class="list-content" @click="toFrom(scope.row.from)">{{[scope.row.from, 'from'] | setFormatAd}}</span>
+            </template>
+          </el-table-column>
+          <el-table-column prop="to" width="310" :label="$t('listHeader.to')">
+            <template slot-scope="scope">
+              <span :class="{'table-link-color': isLink(scope.row.to)}" class="list-content" @click="toFrom(scope.row.to)">{{[scope.row.to, 'to'] | setFormatAd}}</span>
+            </template>
+          </el-table-column>
+          <el-table-column prop="value" width="130" :label="$t('listHeader.value')">
+          </el-table-column>
+          <el-table-column prop="nonce" :label="$t('listHeader.nonce')">
+          </el-table-column>
+          <el-table-column prop="fee" :label="$t('listHeader.fee')">
+            <template slot-scope="scope">{{scope.row.fee}}
+              <span class="unit">Fan</span>
+            </template>
+          </el-table-column>
+        </el-table>
+        <div class="page">
+          <el-pagination class="el-pagination-wrap fr" @size-change="handleSizeChange" @current-change="handleCurrentChange" :current-page="page" :page-size="pageSize" layout="prev, pager, next" :total="total">
+          </el-pagination>
+        </div>
+      </div>
+    </div>
+    <Footer></Footer>
+  </div>
 </template>
 <script>
 import { mapActions } from 'vuex'
