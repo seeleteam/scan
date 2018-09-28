@@ -27,6 +27,7 @@ export default new Router({
     {
       path: '/',
       name: 'home',
+      from: 'setHomeAdvertise',
       component: home
     },
     {
