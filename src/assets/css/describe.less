@@ -1,15 +1,19 @@
 .describe-title-wrap{
   position: relative;
-  margin: 40px 0 0 0;
-  // background: #edf1f9;
-  background: url("../imgs/bg_04.png");
-  padding: 20px 0;
+  height: 80px;
+  overflow: hidden;
+  margin: 20px 0 0 0;
+  background: #fff;
+  // background: url("../imgs/breadNav.png");
   .title{
+    position: absolute;
+    z-index: 2;
     color: #23479c;
     font-size: 24px;
     font-weight: bold;
     font-style: italic;
-    margin: 0 40px;
+    top: 25px;
+    left: 28px;
   }
   .title-content{
     color: #666;
@@ -17,8 +21,9 @@
   }
   .link-wrap{
     position: absolute;
-    bottom: 20px;
-    right: 40px;
+    z-index: 2;
+    bottom: 30px;
+    right: 28px;
     font-size: 14px;
     li{
       display: inline-block;
