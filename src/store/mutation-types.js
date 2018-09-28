@@ -1,16 +1,15 @@
 // Root level mutations names (official mutions method names are recommended in capitals)
 // We'll put all the function names of mutations in this file
 
-export const TXCOUNT = 'TXCOUNT'
-export const LASTBLOCK = 'LASTBLOCK'
-export const BESTBLOCK = 'BESTBLOCK'
-export const AVGBLOCKTIME = 'AVGBLOCKTIME'
-export const HASHRATE = 'HASHRATE'
-export const NETWORKDIFFICULTY = 'NETWORKDIFFICULTY'
-export const BLOCKSCOUNT = 'BLOCKSCOUNT'
-export const TRANSACTIONSCOUNT = 'TRANSACTIONSCOUNT'
-export const ACCOUNTSCOUNT = 'ACCOUNTSCOUNT'
-export const CONTRACTSCOUNT = 'CONTRACTSCOUNT'
+// home type
+export const LASTBLOCKLIST = 'LASTBLOCKLIST'
+export const TRANSACTIONTOTAL = 'TRANSACTIONTOTAL'
+export const BLOCKTXSTPS = 'BLOCKTXSTPS'
+export const ACCOUNTTOTAL = 'ACCOUNTTOTAL'
+export const CONTRACTTOTAL = 'CONTRACTTOTAL'
+export const CHARTDATALIST = 'CHARTDATALIST'
+export const ACCOUNTRANKING = 'ACCOUNTRANKING'
+export const MINERANKING = 'MINERANKING'
 
 export const BLOCKS_LIST = 'BLOCKS_LIST'
 export const BLOCKS_DETAIL = 'BLOCKS_DETAIL'
