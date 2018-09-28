@@ -1,63 +1,60 @@
 <template>
-  <div class="lg-nav">
-    <ul class="nav-wrap lg-show">
-      <li :class="{'current': currentLink == ''}">
-        <a @click="linkTo('/')">
-          {{$t('navs.home')}}
-        </a>
-      </li>
-      <li :class="{'current': currentLink == 'node'}">
-        <a @click="linkTo('/node')">
-          {{$t('navs.node')}}
-        </a>
-      </li>
-      <li :class="{'current': currentLink == 'account'}">
-        <a @click="linkTo('/account')">
-          {{$t('navs.account')}}
-        </a>
-      </li>
-      <li :class="{'current': currentLink == 'block'}">
-        <a @click="linkTo('/block')">
-          {{$t('navs.block')}}
-        </a>
-      </li>
-      <li :class="{'current': currentLink == 'transaction' || currentLink == 'pendingtxs'}">
-        <div trigger="click" class="dropd-title-wrap menu-li">
-          <span class="el-dropdown-link">
-            {{$t('navs.tx')}}
-          </span>
-          <div class="dropd-content-wrap">
-            <a :class="{'dropd-current':currentLink == 'transaction' }" class="dropd dropd1" @click="linkTo('/transaction')">
-              {{$t('navs.transaction')}}
-            </a>
-            <a :class="{'dropd-current':currentLink == 'pendingtxs' }" class="dropd" @click="linkTo('/pendingtxs')">
-              {{$t('navs.pendingtxs')}}
-            </a>
-          </div>
+  <ul class="nav-wrap lg-show">
+    <li :class="{'current': currentLink == ''}">
+      <a @click="linkTo('/')">
+        {{$t('navs.home')}}
+      </a>
+    </li>
+    <li :class="{'current': currentLink == 'node'}">
+      <a @click="linkTo('/node')">
+        {{$t('navs.node')}}
+      </a>
+    </li>
+    <li :class="{'current': currentLink == 'account'}">
+      <a @click="linkTo('/account')">
+        {{$t('navs.account')}}
+      </a>
+    </li>
+    <li :class="{'current': currentLink == 'block'}">
+      <a @click="linkTo('/block')">
+        {{$t('navs.block')}}
+      </a>
+    </li>
+    <li :class="{'current': currentLink == 'transaction' || currentLink == 'pendingtxs'}">
+      <div trigger="click" class="dropd-title-wrap menu-li">
+        <span class="el-dropdown-link">
+          {{$t('navs.tx')}}
+        </span>
+        <div class="dropd-content-wrap">
+          <a :class="{'dropd-current':currentLink == 'transaction' }" class="dropd dropd1" @click="linkTo('/transaction')">
+            {{$t('navs.transaction')}}
+          </a>
+          <a :class="{'dropd-current':currentLink == 'pendingtxs' }" class="dropd" @click="linkTo('/pendingtxs')">
+            {{$t('navs.pendingtxs')}}
+          </a>
         </div>
-      </li>
-      <li :class="{'current': currentLink == 'contract'}">
-        <a @click="linkTo('/contract')">
-          {{$t('navs.contract')}}
-        </a>
-      </li>
-      <li :class="{'current': currentLink == 'statChar'}">
-        <a @click="linkTo('/statChar')">
-          {{$t('navs.statChar')}}
-        </a>
-      </li>
-      <li :class="{'current': currentLink == 'api'}" @click="linkTo('/api')">
-        <a :to="{path: '/api'}">
-          {{$t('navs.api')}}
-        </a>
-      </li>
-    </ul>
-  </div>
+      </div>
+    </li>
+    <li :class="{'current': currentLink == 'contract'}">
+      <a @click="linkTo('/contract')">
+        {{$t('navs.contract')}}
+      </a>
+    </li>
+    <li :class="{'current': currentLink == 'statChar'}">
+      <a @click="linkTo('/statChar')">
+        {{$t('navs.statChar')}}
+      </a>
+    </li>
+    <li :class="{'current': currentLink == 'api'}" @click="linkTo('/api')">
+      <a :to="{path: '/api'}">
+        {{$t('navs.api')}}
+      </a>
+    </li>
+  </ul>
 </template>
 <script>
 import router from '../router'
 import { mapActions } from 'vuex'
-
 export default {
   data () {
     return {
@@ -97,7 +94,6 @@ export default {
 
 <style lang="less">
 @media (min-width: 1200px) {
-  .lg-nav {
     .nav-wrap {
       li{
         &:nth-child(1) {
@@ -126,12 +122,11 @@ export default {
         }
       }
     }
-  }
 }
-.lg-nav {
-  .nav-wrap {
-    line-height: 60px;
+.nav-wrap {
+    padding: 18px 0 0 0;
     li {
+      line-height: 50px;
       display: inline-block;
       margin-right: 28px;
       border-bottom: 2px solid #fff;
@@ -210,6 +205,5 @@ export default {
       font-weight: bold;
       border-bottom: 2px solid #23479c;
     }
-  }
 }
 </style>
