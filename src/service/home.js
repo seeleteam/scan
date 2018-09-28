@@ -2,88 +2,72 @@ import request from '../untils/request'
 import config from '../untils/config'
 
 const { API } = config
-const { txcountUrl, lastblockUrl, bestblockUrl, avgblocktimeUrl, hashrateUrl, networkdifficultyUrl, blocksCountUrl, transactionsCountUrl, accountsCountUrl, contractsCountUrl } = API
+const { lastBlockTimeUrl, transactionTotalUrl, blockTxsTpsUrl, accountTotalUrl, contractTotalUrl, chartDataUrl, accountRankingUrl, minerRankingUrl } = API
 
-async function txCount (data) {
+async function lastBlockTime (data) {
   return request({
-    url: txcountUrl,
+    url: lastBlockTimeUrl,
     method: 'GET',
     data
   })
 }
-async function lastBlock (data) {
+async function transactionTotal (data) {
   return request({
-    url: lastblockUrl,
+    url: transactionTotalUrl,
     method: 'GET',
     data
   })
 }
-async function bestBlock (data) {
+async function blockTxsTps (data) {
   return request({
-    url: bestblockUrl,
+    url: blockTxsTpsUrl,
     method: 'GET',
     data
   })
 }
-async function avgBlockTime (data) {
+async function accountTotal (data) {
   return request({
-    url: avgblocktimeUrl,
+    url: accountTotalUrl,
     method: 'GET',
     data
   })
 }
-async function hashRate (data) {
+async function contractTotal (data) {
   return request({
-    url: hashrateUrl,
+    url: contractTotalUrl,
     method: 'GET',
     data
   })
 }
-async function networkDifficulty (data) {
+async function chartData (data) {
   return request({
-    url: networkdifficultyUrl,
+    url: chartDataUrl,
     method: 'GET',
     data
   })
 }
-async function blocksCount (data) {
+async function accountRanking (data) {
   return request({
-    url: blocksCountUrl,
+    url: accountRankingUrl,
     method: 'GET',
     data
   })
 }
-async function transactionsCount (data) {
+async function minerRanking (data) {
   return request({
-    url: transactionsCountUrl,
-    method: 'GET',
-    data
-  })
-}
-async function accountsCount (data) {
-  return request({
-    url: accountsCountUrl,
-    method: 'GET',
-    data
-  })
-}
-async function contractsCount (data) {
-  return request({
-    url: contractsCountUrl,
+    url: minerRankingUrl,
     method: 'GET',
     data
   })
 }
 
 export {
-  txCount,
-  lastBlock,
-  bestBlock,
-  avgBlockTime,
-  hashRate,
-  networkDifficulty,
-  blocksCount,
-  transactionsCount,
-  accountsCount,
-  contractsCount
+  lastBlockTime,
+  transactionTotal,
+  blockTxsTps,
+  accountTotal,
+  contractTotal,
+  chartData,
+  accountRanking,
+  minerRanking
 }

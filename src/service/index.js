@@ -1,10 +1,6 @@
 import { search } from './search'
 import { blocksList, blocksDetail } from './block'
-import { txCount, lastBlock, bestBlock, avgBlockTime, hashRate, networkDifficulty,
-  blocksCount,
-  transactionsCount,
-  accountsCount,
-  contractsCount } from './home'
+import { lastBlockTime, transactionTotal, blockTxsTps, accountTotal, contractTotal, chartData, accountRanking, minerRanking } from './home'
 import { txList, txDetail } from './transaction'
 import { pendingtxsList, pendingtxsDetail } from './pendingtxs'
 import { accountList, accountDetail } from './account'
@@ -17,17 +13,14 @@ export {
   blocksList,
   blocksDetail,
 
-  txCount,
-  lastBlock,
-  bestBlock,
-  avgBlockTime,
-  hashRate,
-  networkDifficulty,
-
-  blocksCount,
-  transactionsCount,
-  accountsCount,
-  contractsCount,
+  lastBlockTime,
+  transactionTotal,
+  blockTxsTps,
+  accountTotal,
+  contractTotal,
+  chartData,
+  accountRanking,
+  minerRanking,
 
   txList,
   txDetail,
