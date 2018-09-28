@@ -1,72 +1,66 @@
 <template>
-    <div class="page-wrap">
-        <div class="wrap lg-show">
-          <Header></Header>
-        </div>
-        <div class="sm-show page-sm-header-wrap">
-          <smHeader></smHeader>
-        </div>
-        <div class="sm-show sm-search-input-wrap">
-          <searchInput></searchInput>
-        </div>
-        <div class="main-wrap">
-          <div class="wrap">
-            <BlockDescribe
-              :title="title"
-              :content="content"
-              :link="link"
-            ></BlockDescribe>
-            <div class="ul-wrap">
-              <ul class="detail-wrap wrap-pad">
-                <li>
-                  <div class="li-width">{{$t("listHeader.height")}}: </div>
-                  <div class="li-content-width">
-                    <button class="height-button prev" :class="{ grey: disabledPrev }" :disabled="disabledPrev" @click="getPrevDetail(blocksInfo.height, blocksInfo.minheight, blocksInfo.shardnumber)">{{$t("button.prev")}}</button>
-                    <span>{{blocksInfo.height}}</span>
-                    <button class="height-button next" :class="{ grey: disabledNext }" :disabled="disabledNext" @click="getNextDetail(blocksInfo.height, blocksInfo.maxheight-1, blocksInfo.shardnumber)">{{$t("button.next")}}</button>
-                  </div>
-                </li>
-                <li>
-                  <div class="li-width">{{$t("listHeader.shardnumber")}}: </div>
-                  <div class="li-content-width">{{blocksInfo.shardnumber}}</div>
-                </li>
-                <li>
-                  <div class="li-width">{{$t("listHeader.age")}}: </div>
-                  <div class="li-content-width">{{blocksInfo.age}}</div>
-                </li>
-                <li>
-                  <div class="li-width">{{$t("listHeader.difficulty")}}: </div>
-                  <div class="li-content-width">{{blocksInfo.difficulty | difficultyValue}}</div>
-                </li>
-                <li>
-                  <div class="li-width">{{$t("listHeader.headHash")}}: </div>
-                  <div class="li-content-width">{{blocksInfo.headHash}}</div>
-                <li>
-                  <div class="li-width">{{$t("listHeader.miner")}}: </div>
-                  <!-- <router-link :to="{path: '/block'}"> -->
-                  <div class="li-content-width">{{blocksInfo.miner}}</div>
-                  <!-- </router-link> -->
-                </li>
-                <li>
-                  <div class="li-width">{{$t("listHeader.nonce")}}: </div>
-                  <div class="li-content-width">{{blocksInfo.nonce}}</div>
-                </li>
-                <li>
-                  <div class="li-width">{{$t("listHeader.preBlockHash")}}: </div>
-                  <router-link :to="{path: '/block/detail', query: { hash: blocksInfo.preBlockHash }}">
-                    <div class="li-content-width li-content-link">{{blocksInfo.preBlockHash}}</div>
-                  </router-link>
-                </li>
-                <li>
-                  <div class="li-width">{{$t("listHeader.txcount")}}: </div>
-                  <div class="li-content-width li-content-link" @click="toTxList(blocksInfo.height)" >{{blocksInfo.txcount}}</div>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <Footer></Footer>
+  <div class="page-wrap">
+    <Header></Header>
+    <div class="sm-show page-sm-header-wrap">
+      <smHeader></smHeader>
     </div>
+    <div class="sm-show sm-search-input-wrap">
+      <searchInput></searchInput>
+    </div>
+    <div class="main-wrap">
+      <div class="wrap">
+        <BlockDescribe :title="title" :content="content" :link="link"></BlockDescribe>
+        <div class="ul-wrap">
+          <ul class="detail-wrap wrap-pad">
+            <li>
+              <div class="li-width">{{$t("listHeader.height")}}: </div>
+              <div class="li-content-width">
+                <button class="height-button prev" :class="{ grey: disabledPrev }" :disabled="disabledPrev" @click="getPrevDetail(blocksInfo.height, blocksInfo.minheight, blocksInfo.shardnumber)">{{$t("button.prev")}}</button>
+                <span>{{blocksInfo.height}}</span>
+                <button class="height-button next" :class="{ grey: disabledNext }" :disabled="disabledNext" @click="getNextDetail(blocksInfo.height, blocksInfo.maxheight-1, blocksInfo.shardnumber)">{{$t("button.next")}}</button>
+              </div>
+            </li>
+            <li>
+              <div class="li-width">{{$t("listHeader.shardnumber")}}: </div>
+              <div class="li-content-width">{{blocksInfo.shardnumber}}</div>
+            </li>
+            <li>
+              <div class="li-width">{{$t("listHeader.age")}}: </div>
+              <div class="li-content-width">{{blocksInfo.age}}</div>
+            </li>
+            <li>
+              <div class="li-width">{{$t("listHeader.difficulty")}}: </div>
+              <div class="li-content-width">{{blocksInfo.difficulty | difficultyValue}}</div>
+            </li>
+            <li>
+              <div class="li-width">{{$t("listHeader.headHash")}}: </div>
+              <div class="li-content-width">{{blocksInfo.headHash}}</div>
+              <li>
+                <div class="li-width">{{$t("listHeader.miner")}}: </div>
+                <!-- <router-link :to="{path: '/block'}"> -->
+                <div class="li-content-width">{{blocksInfo.miner}}</div>
+                <!-- </router-link> -->
+              </li>
+              <li>
+                <div class="li-width">{{$t("listHeader.nonce")}}: </div>
+                <div class="li-content-width">{{blocksInfo.nonce}}</div>
+              </li>
+              <li>
+                <div class="li-width">{{$t("listHeader.preBlockHash")}}: </div>
+                <router-link :to="{path: '/block/detail', query: { hash: blocksInfo.preBlockHash }}">
+                  <div class="li-content-width li-content-link">{{blocksInfo.preBlockHash}}</div>
+                </router-link>
+              </li>
+              <li>
+                <div class="li-width">{{$t("listHeader.txcount")}}: </div>
+                <div class="li-content-width li-content-link" @click="toTxList(blocksInfo.height)">{{blocksInfo.txcount}}</div>
+              </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <Footer></Footer>
+  </div>
 </template>
 <script>
 import { mapActions } from 'vuex'
@@ -210,8 +204,8 @@ export default {
     background: #b8b8b8;
     border-color: #b8b8b8;
 }
-.detail-wrap li:last-child{
-  margin-bottom:20px;
-  float: left;
+.detail-wrap{
+  padding-top: 10px;
+  padding-bottom: 30px;
 }
 </style>
