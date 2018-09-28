@@ -1,8 +1,6 @@
 <template>
     <div class="page-wrap">
-        <div class="wrap lg-show">
-          <Header></Header>
-        </div>
+        <Header></Header>
         <div class="sm-show page-sm-header-wrap">
           <smHeader></smHeader>
         </div>
