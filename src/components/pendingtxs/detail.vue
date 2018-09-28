@@ -1,59 +1,53 @@
 <template>
-    <div class="page-wrap">
-        <div class="wrap lg-show">
-          <Header></Header>
-        </div>
-        <div class="sm-show page-sm-header-wrap">
-          <smHeader></smHeader>
-        </div>
-        <div class="sm-show sm-search-input-wrap">
-          <searchInput></searchInput>
-        </div>
-        <div class="main-wrap">
-          <div class="wrap">
-            <TransactionDescribe
-              :title="title"
-              :content="content"
-              :link="link"
-            ></TransactionDescribe>
-          <div class="ul-wrap">
-            <ul class="detail-wrap wrap-pad">
-              <li>
-                <div class="li-width">{{$t("listHeader.txHash")}}: </div>
-                <div class="li-content-width">{{pendingtxsInfo.txHash}}</div>
-              </li>
-              <li>
-                <div class="li-width">{{$t("listHeader.shardnumber")}}: </div>
-                <div class="li-content-width">{{pendingtxsInfo.shardnumber}}</div>
-              </li>
-              <!-- <li>
+  <div class="page-wrap">
+    <Header></Header>
+    <div class="sm-show page-sm-header-wrap">
+      <smHeader></smHeader>
+    </div>
+    <div class="sm-show sm-search-input-wrap">
+      <searchInput></searchInput>
+    </div>
+    <div class="main-wrap">
+      <div class="wrap">
+        <TransactionDescribe :title="title" :content="content" :link="link"></TransactionDescribe>
+        <div class="ul-wrap">
+          <ul class="detail-wrap wrap-pad">
+            <li>
+              <div class="li-width">{{$t("listHeader.txHash")}}: </div>
+              <div class="li-content-width">{{pendingtxsInfo.txHash}}</div>
+            </li>
+            <li>
+              <div class="li-width">{{$t("listHeader.shardnumber")}}: </div>
+              <div class="li-content-width">{{pendingtxsInfo.shardnumber}}</div>
+            </li>
+            <!-- <li>
                 <div class="li-width">{{$t("listHeader.age")}}: </div>
                 <div class="li-content-width">{{pendingtxsInfo.age}}</div>
               </li> -->
-              <li>
-                <div class="li-width">{{$t("listHeader.from")}}: </div>
-                <span :class="{'li-content-link': isLink(pendingtxsInfo.from)}" class="list-content-width" @click="toFrom(pendingtxsInfo.from)">{{[scope.row.from, 'from'] | setFormatAd}}</span>
-              </li>
-              <li>
-                <div class="li-width">{{$t("listHeader.to")}}: </div>
-                <span :class="{'li-content-link': isLink(pendingtxsInfo.to)}" class="list-content-width" @click="toFrom(pendingtxsInfo.to)">{{[scope.row.to, 'to'] | setFormatAd}}</span>
-              </li>
-              <li>
-                <div class="li-width">{{$t("listHeader.value")}}: </div>
-                <div class="li-content-width">{{pendingtxsInfo.value}}</div>
-              </li>
-              <li>
-                <div class="li-width">{{$t("listHeader.payload")}}: </div>
-                <div class="li-content-width">
-                  <el-input type="textarea" :rows="1" v-model="pendingtxsInfo.payload" disabled></el-input>
-                </div>
-              </li>
-            </ul>
-          </div>
-          </div>
+            <li>
+              <div class="li-width">{{$t("listHeader.from")}}: </div>
+              <span :class="{'li-content-link': isLink(pendingtxsInfo.from)}" class="list-content-width" @click="toFrom(pendingtxsInfo.from)">{{[scope.row.from, 'from'] | setFormatAd}}</span>
+            </li>
+            <li>
+              <div class="li-width">{{$t("listHeader.to")}}: </div>
+              <span :class="{'li-content-link': isLink(pendingtxsInfo.to)}" class="list-content-width" @click="toFrom(pendingtxsInfo.to)">{{[scope.row.to, 'to'] | setFormatAd}}</span>
+            </li>
+            <li>
+              <div class="li-width">{{$t("listHeader.value")}}: </div>
+              <div class="li-content-width">{{pendingtxsInfo.value}}</div>
+            </li>
+            <li>
+              <div class="li-width">{{$t("listHeader.payload")}}: </div>
+              <div class="li-content-width">
+                <el-input type="textarea" :rows="1" v-model="pendingtxsInfo.payload" disabled></el-input>
+              </div>
+            </li>
+          </ul>
         </div>
-        <Footer></Footer>
+      </div>
     </div>
+    <Footer></Footer>
+  </div>
 </template>
 <script>
 import { mapActions } from 'vuex'
