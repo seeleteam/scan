@@ -1,94 +1,69 @@
 <template>
-    <div class="header-wrap wrap">
-      <div class="detail-header-logo-wrap">
-        <div class="fl header-logo-wrap">
-          <router-link :to="{path: '/'}">
-            <img src="../assets/imgs/logo_s.png" alt="logo">
-            <span class="logo-title">
-              {{$t("blockExplore")}}
-            </span>
-          </router-link>
-        </div>
-        <div class="fr" style="display:none">
-          <Menu></Menu>
-        </div>
+  <div class="header-bg">
+    <div class="lg-nav">
+      <div class="logo">
+        <router-link :to="{path: '/'}">
+          <img src="../assets/imgs/logo_s.png" alt="logo">
+        </router-link>
       </div>
-      <div class="detail-header-content-wrap">
-        <div class="fl">
-          <Nav></Nav>
-        </div>
-        <div class="fr detail-search-wrap">
-          <searchInput></searchInput>
-        </div>
+      <Nav></Nav>
+      <div class="fr detail-search-wrap">
+        <searchInput></searchInput>
       </div>
     </div>
+  </div>
 </template>
 <script>
-import Menu from './menu'
 import Nav from './nav'
-import Header from './home/header'
+import Menu from './menu'
 import searchInput from './search-input'
 export default {
   data () {
     return {}
   },
   components: {
-    Menu,
     Nav,
-    searchInput,
-    Header
+    Menu,
+    searchInput
   },
   mounted () {},
   methods: {}
 }
 </script>
 <style lang="less">
-.header-wrap{
-  flex: 0 0 auto;
+.header-bg{
+  border-bottom: 1px solid #dcdfe6;
+  background: #fff;
 }
-.detail-header-logo-wrap{
+.lg-nav {
+  width: 1200px;
+  margin:0 auto;
+  padding-bottom: 10px;
+}
+.logo{
+  width: 100%;
   border-bottom: 1px solid #dcdfe6;
 }
-.detail-header-content-wrap{
-  margin-top: 10px;
-}
-.detail-header-logo-wrap, .detail-header-content-wrap{
-  height: 60px;
-}
-.header-logo-wrap {
-  height: 60px;
-  position: relative;
-  img {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    &:hover{
-      cursor: pointer;
-    }
-  }
-  .logo-title{
-    position: absolute;
-    left: 126px;
-    bottom: 18px;
-    color: #999;
-    font-size: 16px;
-    display: inline-block;
-    width: 200px;
-  }
+.logo img{
+  width: 110px;
+  height: 28px;
+  display: inherit;
+  padding: 20px 0 15px 0;
 }
 .detail-search-wrap{
   // width: 460px;
   width: 440px;
-  margin-top: 10px;
+  position: relative;
+  margin-top: -48px;
 }
-
 @media screen and (max-width: 768px ) {
-  .sm-header-wrap{
-    width: 100%;
+  .header-bg{
+    display: none;
   }
-  .detail-sm-search-wrap{
-    width: 90%;
-    margin: 0 auto;
-  }
+}
+</style>
+<style scoped>
+a{
+  display: inherit;
 }
 </style>

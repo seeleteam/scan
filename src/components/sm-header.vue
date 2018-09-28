@@ -6,7 +6,7 @@
         <div v-show="!isLogo" class="fl sm-header-logo">
           <a @click="linkTo('/')">
             <img src="../assets/imgs/logo_s.png" alt="logo">
-             <span class="logo-title">
+            <span class="logo-title">
               {{$t("blockExplore")}}
             </span>
           </a>
@@ -14,7 +14,7 @@
         <div class="fr">
           <span class="sm-header-nav-wrap">
             <!-- <i v-if="menuVisible === false" @click="clickMenu" class="el-icon-menu"></i> -->
-            <img v-if="menuVisible === false" @click="clickMenu" src="../assets/imgs/nav.png"/>
+            <img v-if="menuVisible === false" @click="clickMenu" src="../assets/imgs/nav.png" />
             <i v-else @click="clickMenu" class="el-icon-close"></i>
           </span>
           <span class="sm-setting-menu">
@@ -94,15 +94,6 @@
           {{$t('navs.contract')}}
         </a>
       </li>
-      <!-- <li :class="{'current': currentLink == 'token'}">
-        <div class="sm-anv-img-wrap">
-          <img v-show="currentLink != 'token'" src="../assets/imgs/navs/Token_H.png" alt="">
-          <img v-show="currentLink == 'token'" src="../assets/imgs/navs/Token_B.png" alt="">
-        </div>
-        <a @click="linkTo('/')">
-          {{$t('navs.token')}}
-        </a>
-      </li> -->
       <li :class="{'current': currentLink == 'statChar'}">
         <div class="sm-anv-img-wrap">
           <img v-show="currentLink != 'statChar'" src="../assets/imgs/navs/StatChar_H.png" alt="">

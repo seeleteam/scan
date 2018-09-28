@@ -1,23 +1,7 @@
 <template>
   <div class="menu-wrap">
-    <el-popover
-      placement="bottom"
-      width="100"
-      trigger="click">
+    <el-popover placement="bottom" width="100" trigger="click">
       <div class="menu-content-wrap">
-        <!-- <div class="menu-network">
-          <div class="title">{{$t("network.title")}}</div>
-          <div class="contnet-wrap">
-            <el-radio-group v-model="radio1" @change="changeNetwork()">
-              <div>
-                <el-radio :label="1" class="el-radio-wrap">{{$t("network.main")}}</el-radio>
-              </div>
-              <div>
-                <el-radio :label="2" class="el-radio-wrap">{{$t("network.test")}}</el-radio>
-              </div>
-            </el-radio-group>
-          </div>
-        </div> -->
         <div class="menu-language">
           <div class="title">{{$t("language.title")}}</div>
           <div class="contnet-wrap">
@@ -36,7 +20,6 @@
     </el-popover>
   </div>
 </template>
-
 <script>
 export default {
   data () {
