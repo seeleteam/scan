@@ -1,8 +1,6 @@
 import axios from 'axios'
 import { Loading, MessageBox } from 'element-ui'
 
-// timeout
-axios.defaults.timeout = 20000
 // http request interceptor
 var loadinginstace
 axios.interceptors.request.use(config => {
