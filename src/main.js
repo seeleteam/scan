@@ -30,6 +30,8 @@ import store from './store'
 import VueI18n from 'vue-i18n'
 import vuex from 'vuex'
 import axios from './untils/http'
+import VueParticles from 'vue-particles'
+Vue.use(VueParticles)
 
 Vue.use(vuex)
 Vue.use(VueI18n)
@@ -84,5 +86,5 @@ new Vue({
   i18n,
   axios,
   components: { App },
-  template: '<App/>'
+  template: '<app/>'
 })
