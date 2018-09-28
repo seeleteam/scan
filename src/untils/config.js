@@ -6,33 +6,22 @@ module.exports = {
   YQL: [''],
   API: {
 
-    // // last block time
-    // lastBlockTimeUrl: `${URL}/blockprotime`,
-    // // transaction total
-    // transactionTotalUrl: `${URL}/txcount?test=1`,
-    // // index tps
-    // blockTxsTpsUrl: `${URL}/blockTxsTps`,
-    // // account total
-    // accountTotalUrl: `${URL}/accountcount?test=1`,
-    // // contract total
-    // contractTotalUrl: `${URL}/contractcount?test=1`,
-    // // chart data
-    // chartDataUrl: `${URL}/Txstat`,
-    // // account balance ranking
-    // accountRankingUrl: `${URL}/Homeaccounts`,
-    // // miner ranking
-    // minerRankingUrl: `${URL}/miners?test=1`,
-
-    txcountUrl: `${URL}/txcount`,
-    lastblockUrl: `${URL}/lastblock`,
-    bestblockUrl: `${URL}/bestblock`,
-    avgblocktimeUrl: `${URL}/avgblocktime`,
-    hashrateUrl: `${URL}/hashrate`,
-    networkdifficultyUrl: `${URL}/difficulty`,
-    blocksCountUrl: `${URL}/blockcount`,
-    transactionsCountUrl: `${URL}/txcount`,
-    accountsCountUrl: `${URL}/accountcount`,
-    contractsCountUrl: `${URL}/contractcount`,
+    // last block time
+    lastBlockTimeUrl: `${URL}/blockprotime`,
+    // transaction total
+    transactionTotalUrl: `${URL}/txcount?test=1`,
+    // index tps
+    blockTxsTpsUrl: `${URL}/blockTxsTps`,
+    // account total
+    accountTotalUrl: `${URL}/accountcount?test=1`,
+    // contract total
+    contractTotalUrl: `${URL}/contractcount?test=1`,
+    // chart data
+    chartDataUrl: `${URL}/Txstat`,
+    // account balance ranking
+    accountRankingUrl: `${URL}/Homeaccounts`,
+    // miner ranking
+    minerRankingUrl: `${URL}/miners?test=1`,
 
     blocksUrl: `${URL}/blocks`,
     blocksDetailUrl: `${URL}/block`,
