@@ -1,111 +1,85 @@
 <template>
-    <div class="page-wrap">
-        <div class="wrap lg-show">
-          <Header></Header>
-        </div>
-        <div class="sm-show page-sm-header-wrap">
-          <smHeader></smHeader>
-        </div>
-        <div class="sm-show sm-search-input-wrap">
-          <searchInput></searchInput>
-        </div>
-        <div class="main-wrap">
-          <div class="wrap">
-            <div class="describe-title-wrap">
-              <span class="title">{{$t('navs.node')}}</span>
-              <ul class="link-wrap">
-                <li><a href="/">{{$t("navs.home")}}</a></li>
-                <li><i class="el-icon-arrow-right"></i></li>
-                <li class="current">{{$t('navs.node')}}</li>
-              </ul>
-            </div>
-            <el-row :gutter="20" class="layout-wrap">
-              <el-col :xs="24" :md="7" :lg="7" class="lg-show hide-padding">
-                <div class="layout-left-wrap bg-layout node-map-wrap">
-                  <div class="left-main-title">
-                    <router-link :to="{path: '/node', query: { test : 1, p: 1, ps: 25 }}">
-                      <span class="table-link-color height">{{nodeSum | numberFilter}} {{$t("node.nodeTitle")}}</span>
-                    </router-link>
-                  </div>
-                  <div class="left-subtitle">{{$t("node.nodeStat")}}</div>
-                  <el-table
-                    class="list-wrap"
-                    :data="nodeListByCountry"
-                    height="500"
-                    :empty-text="$t('message.noData')"
-                    style="width: 100%; background: transparent">
-                    <el-table-column
-                      prop="nodeRank"
-                      :label="$t('node.nodeRank')"
-                      min-width="55">
-                    </el-table-column>
-                    <el-table-column
-                      prop="nodeCountry"
-                      min-width="110"
-                      :label="$t('node.nodeCountry')">
-                    </el-table-column>
-                    <el-table-column
-                      prop="nodeCount, nodePercent"
-                      min-width="110"
-                      :label="$t('node.nodeCount')">
-                      <template slot-scope="scope">
-                        <span class="list-content">{{scope.row.nodeCount | nodePercentFilter(scope.row.nodePercent)}}</span>
-                      </template>
-                    </el-table-column>
-                  </el-table>
-                </div>
-              </el-col>
-              <el-col :xs="24" :md="17" :lg="17" class="hide-padding">
-                <div class="layout-right-wrap bg-layout">
-                  <div class="map-content-title">{{$t("node.nodeMap")}}</div>
-                  <div class="map-content">
-                  </div>
-                  <div class='grid-content bg-purple'>
-                    <div id='chartNodesDistribution' class="chartNodesDistribution" :style="{ 'min-width': '300px', width: '100%', 'max-height': '500px'}"></div>
-                  </div>
-                  <div class="border-bottom-style"></div>
-                </div>
-              </el-col>
-              <el-col :xs="24" :md="7" :lg="7" class="sm-show hide-padding">
-                <div class="layout-left-wrap bg-layout node-map-wrap">
-                  <div class="left-main-title">
-                    <router-link :to="{path: '/node', query: { test : 1, p: 1, ps: 25 }}">
-                      <span class="table-link-color height">{{nodeSum | numberFilter}} {{$t("node.nodeTitle")}}</span>
-                    </router-link>
-                  </div>
-                  <div class="left-subtitle">{{$t("node.nodeStat")}}</div>
-                  <el-table
-                    class="list-wrap"
-                    :data="nodeListByCountry"
-                    height="500"
-                    :empty-text="$t('message.noData')"
-                    style="width: 100%; background: transparent">
-                    <el-table-column
-                      prop="nodeRank"
-                      :label="$t('node.nodeRank')"
-                      min-width="55">
-                    </el-table-column>
-                    <el-table-column
-                      prop="nodeCountry"
-                      min-width="130"
-                      :label="$t('node.nodeCountry')">
-                    </el-table-column>
-                    <el-table-column
-                      prop="nodeCount, nodePercent"
-                      min-width="90"
-                      :label="$t('node.nodeCount')">
-                      <template slot-scope="scope">
-                        <span class="list-content">{{scope.row.nodeCount | nodePercentFilter(scope.row.nodePercent)}}</span>
-                      </template>
-                    </el-table-column>
-                  </el-table>
-                </div>
-              </el-col>
-            </el-row>
-          </div>
-        </div>
-        <Footer></Footer>
+  <div class="page-wrap">
+    <Header></Header>
+    <div class="sm-show page-sm-header-wrap">
+      <smHeader></smHeader>
     </div>
+    <div class="sm-show sm-search-input-wrap">
+      <searchInput></searchInput>
+    </div>
+    <div class="main-wrap">
+      <div class="wrap">
+        <div class="describe-title-wrap">
+          <span class="title">{{$t('navs.node')}}</span>
+          <ul class="link-wrap">
+            <li>
+              <a href="/">{{$t("navs.home")}}</a>
+            </li>
+            <li>
+              <i class="el-icon-arrow-right"></i>
+            </li>
+            <li class="current">{{$t('navs.node')}}</li>
+          </ul>
+        </div>
+        <el-row :gutter="20" class="layout-wrap">
+          <el-col :xs="24" :md="7" :lg="7" class="lg-show hide-padding">
+            <div class="layout-left-wrap bg-layout node-map-wrap">
+              <div class="left-main-title">
+                <router-link :to="{path: '/node', query: { test : 1, p: 1, ps: 25 }}">
+                  <span class="table-link-color height">{{nodeSum | numberFilter}} {{$t("node.nodeTitle")}}</span>
+                </router-link>
+              </div>
+              <div class="left-subtitle">{{$t("node.nodeStat")}}</div>
+              <el-table class="list-wrap" :data="nodeListByCountry" height="500" :empty-text="$t('message.noData')" style="width: 100%; background: transparent">
+                <el-table-column prop="nodeRank" :label="$t('node.nodeRank')" min-width="55">
+                </el-table-column>
+                <el-table-column prop="nodeCountry" min-width="110" :label="$t('node.nodeCountry')">
+                </el-table-column>
+                <el-table-column prop="nodeCount, nodePercent" min-width="110" :label="$t('node.nodeCount')">
+                  <template slot-scope="scope">
+                    <span class="list-content">{{scope.row.nodeCount | nodePercentFilter(scope.row.nodePercent)}}</span>
+                  </template>
+                </el-table-column>
+              </el-table>
+            </div>
+          </el-col>
+          <el-col :xs="24" :md="17" :lg="17" class="hide-padding">
+            <div class="layout-right-wrap bg-layout">
+              <div class="map-content-title">{{$t("node.nodeMap")}}</div>
+              <div class="map-content">
+              </div>
+              <div class='grid-content bg-purple'>
+                <div id='chartNodesDistribution' class="chartNodesDistribution" :style="{ 'min-width': '300px', width: '100%', 'max-height': '500px'}"></div>
+              </div>
+              <div class="border-bottom-style"></div>
+            </div>
+          </el-col>
+          <el-col :xs="24" :md="7" :lg="7" class="sm-show hide-padding">
+            <div class="layout-left-wrap bg-layout node-map-wrap">
+              <div class="left-main-title">
+                <router-link :to="{path: '/node', query: { test : 1, p: 1, ps: 25 }}">
+                  <span class="table-link-color height">{{nodeSum | numberFilter}} {{$t("node.nodeTitle")}}</span>
+                </router-link>
+              </div>
+              <div class="left-subtitle">{{$t("node.nodeStat")}}</div>
+              <el-table class="list-wrap" :data="nodeListByCountry" height="500" :empty-text="$t('message.noData')" style="width: 100%; background: transparent">
+                <el-table-column prop="nodeRank" :label="$t('node.nodeRank')" min-width="55">
+                </el-table-column>
+                <el-table-column prop="nodeCountry" min-width="130" :label="$t('node.nodeCountry')">
+                </el-table-column>
+                <el-table-column prop="nodeCount, nodePercent" min-width="90" :label="$t('node.nodeCount')">
+                  <template slot-scope="scope">
+                    <span class="list-content">{{scope.row.nodeCount | nodePercentFilter(scope.row.nodePercent)}}</span>
+                  </template>
+                </el-table-column>
+              </el-table>
+            </div>
+          </el-col>
+        </el-row>
+      </div>
+    </div>
+    <Footer></Footer>
+  </div>
 </template>
 <script>
 import { mapActions } from 'vuex'
