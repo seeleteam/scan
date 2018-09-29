@@ -153,7 +153,7 @@ export default {
           top: 63px;
           left: -5px;
           height: 0px;
-          min-width: 100px;
+          min-width: 125px;
           opacity: 0;
           padding-bottom: 10px;
           background: #fff;
