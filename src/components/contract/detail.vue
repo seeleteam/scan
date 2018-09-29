@@ -23,7 +23,7 @@
             <li>
               <div class="li-width">{{$t("listHeader.balance")}}: </div>
               <div class="li-content-width">{{contractInfo.balance | balanceValue}}
-                <span class="unit">Fan</span>
+                <span class="unit">Seele</span>
               </div>
             </li>
             <li>
@@ -68,6 +68,13 @@
                       </template>
                     </el-table-column>
                     <el-table-column prop="value" :label="$t('listHeader.value')">
+                      <template slot-scope="scope">
+                        <span class="list-content">
+                          <span class="integerStyle">{{ scope.row.value | balanceValueInteger }}</span>
+                          <span class="decimalStyle">{{ scope.row.value | balanceValueDecimal }}</span>
+                          <span class="unit">Seele</span>
+                        </span>
+                      </template>
                     </el-table-column>
                     <el-table-column prop="fee" :label="$t('listHeader.txfee')">
                       <template slot-scope="scope">{{scope.row.fee}}
@@ -128,8 +135,29 @@ export default {
     }
   },
   filters: {
-    balanceValue (value) {
-      return formatNumber(value)
+    balanceValueInteger (value) {
+      var stringVal = (value / 100000000).toString()
+      if (!/^\d+$/.test(stringVal)) {
+        var valueSplit = stringVal.split('.')
+        var integer = valueSplit[0]
+        return formatNumber(integer)
+      } else if (/^\d+$/.test(stringVal)) {
+        return formatNumber(value / 100000000)
+      } else {
+        return formatNumber(value)
+      }
+    },
+    balanceValueDecimal (value) {
+      var stringVal = (value / 100000000).toString()
+      if (!/^\d+$/.test(stringVal)) {
+        var valueSplit = stringVal.split('.')
+        var decimal = valueSplit[1]
+        return '.' + decimal
+      } else if (/^\d+$/.test(stringVal)) {
+        return ''
+      } else {
+        return ''
+      }
     },
     txcountValue (value) {
       return formatNumber(value)

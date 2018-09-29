@@ -49,6 +49,11 @@
             </template>
           </el-table-column>
           <el-table-column prop="reward" :label="$t('listHeader.reward')">
+            <template slot-scope="scope">
+              <span class="integerStyle">{{ accountInfo.reward | balanceValueInteger }}</span>
+              <span class="decimalStyle">{{ accountInfo.reward | balanceValueDecimal }}</span>
+              <span class="unit">Seele</span>
+            </template>
           </el-table-column>
           <el-table-column prop="fee" :label="$t('listHeader.fee')">
             <template slot-scope="scope">{{scope.row.fee}}
@@ -73,6 +78,7 @@ import smHeader from '../sm-header'
 import searchInput from '../search-input'
 import Footer from '../footer'
 import ShardSelect from '../shard-select'
+import { formatNumber } from '../../untils/format'
 
 export default {
   data () {
@@ -113,6 +119,32 @@ export default {
     shardValue: {
       get () {
         return this.$store.state.shard.shardValue
+      }
+    }
+  },
+  filters: {
+    balanceValueInteger (value) {
+      var stringVal = (value / 100000000).toString()
+      if (!/^\d+$/.test(stringVal)) {
+        var valueSplit = stringVal.split('.')
+        var integer = valueSplit[0]
+        return formatNumber(integer)
+      } else if (/^\d+$/.test(stringVal)) {
+        return formatNumber(value / 100000000)
+      } else {
+        return formatNumber(value)
+      }
+    },
+    balanceValueDecimal (value) {
+      var stringVal = (value / 100000000).toString()
+      if (!/^\d+$/.test(stringVal)) {
+        var valueSplit = stringVal.split('.')
+        var decimal = valueSplit[1]
+        return '.' + decimal
+      } else if (/^\d+$/.test(stringVal)) {
+        return ''
+      } else {
+        return ''
       }
     }
   },

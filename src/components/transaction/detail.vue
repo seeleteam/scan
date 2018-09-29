@@ -40,7 +40,11 @@
             </li>
             <li>
               <div class="li-width">{{$t("listHeader.value")}}: </div>
-              <div class="li-content-width">{{transactionInfo.value}}</div>
+              <div class="li-content-width">
+                <span class="integerStyle">{{ transactionInfo.value | balanceValueInteger }}</span>
+                <span class="decimalStyle">{{ transactionInfo.value | balanceValueDecimal }}</span>
+                <span class="unit">Seele</span>
+              </div>
             </li>
             <li>
               <div class="li-width">{{$t("listHeader.txfee")}}: </div>
@@ -69,7 +73,7 @@ import smHeader from '../sm-header'
 import searchInput from '../search-input'
 import TransactionDescribe from '../describe'
 import Footer from '../footer'
-import { filtersAd, formatAd } from '../../untils/format'
+import { filtersAd, formatAd, formatNumber } from '../../untils/format'
 export default {
   data () {
     return {
@@ -98,6 +102,30 @@ export default {
   filters: {
     setFormatAd (params) {
       return formatAd(params)
+    },
+    balanceValueInteger (value) {
+      var stringVal = (value / 100000000).toString()
+      if (!/^\d+$/.test(stringVal)) {
+        var valueSplit = stringVal.split('.')
+        var integer = valueSplit[0]
+        return formatNumber(integer)
+      } else if (/^\d+$/.test(stringVal)) {
+        return formatNumber(value / 100000000)
+      } else {
+        return formatNumber(value)
+      }
+    },
+    balanceValueDecimal (value) {
+      var stringVal = (value / 100000000).toString()
+      if (!/^\d+$/.test(stringVal)) {
+        var valueSplit = stringVal.split('.')
+        var decimal = valueSplit[1]
+        return '.' + decimal
+      } else if (/^\d+$/.test(stringVal)) {
+        return ''
+      } else {
+        return ''
+      }
     }
   },
   methods: {
