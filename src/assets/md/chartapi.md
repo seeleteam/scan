@@ -1,6 +1,6 @@
 >## 获取交易历史图表
 #### URL
-	http://api.seelescan.net/api/v1/chart/tx
+	https://api.seelescan.net/api/v1/chart/tx
 
 #### 参数
 1. s: 分片的id
@@ -12,7 +12,7 @@
 
 #### 例子
 	//Request
-	http://api.seelescan.net/api/v1/chart/tx?s=1
+	https://api.seelescan.net/api/v1/chart/tx?s=1
 	
 	//Return
 	{
@@ -46,7 +46,7 @@
 
 >## 获取区块难度增长图表
 #### URL
-	http://api.seelescan.net/api/v1/chart/difficulty
+	https://api.seelescan.net/api/v1/chart/difficulty
 	
 #### 参数
 1. s: 分片的id
@@ -58,7 +58,7 @@
 
 #### 例子
 	//Request
-	http://api.seelescan.net/api/v1/chart/difficulty?s=1
+	https://api.seelescan.net/api/v1/chart/difficulty?s=1
 	
 	//Return
 	{
@@ -90,7 +90,7 @@
 
 >## 获取地址增长图表
 #### URL
-	http://api.seelescan.net/api/v1/chart/address
+	https://api.seelescan.net/api/v1/chart/address
 
 #### 参数
 1. s: 分片的id
@@ -102,7 +102,7 @@
 
 #### 例子
 	//Request
-	http://api.seelescan.net/api/v1/chart/address?s=1
+	https://api.seelescan.net/api/v1/chart/address?s=1
 	
 	//Return
 	{
@@ -126,7 +126,7 @@
 
 >## 获取区块数量和奖励图表
 #### URL
-	http://api.seelescan.net/api/v1/chart/blocks
+	https://api.seelescan.net/api/v1/chart/blocks
 
 #### 参数
 1. s: 分片的id
@@ -138,7 +138,7 @@
 
 #### 例子
 	//Request
-	http://api.seelescan.net/api/v1/chart/blocks?s=1
+	https://api.seelescan.net/api/v1/chart/blocks?s=1
 	
 	//Return
 	{
@@ -156,7 +156,7 @@
 
 >## 获取哈希速率图表
 #### URL
-	http://api.seelescan.net/api/v1/chart/hashrate
+	https://api.seelescan.net/api/v1/chart/hashrate
 	
 #### 参数 
 1. s: 分片的id
@@ -168,7 +168,7 @@
 
 #### 例子
 	//Request
-	http://api.seelescan.net/api/v1/chart/hashrate?s=1
+	https://api.seelescan.net/api/v1/chart/hashrate?s=1
 	
 	//Return
 	{
@@ -185,7 +185,7 @@
 
 >## 获取区块产生时间图表
 #### URL
-	http://api.seelescan.net/api/v1/chart/blocktime
+	https://api.seelescan.net/api/v1/chart/blocktime
 	
 #### 参数 
 1. s: 分片的id
@@ -197,7 +197,7 @@
 
 #### 例子
 	//Request
-	http://api.seelescan.net/api/v1/chart/blocktime?s=1
+	https://api.seelescan.net/api/v1/chart/blocktime?s=1
 	
 	//Return
 	{
@@ -214,7 +214,7 @@
 	
 >## 获取挖矿排行图表
 #### URL
-	http://api.seelescan.net/api/v1/chart/miner
+	https://api.seelescan.net/api/v1/chart/miner
 	
 #### 参数 
 1. s: 分片的id
@@ -226,7 +226,7 @@
 
 #### 例子
 	//Request
-	http://api.seelescan.net/api/v1/chart/miner?s=1
+	https://api.seelescan.net/api/v1/chart/miner?s=1
 	
 	//Return
 	{
@@ -254,7 +254,7 @@
 	
 >## 获取分片节点个数图表
 #### URL
-	http://api.seelescan.net/api/v1/chart/node
+	https://api.seelescan.net/api/v1/chart/node
 	
 #### 参数 
 1. s: 分片的id
@@ -266,7 +266,7 @@
 
 #### 例子
 	//Request
-	http://api.seelescan.net/api/v1/chart/node&s=1
+	https://api.seelescan.net/api/v1/chart/node&s=1
 	
 	//Return
 	{

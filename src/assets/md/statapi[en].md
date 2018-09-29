@@ -1,6 +1,6 @@
 >## Get the total number of transactions
 #### URL
-	http://api.seelescan.net/api/v1/txcount
+	https://api.seelescan.net/api/v1/txcount
 	
 #### Return
 1. code: Error code, 0 is normal, non-zero is wrong
@@ -9,7 +9,7 @@
 
 #### Example
 	//Request
-	http://api.seelescan.net/api/v1/txcount
+	https://api.seelescan.net/api/v1/txcount
 	
 	//Return
 	{
@@ -20,7 +20,7 @@
 
 >## Get the total number of block
 #### URL
-	http://api.seelescan.net/api/v1/blockcount
+	https://api.seelescan.net/api/v1/blockcount
 	
 #### Return
 1. code: Error code, 0 is normal, non-zero is wrong
@@ -29,7 +29,7 @@
 
 #### Example
 	//Request
-	http://api.seelescan.net/api/v1/blockcount
+	https://api.seelescan.net/api/v1/blockcount
 	
 	//Return
 	{
@@ -40,7 +40,7 @@
 	
 >## Get the total number of accounts
 #### URL
-	http://api.seelescan.net/api/v1/accountcount
+	https://api.seelescan.net/api/v1/accountcount
 	
 #### Return
 1. code: Error code, 0 is normal, non-zero is wrong
@@ -49,7 +49,7 @@
 
 #### Example
 	//Request
-	http://api.seelescan.net/api/v1/accountcount
+	https://api.seelescan.net/api/v1/accountcount
 	
 	//Return
 	{
@@ -60,7 +60,7 @@
 
 >## Get the total number of contracts
 #### URL
-	http://api.seelescan.net/api/v1/contractcount
+	https://api.seelescan.net/api/v1/contractcount
 	
 #### Return
 1. code: Error code, 0 is normal, non-zero is wrong
@@ -69,7 +69,7 @@
 
 #### Example
 	//Request
-	http://api.seelescan.net/api/v1/contractcount
+	https://api.seelescan.net/api/v1/contractcount
 	
 	//Return
 	{
