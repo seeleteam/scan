@@ -69,7 +69,8 @@ export default {
           textStyle: {
             fontFamily: 'Helvetica',
             fontSize: 16,
-            fontWeight: 'lighter'
+            fontWeight: 'lighter',
+            color: '#333'
           }
         },
         tooltip: {
@@ -111,7 +112,7 @@ export default {
               show: true,
               onGap: false,
               lineStyle: {
-                color: 'rgba(51,51,51,0.1)'
+                color: '#f2f6f8'
               }
             },
             axisTick: {
@@ -139,7 +140,7 @@ export default {
             splitLine: {
               show: true,
               lineStyle: {
-                color: 'rgba(51,51,51,0.1)'
+                color: '#f2f6f8'
               }
             },
             axisLine: {
