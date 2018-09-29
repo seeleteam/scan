@@ -22,7 +22,9 @@
             </li>
             <li>
               <div class="li-width">{{$t("listHeader.balance")}}: </div>
-              <div class="li-content-width">{{contractInfo.balance | balanceValue}}
+              <div class="li-content-width">
+                <span class="integerStyle">{{ contractInfo.balance | balanceValueInteger }}</span>
+                <span class="decimalStyle">{{ contractInfo.balance | balanceValueDecimal }}</span>
                 <span class="unit">Seele</span>
               </div>
             </li>

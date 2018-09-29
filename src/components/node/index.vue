@@ -24,7 +24,7 @@
         </div>
         <ShardSelect></ShardSelect>
         <el-table class="list-wrap" :data="nodeList" :empty-text="$t('message.noData')" style="width: 100%">
-          <el-table-column label="Id" type="index"></el-table-column>
+          <el-table-column label="ID" type="index"></el-table-column>
           <el-table-column prop="ID" :label="$t('listHeader.nodeId')" min-width="120">
             <template slot-scope="scope" class="">
               <router-link :to="{path: '/node/detail', query: { id: scope.row.ID }}">

@@ -114,7 +114,7 @@
                     </el-popover>
                   </td>
                   <td>
-                    <el-popover trigger="hover" placement="top" :content="item.Reward | balanceValue">
+                    <el-popover trigger="hover" placement="top" :content="item.Reward | balanceValuePopup">
                       <el-button style="none" slot="reference">
                         <span class="integerStyle">{{ item.Balance | balanceValueInteger }}</span>
                         <span class="decimalStyle">{{ item.Balance | balanceValueDecimal }}</span>
@@ -129,7 +129,7 @@
                     </el-popover>
                   </td>
                   <td>
-                    <el-popover trigger="hover" placement="top" :content="item.Balance | balanceValue">
+                    <el-popover trigger="hover" placement="top" :content="item.Balance | balanceValuePopup">
                       <el-button style="none" slot="reference">
                         <span class="integerStyle">{{ item.Reward | balanceValueInteger }}</span>
                         <span class="decimalStyle">{{ item.Reward | balanceValueDecimal }}</span>
@@ -252,6 +252,19 @@ export default {
         return ''
       } else {
         return ''
+      }
+    },
+    balanceValuePopup (value) {
+      var stringVal = (value / 100000000).toString()
+      if (!/^\d+$/.test(stringVal)) {
+        var valueSplit = stringVal.split('.')
+        var integer = valueSplit[0]
+        var decimal = valueSplit[1]
+        return formatNumber(integer) + decimal
+      } else if (/^\d+$/.test(stringVal)) {
+        return formatNumber(value / 100000000)
+      } else {
+        return formatNumber(value)
       }
     },
     balanceValueFilter (value) {
