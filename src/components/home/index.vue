@@ -247,7 +247,6 @@ export default {
   },
   mounted () {
     this.dataShowList()
-    this.colorChange()
   },
   methods: {
     ...mapActions([
@@ -269,10 +268,6 @@ export default {
       this.getChartData()
       this.getAccountRanking()
       this.getMinerRanking()
-    },
-    colorChange () {
-      var tags = document.getElementsByTagName('span')
-      console.log(tags.innerHTML)
     }
   }
 }
