@@ -42,8 +42,10 @@
           </el-table-column>
           <el-table-column prop="balance" :label="$t('listHeader.balance')" width="300">
             <template slot-scope="scope">
-              <span class="list-content">{{scope.row.balance | balanceValue}}
-                <span class="unit">Fan</span>
+              <span class="list-content">
+                <span class="integerStyle">{{ scope.row.balance | balanceValueInteger }}</span>
+                <span class="decimalStyle">{{ scope.row.balance | balanceValueDecimal }}</span>
+                <span class="unit">Seele</span>
               </span>
             </template>
           </el-table-column>
@@ -129,8 +131,29 @@ export default {
     }
   },
   filters: {
-    balanceValue (value) {
-      return formatNumber(value)
+    balanceValueInteger (value) {
+      var stringVal = (value / 100000000).toString()
+      if (!/^\d+$/.test(stringVal)) {
+        var valueSplit = stringVal.split('.')
+        var integer = valueSplit[0]
+        return formatNumber(integer)
+      } else if (/^\d+$/.test(stringVal)) {
+        return formatNumber(value / 100000000)
+      } else {
+        return formatNumber(value)
+      }
+    },
+    balanceValueDecimal (value) {
+      var stringVal = (value / 100000000).toString()
+      if (!/^\d+$/.test(stringVal)) {
+        var valueSplit = stringVal.split('.')
+        var decimal = valueSplit[1]
+        return '.' + decimal
+      } else if (/^\d+$/.test(stringVal)) {
+        return ''
+      } else {
+        return ''
+      }
     },
     txcountValue (value) {
       return formatNumber(value)

@@ -24,7 +24,7 @@
             <dl>
               <dt><img src="../../assets/imgs/transaction.png"></dt>
               <dd>
-                <span>Transaction</span>
+                <span>Transactions</span>
                 <span>{{ transactionTotal | balanceValueFilter }} M</span>
                 <span>({{ blockTxsTps }} TPS)</span>
               </dd>
@@ -78,7 +78,9 @@
                   </li> -->
                   <li>
                     <span>Balance</span>
-                    <span>{{ item.balance | balanceValue }} Seele</span>
+                    <span class="integerStyle">{{ item.balance | balanceValueInteger }}</span>
+                    <span class="decimalStyle">{{ item.balance | balanceValueDecimal }}</span>
+                    <span class="unit">Seele</span>
                   </li>
                 </ul>
               </div>
@@ -86,52 +88,56 @@
             <div class="minerRank">
               <h3>
                 <span>Miner Revenue Rankings</span>
+                <router-link :to="{path: '/account'}">
+                  <span class="more">More
+                    <i class="el-icon-arrow-right"></i>
+                  </span>
+                </router-link>
               </h3>
-              <el-table :data="minerRanking" stripe style="width: 100%" :empty-text="$t('message.noData')">
-                <el-table-column label="Rank" width="70" align="center">
-                  <template slot-scope="scope">
-                    <span>NO.{{ scope.$index + 1 }}</span>
-                  </template>
-                </el-table-column>
-                <el-table-column prop="Address" label="Address" width="150" align="center">
-                  <template slot-scope="scope">
-                    <el-popover placement="top" trigger="hover" :content="scope.row.Address">
+              <table class="minerRankTable">
+                <thead>
+                  <th>Rank</th>
+                  <th>Address</th>
+                  <th>Miner Reward(seele)</th>
+                  <th>TxFee</th>
+                  <th>Total Mining Awards(seele)</th>
+                </thead>
+                <tr v-for="(item, index) in minerRanking" :key="index + 1">
+                  <td>NO.{{ index + 1 }}</td>
+                  <td>
+                    <el-popover placement="top" trigger="hover" :content="item.Address">
                       <el-button style="none" slot="reference">
-                        <router-link :to="{path: '/account/detail', query: { address: scope.row.Address }}">
-                          {{ scope.row.Address }}
+                        <router-link :to="{path: '/account/detail', query: { address: item.Address }}">
+                          {{ item.Address }}
                         </router-link>
                       </el-button>
                     </el-popover>
-                  </template>
-                </el-table-column>
-                <el-table-column prop="Reward" label="Miner Reward(seele)" width="124" align="center">
-                  <template slot-scope="scope">
-                    <el-popover trigger="hover" placement="top" :content="scope.row.Reward | balanceValue">
+                  </td>
+                  <td>
+                    <el-popover trigger="hover" placement="top" :content="item.Reward | balanceValue">
                       <el-button style="none" slot="reference">
-                        {{ scope.row.Reward | balanceValue }}
-                      </el-button>
-                  </el-popover>
-                </template>
-                </el-table-column>
-                <el-table-column prop="TxFee" label="TxFee" width="80" align="center">
-                  <template slot-scope="scope">
-                    <el-popover trigger="hover" placement="top" :content="scope.row.TxFee | balanceValueFilter">
-                      <el-button style="none" slot="reference">
-                        {{ scope.row.TxFee | balanceValueFilter }}
+                        <span class="integerStyle">{{ item.Balance | balanceValueInteger }}</span>
+                        <span class="decimalStyle">{{ item.Balance | balanceValueDecimal }}</span>
                       </el-button>
                     </el-popover>
-                  </template>
-                </el-table-column>
-                <el-table-column prop="Balance" label="Total Mining Awards(seele)" width="166" align="center">
-                  <template slot-scope="scope">
-                    <el-popover trigger="hover" placement="top" :content="scope.row.Balance | balanceValue">
+                  </td>
+                  <td>
+                    <el-popover trigger="hover" placement="top" :content="item.TxFee | balanceValueFilter">
                       <el-button style="none" slot="reference">
-                        {{ scope.row.Balance | balanceValue }}
+                        {{ item.TxFee | balanceValueFilter }}
                       </el-button>
                     </el-popover>
-                  </template>
-                </el-table-column>
-              </el-table>
+                  </td>
+                  <td>
+                    <el-popover trigger="hover" placement="top" :content="item.Balance | balanceValue">
+                      <el-button style="none" slot="reference">
+                        <span class="integerStyle">{{ item.Reward | balanceValueInteger }}</span>
+                        <span class="decimalStyle">{{ item.Reward | balanceValueDecimal }}</span>
+                      </el-button>
+                    </el-popover>
+                  </td>
+                </tr>
+              </table>
             </div>
           </div>
         </div>
@@ -224,18 +230,28 @@ export default {
     }
   },
   filters: {
-    balanceValue (value) {
+    balanceValueInteger (value) {
       var stringVal = (value / 100000000).toString()
       if (!/^\d+$/.test(stringVal)) {
         var valueSplit = stringVal.split('.')
         var integer = valueSplit[0]
-        var decimal = valueSplit[1]
-        value = formatNumber(integer) + '.' + decimal
-        return value
+        return formatNumber(integer)
       } else if (/^\d+$/.test(stringVal)) {
         return formatNumber(value / 100000000)
       } else {
         return formatNumber(value)
+      }
+    },
+    balanceValueDecimal (value) {
+      var stringVal = (value / 100000000).toString()
+      if (!/^\d+$/.test(stringVal)) {
+        var valueSplit = stringVal.split('.')
+        var decimal = valueSplit[1]
+        return '.' + decimal
+      } else if (/^\d+$/.test(stringVal)) {
+        return ''
+      } else {
+        return ''
       }
     },
     balanceValueFilter (value) {
@@ -416,6 +432,15 @@ export default {
               padding-left: 20px;
               &:nth-child(2){
                 color: #333;
+                padding-left: 20px;
+              }
+              &:nth-child(3){
+                padding-left: 3px;
+                color: #999;
+              }
+              &:nth-child(4){
+                color: #23479c;
+                padding-left: 10px;
               }
               .el-button {
                 height: 25px;
@@ -481,6 +506,18 @@ export default {
           float: left;
           color: #333;
         }
+        a{
+          float: right;
+          span.more{
+            font-size: 12px;
+            color: #9b9b9b;
+          }
+        }
+        :hover{
+          span.more{
+            color: #3498db;
+          }
+        }
       }
       a{
         color: #3498db;
@@ -489,18 +526,50 @@ export default {
         text-overflow: ellipsis;
         white-space: nowrap;
       }
+      .minerRankTable{
+        width: 100%;
+        font-size: 14px;
+        border-collapse:collapse;
+        thead th{
+          font-weight: lighter;
+          text-align: left;
+          white-space: nowrap;
+          padding: 13px 0;
+          &:nth-child(3),&:nth-child(5){
+            font-size: 12px;
+          }
+        }
+        tr td{
+          padding: 6px 0;
+        }
+        thead,tr:nth-child(odd){
+          background: #f6f6f6;
+        }
+        thead th:nth-child(1),tr td:nth-child(1){
+          width: 60px;
+          padding-left: 20px;
+        }
+        thead th:nth-child(2),tr td:nth-child(2){
+          width: 120px;
+        }
+        thead th:nth-child(3),tr td:nth-child(3){
+          width: 130px;
+          padding-left: 10px;
+        }
+        thead th:nth-child(4),tr td:nth-child(4){
+          width: 100px;
+        }
+        thead th:nth-child(5),tr td:nth-child(5){
+          width: 160px;
+        }
+      }
     }
   }
   .unit{
     color:#23479c;
   }
-  .el-table td div{
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-  .el-table .el-table__row td:nth-child(2) div.cell .el-button,.el-table .el-table__row td:nth-child(3) div.cell .el-button,
-  .el-table .el-table__row td:nth-child(4) div.cell .el-button,.el-table .el-table__row td:nth-child(5) div.cell .el-button {
+  .minerRankTable tr td:nth-child(2) .el-button,.minerRankTable tr td:nth-child(3) .el-button,
+  .minerRankTable tr td:nth-child(4) .el-button,.minerRankTable tr td:nth-child(5) .el-button {
       height: 14px;
       display: inline-block;
       font-size: 14px;
@@ -510,7 +579,7 @@ export default {
       background: none;
       border: none;
       color: #3498db;
-      text-align: unset;
+      text-align: center;
       -webkit-box-sizing: border-box;
       box-sizing: border-box;
       margin: 0;
@@ -520,9 +589,7 @@ export default {
       padding: 0;
       border-radius: 0;
       span{
-        display: grid;
         a{
-          width: 140px;
           display: inline-block;
           overflow: hidden;
           text-overflow: ellipsis;
@@ -530,12 +597,11 @@ export default {
         }
       }
   }
-  .el-table .el-table__row td:nth-child(2) div.cell .el-button{
-    margin:-0.5px 0 0 0;
+  .minerRankTable tr td:nth-child(2) .el-button{
+    margin:2px 0 0 0;
     span{
-        display: grid;
         a{
-          width: 140px;
+          width: 120px;
           display: inline-block;
           overflow: hidden;
           text-overflow: ellipsis;
@@ -543,75 +609,54 @@ export default {
         }
     }
   }
-  .el-table .el-table__row td:nth-child(3) div.cell .el-button,
-  .el-table .el-table__row td:nth-child(4) div.cell .el-button,
-  .el-table .el-table__row td:nth-child(5) div.cell .el-button {
-    margin: 4px 0 0 0;
+  .minerRankTable tr td:nth-child(3) .el-button,
+  .minerRankTable tr td:nth-child(4) .el-button,
+  .minerRankTable tr td:nth-child(5) .el-button {
     color: #333;
       span{
-        display: grid;
+        margin: 2px 0 0 0;
         display: inline-block;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
       }
   }
-  .el-table .el-table__row td:nth-child(3) div.cell .el-button{
-    span{
-      width: 114px;
-    }
-  }
-  .el-table .el-table__row td:nth-child(4) div.cell .el-button{
-    span{
-      width: 70px;
-    }
-  }
-  .el-table .el-table__row td:nth-child(5) div.cell .el-button{
-    span{
-      width: 156px;
-    }
-  }
-  .el-table td, .el-table th{
-    padding: 5px 0 2px 0;
-  }
-  .el-table th{
-    padding: 9px 0;
-  }
-  .el-table .cell, .el-table th div{
-    padding-right: 5px;
-  }
-  .el-table .cell, .el-table th div, .el-table--border td:first-child .cell, .el-table--border th:first-child .cell{
-    padding-left: 5px;
-  }
-  .has-gutter .el-table td, .el-table th.is-leaf{
-    background: #f6f6f6;
-    font-weight: lighter;
-    color: #333;
-    font-size:14px;
-    border: none;
-  }
-  .el-table .el-table__header th:nth-child(3) div.cell,.el-table .el-table__header th:nth-child(5) div.cell{
+  .minerRankTable tr th:nth-child(3),.minerRankTable tr th:nth-child(5){
      font-size: 12px;
   }
-  .el-table--striped .el-table__body tr.el-table__row--striped.el-table__row--striped.el-table__row--striped td {
-    background-color: #f6f6f6;
-  }
-  .el-table__body tr.el-table__row td:nth-child(1) span{
+  .minerRankTable tr td:nth-child(1) span{
     color: #999;
   }
-  .el-table__body tr.el-table__row:nth-child(1) td:nth-child(1) span{
+  .minerRankTable tr:nth-child(2) td:nth-child(1){
     color: #d8645e;
   }
-  .el-table__body tr.el-table__row:nth-child(2) td:nth-child(1) span{
+  .minerRankTable tr:nth-child(3) td:nth-child(1){
     color: #c3a963;
   }
-  .el-table__body tr.el-table__row:nth-child(3) td:nth-child(1) span{
+  .minerRankTable tr td:nth-child(2) .el-button{
+    &:hover{
+      text-decoration: underline;
+    }
+  }
+  .minerRankTable tr:nth-child(4) td:nth-child(1){
     color: #8fc31f;
   }
 }
 .el-popover--plain{
     padding: 12px;
-
+}
+.changeStyle{
+  display: inline;
+  margin: 0;
+  padding: 0;
+  font-family: Helvetica;
+}
+.pc-main .minerRankTable tr td:nth-child(3) .el-button span.decimalStyle{
+  color: #999;
+  margin-left:-2px;
+}
+.integerStyle{
+  color: #333;
 }
 @media screen and (max-width: 768px) {
   .el-home-wrap {

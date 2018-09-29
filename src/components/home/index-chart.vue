@@ -63,7 +63,7 @@ export default {
       // define  charts option
       var option = {
         title: {
-          text: 'Seele block generation time statistics for the past 30 days',
+          text: 'Seele Transaction History for the past 30 days',
           x: 'center',
           y: 25,
           textStyle: {
