@@ -45,7 +45,7 @@ export default {
   border-bottom: 1px solid #dcdfe6;
 }
 .logo img{
-  width: 110px;
+  width: 246px;
   height: 28px;
   display: inherit;
   padding: 20px 0 15px 0;

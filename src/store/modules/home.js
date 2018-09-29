@@ -108,8 +108,8 @@ const actions = {
             }
           }
           chartDataList = {
-            'stime': stime,
-            'txcount': txcount,
+            'stime': stime.reverse(),
+            'txcount': txcount.reverse(),
             'code': chartDataCode
           }
           commit(types.CHARTDATALIST, chartDataList)

@@ -17,15 +17,15 @@
               <dt><img src="../../assets/imgs/lastblock.png"></dt>
               <dd>
                 <span>Last Block</span>
-                <span>9,951,173</span>
-                <span>(31s)</span>
+                <span>{{ lastBlockList.lastblockHeight | balanceValueFilter }}</span>
+                <span>({{ lastBlockList.lastblockTime }}s)</span>
               </dd>
             </dl>
             <dl>
               <dt><img src="../../assets/imgs/transaction.png"></dt>
               <dd>
                 <span>Transaction</span>
-                <span>{{ transactionTotal | balanceValue }} M</span>
+                <span>{{ transactionTotal | balanceValueFilter }} M</span>
                 <span>({{ blockTxsTps }} TPS)</span>
               </dd>
             </dl>
@@ -33,14 +33,14 @@
               <dt><img src="../../assets/imgs/account.png"></dt>
               <dd>
                 <span>Accounts</span>
-                <span>658</span>
+                <span>{{ accountTotal | balanceValueFilter }}</span>
               </dd>
             </dl>
             <dl>
               <dt><img src="../../assets/imgs/contract.png"></dt>
               <dd>
                 <span>Contracts</span>
-                <span>229</span>
+                <span>{{ contractTotal | balanceValueFilter }}</span>
               </dd>
             </dl>
           </div>
@@ -78,7 +78,7 @@
                   </li> -->
                   <li>
                     <span>Balance</span>
-                    <span>{{ item.balance | balanceValue }}</span>
+                    <span>{{ item.balance | balanceValueFilter }} Seele</span>
                   </li>
                 </ul>
               </div>
@@ -95,7 +95,7 @@
                 </el-table-column>
                 <el-table-column prop="Address" label="Address" width="150" align="center">
                   <template slot-scope="scope">
-                    <el-popover placement="top-start" trigger="hover" :content="scope.row.Address">
+                    <el-popover placement="top" trigger="hover" :content="scope.row.Address">
                       <el-button style="none" slot="reference">
                         <router-link :to="{path: '/account/detail', query: { address: scope.row.Address }}">
                           {{ scope.row.Address }}
@@ -104,7 +104,7 @@
                     </el-popover>
                   </template>
                 </el-table-column>
-                <el-table-column prop="Reward" label="Miner Reward" width="124" align="center">
+                <el-table-column prop="Reward" label="Miner Reward(seele)" width="124" align="center">
                   <template slot-scope="scope">
                     <el-popover trigger="hover" placement="top" :content="scope.row.Reward | balanceValue">
                       <el-button style="none" slot="reference">
@@ -115,12 +115,20 @@
                 </el-table-column>
                 <el-table-column prop="TxFee" label="TxFee" width="80" align="center">
                   <template slot-scope="scope">
-                    <span>{{ scope.row.TxFee | balanceValue }}</span>
+                    <el-popover trigger="hover" placement="top" :content="scope.row.TxFee | balanceValueFilter">
+                      <el-button style="none" slot="reference">
+                        {{ scope.row.TxFee | balanceValueFilter }}
+                      </el-button>
+                    </el-popover>
                   </template>
                 </el-table-column>
-                <el-table-column prop="Balance" label="Total Mining Awards" width="166" align="center">
+                <el-table-column prop="Balance" label="Total Mining Awards(seele)" width="166" align="center">
                   <template slot-scope="scope">
-                    <span>{{ scope.row.Balance | balanceValue }}</span>
+                    <el-popover trigger="hover" placement="top" :content="scope.row.Balance | balanceValue">
+                      <el-button style="none" slot="reference">
+                        {{ scope.row.Balance | balanceValue }}
+                      </el-button>
+                    </el-popover>
                   </template>
                 </el-table-column>
               </el-table>
@@ -162,7 +170,8 @@ import Footer from '../footer'
 export default {
   data () {
     return {
-      isLogo: true
+      isLogo: true,
+      content: ''
     }
   },
   components: {
@@ -216,6 +225,20 @@ export default {
   },
   filters: {
     balanceValue (value) {
+      var stringVal = (value / 100000000).toString()
+      if (!/^\d+$/.test(stringVal)) {
+        var valueSplit = stringVal.split('.')
+        var integer = valueSplit[0]
+        var decimal = valueSplit[1]
+        value = formatNumber(integer) + '.' + decimal
+        return value
+      } else if (/^\d+$/.test(stringVal)) {
+        return formatNumber(value / 100000000)
+      } else {
+        return formatNumber(value)
+      }
+    },
+    balanceValueFilter (value) {
       return formatNumber(value)
     },
     filterPercent (value) {
@@ -224,6 +247,7 @@ export default {
   },
   mounted () {
     this.dataShowList()
+    this.colorChange()
   },
   methods: {
     ...mapActions([
@@ -245,6 +269,10 @@ export default {
       this.getChartData()
       this.getAccountRanking()
       this.getMinerRanking()
+    },
+    colorChange () {
+      var tags = document.getElementsByTagName('span')
+      console.log(tags.innerHTML)
     }
   }
 }
@@ -285,9 +313,18 @@ export default {
     padding: 45px 50px;
     background: #fff;
     dl {
-      width: calc(25% - 4px);
+      width: calc(27% - 4px);
       height: 60px;
       display: inline-block;
+      &:nth-child(2){
+        width: calc(30% - 4px);
+      }
+      &:nth-child(3){
+        width: calc(23% - 4px);
+      }
+      &:last-child{
+        width: calc(18% - 4px);
+      }
       dt {
         width: 60px;
         float: left;
@@ -467,7 +504,8 @@ export default {
     text-overflow: ellipsis;
     white-space: nowrap;
   }
-  .el-table .el-table__row td:nth-child(2) div.cell .el-button {
+  .el-table .el-table__row td:nth-child(2) div.cell .el-button,.el-table .el-table__row td:nth-child(3) div.cell .el-button,
+  .el-table .el-table__row td:nth-child(4) div.cell .el-button,.el-table .el-table__row td:nth-child(5) div.cell .el-button {
       height: 14px;
       display: inline-block;
       font-size: 14px;
@@ -497,36 +535,52 @@ export default {
         }
       }
   }
-  .el-table .el-table__row td:nth-child(3) div.cell .el-button {
-      height: 14px;
-      display: inline-block;
-      font-size: 14px;
-      line-height:unset;
-      white-space: nowrap;
-      cursor: pointer;
-      background: none;
-      border: none;
-      color: #333;
-      text-align: unset;
-      -webkit-box-sizing: border-box;
-      box-sizing: border-box;
-      margin: 4px 0 0 0;
-      -webkit-transition: none;
-      transition: none;
-      font-weight: unset;
-      padding: 0;
-      border-radius: 0;
+  .el-table .el-table__row td:nth-child(2) div.cell .el-button{
+    margin:-0.5px 0 0 0;
+    span{
+        display: grid;
+        a{
+          width: 140px;
+          display: inline-block;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+    }
+  }
+  .el-table .el-table__row td:nth-child(3) div.cell .el-button,
+  .el-table .el-table__row td:nth-child(4) div.cell .el-button,
+  .el-table .el-table__row td:nth-child(5) div.cell .el-button {
+    margin: 4px 0 0 0;
+    color: #333;
       span{
         display: grid;
-        width: 114px;
         display: inline-block;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
       }
   }
+  .el-table .el-table__row td:nth-child(3) div.cell .el-button{
+    span{
+      width: 114px;
+    }
+  }
+  .el-table .el-table__row td:nth-child(4) div.cell .el-button{
+    span{
+      width: 70px;
+    }
+  }
+  .el-table .el-table__row td:nth-child(5) div.cell .el-button{
+    span{
+      width: 156px;
+    }
+  }
   .el-table td, .el-table th{
-    padding: 5px 0 3px 0;
+    padding: 5px 0 2px 0;
+  }
+  .el-table th{
+    padding: 9px 0;
   }
   .el-table .cell, .el-table th div{
     padding-right: 5px;
@@ -540,6 +594,9 @@ export default {
     color: #333;
     font-size:14px;
     border: none;
+  }
+  .el-table .el-table__header th:nth-child(3) div.cell,.el-table .el-table__header th:nth-child(5) div.cell{
+     font-size: 12px;
   }
   .el-table--striped .el-table__body tr.el-table__row--striped.el-table__row--striped.el-table__row--striped td {
     background-color: #f6f6f6;
@@ -556,6 +613,10 @@ export default {
   .el-table__body tr.el-table__row:nth-child(3) td:nth-child(1) span{
     color: #8fc31f;
   }
+}
+.el-popover--plain{
+    padding: 12px;
+
 }
 @media screen and (max-width: 768px) {
   .el-home-wrap {
