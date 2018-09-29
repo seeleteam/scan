@@ -78,7 +78,7 @@
                   </li> -->
                   <li>
                     <span>Balance</span>
-                    <span>{{ item.balance | balanceValueFilter }} Seele</span>
+                    <span>{{ item.balance | balanceValue }} Seele</span>
                   </li>
                 </ul>
               </div>
