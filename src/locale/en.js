@@ -30,8 +30,8 @@ module.exports = {
     account: 'Accounts',
     block: 'Blocks',
     tx: 'Transactions',
-    transaction: 'BlockChainTxs',
-    pendingtxs: 'PendingTxs',
+    transaction: 'BlockChain Txs',
+    pendingtxs: 'Pending Txs',
     contract: 'Contracts',
     token: 'Token',
     statChar: 'Stat Charts',
@@ -60,8 +60,8 @@ module.exports = {
     address: 'Address',
     balance: 'Balance',
     percentage: 'Percentage',
-    txCount: 'TxCount',
-    listDescription: 'Account Txn List (Showing the last 25 records of a total of ',
+    txCount: 'Tx Count',
+    listDescription: 'Account Txs List (Showing the last 25 records of a total of ',
     listTotal: ' records',
     txHash: 'TxHash',
     age: 'Age',
@@ -89,7 +89,7 @@ module.exports = {
     block: 'Block',
     headHash: 'HeadHash',
     preBlockHash: 'PreBlockHash',
-    txcount: 'TxCount',
+    txcount: 'Tx Count',
 
     amount: 'Amount',
     hash: 'Hash',
@@ -100,7 +100,7 @@ module.exports = {
     nodeRegion: 'Region',
     nodeNumber: 'Nodes',
 
-    nodeId: 'NodeID',
+    nodeId: 'Node ID',
     host: 'Host',
     port: 'Port',
     country: 'Country',
@@ -108,7 +108,7 @@ module.exports = {
     region: 'Region',
     client: 'Client',
     caps: 'Caps',
-    lastSeen: 'LastSeen',
+    lastSeen: 'Last Seen',
 
     payload: 'Payload',
     contractCreationCode: 'Contract Creation Code'
@@ -212,9 +212,9 @@ module.exports = {
     transactionapi: 'Transaction API',
     accountapi: 'Account API',
     searchapi: 'Search API',
-    statapi: 'StatMetrics API',
+    statapi: 'Stat Metrics API',
     nodepai: 'Node API',
-    chartapi: 'StatsCharts API'
+    chartapi: 'Stats Charts API'
   },
   forBlock: 'For Block',
   charMark: {

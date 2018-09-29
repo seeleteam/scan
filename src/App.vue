@@ -32,6 +32,6 @@ export default {
   transform: translate(-50%,-67%);
   display: inline-block;
   background: url(./assets/imgs/loading.gif) center center no-repeat;
-  background-size: 60% auto;
+  background-size: 40% auto;
 }
 </style>
