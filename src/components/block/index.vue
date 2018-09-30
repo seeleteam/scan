@@ -50,8 +50,8 @@
           </el-table-column>
           <el-table-column prop="reward" :label="$t('listHeader.reward')">
             <template slot-scope="scope">
-              <span class="integerStyle">{{ accountInfo.reward | balanceValueInteger }}</span>
-              <span class="decimalStyle">{{ accountInfo.reward | balanceValueDecimal }}</span>
+              <span class="integerStyle">{{ scope.row.reward | balanceValueInteger }}</span>
+              <span class="decimalStyle">{{ scope.row.reward | balanceValueDecimal }}</span>
               <span class="unit">Seele</span>
             </template>
           </el-table-column>
