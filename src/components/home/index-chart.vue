@@ -12,7 +12,7 @@ import echarts from 'echarts'
 export default {
   mounted () {
     this.drawChartIndex()
-    this.getChartData()
+    // this.getChartData()
   },
   computed: {
     chartDataList: {

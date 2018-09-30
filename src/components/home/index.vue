@@ -213,11 +213,6 @@ export default {
         return this.$store.state.home.contractTotal
       }
     },
-    chartData: {
-      get () {
-        return this.$store.state.home.chartData
-      }
-    },
     accountRanking: {
       get () {
         return this.$store.state.home.accountRanking
@@ -548,7 +543,7 @@ export default {
           text-align: left;
           white-space: nowrap;
           padding: 13px 0;
-          &:nth-child(3),&:nth-child(5){
+          &:nth-child(3){
             font-size: 12px;
           }
         }
@@ -634,7 +629,14 @@ export default {
         white-space: nowrap;
       }
   }
-  .minerRankTable tr th:nth-child(3),.minerRankTable tr th:nth-child(5){
+  .minerRankTable tr td:nth-child(3) .el-button,
+  .minerRankTable tr td:nth-child(4) .el-button,
+  .minerRankTable tr td:nth-child(5) .el-button {
+    span:nth-child(2){
+      margin-left: -3px;
+    }
+  }
+  .minerRankTable tr th:nth-child(3){
      font-size: 12px;
   }
   .minerRankTable tr td:nth-child(1) span{
@@ -664,7 +666,7 @@ export default {
   padding: 0;
   font-family: Helvetica;
 }
-.pc-main .minerRankTable tr td:nth-child(3) .el-button span.decimalStyle{
+.decimalStyle{
   color: #999;
   margin-left:-2px;
 }
