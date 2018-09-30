@@ -23,6 +23,9 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.el-popover--plain{
+    padding: 10px;
+}
 .loadingIcon{
   width: 100%;
   height: 600px;
