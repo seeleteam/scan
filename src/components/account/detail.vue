@@ -30,7 +30,7 @@
               <div class="li-content-width">
                 <span class="integerStyle">{{ accountInfo.balance | balanceValueInteger }}</span>
                 <span class="decimalStyle">{{ accountInfo.balance | balanceValueDecimal }}</span>
-                <span class="unit">Fan</span>
+                <span class="unit">Seele</span>
               </div>
             </li>
             <li>

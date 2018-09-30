@@ -98,9 +98,9 @@
                 <thead>
                   <th>Rank</th>
                   <th>Address</th>
-                  <th>Miner Reward(seele)</th>
-                  <th>TxFee</th>
-                  <th>Total Mining Awards(seele)</th>
+                  <th>Miner Reward (Seele)</th>
+                  <th>Tx Fee (Fan)</th>
+                  <th>Balance (Seele)</th>
                 </thead>
                 <tr v-for="(item, index) in minerRanking" :key="index + 1">
                   <td>NO.{{ index + 1 }}</td>
@@ -116,8 +116,8 @@
                   <td>
                     <el-popover trigger="hover" placement="top" :content="item.Reward | balanceValuePopup">
                       <el-button style="none" slot="reference">
-                        <span class="integerStyle">{{ item.Balance | balanceValueInteger }}</span>
-                        <span class="decimalStyle">{{ item.Balance | balanceValueDecimal }}</span>
+                        <span class="integerStyle">{{ item.Reward | balanceValueInteger }}</span>
+                        <span class="decimalStyle">{{ item.Reward | balanceValueDecimal }}</span>
                       </el-button>
                     </el-popover>
                   </td>
@@ -131,8 +131,8 @@
                   <td>
                     <el-popover trigger="hover" placement="top" :content="item.Balance | balanceValuePopup">
                       <el-button style="none" slot="reference">
-                        <span class="integerStyle">{{ item.Reward | balanceValueInteger }}</span>
-                        <span class="decimalStyle">{{ item.Reward | balanceValueDecimal }}</span>
+                        <span class="integerStyle">{{ item.Balance | balanceValueInteger }}</span>
+                        <span class="decimalStyle">{{ item.Balance | balanceValueDecimal }}</span>
                       </el-button>
                     </el-popover>
                   </td>
@@ -656,7 +656,7 @@ export default {
   }
 }
 .el-popover--plain{
-    padding: 12px;
+    padding: 10px;
 }
 .changeStyle{
   display: inline;

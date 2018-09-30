@@ -3,7 +3,7 @@
 	https://api.seelescan.net/api/v1/nodes
 	
 #### Parameter 
-1. p:The page number to display, the default value is 1
+1. p: The page number to display, the default value is 1
 2. ps: The number of pages displayed, the default value is 25
 3. s: The shardNumber
 
