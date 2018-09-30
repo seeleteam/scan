@@ -61,8 +61,8 @@
                     </el-table-column>
                     <el-table-column prop="from" :label="$t('listHeader.from')" width="230">
                       <template slot-scope="scope">
-                        <span v-if="scope.row.inorout === true" :class="{'table-link-color': isLink(scope.row.from)}" class="list-content" @click="toTx(scope.row.from)">{{[scope.row.from, 'from'] | setFormatAd}}</span>
-                        <span v-else class="list-content">{{[scope.row.from, 'from'] | setFormatAd}}</span>
+                        <span :class="{'table-link-color': isLink(scope.row.from)}" class="list-content" @click="toTx(scope.row.from)">{{[scope.row.from, 'from'] | setFormatAd}}</span>
+                        <!-- <span v-if="scope.row.inorout === true" v-else class="list-content">{{[scope.row.from, 'from'] | setFormatAd}}</span> -->
                       </template>
                     </el-table-column>
                     <el-table-column prop="inorout" width="100" :label="$t('listHeader.inorout')">
@@ -73,8 +73,8 @@
                     </el-table-column>
                     <el-table-column prop="to" width="230" :label="$t('listHeader.to')">
                       <template slot-scope="scope">
-                        <span v-if="scope.row.inorout === true" :class="{'table-link-color': isLink(scope.row.to)}" class="list-content" @click="toTx(scope.row.to)">{{[scope.row.to, 'to'] | setFormatAd}}</span>
-                        <span v-else class="list-content">{{[scope.row.to, 'to'] | setFormatAd}}</span>
+                        <span :class="{'table-link-color': isLink(scope.row.to)}" class="list-content" @click="toTx(scope.row.to)">{{[scope.row.to, 'to'] | setFormatAd}}</span>
+                        <!-- <span v-if="scope.row.inorout === true" v-else class="list-content">{{[scope.row.to, 'to'] | setFormatAd}}</span> -->
                       </template>
                     </el-table-column>
                     <el-table-column prop="value" :label="$t('listHeader.value')">
