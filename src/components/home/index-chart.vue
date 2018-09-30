@@ -162,7 +162,7 @@ export default {
         ],
         series: [
           {
-            name: 'Transaction',
+            name: 'Transactions',
             type: 'line',
             smooth: true,
             symbol: 'none',
