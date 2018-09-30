@@ -52,7 +52,7 @@
           <div class="data-list">
             <div class="accountRank">
               <h3>
-                <span>Account Balance Leaderboard</span>
+                <span>Account Balance Rankings</span>
                 <router-link :to="{path: '/account'}">
                   <span class="more">More
                     <i class="el-icon-arrow-right"></i>
@@ -100,7 +100,7 @@
                   <th>Address</th>
                   <th>Miner Reward (Seele)</th>
                   <th>Tx Fee (Fan)</th>
-                  <th>Balance (Seele)</th>
+                  <th>Revenue (Seele)</th>
                 </thead>
                 <tr v-for="(item, index) in minerRanking" :key="index + 1">
                   <td>NO.{{ index + 1 }}</td>
@@ -656,9 +656,6 @@ export default {
   .minerRankTable tr:nth-child(4) td:nth-child(1){
     color: #8fc31f;
   }
-}
-.el-popover--plain{
-    padding: 10px;
 }
 .changeStyle{
   display: inline;
