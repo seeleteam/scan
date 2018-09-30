@@ -255,11 +255,11 @@ export default {
         var valueSplit = stringVal.split('.')
         var integer = valueSplit[0]
         var decimal = valueSplit[1]
-        return formatNumber(integer) + decimal
+        return integer + '.' + decimal
       } else if (/^\d+$/.test(stringVal)) {
-        return formatNumber(value / 100000000)
+        return value / 100000000
       } else {
-        return formatNumber(value)
+        return value
       }
     },
     balanceValueFilter (value) {
