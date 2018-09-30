@@ -38,7 +38,7 @@ export default {
 .lg-nav {
   width: 1200px;
   margin:0 auto;
-  padding-bottom: 10px;
+  padding:0 10px 10px 10px;
 }
 .logo{
   width: 100%;
