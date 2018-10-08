@@ -547,6 +547,9 @@ export default {
             font-size: 12px;
           }
         }
+        tr:last-child td{
+          padding: 9px 0 10px 0;
+        }
         tr td{
           padding: 6px 0;
         }
