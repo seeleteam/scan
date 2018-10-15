@@ -131,14 +131,14 @@ export default {
       margin-right: 28px;
       border-bottom: 2px solid #fff;
       font-size: 16px;
-      a {
+      a,.el-dropdown-link {
         display: inline-block;
         // width: 100%;
         color: #666;
       }
       &:hover {
         a,
-        .menu-li {
+        .menu-li,.el-dropdown-link:hover {
           cursor: pointer;
           color: #23479c;
           font-weight: bold;
@@ -176,10 +176,12 @@ export default {
             }
           }
           .dropd1 {
+            width: calc(100% - 20px);
             border-bottom: 1px solid #dcdfe6;
             padding-bottom: 10px;
+            border-radius: 0;
           }
-          .dropd-current {
+          .dropd-current,.el-dropdown-link:hover {
             width: calc(100% - 20px);
             color: #409eff;
             font-weight: 600;
@@ -199,7 +201,7 @@ export default {
     }
     .current {
       a,
-      .menu-li {
+      .menu-li,.el-dropdown-link {
         color: #23479c;
       }
       font-weight: bold;
