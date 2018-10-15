@@ -131,8 +131,8 @@
                   <td>
                     <el-popover trigger="hover" placement="top" :content="item.Balance | balanceValuePopup">
                       <el-button style="none" slot="reference">
-                        <span class="integerStyle">{{ item.Balance | balanceValueInteger }}</span>
-                        <span class="decimalStyle">{{ item.Balance | balanceValueDecimal }}</span>
+                        <span class="integerStyle">{{ item.Revenue | balanceValueInteger }}</span>
+                        <span class="decimalStyle">{{ item.Revenue | balanceValueDecimal }}</span>
                       </el-button>
                     </el-popover>
                   </td>
