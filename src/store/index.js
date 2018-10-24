@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import vuex from 'vuex'
 import block from './modules/block.js'
+import debt from './modules/debt.js'
 import search from './modules/search.js'
 import home from './modules/home.js'
 import transaction from './modules/transaction.js'
@@ -22,6 +23,7 @@ export default new vuex.Store({
   modules: {
     search,
     block,
+    debt,
     home,
     transaction,
     pendingtxs,

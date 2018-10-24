@@ -41,10 +41,10 @@
                 <div class="li-content-width">{{blocksInfo.miner}}</div>
                 <!-- </router-link> -->
               </li>
-              <li>
+              <!-- <li>
                 <div class="li-width">{{$t("listHeader.nonce")}}: </div>
                 <div class="li-content-width">{{blocksInfo.nonce}}</div>
-              </li>
+              </li> -->
               <li>
                 <div class="li-width">{{$t("listHeader.preBlockHash")}}: </div>
                 <router-link :to="{path: '/block/detail', query: { hash: blocksInfo.preBlockHash }}">
@@ -54,6 +54,11 @@
               <li>
                 <div class="li-width">{{$t("listHeader.txcount")}}: </div>
                 <div class="li-content-width li-content-link" @click="toTxList(blocksInfo.height)">{{blocksInfo.txcount}}</div>
+              </li>
+              <li>
+                <div class="li-width">{{$t("listHeader.debtcount")}}: </div>
+                <div v-if="blocksInfo.debtCount == '0'" class="li-content-width">{{blocksInfo.debtCount}}</div>
+                <div v-else class="li-content-width li-content-link" @click="toDebtList(blocksInfo.height)">{{blocksInfo.debtCount}}</div>
               </li>
           </ul>
         </div>
@@ -173,6 +178,10 @@ export default {
     },
     toTxList (height) {
       router.push({path: '/transaction', query: { block: height, s: this.shardValue }})
+      this.getHeightShow(true)
+    },
+    toDebtList (height) {
+      router.push({path: '/debt', query: { block: height, s: this.shardValue }})
       this.getHeightShow(true)
     }
   },

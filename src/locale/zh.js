@@ -30,6 +30,7 @@ module.exports = {
     node: '节点',
     account: '账户',
     block: '区块',
+    debt: '债务',
     tx: '交易',
     transaction: '链上交易',
     pendingtxs: '待定交易',
@@ -62,9 +63,11 @@ module.exports = {
     balance: '余额',
     percentage: '百分比',
     txCount: '交易数',
+    debtcount: '债务数',
     listDescription: '账户交易列表 (仅展示最近的25条记录，共获取',
 
     txHash: '交易哈希',
+    debtHash: '债务哈希',
     age: '年龄',
     from: '来源',
     to: '去向',
@@ -94,7 +97,7 @@ module.exports = {
     amount: 'amountX',
     hash: '哈希',
     inorout: '转入/转出',
-    txfee: '手续费',
+    txfee: '手续费 (Fan)',
 
     nodeRank: '排名',
     nodeRegion: '国家',

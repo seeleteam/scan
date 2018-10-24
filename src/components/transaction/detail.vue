@@ -17,6 +17,12 @@
               <div class="li-content-width">{{transactionInfo.txHash}}</div>
             </li>
             <li>
+              <div class="li-width">{{$t("listHeader.debtHash")}}: </div>
+              <router-link :to="{path: '/debt/detail', query: { debtHash: transactionInfo.debtHash }}">
+                <div class="li-content-width li-content-link">{{transactionInfo.debtHash}}</div>
+              </router-link>
+            </li>
+            <li>
               <div class="li-width">{{$t("listHeader.shardnumber")}}: </div>
               <div class="li-content-width">{{transactionInfo.shardnumber}}</div>
             </li>
@@ -48,9 +54,7 @@
             </li>
             <li>
               <div class="li-width">{{$t("listHeader.txfee")}}: </div>
-              <div class="li-content-width">{{transactionInfo.fee}}
-                <span class="unit">Fan</span>
-              </div>
+              <div class="li-content-width">{{transactionInfo.fee}}</div>
             </li>
             <li>
               <div class="li-width">{{$t("listHeader.payload")}}: </div>
@@ -150,7 +154,7 @@ export default {
 .transaction-wrap{
   height: 100%;
 }
-.detail-wrap li:nth-child(5){
+.detail-wrap li:nth-child(6){
   padding: 0;
 }
 .detail-wrap{
