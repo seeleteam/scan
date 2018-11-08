@@ -1,4 +1,5 @@
-const shard = process.env.SCAN_SHARD || 20
+// const shard = process.env.SCAN_SHARD || 20
+const shard = process.env.SCAN_SHARD || 2
 const shardCharOptions = [
   {
     value: '0',
