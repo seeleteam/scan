@@ -1,5 +1,6 @@
 import { search } from './search'
 import { blocksList, blocksDetail } from './block'
+import { debtList, debtDetail } from './debt'
 import { lastBlockTime, transactionTotal, blockTxsTps, accountTotal, contractTotal, chartData, accountRanking, minerRanking } from './home'
 import { txList, txDetail } from './transaction'
 import { pendingtxsList, pendingtxsDetail } from './pendingtxs'
@@ -12,6 +13,9 @@ export {
   search,
   blocksList,
   blocksDetail,
+
+  debtList,
+  debtDetail,
 
   lastBlockTime,
   transactionTotal,

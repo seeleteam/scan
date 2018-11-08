@@ -58,12 +58,17 @@
               <span class="unit">Seele</span>
             </template>
           </el-table-column>
-          <el-table-column prop="nonce" :label="$t('listHeader.nonce')">
+          <!-- <el-table-column prop="nonce" :label="$t('listHeader.nonce')">
+          </el-table-column> -->
+          <el-table-column prop="debtHash" :label="$t('listHeader.debtHash')" width="100">
+            <template slot-scope="scope">
+              <router-link :to="{path: '/debt/detail', query: { debtHash: scope.row.debtHash }}">
+                <span class="table-link-color list-content">{{scope.row.debtHash}}</span>
+              </router-link>
+            </template>
           </el-table-column>
           <el-table-column prop="fee" :label="$t('listHeader.fee')">
-            <template slot-scope="scope">{{scope.row.fee}}
-              <span class="unit">Fan</span>
-            </template>
+            <template slot-scope="scope">{{scope.row.fee}}</template>
           </el-table-column>
         </el-table>
         <div class="page">

@@ -17,6 +17,12 @@
               <div class="li-content-width">{{pendingtxsInfo.txHash}}</div>
             </li>
             <li>
+              <div class="li-width">{{$t("listHeader.debtHash")}}: </div>
+              <router-link :to="{path: '/debt/detail', query: { debtHash: pendingtxsInfo.debtHash }}">
+                <div class="li-content-width li-content-link">{{pendingtxsInfo.debtHash}}</div>
+              </router-link>
+            </li>
+            <li>
               <div class="li-width">{{$t("listHeader.shardnumber")}}: </div>
               <div class="li-content-width">{{pendingtxsInfo.shardnumber}}</div>
             </li>

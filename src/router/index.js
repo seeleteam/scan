@@ -13,6 +13,8 @@ const pendingtxs = () => import('@/components/pendingtxs/index')
 const pendingtxsDetail = () => import('@/components/pendingtxs/detail')
 const block = () => import('@/components/block/index')
 const blockDetail = () => import('@/components/block/detail')
+const debt = () => import('@/components/debt/index')
+const debtDetail = () => import('@/components/debt/detail')
 const node = () => import('@/components/node/index')
 const nodemap = () => import('@/components/node/nodemap')
 const nodeDetail = () => import('@/components/node/detail')
@@ -94,6 +96,16 @@ export default new Router({
       path: '/pendingtxs/detail',
       name: 'pendingtxsDetail',
       component: pendingtxsDetail
+    },
+    {
+      path: '/debt',
+      name: 'debt',
+      component: debt
+    },
+    {
+      path: '/debt/detail',
+      name: 'debtDetail',
+      component: debtDetail
     },
     {
       path: '/block',

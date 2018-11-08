@@ -41,10 +41,10 @@
                 <div class="li-content-width">{{blocksInfo.miner}}</div>
                 <!-- </router-link> -->
               </li>
-              <li>
+              <!-- <li>
                 <div class="li-width">{{$t("listHeader.nonce")}}: </div>
                 <div class="li-content-width">{{blocksInfo.nonce}}</div>
-              </li>
+              </li> -->
               <li>
                 <div class="li-width">{{$t("listHeader.preBlockHash")}}: </div>
                 <router-link :to="{path: '/block/detail', query: { hash: blocksInfo.preBlockHash }}">
@@ -54,6 +54,11 @@
               <li>
                 <div class="li-width">{{$t("listHeader.txcount")}}: </div>
                 <div class="li-content-width li-content-link" @click="toTxList(blocksInfo.height)">{{blocksInfo.txcount}}</div>
+              </li>
+              <li>
+                <div class="li-width">{{$t("listHeader.debtcount")}}: </div>
+                <div v-if="blocksInfo.debtCount == '0'" class="li-content-width">{{blocksInfo.debtCount}}</div>
+                <div v-else class="li-content-width li-content-link" @click="toDebtList(blocksInfo.height)">{{blocksInfo.debtCount}}</div>
               </li>
           </ul>
         </div>
@@ -79,7 +84,8 @@ export default {
       disabledNext: false,
       isDetail: false,
       title: this.$t('navs.block'),
-      content: 'A total of more than > 10,000,000 blocks found (showing the last 100000 records only)',
+      content:
+        'A total of more than > 10,000,000 blocks found (showing the last 100000 records only)',
       link: this.$t('navs.block')
     }
   },
@@ -113,7 +119,6 @@ export default {
   methods: {
     ...mapActions(['getBlocksDetail']),
     ...mapActions(['getHeightShow']),
-
     getDetail (params) {
       if (params.height) {
         let data = {
@@ -172,12 +177,22 @@ export default {
       }
     },
     toTxList (height) {
-      router.push({path: '/transaction', query: { block: height, s: this.shardValue }})
+      router.push({
+        path: '/transaction',
+        query: { block: height, s: this.shardValue }
+      })
+      this.getHeightShow(true)
+    },
+    toDebtList (height) {
+      router.push({
+        path: '/debt',
+        query: { block: height, s: this.shardValue }
+      })
       this.getHeightShow(true)
     }
   },
   watch: {
-    '$route' (to, from) {
+    $route (to, from) {
       this.getDetail(this.$route.query)
     }
   }
@@ -189,22 +204,22 @@ export default {
 @import "../../assets/css/detail.less";
 </style>
 <style scoped>
-.li-content-width span{
+.li-content-width span {
   float: left;
   line-height: 31px;
 }
-.li-content-width button{
+.li-content-width button {
   border: none;
 }
-.detail-wrap li:nth-child(1) .li-content-width{
+.detail-wrap li:nth-child(1) .li-content-width {
   margin-top: -7px;
 }
-.detail-wrap li .li-content-width .grey{
-    color: #fff;
-    background: #b8b8b8;
-    border-color: #b8b8b8;
+.detail-wrap li .li-content-width .grey {
+  color: #fff;
+  background: #b8b8b8;
+  border-color: #b8b8b8;
 }
-.detail-wrap{
+.detail-wrap {
   padding-top: 10px;
   padding-bottom: 30px;
 }
