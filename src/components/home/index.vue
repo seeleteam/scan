@@ -129,7 +129,7 @@
                     </el-popover>
                   </td>
                   <td>
-                    <el-popover trigger="hover" placement="top" :content="item.Balance | balanceValuePopup">
+                    <el-popover trigger="hover" placement="top" :content="item.Revenue | balanceValuePopup">
                       <el-button style="none" slot="reference">
                         <span class="integerStyle">{{ item.Revenue | balanceValueInteger }}</span>
                         <span class="decimalStyle">{{ item.Revenue | balanceValueDecimal }}</span>
