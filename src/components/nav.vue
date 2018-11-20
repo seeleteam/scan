@@ -150,6 +150,7 @@ export default {
         .dropd-content-wrap {
           font-size: 14px;
           position: absolute;
+          z-index: 1030;
           top: 63px;
           left: -5px;
           height: 0px;
@@ -195,6 +196,7 @@ export default {
             height: 71px;
             opacity: 1;
             transition: all 0.3s ease-in;
+            z-index: 1040;
           }
         }
       }
