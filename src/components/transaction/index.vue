@@ -68,7 +68,18 @@
             </template>
           </el-table-column>
           <el-table-column prop="fee" :label="$t('listHeader.fee')">
-            <template slot-scope="scope">{{scope.row.fee}}</template>
+            <template slot-scope="scope">
+                <el-popover
+                  placement="top-start"
+                  width="200"
+                  trigger="hover">
+                  <ul>
+                    <li><span style="display:inline-block;width:100px">Price:</span> <span>{{scope.row.price?scope.row.price:'--'}}</span></li>
+                    <li><span style="display:inline-block;width:100px">GasLimit:</span> <span>{{scope.row.gasLimit?scope.row.gasLimit:'--'}}</span></li>
+                  </ul>
+                  <span slot="reference">{{scope.row.fee}}</span>
+                </el-popover>
+            </template>
           </el-table-column>
         </el-table>
         <div class="page">
@@ -170,6 +181,10 @@ export default {
       } else {
         return ''
       }
+    },
+    feeValuePopup (row) {
+      let html = `Nonce: ${row.nonce}<br>Fee ${row.fee}`
+      return html
     }
   },
   methods: {

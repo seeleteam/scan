@@ -81,6 +81,7 @@
                     <span class="integerStyle">{{ item.balance | balanceValueInteger }}</span>
                     <span class="decimalStyle">{{ item.balance | balanceValueDecimal }}</span>
                     <span class="unit">Seele</span>
+                    <span>{{item.percentage}}%</span>
                   </li>
                 </ul>
               </div>
@@ -259,7 +260,7 @@ export default {
       } else if (/^\d+$/.test(stringVal)) {
         return value / 100000000
       } else {
-        return value
+        return String(value)
       }
     },
     balanceValueFilter (value) {
