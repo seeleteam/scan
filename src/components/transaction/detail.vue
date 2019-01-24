@@ -105,7 +105,7 @@ export default {
     payload: {
       get () {
         var value = this.$store.state.transaction.transactionInfo.payload
-        if (typeof (value) === 'undefined') {
+        if (typeof (value) === 'undefined' || value === '') {
           return ''
         }
         var strVal = ''
