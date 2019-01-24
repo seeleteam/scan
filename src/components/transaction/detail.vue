@@ -103,7 +103,7 @@ export default {
       }
     },
     payload: {
-      get (){
+      get () {
         var value = this.$store.state.transaction.transactionInfo.payload
         if (typeof (value) === 'undefined') {
           return ''
@@ -117,7 +117,7 @@ export default {
         }
         var decodeVal = decodeURI(strVal)
         return decodeVal + '\n(0x' + value + ')'
-        }
+      }
     }
   },
   filters: {
