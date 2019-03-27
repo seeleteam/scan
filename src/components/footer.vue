@@ -1,7 +1,7 @@
 <template>
   <div class="footer">
     <div class="footer-copyright">
-      Copyright © 2018 Seele Foundation
+      Copyright © 2019 Seele Foundation
     </div>
   </div>
 </template>
