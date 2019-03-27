@@ -257,9 +257,9 @@ export default {
         var decimal = valueSplit[1]
         return integer + '.' + decimal
       } else if (/^\d+$/.test(stringVal)) {
-        return value / 100000000
+        return formatNumber(value / 100000000)
       } else {
-        return value
+        return formatNumber(value)
       }
     },
     balanceValueFilter (value) {
