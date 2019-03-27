@@ -24,24 +24,24 @@
         </div>
         <ShardSelect></ShardSelect>
         <el-table class="list-wrap" :data="blocksList" :empty-text="$t('message.noData')" style="width: 100%">
-          <el-table-column prop="height" :label="$t('listHeader.height')" min-width="120">
+          <el-table-column prop="height" :label="$t('listHeader.height')" min-width="60">
             <template slot-scope="scope" class="">
               <router-link :to="{path: '/block/detail', query: { height: scope.row.height, s: shardValue }}">
                 <span class="table-link-color height">{{scope.row.height}}</span>
               </router-link>
             </template>
           </el-table-column>
-          <el-table-column prop="age" :label="$t('listHeader.age')" min-width="120">
+          <el-table-column prop="age" :label="$t('listHeader.age')" min-width="80">
             <template slot-scope="scope">
               <span class="age">{{scope.row.age}}</span>
             </template>
           </el-table-column>
-          <el-table-column prop="txn" min-width="100" :label="$t('listHeader.txn')">
+          <el-table-column prop="txn" min-width="40" :label="$t('listHeader.txn')">
             <template slot-scope="scope">
               <span>{{scope.row.txn}}</span>
             </template>
           </el-table-column>
-          <el-table-column prop="miner" min-width="280" :label="$t('listHeader.miner')">
+          <el-table-column prop="miner" min-width="220" :label="$t('listHeader.miner')">
             <template slot-scope="scope">
               <router-link :to="{path: '/account/detail', query: { address: scope.row.miner }}">
                 <span class="list-content miner table-link-color">{{scope.row.miner}}</span>
@@ -57,6 +57,23 @@
           </el-table-column>
           <el-table-column prop="fee" :label="$t('listHeader.fee')">
             <template slot-scope="scope">{{scope.row.fee}}</template>
+          </el-table-column>
+          <el-table-column :label="$t('listHeader.revenue')" min-width="100">
+            <template slot-scope="scope">
+              <span class="integerStyle">{{(scope.row.reward + scope.row.fee/100000000) | balanceValueInteger}}</span>
+              <span class="decimalStyle">{{(scope.row.reward + scope.row.fee/100000000) | balanceValueDecimal}}</span>
+              <span class="unit">Seele</span>
+            </template>
+          </el-table-column>
+          <el-table-column :label="$t('listHeader.gasUsed')" min-width="60">
+            <template slot-scope="scope">
+              <span>{{scope.row.usedGas}}</span>
+            </template>
+          </el-table-column>
+          <el-table-column :label="$t('listHeader.gasPrice')" min-width="100">
+            <template slot-scope="scope">
+              <span>{{scope.row.gasprice}}</span>
+            </template>
           </el-table-column>
         </el-table>
         <div class="page">

@@ -19,7 +19,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
   },
   // cheap-module-eval-source-map is faster for development
   devtool: config.dev.devtool,
-
+  
   // these devServer options should be customized in /config/index.js
   devServer: {
     clientLogLevel: 'warning',
@@ -83,7 +83,7 @@ module.exports = new Promise((resolve, reject) => {
       // Add FriendlyErrorsPlugin
       devWebpackConfig.plugins.push(new FriendlyErrorsPlugin({
         compilationSuccessInfo: {
-          messages: [`Your application is running here: https://${devWebpackConfig.devServer.host}:${port}`], // http://${devWebpackConfig.devServer.host}:${port}
+          messages: [`Your application is running here: http://${devWebpackConfig.devServer.host}:${port}`], // http://${devWebpackConfig.devServer.host}:${port}
         },
         onErrors: config.dev.notifyOnErrors
         ? utils.createNotifierCallback()
