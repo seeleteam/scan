@@ -25,7 +25,7 @@
               <dt><img src="../../assets/imgs/transaction.png"></dt>
               <dd>
                 <span>Transactions</span>
-                <span>{{ transactionTotal | balanceValueFilter }} M</span>
+                <span>{{ transactionTotal | balanceValueFilter }}</span>
                 <span>({{ blockTxsTps }} TPS)</span>
               </dd>
             </dl>
