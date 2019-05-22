@@ -123,13 +123,13 @@ export default {
       if (params.height) {
         let data = {
           height: params.height,
-          s: this.shardValue
+          s: params.s
         }
         this.getBlocksDetail(data)
       } else if (params.hash) {
         let data = {
           hash: params.hash,
-          s: this.shardValue
+          s: params.s
         }
         this.getBlocksDetail(data)
       }
