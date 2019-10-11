@@ -321,6 +321,13 @@ function formatNodePercent (nodeCount, nodePercent) {
   return result
 }
 
+function checkTime(i)
+{
+if (i<10) 
+  {i="0" + i}
+  return i
+}
+
 /**
  * @method formatDateFromTimestamps
  * @param {number} timestamps
@@ -338,10 +345,10 @@ function formatDateFromTimestamps (timestamps) {
   var date = new Date(timestamps)
   var Y = date.getFullYear() + '-'
   var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-'
-  var D = date.getDate() + ' '
-  var h = date.getHours() + ':'
-  var m = date.getMinutes() + ':'
-  var s = date.getSeconds()
+  var D = checkTime(date.getDate()) + ' '
+  var h = checkTime(date.getHours()) + ':'
+  var m = checkTime(date.getMinutes()) + ':'
+  var s = checkTime(date.getSeconds())
   return Y + M + D + h + m + s
 }
 
