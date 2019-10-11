@@ -321,9 +321,9 @@ function formatNodePercent (nodeCount, nodePercent) {
   return result
 }
 
-function checkTime(i){
-  if (i<10) {
-    i = "0" + i
+function checkTime (i) {
+  if (i < 10) {
+    i = '0' + i
   }
   return i
 }
