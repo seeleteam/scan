@@ -90,7 +90,7 @@ import TransactionDescribe from '../describe'
 import Footer from '../footer'
 import ShardSelect from '../shard-select'
 import { filtersAd, formatAd, formatNumber } from '../../untils/format'
-
+const BigNumber = require('bignumber.js')
 export default {
   data () {
     return {
@@ -148,19 +148,21 @@ export default {
       return formatAd(params)
     },
     balanceValueInteger (value) {
-      var stringVal = (value / 100000000).toString()
+      var x = new BigNumber(value / 100000000)
+      var stringVal = x.toFixed()
       if (!/^\d+$/.test(stringVal)) {
         var valueSplit = stringVal.split('.')
         var integer = valueSplit[0]
         return formatNumber(integer)
       } else if (/^\d+$/.test(stringVal)) {
-        return formatNumber(value / 100000000)
+        return formatNumber(x)
       } else {
         return formatNumber(value)
       }
     },
     balanceValueDecimal (value) {
-      var stringVal = (value / 100000000).toString()
+      var x = new BigNumber(value / 100000000)
+      var stringVal = x.toFixed()
       if (!/^\d+$/.test(stringVal)) {
         var valueSplit = stringVal.split('.')
         var decimal = valueSplit[1]
@@ -188,7 +190,7 @@ export default {
       }
     },
     getBlockList (page, params) {
-      this.getTransactionBlock([page, params, this.shardValue])
+      this.getTransactionBlock([page, params, params.s])
     },
     getList (page) {
       this.getTransactionList([page, this.shardValue])

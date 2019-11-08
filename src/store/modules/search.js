@@ -38,7 +38,7 @@ const actions = {
                 commit(types.SEARCH_TYPE, searchType)
                 break
               case 'block':
-                router.push({path: '/block/detail', query: { height: info.height,s: info.shardnumber }})
+                router.push({path: '/block/detail', query: { height: info.height, s: info.shardnumber }})
                 commit(types.BLOCKS_DETAIL, info)
                 commit(types.SEARCH_TYPE, searchType)
                 break
