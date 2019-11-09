@@ -59,7 +59,7 @@
             <li>
               <div class="li-width">{{$t("listHeader.payload")}}: </div>
               <div class="li-content-width">
-                <el-input type="textarea" :rows="5" v-model="transactionInfo.payload" disabled></el-input>
+                <el-input type="textarea" :rows="5" v-model="payload" disabled></el-input>
               </div>
             </li>
           </ul>
@@ -101,6 +101,23 @@ export default {
       get () {
         return this.$store.state.transaction.transactionInfo
       }
+    },
+    payload: {
+      get () {
+        var value = this.$store.state.transaction.transactionInfo.payload
+        if (typeof (value) === 'undefined') {
+          return ''
+        }
+        var strVal = ''
+        if (value.substring(0, 2) === '0x' || value.substring(0, 2) === '0X') {
+          value = value.substring(2)
+        }
+        for (var i = 0; i < value.length;) {
+          strVal += '%' + value.substring(i, i += 2)
+        }
+        var decodeVal = decodeURI(strVal)
+        return decodeVal + '\n(0x' + value + ')'
+      }
     }
   },
   filters: {
@@ -130,6 +147,20 @@ export default {
       } else {
         return ''
       }
+    },
+    hexToString (value) {
+      if (typeof (value) === 'undefined') {
+        return ''
+      }
+      var strVal = ''
+      if (value.substring(0, 2) === '0x' || value.substring(0, 2) === '0X') {
+        value = value.substring(2)
+      }
+      for (var i = 0; i < value.length;) {
+        strVal += '%' + value.substring(i, i += 2)
+      }
+      var decodeVal = decodeURI(strVal)
+      return decodeVal + '\n(0x' + value + ')'
     }
   },
   methods: {
