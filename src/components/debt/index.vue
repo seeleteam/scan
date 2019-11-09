@@ -53,7 +53,9 @@
           </el-table-column>
           <el-table-column prop="amount" min-width="100" :label="$t('listHeader.amount')">
             <template slot-scope="scope">
-              <span>{{scope.row.amount}}</span>
+              <span class="integerStyle">{{ scope.row.amount | balanceValueInteger }}</span>
+              <span class="decimalStyle">{{ scope.row.amount | balanceValueDecimal }}</span>
+              <span class="unit">Seele</span>
             </template>
           </el-table-column>
           <el-table-column prop="txhash" :label="$t('listHeader.txHash')" min-width="200" show-overflow-tooltip>
