@@ -84,7 +84,7 @@ import searchInput from '../search-input'
 import Footer from '../footer'
 import ShardSelect from '../shard-select'
 import { formatNumber } from '../../untils/format'
-
+const BigNumber = require('bignumber.js')
 export default {
   data () {
     return {
@@ -140,7 +140,8 @@ export default {
   },
   filters: {
     balanceValueInteger (value) {
-      var stringVal = (value / 100000000).toString()
+      var x = new BigNumber(value / 100000000)
+      var stringVal = x.toFixed()
       if (!/^\d+$/.test(stringVal)) {
         var valueSplit = stringVal.split('.')
         var integer = valueSplit[0]
@@ -152,7 +153,8 @@ export default {
       }
     },
     balanceValueDecimal (value) {
-      var stringVal = (value / 100000000).toString()
+      var x = new BigNumber(value / 100000000)
+      var stringVal = x.toFixed()
       if (!/^\d+$/.test(stringVal)) {
         var valueSplit = stringVal.split('.')
         var decimal = valueSplit[1]
