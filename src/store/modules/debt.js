@@ -58,7 +58,7 @@ const actions = {
           let info = doc.data
           commit(types.DEBT_DETAIL, info)
           commit(types.SHARD_VALUE, info.shardnumber)
-          router.push({path: '/debt/detail', query: {height: info.height, s: info.shardnumber}})
+          router.push({path: '/debt/detail', query: {height: info.height, s: info.shardNumber}})
         }
       })
   }
