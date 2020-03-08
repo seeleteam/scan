@@ -34,6 +34,7 @@ module.exports = {
     transaction: 'BlockChain Txs',
     pendingtxs: 'Pending Txs',
     contract: 'Contracts',
+    verifyContract: 'Verify Contract',
     token: 'Token',
     statChar: 'Stat Charts',
     api: 'API',
@@ -86,8 +87,10 @@ module.exports = {
 
     contractName: 'ContractName',
     compiler: 'Compiler',
+    version: 'Version',
     settings: 'Settings',
     dateVerified: 'DateVerified',
+    sourceCode: 'SourceCode',
 
     block: 'Block',
     headHash: 'HeadHash',

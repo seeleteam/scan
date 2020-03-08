@@ -42,6 +42,7 @@ module.exports = {
 
     contractsUrl: `${URL}/contracts`,
     contractUrl: `${URL}/contract`,
+    verifyContractUrl: `${URL}/verifyContract`,
 
     nodesUrl: `${URL}/nodes`,
     nodeUrl: `${URL}/node`,

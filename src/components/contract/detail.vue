@@ -86,7 +86,19 @@
               </ul>
             </el-tab-pane>
             <el-tab-pane :label="$t('tab.Code')">
-              <ul class="detail-wrap wrap-pad">
+              <ul class="describe-detail-wrap wrap-pad">
+                <li  class="describe-title">Contract Source Code</li>
+                <li>
+                  <div class="li-content-height li-content-link" style="display: none"
+                  id="toVerify" @click="verify(contractInfo.address)">
+                    Click here to verify contract source code
+                  </div>
+                  <textarea readonly class="li-content-height" style="display: none" id="verified"
+                   @click="verify(contractInfo.address)" v-model='contractInfo.sourceCode'></textarea>
+                </li>
+              </ul>
+              <ul class="describe-detail-wrap wrap-pad">
+                <li  class="describe-title">Contract Creation Code</li>
                 <li>
                   <div class="li-content-height">{{contractInfo.contractCreationCode}}</div>
                 </li>
@@ -175,10 +187,20 @@ export default {
     ...mapActions(['getContractDetail']),
     ...mapActions(['setShardValue']),
     getDetail (height) {
-      this.getContractDetail(height)
+      this.getContractDetail(height).then((result) => {
+        console.log(result)
+        if (result.sourceCode !== undefined && result.sourceCode !== '') {
+          document.getElementById('verified').style.display = 'block'
+        } else {
+          document.getElementById('toVerify').style.display = 'block'
+        }
+      })
     },
     getShardValue (address) {
       router.push({path: '/contract/txList', query: {address: address}})
+    },
+    verify (address) {
+      router.push({path: '/contract/verify', query: {address: address}})
     },
     toTx (txHash) {
       return filtersAd(txHash) ? router.push({path: '/account/detail', query: { address: txHash }}) : ''
@@ -204,5 +226,6 @@ export default {
 .detail-wrap, .el-tab-detail-wrap{
   min-width: 1110px;
   padding-top: 0px;
+  padding-bottom: 0px;
 }
 </style>

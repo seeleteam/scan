@@ -1,6 +1,7 @@
 import * as types from '../mutation-types'
 import { contractList, contractDetail } from '../../service'
 // import doc from './data'
+import { verifyRequest } from '../../service/contract'
 
 const state = {
   page: 1,
@@ -33,12 +34,19 @@ const actions = {
       })
   },
   getContractDetail ({ commit, state }, params) {
-    contractDetail(params)
+    return contractDetail(params)
       .then(doc => {
         if (doc.success) {
           let info = doc.data
           commit(types.CONTRACT_DETAIL, info)
+          return info
         }
+      })
+  },
+  verifyContract ({ commit, state }, params) {
+    return verifyRequest(params)
+      .then(doc => {
+        return doc
       })
   }
 }

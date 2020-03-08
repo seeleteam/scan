@@ -35,6 +35,7 @@ module.exports = {
     transaction: '链上交易',
     pendingtxs: '待定交易',
     contract: '合约',
+    verifyContract: '验证合约',
     token: '代币',
     statChar: '统计图',
     api: 'API',
@@ -85,8 +86,10 @@ module.exports = {
 
     contractName: '合约名称',
     compiler: '编译',
+    version: '版本',
     settings: '设置',
     dateVerified: '数据',
+    sourceCode: '源码',
 
     block: '区块',
     headHash: '哈希',

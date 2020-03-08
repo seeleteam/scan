@@ -7,6 +7,7 @@ const accountTxList = () => import('@/components/account/tx-list')
 const contract = () => import('@/components/contract/index')
 const contractDetail = () => import('@/components/contract/detail')
 const contractTxList = () => import('@/components/contract/tx-list')
+const contractVerify = () => import('@/components/contract/verify')
 const transaction = () => import('@/components/transaction/index')
 const transactionDetail = () => import('@/components/transaction/detail')
 const pendingtxs = () => import('@/components/pendingtxs/index')
@@ -61,6 +62,11 @@ export default new Router({
       path: '/contract/txList',
       name: 'contractTxList',
       component: contractTxList
+    },
+    {
+      path: '/contract/verify',
+      name: 'contractVerify',
+      component: contractVerify
     },
     {
       path: '/nodemap',
