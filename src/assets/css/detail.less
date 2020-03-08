@@ -29,8 +29,10 @@
       white-space: nowrap;
       text-overflow: ellipsis;
       .height-button {
-        padding: 5px;
+        padding: 10px;
         float: left;
+        font-size: 14px;
+        font-weight: bold;
         color: #fff;
         background: #286090;
         border-color: #204d74;
@@ -52,12 +54,12 @@
     }
     .li-content-height{
       height: 260px;
-      width: 800px;
+      width: 80% ;//800px
       overflow-y: auto;
       word-break:break-all;
       // margin-top: 20px;
       border: 1px solid #d7d7d7;
-      border-radius: 5px; 
+      border-radius: 5px;
       padding: 10px;
     }
     .li-content-link{
@@ -78,6 +80,45 @@
 }
 .el-tab-detail-wrap{
   padding: 10px;
+}
+.describe-detail-wrap{
+  li{
+    padding: 10px;
+    .li-width{
+      float: left;
+      min-width: 100px;
+      font-weight: bold;
+      margin-right: 10px;
+    }
+    .li-content-width{
+      float: left;
+      width: 820px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+    .li-content-height{
+      height: 260px;
+      width: 80% ;//800px
+      overflow-y: auto;
+      word-break:break-all;
+      // margin-top: 20px;
+      border: 1px solid #d7d7d7;
+      border-radius: 5px;
+      padding: 10px;
+    }
+    .li-content-link{
+      color: #45a0fe;
+      &:hover{
+        cursor: pointer;
+      }
+    }
+  }
+}
+.describe-title{
+  padding: 0px 0 20px 50px;
+  font-size: 14px;
+  font-weight: bold;
 }
 @media screen and (max-width: 768px ) {
   .el-tab-wrap{
