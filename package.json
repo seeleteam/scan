@@ -24,7 +24,7 @@
     "less": "^3.0.2",
     "less-loader": "^4.1.0",
     "lodash": "^4.17.10",
-    "marked": "^0.4.0",
+    "marked": "^1.1.1",
     "module": "^1.2.5",
     "particles.js": "^2.0.0",
     "path-to-regexp": "^2.2.1",
